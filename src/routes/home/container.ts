@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { Dispatch, Action } from 'redux';
 
 import { increment } from '../../actions/Counter';
 import { ReduxState } from '../../reducers';

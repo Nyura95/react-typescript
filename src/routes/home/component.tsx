@@ -14,11 +14,22 @@ export class Counter extends React.Component<IProps> {
     push: () => {},
     counter: 0,
   };
+
+  constructor(props: IProps) {
+    super(props);
+  }
+
+  startInterval() {
+    setInterval(() => {
+      this.props.increment();
+    }, 1000);
+  }
+
   render() {
     return (
       <div>
-        {this.props.counter}
-        <button onClick={() => this.props.push()} />
+        counter : {this.props.counter}
+        <button onClick={() => this.startInterval()}>Start</button>
       </div>
     );
   }

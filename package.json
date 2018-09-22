@@ -1,10 +1,10 @@
 {
   "name": "react-typescript",
   "version": "1.0.0",
-  "description": "react typescript ",
+  "description": "react typescript",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./src/index.html --no-cache --no-hmr",
+    "start": "parcel ./src/index.html --no-cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
