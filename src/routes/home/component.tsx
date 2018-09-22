@@ -8,7 +8,7 @@ export interface IProps extends RouteComponentProps<any> {
   counter: number;
 }
 
-export class Counter extends React.Component<IProps> {
+export default class Counter extends React.Component<IProps> {
   static defaultProps = {
     increment: () => {},
     push: () => {},
@@ -29,9 +29,10 @@ export class Counter extends React.Component<IProps> {
     return (
       <div>
         counter : {this.props.counter}
-        <button onClick={() => this.startInterval()}>Start</button>
+        <div>
+          <button onClick={() => this.startInterval()}>Start</button>
+        </div>
       </div>
     );
   }
 }
-export default Counter;

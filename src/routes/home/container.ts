@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { increment } from '../../actions/Counter';
 import { ReduxState } from '../../reducers';
 
-import { Counter, IProps } from './component';
+import Counter, { IProps } from './component';
 import { push } from 'connected-react-router';
 
 const mapStateToProps = (reducers: ReduxState): Partial<IProps> => ({

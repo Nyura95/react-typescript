@@ -8,6 +8,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { history, store, persistor } from './store';
 
 import Home from './routes/home/container';
+import Layout from './layout/component';
 
 export default class Application extends React.Component {
   render() {
