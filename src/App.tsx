@@ -7,8 +7,9 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import { history, store, persistor } from './store';
 
+import { Container } from 'reactstrap';
+
 import Home from './routes/home/container';
-import Layout from './layout/component';
 
 export default class Application extends React.Component {
   render() {
@@ -16,9 +17,11 @@ export default class Application extends React.Component {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ConnectedRouter history={history}>
-            <Switch>
-              <Route exact path="/" component={Home} />
-            </Switch>
+            <Container>
+              <Switch>
+                <Route exact path="/" component={Home} />
+              </Switch>
+            </Container>
           </ConnectedRouter>
         </PersistGate>
       </Provider>
