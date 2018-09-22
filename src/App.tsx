@@ -11,6 +11,8 @@ import { Container } from 'reactstrap';
 
 import Home from './routes/home/container';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 export default class Application extends React.Component {
   render() {
     return (
