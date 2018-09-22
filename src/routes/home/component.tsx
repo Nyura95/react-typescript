@@ -2,20 +2,20 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import * as styles from './styles.scss';
 
-export interface IProps extends RouteComponentProps<any> {
+export interface Props extends RouteComponentProps<any> {
   increment(): void;
   push(): void;
   counter: number;
 }
 
-export default class Counter extends React.Component<IProps> {
+export default class Counter extends React.Component<Props> {
   static defaultProps = {
     increment: () => {},
     push: () => {},
     counter: 0,
   };
 
-  constructor(props: IProps) {
+  constructor(props: Props) {
     super(props);
   }
 
