@@ -47,5 +47,6 @@ export const persistor = persistStore(store);
 const dispatch: any = store.dispatch;
 
 syncTranslationWithStore(store);
+console.log(translations);
 dispatch(loadTranslations(translations));
-dispatch(setLocale('fr'));
+dispatch(setLocale('en'));
