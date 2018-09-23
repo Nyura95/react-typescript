@@ -1,39 +1,45 @@
 import * as React from 'react';
+
+// typing
 import { RouteComponentProps } from 'react-router';
 
+// design module
+import { Row, Col, Button } from 'reactstrap';
+
+// sass import
 import * as styles from './styles.scss';
 
+// interface props
 export interface Props extends RouteComponentProps<any> {
-  increment(): void;
-  push(): void;
-  counter: number;
+  push(to: string): void;
 }
 
-export default class Counter extends React.Component<Props> {
+export default class Home extends React.Component<Props> {
+  // default props
   static defaultProps = {
     increment: () => {},
     push: () => {},
+    AsyncIncrement: () => {},
+    resetCounter: () => {},
     counter: 0,
   };
 
   constructor(props: Props) {
     super(props);
-  }
-
-  startInterval() {
-    setInterval(() => {
-      this.props.increment();
-    }, 1000);
+    this.state = {
+      autoInscrement: 1,
+    };
   }
 
   render() {
     return (
-      <div>
-        counter : {this.props.counter}
-        <div>
-          <button onClick={() => this.startInterval()}>Start</button>
-        </div>
-      </div>
+      <Row>
+        <Col>
+          <Button onClick={() => this.props.push('/counter')} color="info">
+            Go to counter
+          </Button>
+        </Col>
+      </Row>
     );
   }
 }

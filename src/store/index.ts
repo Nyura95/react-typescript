@@ -19,7 +19,7 @@ const encryptor = createEncryptor({ secretKey: 'ds43dx4' });
 const persistConfig = {
   key: 'store',
   storage,
-  whitelist: [],
+  whitelist: ['Counter'], // Add name reducer for active the persist
   transforms: [encryptor],
 };
 

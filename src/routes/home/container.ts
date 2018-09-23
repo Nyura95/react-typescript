@@ -1,23 +1,19 @@
 import { connect } from 'react-redux';
 
-import { increment } from '../../actions/Counter';
 import { ReduxState } from '../../reducers';
 
-import Counter, { Props } from './component';
+import Home, { Props } from './component';
 import { push } from 'connected-react-router';
 
-const mapStateToProps = (reducers: ReduxState): Partial<Props> => ({
-  ...reducers.Counter,
-});
+const mapStateToProps = (reducers: ReduxState): Partial<Props> => ({});
 
 const mapDispatchToProps = (dispatch: any): Partial<Props> => {
   return {
-    increment: () => dispatch(increment()),
-    push: () => dispatch(push('/home')),
+    push: (to: string) => dispatch(push(to)),
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Counter as any);
+)(Home as any);
