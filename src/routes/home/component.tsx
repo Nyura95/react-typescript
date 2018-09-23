@@ -33,8 +33,8 @@ export default class Home extends React.Component<Props> {
 
   render() {
     return (
-      <Row>
-        <Col>
+      <Row className={styles.container}>
+        <Col className={styles.container_button}>
           <Button onClick={() => this.props.push('/counter')} color="info">
             Go to counter
           </Button>

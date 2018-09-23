@@ -18,11 +18,7 @@ export interface Props extends RouteComponentProps<any> {
   counter: number;
 }
 
-interface State {
-  autoInscrement: number;
-}
-
-export default class Counter extends React.Component<Props, State> {
+export default class Counter extends React.Component<Props> {
   // default props
   static defaultProps = {
     increment: () => {},
@@ -32,18 +28,13 @@ export default class Counter extends React.Component<Props, State> {
     counter: 0,
   };
 
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      autoInscrement: 1,
-    };
-  }
-
   render() {
     return (
-      <Row>
-        <Col lg="12">counter : {this.props.counter}</Col>
-        <Col lg="12">
+      <Row className={styles.container}>
+        <Col lg="12" className={styles.container_button}>
+          counter : {this.props.counter}
+        </Col>
+        <Col lg="12" className={styles.container_button}>
           <Button onClick={() => this.props.setCounter(1)} color="primary">
             Increment
           </Button>
@@ -54,12 +45,12 @@ export default class Counter extends React.Component<Props, State> {
             Async increment
           </Button>
         </Col>
-        <Col lg="12">
+        <Col lg="12" className={styles.container_button}>
           <Button onClick={() => this.props.resetCounter()} color="danger">
             Reset
           </Button>
         </Col>
-        <Col lg="12">
+        <Col lg="12" className={styles.container_button}>
           <Button onClick={() => this.props.goBack()} color="info">
             Back
           </Button>
