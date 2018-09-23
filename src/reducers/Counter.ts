@@ -1,5 +1,4 @@
-import { COUNTER } from '../actions/constants';
-import { IAction } from '../actions/constants';
+import { COUNTER, Action } from '../actions/Constants';
 
 export type State = {
   counter: number;
@@ -9,7 +8,7 @@ const initialState: State = {
   counter: 0,
 };
 
-export default function counter(state: State = initialState, action: IAction<State>) {
+export default function counter(state: State = initialState, action: Action<State>) {
   switch (action.type) {
     case COUNTER:
       return {

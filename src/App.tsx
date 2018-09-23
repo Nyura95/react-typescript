@@ -1,32 +1,29 @@
 import * as React from 'react';
+import { render } from 'react-dom';
+
+// redux
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { Route, Switch } from 'react-router';
-import { ConnectedRouter } from 'connected-react-router';
-
 import { history, store, persistor } from './store';
 
-import { Container } from 'reactstrap';
+// router
+import { ConnectedRouter } from 'connected-react-router';
 
-import Home from './routes/home/container';
+import App from './Layout';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-export default class Application extends React.Component {
+class Application extends React.Component {
   render() {
     return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ConnectedRouter history={history}>
-            <Container>
-              <Switch>
-                <Route exact path="/" component={Home} />
-              </Switch>
-            </Container>
+            <App />
           </ConnectedRouter>
         </PersistGate>
       </Provider>
     );
   }
 }
+
+render(<Application />, document.getElementById('main'));
