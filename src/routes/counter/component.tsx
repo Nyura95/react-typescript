@@ -14,7 +14,7 @@ export interface Props extends RouteComponentProps<any> {
   setCounter(counter: number): void;
   AsyncSetCounter(counter: number): void;
   resetCounter(): void;
-  push(to: string): void;
+  goBack(): void;
   counter: number;
 }
 
@@ -60,8 +60,8 @@ export default class Counter extends React.Component<Props, State> {
           </Button>
         </Col>
         <Col lg="12">
-          <Button onClick={() => this.props.push('/')} color="info">
-            return to the home
+          <Button onClick={() => this.props.goBack()} color="info">
+            Back
           </Button>
         </Col>
       </Row>

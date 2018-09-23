@@ -1,8 +1,13 @@
+// redux
 import { connect } from 'react-redux';
 
+// component
+import Home, { Props } from './component';
+
+// reducer type
 import { ReduxState } from '../../reducers';
 
-import Home, { Props } from './component';
+// action
 import { push } from 'connected-react-router';
 
 const mapStateToProps = (reducers: ReduxState): Partial<Props> => ({});
