@@ -10,7 +10,7 @@ import { Row, Col, Button } from 'reactstrap';
 import * as styles from './styles.scss';
 
 // interface props
-export interface Props extends RouteComponentProps<any> {
+export interface Props extends RouteComponentProps {
   setCounter(counter: number): void;
   AsyncSetCounter(counter: number): void;
   resetCounter(): void;

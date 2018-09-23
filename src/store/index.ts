@@ -5,6 +5,10 @@ import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer } from 'redux-persist';
 import createEncryptor from 'redux-persist-transform-encrypt';
 
+// i18n
+import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n';
+import translations from '../translations';
+
 // router
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import createHistory from 'history/createBrowserHistory';
@@ -39,3 +43,9 @@ export const store = createStore(
 
 // create the persistor
 export const persistor = persistStore(store);
+
+const dispatch: any = store.dispatch;
+
+syncTranslationWithStore(store);
+dispatch(loadTranslations(translations));
+dispatch(setLocale('fr'));

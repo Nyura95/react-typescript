@@ -5,36 +5,46 @@ import { RouteComponentProps } from 'react-router';
 
 // design module
 import { Row, Col, Button } from 'reactstrap';
+// i18n
+import { I18n } from 'react-redux-i18n';
 
 // sass import
 import * as styles from './styles.scss';
 
 // interface props
-export interface Props extends RouteComponentProps<any> {
+export interface Props extends RouteComponentProps {
   push(to: string): void;
 }
 
-export default class Home extends React.Component<Props> {
+// interface state
+interface State {
+  hello: string;
+}
+
+export default class Home extends React.Component<Props, State> {
   // default props
   static defaultProps = {
-    increment: () => {},
     push: () => {},
-    AsyncIncrement: () => {},
-    resetCounter: () => {},
     counter: 0,
   };
 
   constructor(props: Props) {
     super(props);
     this.state = {
-      autoInscrement: 1,
+      hello: 'Hello !',
     };
   }
 
   render() {
     return (
       <Row className={styles.container}>
-        <Col className={styles.container_button}>
+        <Col lg="12" className={styles.container_button}>
+          {this.state.hello} {I18n.t('hello')}
+        </Col>
+        <Col lg="12" className={styles.container_button}>
+          <Button onClick={() => this.setState({ hello: 'Hello world !' })} color="primary">
+            Trigger state
+          </Button>
           <Button onClick={() => this.props.push('/counter')} color="info">
             Go to counter
           </Button>
