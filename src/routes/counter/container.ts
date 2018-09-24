@@ -4,23 +4,24 @@ import { connect } from 'react-redux';
 // component
 import Counter, { Props } from './component';
 
-// reducer type
-import { ReduxState } from '../../reducers';
+// type
+import { Dispatch } from '../../actions';
+
+import { ReduxState, CounterState } from '../../reducers';
 
 // action
-import { setCounter, resetCounter, AsyncSetCounter } from '../../actions/Counter';
-import { goBack } from 'connected-react-router';
+import { setCounter, resetCounter, AsyncSetCounter, RouterGoBack } from '../../actions';
 
 const mapStateToProps = (reducers: ReduxState): Partial<Props> => ({
   ...reducers.Counter,
 });
 
-const mapDispatchToProps = (dispatch: any): Partial<Props> => {
+const mapDispatchToProps = (dispatch: Dispatch<CounterState>): Partial<Props> => {
   return {
     setCounter: (counter: number) => dispatch(setCounter(counter)),
     AsyncSetCounter: (counter: number) => dispatch(AsyncSetCounter(counter)),
     resetCounter: () => dispatch(resetCounter()),
-    goBack: () => dispatch(goBack()),
+    goBack: () => dispatch(RouterGoBack()),
   };
 };
 
