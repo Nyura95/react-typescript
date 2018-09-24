@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Pages of the app
 import Home from './routes/home/container';
 import Counter from './routes/counter/container';
+import Translate from './routes/translate/container';
 
 export default class Layout extends React.Component {
   render() {
@@ -18,6 +19,7 @@ export default class Layout extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/counter" component={Counter} />
+          <Route exact path="/translate" component={Translate} />
           <Redirect from="*" to="/" />
         </Switch>
       </Container>

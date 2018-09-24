@@ -1,3 +1,3 @@
 export default {
-  hello: 'Bonjour le monde !',
+  translate: 'Langue de traduction actuelle: %{lang}',
 };

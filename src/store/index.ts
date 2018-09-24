@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer } from 'redux-persist';
-import createEncryptor from 'redux-persist-transform-encrypt';
+import createCompressor from 'redux-persist-transform-compress';
 
 // i18n
 import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n';
@@ -16,15 +16,15 @@ import createHistory from 'history/createBrowserHistory';
 // reducers
 import reducers from '../reducers';
 
-// encrypt the store (pass the secretKey from back)
-const encryptor = createEncryptor({ secretKey: 'ds43dx4' });
+// compress your store
+const compressor = createCompressor();
 
 // Config persist store
 const persistConfig = {
   key: 'store',
   storage,
   whitelist: ['Counter'], // Add name reducer for active the persist
-  transforms: [encryptor],
+  transforms: [compressor],
 };
 
 // get the persist reducer from reducer
@@ -47,6 +47,6 @@ export const persistor = persistStore(store);
 const dispatch: any = store.dispatch;
 
 syncTranslationWithStore(store);
-console.log(translations);
 dispatch(loadTranslations(translations));
+// set your default lang (must pass on localstorage user)
 dispatch(setLocale('en'));

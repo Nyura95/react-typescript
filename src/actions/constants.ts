@@ -5,5 +5,5 @@ export interface Action<T> {
 }
 
 // Counter constants
+export const ADD_COUNTER = 'ADD_COUNTER';
 export const SET_COUNTER = 'SET_COUNTER';
-export const RESET_COUNTER = 'RESET_COUNTER';
