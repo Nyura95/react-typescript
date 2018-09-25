@@ -23,8 +23,6 @@ export default class Home extends React.Component<Props, State> {
   // default props
   static defaultProps = {
     push: () => {},
-    setLocale: () => {},
-    counter: 0,
   };
 
   constructor(props: Props) {

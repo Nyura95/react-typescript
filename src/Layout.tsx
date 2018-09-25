@@ -8,18 +8,18 @@ import { Container } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Pages of the app
-import Home from './routes/home/Container';
-import Counter from './routes/counter/Container';
-import Translate from './routes/translate/Container';
+import Home from './routes/home/Home';
+import Counter from './routes/counter/Counter';
+import Translate from './routes/translate/Translate';
 
 export default class Layout extends React.Component {
   render() {
     return (
       <Container>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/counter" component={Counter} />
-          <Route exact path="/translate" component={Translate} />
+          <Route exact={true} path="/" component={Home} />
+          <Route exact={true} path="/counter" component={Counter} />
+          <Route exact={true} path="/translate" component={Translate} />
           <Redirect from="*" to="/" />
         </Switch>
       </Container>

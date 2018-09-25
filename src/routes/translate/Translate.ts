@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 // component
-import Translate, { Props } from './Component';
+import Component, { Props } from './Component';
 
 // reducer type
 import { Dispatch, RouterState, RouterType, I18nState, I18nType } from '../../actions';
@@ -26,4 +26,4 @@ const mapDispatchToProps = (dispatch: Dispatch<RouterType | I18nType, RouterStat
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Translate as any);
+)(Component as any);

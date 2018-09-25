@@ -10,7 +10,7 @@ import { history, store, persistor } from './store';
 // router
 import { ConnectedRouter } from 'connected-react-router';
 
-import App from './Layout';
+import Layout from './Layout';
 
 class Application extends React.Component {
   render() {
@@ -18,7 +18,7 @@ class Application extends React.Component {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ConnectedRouter history={history}>
-            <App />
+            <Layout />
           </ConnectedRouter>
         </PersistGate>
       </Provider>

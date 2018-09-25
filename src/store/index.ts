@@ -1,10 +1,11 @@
 // redux
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk, { ThunkMiddleware } from 'redux-thunk';
+import reduxThunk, { ThunkMiddleware } from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer } from 'redux-persist';
-import createCompressor from 'redux-persist-transform-compress';
+import reduxPersistTransformCompress from 'redux-persist-transform-compress';
 
+// Inter action
 import { IAction } from '../actions/Constants';
 
 // i18n
@@ -13,17 +14,18 @@ import translations from '../translations';
 
 // router
 import { connectRouter, routerMiddleware } from 'connected-react-router';
-import createHistory from 'history/createBrowserHistory';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 // reducers
 import reducers, { ReduxState } from '../reducers';
 
 // compress your store
-const compressor = createCompressor();
+const compressor = reduxPersistTransformCompress();
 
 // Config persist store
 const persistConfig = {
   key: 'store',
+  // tslint:disable-next-line:object-shorthand-properties-first
   storage,
   whitelist: ['Counter'], // Add name reducer for active the persist
   transforms: [compressor],
@@ -33,14 +35,14 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 // create web history
-export const history = createHistory();
+export const history = createBrowserHistory();
 
 // create the store
 export const store = createStore(
   // connect the router and add the persist reducers
   connectRouter(history)(persistedReducer),
   // thunk for dispatch async and load the history
-  compose(applyMiddleware(thunk as ThunkMiddleware<ReduxState, IAction<any, any>>, routerMiddleware(history)))
+  compose(applyMiddleware(reduxThunk as ThunkMiddleware<ReduxState, IAction<any, any>>, routerMiddleware(history)))
 );
 
 // create the persistor

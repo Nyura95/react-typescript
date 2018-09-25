@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 // component
-import Home, { Props } from './Component';
+import Component, { Props } from './Component';
 
 // reducer type
 import { Dispatch, RouterState, RouterType } from '../../actions';
@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch: Dispatch<RouterType, RouterState>): Partia
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home as any);
+)(Component as any);

@@ -14,6 +14,7 @@ const initialState: State = {
   counter: 0,
 };
 
+// reducer
 export default function counter(state: State = initialState, action: IAction<Type, State>): State {
   switch (action.type) {
     case 'ADD_COUNTER':

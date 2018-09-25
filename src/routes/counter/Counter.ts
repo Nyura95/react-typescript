@@ -2,15 +2,21 @@
 import { connect } from 'react-redux';
 
 // component
-import Counter, { Props } from './Component';
+import Component, { Props } from './Component';
 
-// type
-import { Dispatch, CounterState, CounterType } from '../../actions';
-
+// type reducers
 import { ReduxState } from '../../reducers';
 
 // action
-import { setCounter, resetCounter, AsyncSetCounter, RouterGoBack } from '../../actions';
+import {
+  Dispatch,
+  CounterState,
+  CounterType,
+  setCounter,
+  resetCounter,
+  AsyncSetCounter,
+  RouterGoBack,
+} from '../../actions';
 
 const mapStateToProps = (reducers: ReduxState): Partial<Props> => ({
   ...reducers.Counter,
@@ -28,4 +34,4 @@ const mapDispatchToProps = (dispatch: Dispatch<CounterType, CounterState>): Part
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Counter as any);
+)(Component as any);
