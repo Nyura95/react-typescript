@@ -1,36 +1,37 @@
-// state reducer
-import { CounterState } from '../reducers';
-
 // Constants
-import { ADD_COUNTER, SET_COUNTER, Action, Dispatch } from './';
+import { Action, CounterType, CounterState, Dispatch } from './';
 
 // Action increment the counter
-export const setCounter = (counter: number): Action<CounterState> => (dispatch: Dispatch<CounterState>) =>
+export const setCounter = (counter: number): Action<CounterType, CounterState> => (
+  dispatch: Dispatch<CounterType, CounterState>
+) =>
   dispatch({
-    type: ADD_COUNTER,
+    type: 'ADD_COUNTER',
     payload: {
       counter,
     },
   });
 
 // Action for reset the counter from 0
-export const resetCounter = (): Action<CounterState> => (dispatch: Dispatch<CounterState>) =>
+export const resetCounter = (): Action<CounterType, CounterState> => (dispatch: Dispatch<CounterType, CounterState>) =>
   dispatch({
-    type: SET_COUNTER,
+    type: 'SET_COUNTER',
     payload: {
       counter: 0,
     },
   });
 
 // Action decrement the counter
-export const AsyncSetCounter = (counter: number): Action<CounterState> => (dispatch: Dispatch<CounterState>) => {
+export const AsyncSetCounter = (counter: number): Action<CounterType, CounterState> => (
+  dispatch: Dispatch<CounterType, CounterState>
+) => {
   // Simulate the api
   setTimeout(() => {
     // Dispatch in async
     dispatch({
-      type: ADD_COUNTER,
+      type: 'SET_COUNTER',
       payload: {
-        counter: counter,
+        counter,
       },
     });
   }, 500);

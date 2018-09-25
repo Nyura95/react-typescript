@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Translate, { Props } from './component';
 
 // reducer type
-import { Dispatch, I18nAction, RouterAction } from '../../actions';
+import { Dispatch, RouterState, RouterType, I18nState, I18nType } from '../../actions';
 import { ReduxState } from '../../reducers';
 
 // action
@@ -16,7 +16,7 @@ const mapStateToProps = (reducers: ReduxState): Partial<Props> => ({
   locale: reducers.i18n.locale,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<I18nAction | RouterAction>): Partial<Props> => {
+const mapDispatchToProps = (dispatch: Dispatch<RouterType | I18nType, RouterState | I18nState>): Partial<Props> => {
   return {
     setLocale: (lang: string) => dispatch(setLocale(lang)),
     goBack: () => dispatch(goBack()),

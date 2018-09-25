@@ -5,7 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer } from 'redux-persist';
 import createCompressor from 'redux-persist-transform-compress';
 
-import { IAction } from '../actions/constants';
+import { IAction } from '../actions/Constants';
 
 // i18n
 import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n';
@@ -40,7 +40,7 @@ export const store = createStore(
   // connect the router and add the persist reducers
   connectRouter(history)(persistedReducer),
   // thunk for dispatch async and load the history
-  compose(applyMiddleware(thunk as ThunkMiddleware<ReduxState, IAction<any>>, routerMiddleware(history)))
+  compose(applyMiddleware(thunk as ThunkMiddleware<ReduxState, IAction<any, any>>, routerMiddleware(history)))
 );
 
 // create the persistor

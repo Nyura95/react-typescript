@@ -1,20 +1,29 @@
 import { Action } from 'redux';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { ReduxState } from '../reducers';
+import { Type as CounterType, State as CounterState } from '../reducers/Counter';
 
 // all interface Action
-export interface IAction<P> {
-  type: string;
+export interface IAction<T, P> {
+  type: T;
   payload: P;
 }
 
-// module Action
-export type I18nAction = any;
-export type RouterAction = any;
-
 // Thunk
-export type Dispatch<S> = ThunkDispatch<ReduxState, null, IAction<S>>;
-export type Action<S> = ThunkAction<void, ReduxState, null, IAction<S>>;
+export type Dispatch<T, P> = ThunkDispatch<ReduxState, null, IAction<T, P>>;
+export type Action<T, P> = ThunkAction<void, ReduxState, null, IAction<T, P>>;
+
+// I18n
+export type I18nType = any;
+export type I18nState = any;
+
+/// Counter
+export type RouterType = any;
+export type RouterState = any;
+
+// Counter
+export type CounterType = CounterType;
+export type CounterState = CounterState;
 
 // Counter constants
 export const ADD_COUNTER = 'ADD_COUNTER';

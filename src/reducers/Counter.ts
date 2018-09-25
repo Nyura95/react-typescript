@@ -1,19 +1,16 @@
 import { ADD_COUNTER, SET_COUNTER, IAction } from '../actions/Constants';
 
+export type Type = 'ADD_COUNTER' | 'SET_COUNTER';
+
 export type State = {
   counter: number;
-};
-
-export type Action = {
-  type: 'ADD_COUNTER' | 'SET_COUNTER';
-  payload: State;
 };
 
 const initialState: State = {
   counter: 0,
 };
 
-export default function counter(state: State = initialState, action: IAction<State>): State {
+export default function counter(state: State = initialState, action: IAction<Type, State>): State {
   switch (action.type) {
     case ADD_COUNTER:
       return {

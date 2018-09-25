@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import Counter, { Props } from './component';
 
 // type
-import { Dispatch } from '../../actions';
+import { Dispatch, CounterState, CounterType } from '../../actions';
 
-import { ReduxState, CounterState } from '../../reducers';
+import { ReduxState } from '../../reducers';
 
 // action
 import { setCounter, resetCounter, AsyncSetCounter, RouterGoBack } from '../../actions';
@@ -16,7 +16,7 @@ const mapStateToProps = (reducers: ReduxState): Partial<Props> => ({
   ...reducers.Counter,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<CounterState>): Partial<Props> => {
+const mapDispatchToProps = (dispatch: Dispatch<CounterType, CounterState>): Partial<Props> => {
   return {
     setCounter: (counter: number) => dispatch(setCounter(counter)),
     AsyncSetCounter: (counter: number) => dispatch(AsyncSetCounter(counter)),
