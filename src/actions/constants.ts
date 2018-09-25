@@ -2,7 +2,8 @@ import { Action } from 'redux';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { ReduxState } from '../reducers';
 import { Type as CounterType, State as CounterState } from '../reducers/Counter';
-
+import { I18nState } from 'react-redux-i18n';
+import { LocationActionPayload } from 'connected-react-router';
 // all interface Action
 export interface IAction<T, P> {
   type: T;
@@ -14,17 +15,13 @@ export type Dispatch<T, P> = ThunkDispatch<ReduxState, null, IAction<T, P>>;
 export type Action<T, P> = ThunkAction<void, ReduxState, null, IAction<T, P>>;
 
 // I18n
-export type I18nType = any;
-export type I18nState = any;
+export type I18nType = string;
+export type I18nState = I18nState;
 
-/// Counter
-export type RouterType = any;
-export type RouterState = any;
+/// Router
+export type RouterType = string;
+export type RouterState = LocationActionPayload;
 
 // Counter
 export type CounterType = CounterType;
 export type CounterState = CounterState;
-
-// Counter constants
-export const ADD_COUNTER = 'ADD_COUNTER';
-export const SET_COUNTER = 'SET_COUNTER';
