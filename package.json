@@ -4,8 +4,10 @@
   "description": "react typescript",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./src/index.html --no-cache",
-    "build": "parcel build ./src/index.html",
+    "start": "parcel ./src/index.html --open",
+    "build": "parcel build ./src/index.html --out-dir build --detailed-report",
+    "serve": "npm run build&&node server.js",
+    "watch": "parcel watch ./src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
