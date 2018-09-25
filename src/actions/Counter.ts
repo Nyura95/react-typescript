@@ -27,9 +27,10 @@ export const AsyncSetCounter = (counter: number): Action<CounterType, CounterSta
 ) => {
   // Simulate the api
   setTimeout(() => {
+    console.log(counter);
     // Dispatch in async
     dispatch({
-      type: 'SET_COUNTER',
+      type: 'ADD_COUNTER',
       payload: {
         counter,
       },
