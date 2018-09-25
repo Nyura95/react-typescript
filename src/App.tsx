@@ -1,16 +1,18 @@
+// React
 import * as React from 'react';
 import { render } from 'react-dom';
 
-// redux
+// Store
+import { history, store, persistor } from './store';
+
+// Redux
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
-// store
-import { history, store, persistor } from './store';
-
-// router
+// Router
 import { ConnectedRouter } from 'connected-react-router';
 
+// Component
 import Layout from './Layout';
 
 class Application extends React.Component {

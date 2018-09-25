@@ -1,5 +1,5 @@
 // Constants
-import { Action, CounterType, CounterState, Dispatch } from './';
+import { Action, Dispatch, CounterType, CounterState } from './Constants';
 
 // Action set the counter
 export const setCounter = (counter: number): Action<CounterType, CounterState> => (

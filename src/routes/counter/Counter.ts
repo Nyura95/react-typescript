@@ -1,22 +1,17 @@
 // redux
 import { connect } from 'react-redux';
 
-// component
+// Component
 import Component, { Props } from './Component';
 
-// type reducers
+// Reducers type
 import { ReduxState } from '../../reducers';
 
-// action
-import {
-  Dispatch,
-  CounterState,
-  CounterType,
-  setCounter,
-  resetCounter,
-  AsyncSetCounter,
-  RouterGoBack
-} from '../../actions';
+// Constants
+import { Dispatch, CounterType, CounterState } from '../../actions/Constants';
+
+// Actions
+import { RouterGoBack, setCounter, resetCounter, AsyncSetCounter } from '../../actions';
 
 const mapStateToProps = (reducers: ReduxState): Partial<Props> => ({
   ...reducers.Counter

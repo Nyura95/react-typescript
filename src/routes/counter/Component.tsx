@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-// typing
+// Type
 import { RouteComponentProps } from 'react-router';
 
-// design module
+// Module
 import { Row, Col, Button } from 'reactstrap';
 
 // sass import

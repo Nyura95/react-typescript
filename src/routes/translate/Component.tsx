@@ -1,16 +1,16 @@
 import * as React from 'react';
 
-// typing
+// Type
 import { RouteComponentProps } from 'react-router';
 
-// module
+// Modules
 import { Row, Col, Button } from 'reactstrap';
 import { I18n } from 'react-redux-i18n';
 
-// sass import
+// Sass import
 import * as styles from './Styles.scss';
 
-// interface props
+// Interface props
 export interface Props extends RouteComponentProps {
   goBack(): void;
   setLocale(lang: string): void;
@@ -22,7 +22,7 @@ export default class Translate extends React.Component<Props> {
   static defaultProps = {
     goBack: () => {},
     setLocale: () => {},
-    locale: '',
+    locale: ''
   };
 
   render() {

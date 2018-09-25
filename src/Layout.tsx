@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-// router
+// Router
 import { Route, Switch, Redirect } from 'react-router';
 
-// module of design
+// Module
 import { Container } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

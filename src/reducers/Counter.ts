@@ -1,20 +1,20 @@
 // Import action app
 import { IAction } from '../actions/Constants';
 
-// declare type action
+// Declare type action
 export type Type = 'ADD_COUNTER' | 'SET_COUNTER';
 
-// declare state reducer
+// Declare state reducer
 export type State = {
   counter: number;
 };
 
-// initial
+// Initial
 const initialState: State = {
   counter: 0
 };
 
-// reducer
+// Reducer
 export default function counter(state: State = initialState, action: IAction<Type, State>): State {
   switch (action.type) {
     case 'ADD_COUNTER':

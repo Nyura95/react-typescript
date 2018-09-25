@@ -1,25 +1,25 @@
-// redux
+// Redux module
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk, { ThunkMiddleware } from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer } from 'redux-persist';
 import reduxPersistTransformCompress from 'redux-persist-transform-compress';
 
-// Inter action
+// (Inter)action
 import { IAction } from '../actions/Constants';
 
-// i18n
+// I18n
 import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n';
 import translations from '../translations';
 
-// router
+// Router
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
-// reducers
+// Reducers
 import reducers, { ReduxState } from '../reducers';
 
-// compress your store
+// Compress the store
 const compressor = reduxPersistTransformCompress();
 
 // Config persist store
@@ -31,24 +31,24 @@ const persistConfig = {
   transforms: [compressor]
 };
 
-// get the persist reducer from reducer
+// Get the persist reducer from reducer
 const persistedReducer = persistReducer(persistConfig, reducers);
 
-// create web history
+// Create web history
 export const history = createBrowserHistory();
 
-// create the store
+// Create the store
 export const store = createStore(
-  // connect the router and add the persist reducers
+  // Connect the router and add the persist reducers
   connectRouter(history)(persistedReducer),
-  // thunk for dispatch async and load the history
+  // Thunk for dispatch async and load the history
   compose(applyMiddleware(reduxThunk as ThunkMiddleware<ReduxState, IAction<any, any>>, routerMiddleware(history)))
 );
 
-// create the persistor
+// Create the persistor
 export const persistor = persistStore(store);
 
 syncTranslationWithStore(store);
 store.dispatch(loadTranslations(translations));
-// set your default lang (must pass on localstorage user)
+// Set your default lang (must pass on localstorage user)
 store.dispatch(setLocale('en'));

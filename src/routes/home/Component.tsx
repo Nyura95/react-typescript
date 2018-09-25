@@ -1,34 +1,34 @@
 import * as React from 'react';
 
-// typing
+// Type
 import { RouteComponentProps } from 'react-router';
 
-// module
+// Module
 import { Row, Col, Button } from 'reactstrap';
 
-// sass import
+// Sass import
 import * as styles from './Styles.scss';
 
-// interface props
+// Interface props
 export interface Props extends RouteComponentProps {
   push(to: string): void;
 }
 
-// interface state
+// Interface state
 interface State {
   hello: string;
 }
 
 export default class Home extends React.Component<Props, State> {
-  // default props
+  // Default props
   static defaultProps = {
-    push: () => {},
+    push: () => {}
   };
 
   constructor(props: Props) {
     super(props);
     this.state = {
-      hello: 'Hello !',
+      hello: 'Hello !'
     };
   }
 
