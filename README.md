@@ -1,7 +1,27 @@
 # react-typescript
 
-Hi pepole :)
+## Overview
 
-### install and run
+This is a framework for reactJS with typescript.
 
-npm install && npm run start
+## Installation
+
+> `git clone https://github.com/Nyura95/react-typescript.git`
+
+> `cd ./react-typescript`
+
+> `npm install`
+
+## Development mode
+
+`npm run start`
+
+## build
+
+`npm run build`
+
+## run a server in production
+
+`npm run serve`
+
+Enjoy !
