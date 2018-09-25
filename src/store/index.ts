@@ -28,7 +28,7 @@ const persistConfig = {
   // tslint:disable-next-line:object-shorthand-properties-first
   storage,
   whitelist: ['Counter'], // Add name reducer for active the persist
-  transforms: [compressor],
+  transforms: [compressor]
 };
 
 // get the persist reducer from reducer

@@ -8,8 +8,8 @@ export const setCounter = (counter: number): Action<CounterType, CounterState> =
   dispatch({
     type: 'ADD_COUNTER',
     payload: {
-      counter,
-    },
+      counter
+    }
   });
 
 // Action for reset the counter from 0
@@ -17,8 +17,8 @@ export const resetCounter = (): Action<CounterType, CounterState> => (dispatch: 
   dispatch({
     type: 'SET_COUNTER',
     payload: {
-      counter: 0,
-    },
+      counter: 0
+    }
   });
 
 // Action set in async the counter
@@ -32,8 +32,8 @@ export const AsyncSetCounter = (counter: number): Action<CounterType, CounterSta
     dispatch({
       type: 'ADD_COUNTER',
       payload: {
-        counter,
-      },
+        counter
+      }
     });
   }, 500);
 };

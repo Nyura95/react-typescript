@@ -25,7 +25,7 @@ export default class Counter extends React.Component<Props> {
     push: () => {},
     AsyncIncrement: () => {},
     resetCounter: () => {},
-    counter: 0,
+    counter: 0
   };
 
   render() {

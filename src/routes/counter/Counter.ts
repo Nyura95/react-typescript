@@ -15,11 +15,11 @@ import {
   setCounter,
   resetCounter,
   AsyncSetCounter,
-  RouterGoBack,
+  RouterGoBack
 } from '../../actions';
 
 const mapStateToProps = (reducers: ReduxState): Partial<Props> => ({
-  ...reducers.Counter,
+  ...reducers.Counter
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<CounterType, CounterState>): Partial<Props> => {
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch: Dispatch<CounterType, CounterState>): Part
     setCounter: (counter: number) => dispatch(setCounter(counter)),
     AsyncSetCounter: (counter: number) => dispatch(AsyncSetCounter(counter)),
     resetCounter: () => dispatch(resetCounter()),
-    goBack: () => dispatch(RouterGoBack()),
+    goBack: () => dispatch(RouterGoBack())
   };
 };
 

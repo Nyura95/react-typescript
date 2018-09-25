@@ -15,5 +15,5 @@ export interface ReduxState {
 // export all reducers combine
 export default combineReducers({
   Counter,
-  i18n: i18nReducer,
+  i18n: i18nReducer
 });

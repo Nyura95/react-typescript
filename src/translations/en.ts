@@ -1,3 +1,3 @@
 export default {
-  translate: 'Current translation language: %{lang}',
+  translate: 'Current translation language: %{lang}'
 };
