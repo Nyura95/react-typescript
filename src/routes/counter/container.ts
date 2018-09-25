@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 // component
-import Counter, { Props } from './component';
+import Counter, { Props } from './Component';
 
 // type
 import { Dispatch, CounterState, CounterType } from '../../actions';

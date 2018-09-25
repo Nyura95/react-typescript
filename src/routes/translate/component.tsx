@@ -8,7 +8,7 @@ import { Row, Col, Button } from 'reactstrap';
 import { I18n } from 'react-redux-i18n';
 
 // sass import
-import * as styles from './styles.scss';
+import * as styles from './Styles.scss';
 
 // interface props
 export interface Props extends RouteComponentProps {

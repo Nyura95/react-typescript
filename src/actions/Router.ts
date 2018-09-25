@@ -1,9 +1,12 @@
-// state reducer
-import { Action, Dispatch } from './';
-
-// Constants
+// Action reducer module
 import { push, goBack } from 'connected-react-router';
 
-export const RouterPush = (to: string): Action<any, any> => (dispatch: Dispatch<any, any>) => dispatch(push(to));
+// Constants type
+import { Action, Dispatch, RouterType, RouterState } from './';
 
-export const RouterGoBack = (): Action<any, any> => (dispatch: Dispatch<any, any>) => dispatch(goBack());
+export const RouterPush = (to: string): Action<RouterType, RouterState> => (
+  dispatch: Dispatch<RouterType, RouterState>
+) => dispatch(push(to));
+
+export const RouterGoBack = (): Action<RouterType, RouterState> => (dispatch: Dispatch<RouterType, RouterState>) =>
+  dispatch(goBack());

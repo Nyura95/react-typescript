@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 // component
-import Home, { Props } from './component';
+import Home, { Props } from './Component';
 
 // reducer type
 import { Dispatch, RouterState, RouterType } from '../../actions';

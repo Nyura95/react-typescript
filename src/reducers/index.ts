@@ -12,10 +12,6 @@ export interface ReduxState {
   Route: RouterState;
 }
 
-export type CounterState = CounterState;
-export type I18nState = I18nState;
-export type RouterState = RouterState;
-
 // export all reducers combine
 export default combineReducers({
   Counter,

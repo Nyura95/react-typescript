@@ -1,11 +1,15 @@
+// Import action app
 import { IAction } from '../actions/Constants';
 
+// declare type action
 export type Type = 'ADD_COUNTER' | 'SET_COUNTER';
 
+// declare state reducer
 export type State = {
   counter: number;
 };
 
+// initial
 const initialState: State = {
   counter: 0,
 };

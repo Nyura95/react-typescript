@@ -8,9 +8,9 @@ import { Container } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Pages of the app
-import Home from './routes/home/container';
-import Counter from './routes/counter/container';
-import Translate from './routes/translate/container';
+import Home from './routes/home/Container';
+import Counter from './routes/counter/Container';
+import Translate from './routes/translate/Container';
 
 export default class Layout extends React.Component {
   render() {

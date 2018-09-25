@@ -1,7 +1,7 @@
 // Constants
 import { Action, CounterType, CounterState, Dispatch } from './';
 
-// Action increment the counter
+// Action set the counter
 export const setCounter = (counter: number): Action<CounterType, CounterState> => (
   dispatch: Dispatch<CounterType, CounterState>
 ) =>
@@ -21,7 +21,7 @@ export const resetCounter = (): Action<CounterType, CounterState> => (dispatch: 
     },
   });
 
-// Action decrement the counter
+// Action set in async the counter
 export const AsyncSetCounter = (counter: number): Action<CounterType, CounterState> => (
   dispatch: Dispatch<CounterType, CounterState>
 ) => {
