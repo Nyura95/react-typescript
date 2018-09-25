@@ -24,4 +24,8 @@ This is a framework for reactJS with typescript.
 
 `npm run serve`
 
+## lint your code
+
+`npm run tslint`
+
 Enjoy !
