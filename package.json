@@ -14,9 +14,12 @@
     "url": "git+https://github.com/Nyura95/react-typescript.git"
   },
   "keywords": [
+    "thunk",
+    "example",
+    "redux",
     "react",
-    "mapbox",
-    "typescript"
+    "typescript",
+    "parcel"
   ],
   "author": "Alexis Courapied",
   "license": "ISC",
