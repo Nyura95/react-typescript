@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel ./src/index.html --open",
     "build": "parcel build ./src/index.html --out-dir build --detailed-report",
-    "serve": "npm run build&&node server.js",
+    "serve": "npm run build&&node server.js 3000",
     "watch": "parcel watch ./src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
