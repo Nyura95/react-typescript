@@ -1,8 +1,8 @@
 {
   "name": "react-typescript",
   "version": "1.0.0",
-  "description": "react typescript",
-  "main": "index.js",
+  "description": "example reactJS with typescript and redux async",
+  "main": "./src/index.js",
   "scripts": {
     "start": "parcel ./src/index.html --open",
     "build": "parcel build ./src/index.html --out-dir build --detailed-report",
