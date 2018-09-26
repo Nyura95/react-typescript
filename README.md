@@ -1,4 +1,4 @@
-# react-typescript
+# react-redux-typescript
 
 ## Overview
 
@@ -14,18 +14,18 @@ This is a framework for reactJS with typescript.
 
 ## Development mode
 
-`npm run start`
+> `npm run start`
 
 ## build
 
-`npm run build`
+> `npm run build`
 
 ## run a server in production
 
-`npm run serve`
+> `npm run serve`
 
 ## lint your code
 
-`npm run tslint`
+> `npm run tslint`
 
 Enjoy !
