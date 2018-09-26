@@ -22,13 +22,13 @@ interface State {
 export default class Home extends React.Component<Props, State> {
   // default props
   static defaultProps = {
-    push: () => {},
+    push: () => {}
   };
 
   constructor(props: Props) {
     super(props);
     this.state = {
-      hello: 'Hello !',
+      hello: 'Hello !'
     };
   }
 
