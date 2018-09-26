@@ -1,4 +1,4 @@
-# react-typescript
+# react-redux-typescript
 
 ## Overview
 
