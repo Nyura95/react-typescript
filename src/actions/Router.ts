@@ -1,7 +1,7 @@
 // Action reducer module
 import { push, goBack } from 'connected-react-router';
 
-// Constants type
+// Types
 import { Action, Dispatch, RouterType, RouterState } from './Types';
 
 export const RouterPush = (to: string): Action<RouterType, RouterState> => (

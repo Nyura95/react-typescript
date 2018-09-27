@@ -7,7 +7,7 @@ import Component, { Props } from './Component';
 // Reducers type
 import { ReduxState } from '../../reducers';
 
-// Constants
+// Types
 import { Dispatch, CounterType, CounterState } from '../../actions/Types';
 
 // Actions

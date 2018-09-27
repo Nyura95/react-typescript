@@ -1,4 +1,4 @@
-// Constants
+// Types
 import { Action, Dispatch, CounterType, CounterState } from './Types';
 
 // Action set the counter
