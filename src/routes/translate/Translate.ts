@@ -8,7 +8,7 @@ import Component, { Props } from './Component';
 import { ReduxState } from '../../reducers';
 
 // reducer type
-import { Dispatch, RouterType, RouterState, I18nType, I18nState } from '../../actions/Constants';
+import { Dispatch, RouterType, RouterState, I18nType, I18nState } from '../../actions/Types';
 
 // Actions
 import { RouterGoBack } from '../../actions';

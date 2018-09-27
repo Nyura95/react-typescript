@@ -6,7 +6,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import reduxPersistTransformCompress from 'redux-persist-transform-compress';
 
 // (Inter)action
-import { IAction } from '../actions/Constants';
+import { IAction } from '../actions/Types';
 
 // I18n
 import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n';

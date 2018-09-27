@@ -8,7 +8,7 @@ import Component, { Props } from './Component';
 import { ReduxState } from '../../reducers';
 
 // Constants
-import { Dispatch, CounterType, CounterState } from '../../actions/Constants';
+import { Dispatch, CounterType, CounterState } from '../../actions/Types';
 
 // Actions
 import { RouterGoBack, setCounter, resetCounter, AsyncSetCounter } from '../../actions';

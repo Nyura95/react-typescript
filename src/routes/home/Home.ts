@@ -8,7 +8,7 @@ import { ReduxState } from '../../reducers';
 import Component, { Props } from './Component';
 
 // Contants
-import { Dispatch, RouterType, RouterState } from '../../actions/Constants';
+import { Dispatch, RouterType, RouterState } from '../../actions/Types';
 
 // Action
 import { RouterPush } from '../../actions';
