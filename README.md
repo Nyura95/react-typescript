@@ -1,5 +1,7 @@
 # react-redux-typescript
 
+Typescript 3.0
+
 ## Overview
 
 This is a framework for reactJS with typescript.
