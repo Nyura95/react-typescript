@@ -3,8 +3,9 @@ import * as React from 'react';
 // Type
 import { RouteComponentProps } from 'react-router';
 
-// Module
-import { Row, Col, Button } from 'reactstrap';
+// Component
+import { Row, Col } from 'reactstrap';
+import { Button } from '../../components';
 
 // sass import
 import * as styles from './Styles.scss';
@@ -19,15 +20,6 @@ export interface Props extends RouteComponentProps {
 }
 
 export default class Counter extends React.Component<Props> {
-  // default props
-  static defaultProps = {
-    increment: () => {},
-    push: () => {},
-    AsyncIncrement: () => {},
-    resetCounter: () => {},
-    counter: 0
-  };
-
   render() {
     return (
       <Row className={styles.container}>
@@ -38,9 +30,7 @@ export default class Counter extends React.Component<Props> {
           <Button onClick={() => this.props.setCounter(1)} color="primary">
             Increment
           </Button>
-          <Button onClick={() => this.props.setCounter(-1)} color="primary">
-            Decrement
-          </Button>
+          <Button onClick={() => this.props.setCounter(-1)}>Decrement</Button>
           <Button onClick={() => this.props.AsyncSetCounter(1)} color="warning">
             Async increment
           </Button>

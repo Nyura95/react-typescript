@@ -2,14 +2,14 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk, { ThunkMiddleware } from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
-import { persistStore, persistReducer } from 'redux-persist';
+import { persistStore, persistReducer, Persistor } from 'redux-persist';
 import reduxPersistTransformCompress from 'redux-persist-transform-compress';
 
 // (Inter)action
 import { IAction } from '../actions/Types';
 
 // I18n
-import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n';
+import { loadTranslations, setLocale, syncTranslationWithStore, TranslationObjects } from 'react-redux-i18n';
 import translations from '../translations';
 
 // Router
@@ -46,9 +46,9 @@ export const store = createStore(
 );
 
 // Create the persistor
-export const persistor = persistStore(store);
+export const persistor: Persistor = persistStore(store);
 
 syncTranslationWithStore(store);
-store.dispatch(loadTranslations(translations));
+store.dispatch(loadTranslations(translations as TranslationObjects));
 // Set your default lang (must pass on localstorage user)
 store.dispatch(setLocale('en'));

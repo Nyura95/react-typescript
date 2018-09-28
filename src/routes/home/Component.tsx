@@ -4,7 +4,8 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 
 // Module
-import { Row, Col, Button } from 'reactstrap';
+import { Button } from '../../components';
+import { Row, Col } from 'reactstrap';
 
 // Sass import
 import * as styles from './Styles.scss';
@@ -20,11 +21,6 @@ interface State {
 }
 
 export default class Home extends React.Component<Props, State> {
-  // Default props
-  static defaultProps = {
-    push: () => {}
-  };
-
   constructor(props: Props) {
     super(props);
     this.state = {

@@ -4,7 +4,8 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 
 // Modules
-import { Row, Col, Button } from 'reactstrap';
+import { Button } from '../../components';
+import { Row, Col } from 'reactstrap';
 import { I18n } from 'react-redux-i18n';
 
 // Sass import
@@ -18,13 +19,6 @@ export interface Props extends RouteComponentProps {
 }
 
 export default class Translate extends React.Component<Props> {
-  // default props
-  static defaultProps = {
-    goBack: () => {},
-    setLocale: () => {},
-    locale: ''
-  };
-
   render() {
     return (
       <Row className={styles.container}>
