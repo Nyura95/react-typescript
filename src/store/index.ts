@@ -2,7 +2,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk, { ThunkMiddleware } from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
-import { persistStore, persistReducer, Persistor } from 'redux-persist';
+import { persistStore, persistReducer, Persistor, PersistConfig, Transform } from 'redux-persist';
 import reduxPersistTransformCompress from 'redux-persist-transform-compress';
 
 // (Inter)action
@@ -20,14 +20,14 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import reducers, { ReduxState } from '../reducers';
 
 // Compress the store
-const compressor = reduxPersistTransformCompress();
+const compressor: Transform<null, null> = reduxPersistTransformCompress();
 
 // Config persist store
-const persistConfig = {
+const persistConfig: PersistConfig = {
   key: 'store',
   // tslint:disable-next-line:object-shorthand-properties-first
   storage,
-  whitelist: ['Counter'], // Add name reducer for active the persist
+  whitelist: ['Counter'], // Add the name of reducer for active the persist
   transforms: [compressor]
 };
 
