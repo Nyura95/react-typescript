@@ -24,9 +24,8 @@ const compressor: Transform<null, null> = reduxPersistTransformCompress();
 
 // Config persist store
 const persistConfig: PersistConfig = {
-  key: 'store',
-  // tslint:disable-next-line:object-shorthand-properties-first
   storage,
+  key: 'store',
   whitelist: ['Counter'], // Add the name of reducer for active the persist
   transforms: [compressor]
 };
