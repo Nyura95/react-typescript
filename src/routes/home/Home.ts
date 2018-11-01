@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { ReduxState } from '../../reducers';
 
 // Component
-import Component, { Props } from './Component';
+import Component, { IProps } from './Component';
 
 // Contants
 import { Dispatch, RouterType, RouterState } from '../../actions/Types';
@@ -13,9 +13,9 @@ import { Dispatch, RouterType, RouterState } from '../../actions/Types';
 // Action
 import { RouterPush } from '../../actions';
 
-const mapStateToProps = (reducers: ReduxState): Partial<Props> => ({});
+const mapStateToProps = (reducers: ReduxState): Partial<IProps> => ({});
 
-const mapDispatchToProps = (dispatch: Dispatch<RouterType, RouterState>): Partial<Props> => {
+const mapDispatchToProps = (dispatch: Dispatch<RouterType, RouterState>): Partial<IProps> => {
   return {
     push: (to: string) => dispatch(RouterPush(to))
   };

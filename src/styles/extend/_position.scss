@@ -1,4 +1,5 @@
-@mixin center_absolute() {
+// @extend %center_absolute;
+%center_absolute {
   position: absolute;
   right: 50%;
   bottom: 50%;

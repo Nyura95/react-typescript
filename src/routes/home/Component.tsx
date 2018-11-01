@@ -11,7 +11,7 @@ import { Row, Col } from 'reactstrap';
 import * as styles from './styles.scss';
 
 // Interface props
-export interface Props extends RouteComponentProps {
+export interface IProps extends RouteComponentProps {
   push(to: string): void;
 }
 
@@ -20,8 +20,8 @@ interface State {
   hello: string;
 }
 
-export default class Home extends React.Component<Props, State> {
-  constructor(props: Props) {
+export default class Home extends React.Component<IProps, State> {
+  constructor(props: IProps) {
     super(props);
     this.state = {
       hello: 'Hello !'

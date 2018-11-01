@@ -8,13 +8,13 @@ import { I18n } from 'react-redux-i18n';
 import * as styles from './styles.scss';
 
 // Interface props
-export interface Props extends ButtonProps {
+export interface IProps extends ButtonProps {
   color: 'danger' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'link';
   translate?: string;
 }
 
-export default class Button extends React.PureComponent<Props> {
-  static defaultProps: Props = {
+export default class Button extends React.PureComponent<IProps> {
+  static defaultProps: IProps = {
     color: 'primary'
   };
 

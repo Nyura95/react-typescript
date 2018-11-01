@@ -19,6 +19,9 @@ import createBrowserHistory from 'history/createBrowserHistory';
 // Reducers
 import reducers, { ReduxState } from '../reducers';
 
+// Config
+import config from '../config';
+
 // Compress the store
 const compressor: Transform<null, null> = reduxPersistTransformCompress();
 
@@ -27,7 +30,7 @@ const persistConfig: PersistConfig = {
   storage,
   key: 'store',
   whitelist: ['Counter'], // Add the name of reducer for active the persist
-  transforms: [compressor]
+  transforms: config.production ? [compressor] : []
 };
 
 // Get the persist reducer from reducer

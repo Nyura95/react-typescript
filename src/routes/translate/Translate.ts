@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 // Component
-import Component, { Props } from './Component';
+import Component, { IProps } from './Component';
 
 // Reducer type
 import { ReduxState } from '../../reducers';
@@ -14,11 +14,11 @@ import { Dispatch, RouterType, RouterState, I18nType, I18nState } from '../../ac
 import { RouterGoBack } from '../../actions';
 import { setLocale } from 'react-redux-i18n';
 
-const mapStateToProps = (reducers: ReduxState): Partial<Props> => ({
+const mapStateToProps = (reducers: ReduxState): Partial<IProps> => ({
   locale: reducers.i18n.locale
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<RouterType | I18nType, RouterState | I18nState>): Partial<Props> => {
+const mapDispatchToProps = (dispatch: Dispatch<RouterType | I18nType, RouterState | I18nState>): Partial<IProps> => {
   return {
     setLocale: (lang: string) => dispatch(setLocale(lang)),
     goBack: () => dispatch(RouterGoBack())

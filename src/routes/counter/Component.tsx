@@ -11,7 +11,7 @@ import { Button } from '../../components';
 import * as styles from './styles.scss';
 
 // interface props
-export interface Props extends RouteComponentProps {
+export interface IProps extends RouteComponentProps {
   setCounter(counter: number): void;
   AsyncSetCounter(counter: number): void;
   resetCounter(): void;
@@ -19,7 +19,7 @@ export interface Props extends RouteComponentProps {
   counter: number;
 }
 
-export default class Counter extends React.Component<Props> {
+export default class Counter extends React.Component<IProps> {
   render() {
     return (
       <Row className={styles.container}>

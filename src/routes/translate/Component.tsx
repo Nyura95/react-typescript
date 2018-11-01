@@ -12,13 +12,13 @@ import { I18n } from 'react-redux-i18n';
 import * as styles from './styles.scss';
 
 // Interface props
-export interface Props extends RouteComponentProps {
+export interface IProps extends RouteComponentProps {
   goBack(): void;
   setLocale(lang: string): void;
   locale: string;
 }
 
-export default class Translate extends React.Component<Props> {
+export default class Translate extends React.Component<IProps> {
   render() {
     return (
       <Row className={styles.container}>
