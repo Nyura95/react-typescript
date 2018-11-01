@@ -8,7 +8,7 @@ import { Row, Col } from 'reactstrap';
 import { Button } from '../../components';
 
 // sass import
-import * as styles from './Styles.scss';
+import * as styles from './styles.scss';
 
 // interface props
 export interface Props extends RouteComponentProps {

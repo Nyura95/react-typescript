@@ -5,7 +5,7 @@ import { Button as RButton, ButtonProps } from 'reactstrap';
 import { I18n } from 'react-redux-i18n';
 
 // Sass import
-import * as styles from './Styles.scss';
+import * as styles from './styles.scss';
 
 // Interface props
 export interface Props extends ButtonProps {
