@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "parcel ./src/index.html --open",
-    "build": "parcel build ./src/index.html --out-dir build --detailed-report",
+    "build": "NODE_ENV=production &&parcel build ./src/index.html --out-dir build --detailed-report",
     "serve": "node server.js 3000",
     "watch": "parcel watch ./src/index.html",
     "tslint": "tslint --project tsconfig.json ./src/**/*.tsx&&tslint --project tsconfig.json ./src/**/*.ts"
