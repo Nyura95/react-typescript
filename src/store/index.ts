@@ -6,7 +6,7 @@ import { persistStore, persistReducer, Persistor, PersistConfig, Transform } fro
 import reduxPersistTransformCompress from 'redux-persist-transform-compress';
 
 // (Inter)action
-import { IAction } from '../actions/Types';
+import { IAction } from '../actions/types';
 
 // I18n
 import { loadTranslations, setLocale, syncTranslationWithStore, TranslationObjects } from 'react-redux-i18n';
@@ -17,7 +17,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 // Reducers
-import reducers, { ReduxState } from '../reducers';
+import reducers, { IReduxState } from '../reducers';
 
 // Config
 import config from '../config';
@@ -44,7 +44,7 @@ export const store = createStore(
   // Connect the router and add the persist reducers
   connectRouter(history)(persistedReducer),
   // Thunk for dispatch async and load the history
-  compose(applyMiddleware(reduxThunk as ThunkMiddleware<ReduxState, IAction<any, any>>, routerMiddleware(history)))
+  compose(applyMiddleware(reduxThunk as ThunkMiddleware<IReduxState, IAction<any, any>>, routerMiddleware(history)))
 );
 
 // Create the persistor

@@ -5,15 +5,15 @@ import { connect } from 'react-redux';
 import Component, { IProps } from './component';
 
 // Reducers type
-import { ReduxState } from '../../reducers';
+import { IReduxState } from '../../reducers';
 
 // Types
-import { Dispatch, CounterType, CounterState } from '../../actions/Types';
+import { Dispatch, CounterType, CounterState } from '../../actions/types';
 
 // Actions
 import { setCounter, resetCounter, AsyncSetCounter } from '../../actions';
 
-const mapStateToProps = (reducers: ReduxState): Partial<IProps> => ({
+const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
   ...reducers.Counter
 });
 

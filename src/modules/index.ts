@@ -1,5 +1,5 @@
 // Import all module
-import Navbar from './Navbar';
+import Navbar from './navbar';
 
 // export all components use
 export { Navbar };

@@ -5,15 +5,15 @@ import { connect } from 'react-redux';
 import Component, { IProps } from './component';
 
 // Reducer type
-import { ReduxState } from '../../reducers';
+import { IReduxState } from '../../reducers';
 
 // reducer type
-import { Dispatch, I18nType, I18nState } from '../../actions/Types';
+import { Dispatch, I18nType, I18nState } from '../../actions/types';
 
 // Actions
 import { setLocale } from 'react-redux-i18n';
 
-const mapStateToProps = (reducers: ReduxState): Partial<IProps> => ({
+const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
   locale: reducers.i18n.locale
 });
 

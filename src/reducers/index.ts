@@ -4,10 +4,10 @@ import { i18nReducer, I18nState } from 'react-redux-i18n';
 import { RouterState } from 'connected-react-router';
 
 // Import all reducers
-import Counter, { State as CounterState } from './Counter';
+import Counter, { State as CounterState } from './counter';
 
 // Interface redux app
-export interface ReduxState {
+export interface IReduxState {
   Counter: CounterState;
   i18n: I18nState;
   Route: RouterState;

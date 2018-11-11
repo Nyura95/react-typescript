@@ -1,5 +1,5 @@
 // Import action app
-import { IAction } from '../actions/Types';
+import { IAction } from '../actions/types';
 
 // Declare type action
 export type Type = 'ADD_COUNTER' | 'SET_COUNTER';

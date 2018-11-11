@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Component, { IProps } from './Component';
 
 // Types
-import { Dispatch, RouterType, RouterState } from '../../actions/Types';
+import { Dispatch, RouterType, RouterState } from '../../actions/types';
 
 // Actions
 import { RouterPush } from '../../actions';
