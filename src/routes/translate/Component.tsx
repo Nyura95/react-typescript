@@ -13,7 +13,6 @@ import * as styles from './styles.scss';
 
 // Interface props
 export interface IProps extends RouteComponentProps {
-  goBack(): void;
   setLocale(lang: string): void;
   locale: string;
 }
@@ -28,11 +27,6 @@ export default class Translate extends React.Component<IProps> {
         <Col lg="12" className={styles.container_button}>
           <Button onClick={() => this.props.setLocale('fr')} color="info">
             translate
-          </Button>
-        </Col>
-        <Col lg="12" className={styles.container_button}>
-          <Button onClick={() => this.props.goBack()} color="info">
-            Back
           </Button>
         </Col>
       </Row>

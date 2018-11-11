@@ -15,11 +15,10 @@ export interface IProps extends RouteComponentProps {
   setCounter(counter: number): void;
   AsyncSetCounter(counter: number): void;
   resetCounter(): void;
-  goBack(): void;
   counter: number;
 }
 
-export default class Counter extends React.Component<IProps> {
+export default class Counter extends React.PureComponent<IProps> {
   render() {
     return (
       <Row className={styles.container}>
@@ -38,11 +37,6 @@ export default class Counter extends React.Component<IProps> {
         <Col lg="12" className={styles.container_button}>
           <Button onClick={() => this.props.resetCounter()} color="danger">
             Reset
-          </Button>
-        </Col>
-        <Col lg="12" className={styles.container_button}>
-          <Button onClick={() => this.props.goBack()} color="info">
-            Back
           </Button>
         </Col>
       </Row>

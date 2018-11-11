@@ -11,16 +11,14 @@ import { Row, Col } from 'reactstrap';
 import * as styles from './styles.scss';
 
 // Interface props
-export interface IProps extends RouteComponentProps {
-  push(to: string): void;
-}
+export interface IProps extends RouteComponentProps {}
 
 // Interface state
-interface State {
+interface IState {
   hello: string;
 }
 
-export default class Home extends React.Component<IProps, State> {
+export default class Home extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
@@ -37,14 +35,6 @@ export default class Home extends React.Component<IProps, State> {
         <Col lg="12" className={styles.container_button}>
           <Button onClick={() => this.setState({ hello: 'Hello world !' })} color="primary">
             Trigger state
-          </Button>
-        </Col>
-        <Col lg="12" className={styles.container_button}>
-          <Button onClick={() => this.props.push('/counter')} color="info">
-            Go to counter
-          </Button>
-          <Button onClick={() => this.props.push('/translate')} color="info">
-            Go to translate
           </Button>
         </Col>
       </Row>

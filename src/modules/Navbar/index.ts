@@ -1,23 +1,20 @@
 // redux
 import { connect } from 'react-redux';
 
-// Reducer type
-import { ReduxState } from '../../reducers';
-
 // Component
 import Component, { IProps } from './Component';
 
-// Contants
+// Types
 import { Dispatch, RouterType, RouterState } from '../../actions/Types';
 
-// Action
+// Actions
 import { RouterPush } from '../../actions';
 
-const mapStateToProps = (reducers: ReduxState): Partial<IProps> => ({});
+const mapStateToProps = (): Partial<IProps> => ({});
 
 const mapDispatchToProps = (dispatch: Dispatch<RouterType, RouterState>): Partial<IProps> => {
   return {
-    push: (to: string) => dispatch(RouterPush(to))
+    goPush: (to: string) => dispatch(RouterPush(to))
   };
 };
 

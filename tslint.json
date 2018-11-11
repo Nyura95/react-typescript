@@ -2,10 +2,15 @@
   "defaultSeverity": "error",
   "extends": ["tslint-config-airbnb", "tslint-react", "tslint-config-prettier"],
   "jsRules": {},
+  "project": "./tsconfig.json",
   "rules": {
     "variable-name": false,
     "function-name": false,
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "no-unused-variable": true,
+    "no-boolean-literal-compare": false,
+    "interface-name": [true, "always-prefix"],
+    "import-name": false
   },
   "rulesDirectory": []
 }
