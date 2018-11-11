@@ -1,0 +1,33 @@
+@import '../../styles/variables/color';
+.btn_primary {
+  color: #fff;
+  background-color: $primary-color;
+  border-color: $primary-color;
+  &:active {
+    background-color: $primary-color-active !important;
+    border-color: $primary-color-active !important;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem $primary-color-shadow !important;
+  }
+  &:hover {
+    color: #fff;
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
+.container_busy {
+  position: relative;
+  .text {
+    opacity: 0;
+  }
+  .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+}

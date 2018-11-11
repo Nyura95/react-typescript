@@ -10,23 +10,39 @@ import { Container } from 'reactstrap';
 import Home from './routes/home';
 import Counter from './routes/counter';
 import Translate from './routes/translate';
+import Login from './routes/login';
 
 import { Navbar } from './modules';
 
+const connected = true;
+
 export default class Layout extends React.Component {
-  render() {
+  connected() {
     return (
-      <div>
+      <Container>
         <Navbar />
-        <Container>
-          <Switch>
-            <Route exact={true} path="/" component={Home} />
-            <Route exact={true} path="/counter" component={Counter} />
-            <Route exact={true} path="/translate" component={Translate} />
-            <Redirect from="*" to="/" />
-          </Switch>
-        </Container>
-      </div>
+        <Switch>
+          <Route exact={true} path="/" component={Home} />
+          <Route exact={true} path="/counter" component={Counter} />
+          <Route exact={true} path="/translate" component={Translate} />
+          <Redirect from="*" to="/" />
+        </Switch>
+      </Container>
     );
+  }
+
+  anonyme() {
+    return (
+      <Container>
+        <Switch>
+          <Route exact={true} path="/" component={Login} />
+          <Redirect from="*" to="/" />
+        </Switch>
+      </Container>
+    );
+  }
+
+  render() {
+    return connected ? this.connected() : this.anonyme();
   }
 }
