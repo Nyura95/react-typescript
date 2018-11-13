@@ -22,7 +22,7 @@ export interface IProps extends ButtonProps {
 export default class Button extends React.PureComponent<IProps> {
   static defaultProps: IProps = {
     color: 'primary',
-    busy: true,
+    busy: false,
     className: '',
     icon: faSpinner,
     style: {}

@@ -13,7 +13,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ConnectedRouter } from 'connected-react-router';
 
 // Component
-import Layout from './layout';
+import Layout from './routes/layout';
 
 class Application extends React.Component {
   render() {

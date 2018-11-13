@@ -4,22 +4,29 @@ import * as React from 'react';
 import { Route, Switch, Redirect } from 'react-router';
 
 // Module
-import { Container } from 'reactstrap';
+import { Container } from '../../components';
 
 // Pages of the app
-import Home from './routes/home';
-import Counter from './routes/counter';
-import Translate from './routes/translate';
-import Login from './routes/login';
+import Home from '../home';
+import Counter from '../counter';
+import Translate from '../translate';
+import Login from '../login';
 
-import { Navbar } from './modules';
+// Module
+import { Navbar } from '../../modules';
+
+// style
+import * as styles from './styles.scss';
 
 const connected = true;
 
-export default class Layout extends React.Component {
+export interface IProps {}
+interface IState {}
+
+export default class Layout extends React.Component<IProps, IState> {
   connected() {
     return (
-      <Container>
+      <Container fluid={true} removePadding={true}>
         <Navbar />
         <Switch>
           <Route exact={true} path="/" component={Home} />
@@ -43,6 +50,7 @@ export default class Layout extends React.Component {
   }
 
   render() {
+    console.log('state');
     return connected ? this.connected() : this.anonyme();
   }
 }
