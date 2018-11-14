@@ -10,9 +10,12 @@ import { IReduxState } from '../../reducers';
 // Types
 import { Dispatch, CounterType, CounterState } from '../../actions/types';
 
-const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({});
+// be carfull, here you must not subscribe to a store that is too often updated.
+const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
+  connected: reducers.User.token !== ''
+});
 
-const mapDispatchToProps = (dispatch: Dispatch<CounterType, CounterState>): Partial<IProps> => {
+const mapDispatchToProps = (): Partial<IProps> => {
   // be carfull, dispatch here recharges all Component
   // Do not put reducer that dispatches a lot !
   return {};

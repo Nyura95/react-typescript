@@ -5,16 +5,17 @@ import { connect } from 'react-redux';
 import Component, { IProps } from './Component';
 
 // Types
-import { Dispatch, RouterType, RouterState } from '../../actions/types';
+import { Dispatch, RouterType, UserType, RouterState, UserState } from '../../actions/types';
 
 // Actions
-import { RouterPush } from '../../actions';
+import { RouterPush, disconnectUser } from '../../actions';
 
 const mapStateToProps = (): Partial<IProps> => ({});
 
-const mapDispatchToProps = (dispatch: Dispatch<RouterType, RouterState>): Partial<IProps> => {
+const mapDispatchToProps = (dispatch: Dispatch<RouterType | UserType, RouterState | UserState>): Partial<IProps> => {
   return {
-    goPush: (to: string) => dispatch(RouterPush(to))
+    goPush: (to: string) => dispatch(RouterPush(to)),
+    disconnectUser: () => dispatch(disconnectUser())
   };
 };
 

@@ -29,7 +29,7 @@ const compressor: Transform<null, null> = reduxPersistTransformCompress();
 const persistConfig: PersistConfig = {
   storage,
   key: 'store',
-  whitelist: ['Counter'], // Add the name of reducer for active the persist
+  whitelist: ['Counter', 'User'], // Add the name of reducer for active the persist
   transforms: config.production ? [compressor] : []
 };
 

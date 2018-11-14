@@ -9,6 +9,7 @@ import * as styles from './styles.scss';
 // Interface props
 export interface IProps {
   goPush(to: string): void;
+  disconnectUser(): void;
 }
 
 interface IState {
@@ -17,7 +18,8 @@ interface IState {
 
 export default class Navbar extends React.PureComponent<IProps, IState> {
   static defaultProps: IProps = {
-    goPush: () => {}
+    goPush: (to: string) => {},
+    disconnectUser: () => {}
   };
 
   constructor(props: IProps) {
@@ -60,6 +62,15 @@ export default class Navbar extends React.PureComponent<IProps, IState> {
             <NavItem>
               <NavLink onClick={() => this.props.goPush('/translate')} className={styles.clickable}>
                 Translate
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+        <Collapse isOpen={this.state.isOpen} navbar={true}>
+          <Nav className="ml-auto" navbar={true}>
+            <NavItem>
+              <NavLink onClick={() => this.props.disconnectUser()} className={styles.clickable}>
+                Disconnect
               </NavLink>
             </NavItem>
           </Nav>

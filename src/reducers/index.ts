@@ -5,10 +5,12 @@ import { RouterState } from 'connected-react-router';
 
 // Import all reducers
 import Counter, { State as CounterState } from './counter';
+import User, { State as UserState } from './user';
 
 // Interface redux app
 export interface IReduxState {
   Counter: CounterState;
+  User: UserState;
   i18n: I18nState;
   Route: RouterState;
 }
@@ -16,5 +18,6 @@ export interface IReduxState {
 // Export all reducers combine
 export default combineReducers({
   Counter,
+  User,
   i18n: i18nReducer
 });
