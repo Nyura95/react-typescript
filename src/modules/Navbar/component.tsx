@@ -2,6 +2,7 @@ import * as React from 'react';
 
 // Modules
 import { Navbar as NavbarReactStrap, NavbarBrand, Nav, NavItem, NavLink, Collapse, NavbarToggler } from 'reactstrap';
+import { I18n } from 'react-redux-i18n';
 
 // Sass import
 import * as styles from './styles.scss';
@@ -16,7 +17,7 @@ interface IState {
   isOpen: boolean;
 }
 
-export default class Navbar extends React.PureComponent<IProps, IState> {
+export default class Navbar extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
     goPush: (to: string) => {},
     disconnectUser: () => {}
@@ -35,7 +36,13 @@ export default class Navbar extends React.PureComponent<IProps, IState> {
     });
   }
 
+  shouldComponentUpdate() {
+    console.log('t');
+    return true;
+  }
+
   render() {
+    console.log('Navbar');
     return (
       <NavbarReactStrap dark={true} color={'dark'} expand="md">
         <NavbarBrand
@@ -44,24 +51,24 @@ export default class Navbar extends React.PureComponent<IProps, IState> {
           className={styles.clickable}
           style={{ color: 'white' }}
         >
-          react-typescript
+          {I18n.t('nav.title')}
         </NavbarBrand>
         <NavbarToggler onClick={() => this.toggle()} />
         <Collapse isOpen={this.state.isOpen} navbar={true}>
           <Nav className="mr-auto" navbar={true}>
             <NavItem>
               <NavLink onClick={() => this.props.goPush('/')} className={styles.clickable}>
-                Home
+                {I18n.t('nav.page1')}
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink onClick={() => this.props.goPush('/counter')} className={styles.clickable}>
-                Counter
+                {I18n.t('nav.page2')}
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink onClick={() => this.props.goPush('/translate')} className={styles.clickable}>
-                Translate
+                {I18n.t('nav.page3')}
               </NavLink>
             </NavItem>
           </Nav>
@@ -70,7 +77,7 @@ export default class Navbar extends React.PureComponent<IProps, IState> {
           <Nav className="ml-auto" navbar={true}>
             <NavItem>
               <NavLink onClick={() => this.props.disconnectUser()} className={styles.clickable}>
-                Disconnect
+                {I18n.t('nav.disconnect')}
               </NavLink>
             </NavItem>
           </Nav>

@@ -25,7 +25,8 @@ export default class Button extends React.PureComponent<IProps> {
     busy: false,
     className: '',
     icon: faSpinner,
-    style: {}
+    style: {},
+    onClick: () => {}
   };
 
   showText() {
@@ -42,6 +43,7 @@ export default class Button extends React.PureComponent<IProps> {
   }
 
   render() {
+    console.log('Button');
     return (
       <RButton
         color={this.props.color}

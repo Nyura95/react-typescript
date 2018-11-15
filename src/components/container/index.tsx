@@ -11,12 +11,13 @@ export interface IProps extends ContainerProps {
   removePadding: boolean;
 }
 
-export default class Container extends React.PureComponent<IProps> {
+export default class Container extends React.Component<IProps> {
   static defaultProps: IProps = {
     removePadding: false
   };
 
   render() {
+    console.log('CONTAINER');
     return (
       <RContainer
         className={

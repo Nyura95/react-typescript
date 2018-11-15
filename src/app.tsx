@@ -3,14 +3,11 @@ import * as React from 'react';
 import { render } from 'react-dom';
 
 // Store
-import { history, store, persistor } from './store';
+import { store, persistor } from './store';
 
 // Redux
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-
-// Router
-import { ConnectedRouter } from 'connected-react-router';
 
 // Component
 import Layout from './routes/layout';
@@ -20,9 +17,7 @@ class Application extends React.Component {
     return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <ConnectedRouter history={history}>
-            <Layout />
-          </ConnectedRouter>
+          <Layout />
         </PersistGate>
       </Provider>
     );

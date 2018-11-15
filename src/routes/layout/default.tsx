@@ -19,6 +19,7 @@ interface IState {}
 
 export default class Default extends React.Component<IProps, IState> {
   render() {
+    console.log('Default');
     return (
       <Container fluid={true} removePadding={true}>
         <Navbar />

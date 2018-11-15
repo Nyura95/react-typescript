@@ -13,13 +13,11 @@ import { Dispatch, I18nType, I18nState } from '../../actions/types';
 // Actions
 import { setLocale } from 'react-redux-i18n';
 
-const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
-  locale: reducers.i18n.locale
-});
+const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({});
 
 const mapDispatchToProps = (dispatch: Dispatch<I18nType, I18nState>): Partial<IProps> => {
   return {
-    setLocale: (lang: string) => dispatch(setLocale(lang))
+    setLocale: (lang: string) => dispatch(setLocale('fr'))
   };
 };
 
