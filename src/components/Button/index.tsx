@@ -19,11 +19,14 @@ export interface IProps extends ButtonProps {
   style: object;
 }
 
-export default class Button extends React.PureComponent<IProps> {
+interface IState {}
+
+export default class Button extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
     color: 'primary',
     busy: false,
     className: '',
+    disabled: false,
     icon: faSpinner,
     style: {},
     onClick: () => {}
@@ -42,8 +45,20 @@ export default class Button extends React.PureComponent<IProps> {
     );
   }
 
+  // No PureComponent because the props have a object (shadow compare does not work)
+  // Carefull if you need change onClick something else, change this function
+  shouldComponentUpdate(nextProps: IProps) {
+    if (
+      nextProps.color !== this.props.color ||
+      nextProps.busy !== this.props.busy ||
+      nextProps.disabled !== this.props.disabled
+    ) {
+      return true;
+    }
+    return false;
+  }
+
   render() {
-    console.log('Button');
     return (
       <RButton
         color={this.props.color}

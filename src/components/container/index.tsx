@@ -17,7 +17,6 @@ export default class Container extends React.Component<IProps> {
   };
 
   render() {
-    console.log('CONTAINER');
     return (
       <RContainer
         className={

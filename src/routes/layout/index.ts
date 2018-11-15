@@ -9,8 +9,7 @@ import { IReduxState } from '../../reducers';
 
 // be carfull, here you must not subscribe to a store that is too often updated.
 const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
-  connected: reducers.User.token !== '',
-  locale: reducers.i18n.locale
+  connected: reducers.User.token !== ''
 });
 
 const mapDispatchToProps = (): Partial<IProps> => {
