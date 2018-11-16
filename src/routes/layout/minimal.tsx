@@ -15,10 +15,12 @@ interface IState {}
 export default class Minimal extends React.Component<IProps, IState> {
   render() {
     return (
-      <Switch>
-        <Route exact={true} path="/" component={Login} />
-        <Redirect from="*" to="/" />
-      </Switch>
+      <Container>
+        <Switch>
+          <Route exact={true} path="/" component={Login} />
+          <Redirect from="*" to="/" />
+        </Switch>
+      </Container>
     );
   }
 }

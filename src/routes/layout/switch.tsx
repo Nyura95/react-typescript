@@ -15,15 +15,16 @@ interface IState {}
 
 export default class Switch extends React.Component<IProps, IState> {
   render() {
+    console.log('switch');
     return (
-      <Container>
+      <div>
         <RSwitch>
           <Route exact={true} path="/" component={Home} />
           <Route exact={true} path="/counter" component={Counter} />
           <Route exact={true} path="/translate" component={Translate} />
           <Redirect from="*" to="/" />
         </RSwitch>
-      </Container>
+      </div>
     );
   }
 }

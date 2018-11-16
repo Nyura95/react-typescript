@@ -21,11 +21,9 @@ interface IState {}
 
 export default class Layout extends React.Component<IProps, IState> {
   render() {
-    console.log('ttttt');
     return (
       <ConnectedRouter history={history}>
         <Container fluid={true} removePadding={true}>
-          <Navbar />
           {this.props.connected ? <Default /> : <Minimal />}
         </Container>
       </ConnectedRouter>

@@ -17,7 +17,7 @@ interface IState {
   isOpen: boolean;
 }
 
-export default class Navbar extends React.Component<IProps, IState> {
+export default class Navbar extends React.PureComponent<IProps, IState> {
   static defaultProps: IProps = {
     goPush: (to: string) => {},
     disconnectUser: () => {}
@@ -34,11 +34,6 @@ export default class Navbar extends React.Component<IProps, IState> {
     this.setState({
       isOpen: !this.state.isOpen
     });
-  }
-
-  shouldComponentUpdate() {
-    console.log('t');
-    return true;
   }
 
   render() {
