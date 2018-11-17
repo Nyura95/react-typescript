@@ -24,10 +24,7 @@ const initialState: State = {
 export default function counter(state: State = initialState, action: IAction<Type, State>): State {
   switch (action.type) {
     case 'SET_USER':
-      return {
-        ...state,
-        ...action.payload
-      };
+      return action.payload;
     default:
       return state;
   }

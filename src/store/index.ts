@@ -7,6 +7,7 @@ import reduxPersistTransformCompress from 'redux-persist-transform-compress';
 
 // (Inter)action
 import { IAction } from '../actions/types';
+import { getTranslate } from '../actions/i18n';
 
 // I18n
 import { loadTranslations, setLocale, syncTranslationWithStore, TranslationObjects } from 'react-redux-i18n';
@@ -20,7 +21,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import reducers, { IReduxState } from '../reducers';
 
 // Config
-import config from '../config';
+import { config } from '../config';
 
 // Compress the store
 const compressor: Transform<null, null> = reduxPersistTransformCompress();
@@ -53,4 +54,4 @@ export const persistor: Persistor = persistStore(store);
 syncTranslationWithStore(store);
 store.dispatch(loadTranslations(translations as TranslationObjects));
 // Set your default lang (must pass on localstorage user)
-store.dispatch(setLocale('en'));
+store.dispatch(setLocale(getTranslate()));

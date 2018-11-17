@@ -1,10 +1,7 @@
-export interface IConfig {
-  production: boolean;
-}
-
-const config: IConfig = {
-  production: false
+export const config = {
+  production: false,
+  i18n: {
+    defaultLang: 'en',
+    storeName: 'lang'
+  }
 };
-
-
-export default config;

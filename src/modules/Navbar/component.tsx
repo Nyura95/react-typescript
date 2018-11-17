@@ -17,7 +17,7 @@ interface IState {
   isOpen: boolean;
 }
 
-export default class Navbar extends React.PureComponent<IProps, IState> {
+export default class Navbar extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
     goPush: (to: string) => {},
     disconnectUser: () => {}
@@ -30,6 +30,15 @@ export default class Navbar extends React.PureComponent<IProps, IState> {
     };
   }
 
+  // We do not need to update this component
+  shouldComponentUpdate(_: IProps, nextState: IState) {
+    console.log(_);
+    if (nextState.isOpen !== this.state.isOpen) {
+      return true;
+    }
+    return false;
+  }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -37,7 +46,6 @@ export default class Navbar extends React.PureComponent<IProps, IState> {
   }
 
   render() {
-    console.log('Navbar');
     return (
       <NavbarReactStrap dark={true} color={'dark'} expand="md">
         <NavbarBrand

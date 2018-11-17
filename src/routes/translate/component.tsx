@@ -19,6 +19,7 @@ export interface IProps extends RouteComponentProps {
 
 export default class Translate extends React.Component<IProps> {
   render() {
+    console.log('t');
     return (
       <Row className={styles.container}>
         <Col lg="12" className={styles.container_button}>
