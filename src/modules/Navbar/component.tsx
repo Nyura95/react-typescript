@@ -32,7 +32,6 @@ export default class Navbar extends React.Component<IProps, IState> {
 
   // We do not need to update this component
   shouldComponentUpdate(_: IProps, nextState: IState) {
-    console.log(_);
     if (nextState.isOpen !== this.state.isOpen) {
       return true;
     }

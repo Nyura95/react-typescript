@@ -53,5 +53,4 @@ export const persistor: Persistor = persistStore(store);
 
 syncTranslationWithStore(store);
 store.dispatch(loadTranslations(translations as TranslationObjects));
-// Set your default lang (must pass on localstorage user)
 store.dispatch(setLocale(getTranslate()));

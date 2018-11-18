@@ -6,6 +6,8 @@ import { Container as RContainer, ContainerProps } from 'reactstrap';
 // Sass import
 import * as styles from './Styles.scss';
 
+import { joinClass } from '../../helpers/general';
+
 // Interface props
 export interface IProps extends ContainerProps {
   removePadding: boolean;
@@ -20,7 +22,9 @@ export default class Container extends React.Component<IProps> {
     return (
       <RContainer
         className={
-          this.props.removePadding ? [styles.remove_padding, this.props.className].join(' ') : this.props.className
+          this.props.removePadding
+            ? joinClass(styles.remove_padding, this.props.className ? this.props.className : '')
+            : this.props.className
         }
         tag={this.props.tag}
         fluid={this.props.fluid}

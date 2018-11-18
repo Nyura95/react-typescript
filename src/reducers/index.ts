@@ -4,8 +4,8 @@ import { i18nReducer, I18nState } from 'react-redux-i18n';
 import { RouterState } from 'connected-react-router';
 
 // Import all reducers
-import Counter, { State as CounterState } from './counter';
-import User, { State as UserState } from './user';
+import Counter, { IState as CounterState } from './counter';
+import User, { IState as UserState } from './user';
 
 // Interface redux app
 export interface IReduxState {

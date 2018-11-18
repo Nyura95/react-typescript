@@ -5,17 +5,17 @@ import { IAction } from '../actions/types';
 export type Type = 'ADD_COUNTER' | 'SET_COUNTER';
 
 // Declare state reducer
-export type State = {
+export type IState = {
   counter: number;
 };
 
 // Initial
-const initialState: State = {
+const initialState: IState = {
   counter: 0
 };
 
 // Reducer
-export default function counter(state: State = initialState, action: IAction<Type, State>): State {
+export default function counter(state: IState = initialState, action: IAction<Type, IState>): IState {
   switch (action.type) {
     case 'ADD_COUNTER':
       return {

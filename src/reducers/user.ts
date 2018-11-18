@@ -5,7 +5,7 @@ import { IAction } from '../actions/types';
 export type Type = 'SET_USER';
 
 // Declare state reducer
-export type State = {
+export type IState = {
   username: string;
   first_name: string;
   last_name: string;
@@ -13,7 +13,7 @@ export type State = {
 };
 
 // Initial
-const initialState: State = {
+const initialState: IState = {
   username: '',
   first_name: '',
   last_name: '',
@@ -21,7 +21,7 @@ const initialState: State = {
 };
 
 // Reducer
-export default function counter(state: State = initialState, action: IAction<Type, State>): State {
+export default function counter(state: IState = initialState, action: IAction<Type, IState>): IState {
   switch (action.type) {
     case 'SET_USER':
       return action.payload;

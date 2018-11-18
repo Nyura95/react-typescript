@@ -6,8 +6,8 @@ import { LocationActionPayload } from 'connected-react-router';
 
 // Types
 import { IReduxState } from '../reducers';
-import { Type as CounterType, State as CounterState } from '../reducers/counter';
-import { Type as UserType, State as UserState } from '../reducers/user';
+import { Type as CounterType, IState as CounterState } from '../reducers/counter';
+import { Type as UserType, IState as UserState } from '../reducers/user';
 
 // All interface Action
 export interface IAction<T, P> {
