@@ -1,15 +1,12 @@
 import * as React from 'react';
 
-// Modules
 import { Button as RButton, ButtonProps } from 'reactstrap';
 import { I18n } from 'react-redux-i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
-// Sass import
 import * as styles from './styles.scss';
 
-// Interface props
 export interface IProps extends ButtonProps {
   color: 'danger' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'link';
   translate?: string;
@@ -48,14 +45,11 @@ export default class Button extends React.Component<IProps, IState> {
   // No PureComponent because the props have a object (shadow compare does not work)
   // Carefull if you need change onClick something else, change this function
   shouldComponentUpdate(nextProps: IProps) {
-    if (
+    return (
       nextProps.color !== this.props.color ||
       nextProps.busy !== this.props.busy ||
       nextProps.disabled !== this.props.disabled
-    ) {
-      return true;
-    }
-    return false;
+    );
   }
 
   render() {

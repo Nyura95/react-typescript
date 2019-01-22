@@ -1,11 +1,14 @@
 // Types
 import { IUserAction, IUserDispatch } from './types';
+import { IUserState } from '../reducers';
 
-// Auth the user
-export const authUser = (username: string, password: string): IUserAction => (
-  dispatch: IUserDispatch
-) => {
-  // Simulate connection on the api
+/**
+ * Log a user with a timeout for simulate a api
+ * @param username string
+ * @param password string
+ * @returns IUserAction
+ */
+export const authUser = (username: string, password: string): IUserAction => (dispatch: IUserDispatch) => {
   setTimeout(() => {
     dispatch({
       type: 'SET_USER',
@@ -13,19 +16,18 @@ export const authUser = (username: string, password: string): IUserAction => (
         username,
         first_name: 'Jean',
         last_name: 'Delacour',
-        token: 'anYtoken1213456789'
+        token: 'ranD0mTokEn'
       }
     });
   }, 1000);
 };
 
-export const disconnectUser = (): IUserAction => (dispatch: IUserDispatch) =>
+/**
+ * Disconnect the user
+ * @return IUserAction
+ */
+export const disconnectUser = (): IUserAction<Partial<IUserState>> => (dispatch: IUserDispatch<Partial<IUserState>>) =>
   dispatch({
-    type: 'SET_USER',
-    payload: {
-      username: '',
-      first_name: '',
-      last_name: '',
-      token: ''
-    }
+    type: 'RESET_USER',
+    payload: {}
   });

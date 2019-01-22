@@ -18,8 +18,8 @@ import createBrowserHistory from 'history/createBrowserHistory';
 
 // Reducers
 import reducers from '../reducers';
-import { IAction } from '../actions'
-import { IReduxState } from '../reducers'
+import { IAction } from '../actions';
+import { IReduxState } from '../reducers';
 
 // Config
 import { config } from '../config';
@@ -46,7 +46,9 @@ export const store = createStore(
   // Connect the router and add the persist reducers
   connectRouter(history)(persistedReducer),
   // Thunk for dispatch async and load the history
-  compose(applyMiddleware(reduxThunk as ThunkMiddleware<IReduxState, IAction<any, any>>, routerMiddleware(history)))
+  compose(
+    applyMiddleware(reduxThunk as ThunkMiddleware<IReduxState, IAction<unknown, unknown>>, routerMiddleware(history))
+  )
 );
 
 // Create the persistor

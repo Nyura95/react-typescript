@@ -1,19 +1,17 @@
 import * as React from 'react';
 
-// Modules
 import { Container as RContainer, ContainerProps } from 'reactstrap';
 
-// Sass import
-import * as styles from './Styles.scss';
-
+import * as styles from './styles.scss';
 import { joinClass } from '../../helpers/general';
 
-// Interface props
 export interface IProps extends ContainerProps {
   removePadding: boolean;
 }
 
-export default class Container extends React.Component<IProps> {
+interface IState {}
+
+export default class Container extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
     removePadding: false
   };

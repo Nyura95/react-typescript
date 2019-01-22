@@ -11,7 +11,7 @@ export interface IHeaders {
   mode?: string;
 }
 
-// update the interface in according to your api
+// update this interface according to your api
 export interface IPayloadApi<D = unknown, S = boolean> {
   success: S;
   reason: number;
@@ -21,4 +21,4 @@ export interface IPayloadApi<D = unknown, S = boolean> {
   serverTime: Date;
 }
 
-// declare here your custom interface
+// declare here your custom interface API
