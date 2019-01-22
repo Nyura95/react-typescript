@@ -1,19 +1,21 @@
-// Types
-import { Action, Dispatch, CounterType, CounterState } from './types';
+import { ICounterAction, ICounterDispatch } from './types';
+import logger from '../loggeur';
+
+const source = 'Counter action';
 
 // Action set the counter
-export const setCounter = (counter: number): Action<CounterType, CounterState> => (
-  dispatch: Dispatch<CounterType, CounterState>
-) =>
+export const setCounter = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
+  logger.info('Add counter', source);
   dispatch({
     type: 'ADD_COUNTER',
     payload: {
       counter
     }
   });
+};
 
 // Action for reset the counter from 0
-export const resetCounter = (): Action<CounterType, CounterState> => (dispatch: Dispatch<CounterType, CounterState>) =>
+export const resetCounter = (): ICounterAction => (dispatch: ICounterDispatch) =>
   dispatch({
     type: 'SET_COUNTER',
     payload: {
@@ -22,9 +24,7 @@ export const resetCounter = (): Action<CounterType, CounterState> => (dispatch: 
   });
 
 // Action set in async the counter
-export const AsyncSetCounter = (counter: number): Action<CounterType, CounterState> => (
-  dispatch: Dispatch<CounterType, CounterState>
-) => {
+export const AsyncSetCounter = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
   // Simulate the api
   setTimeout(() => {
     // Dispatch in async

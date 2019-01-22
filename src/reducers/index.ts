@@ -1,23 +1,21 @@
 // Redux
 import { combineReducers } from 'redux';
-import { i18nReducer, I18nState } from 'react-redux-i18n';
-import { RouterState } from 'connected-react-router';
+import { i18nReducer } from 'react-redux-i18n';
+import { connectRouter} from 'connected-react-router'
 
-// Import all reducers
-import Counter, { IState as CounterState } from './counter';
-import User, { IState as UserState } from './user';
+export * from './types';
 
-// Interface redux app
-export interface IReduxState {
-  Counter: CounterState;
-  User: UserState;
-  i18n: I18nState;
-  Route: RouterState;
-}
+// Import here your new created reducers
+import { Counter } from './counter';
+import { User } from './user';
+import { History } from 'history';
 
 // Export all reducers combine
-export default combineReducers({
+const reducers = (history: History) => combineReducers({
   Counter,
   User,
+  router: connectRouter(history) as any,
   i18n: i18nReducer
 });
+
+export default reducers;

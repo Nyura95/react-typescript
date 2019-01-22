@@ -6,7 +6,6 @@ import { persistStore, persistReducer, Persistor, PersistConfig, Transform } fro
 import reduxPersistTransformCompress from 'redux-persist-transform-compress';
 
 // (Inter)action
-import { IAction } from '../actions/types';
 import { getTranslate } from '../actions/i18n';
 
 // I18n
@@ -18,7 +17,9 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 // Reducers
-import reducers, { IReduxState } from '../reducers';
+import reducers from '../reducers';
+import { IAction } from '../actions'
+import { IReduxState } from '../reducers'
 
 // Config
 import { config } from '../config';
@@ -34,11 +35,11 @@ const persistConfig: PersistConfig = {
   transforms: config.production ? [compressor] : []
 };
 
-// Get the persist reducer from reducer
-const persistedReducer = persistReducer(persistConfig, reducers);
-
 // Create web history
 export const history = createBrowserHistory();
+
+// Get the persist reducer from reducer
+const persistedReducer = persistReducer(persistConfig, reducers(history));
 
 // Create the store
 export const store = createStore(

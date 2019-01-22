@@ -5,8 +5,6 @@ import Home from '../home';
 import Counter from '../counter';
 import Translate from '../translate';
 
-import { Container } from '../../components';
-
 // Router
 import { Switch as RSwitch, Redirect, Route } from 'react-router';
 

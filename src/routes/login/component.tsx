@@ -4,7 +4,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 
 // Module
-import { Row, Col } from 'reactstrap';
+import { Row } from 'reactstrap';
 import { Button } from '../../components';
 
 // Sass import

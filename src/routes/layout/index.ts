@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Component, { IProps } from './component';
 
 // Reducers type
-import { IReduxState } from '../../reducers';
+import { IReduxState } from '../../reducers/types';
 
 // be carfull, here you must not subscribe to a store that is too often updated.
 const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({

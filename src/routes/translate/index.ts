@@ -4,20 +4,18 @@ import { connect } from 'react-redux';
 // Component
 import Component, { IProps } from './component';
 
-// Reducer type
-import { IReduxState } from '../../reducers';
-
 // reducer type
-import { Dispatch, I18nType, I18nState } from '../../actions/types';
+import { IReduxState} from '../../reducers/types';
 
 // Actions
 import { setLang } from '../../actions/i18n';
+import { I18nDispatch } from '../../actions';
 
 const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
   locale: reducers.i18n.locale
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<I18nType, I18nState>): Partial<IProps> => {
+const mapDispatchToProps = (dispatch: I18nDispatch): Partial<IProps> => {
   return {
     setLocale: (lang: string) => setLang(lang)
   };

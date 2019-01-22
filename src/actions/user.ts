@@ -1,9 +1,9 @@
 // Types
-import { Action, Dispatch, UserType, UserState } from './types';
+import { IUserAction, IUserDispatch } from './types';
 
 // Auth the user
-export const authUser = (username: string, password: string): Action<UserType, UserState> => (
-  dispatch: Dispatch<UserType, UserState>
+export const authUser = (username: string, password: string): IUserAction => (
+  dispatch: IUserDispatch
 ) => {
   // Simulate connection on the api
   setTimeout(() => {
@@ -19,7 +19,7 @@ export const authUser = (username: string, password: string): Action<UserType, U
   }, 1000);
 };
 
-export const disconnectUser = (): Action<UserType, UserState> => (dispatch: Dispatch<UserType, UserState>) =>
+export const disconnectUser = (): IUserAction => (dispatch: IUserDispatch) =>
   dispatch({
     type: 'SET_USER',
     payload: {

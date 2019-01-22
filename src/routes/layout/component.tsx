@@ -7,7 +7,6 @@ import Default from './default';
 // Router
 import { ConnectedRouter } from 'connected-react-router';
 
-import { Navbar } from '../../modules';
 import { Container } from '../../components';
 
 // Store

@@ -1,5 +1,11 @@
-// add json for typescript
+// for import json from typescript
 declare module '*.json';
 
-// add scss for typescript
+// for import scss from typescript
 declare module '*.scss';
+
+// for import png from typescript
+declare module '*.png';
+
+// fetchtival does not have a module typescript
+declare module 'fetchival';

@@ -1,36 +1,26 @@
-// Modules
-import { Action } from 'redux';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { I18nState } from 'react-redux-i18n';
-import { LocationActionPayload } from 'connected-react-router';
-
-// Types
-import { IReduxState } from '../reducers';
-import { Type as CounterType, IState as CounterState } from '../reducers/counter';
-import { Type as UserType, IState as UserState } from '../reducers/user';
+import { IReduxState, I18nType, I18nState, IUserType, IUserState, ICounterType, ICounterState, IRouterType, IRouterState } from '../reducers';
 
 // All interface Action
-export interface IAction<T, P> {
+export interface IAction<T, S> {
   type: T;
-  payload: P;
+  payload: S;
 }
 
 // Thunk (async dispatch/action)
-export type Dispatch<T, P> = ThunkDispatch<IReduxState, null, IAction<T, P>>;
-export type Action<T, P> = ThunkAction<void, IReduxState, null, IAction<T, P>>;
+export type ICustomDispatch<T, S> = ThunkDispatch<IReduxState, null, IAction<T, S>>;
+export type ICustomAction<T, S> = ThunkAction<void, IReduxState, null, IAction<T, S>>;
 
-// Module reducer I18n
-export type I18nType = string;
-export type I18nState = I18nState;
 
-/// Module reducer Router
-export type RouterType = string;
-export type RouterState = LocationActionPayload;
+// export here your dispatch/action
+export type I18nDispatch<T = I18nType, S = I18nState> = ICustomDispatch<T, S>;
+export type I18nAction<T = I18nType, S = I18nState> = ICustomAction<T, S>;
 
-// Reducer Counter
-export type UserType = UserType;
-export type UserState = UserState;
+export type IUserDispatch<T = IUserType, S = IUserState> = ICustomDispatch<T, S>;
+export type IUserAction<T = I18nType, S = I18nState> = ICustomAction<T, S>;
 
-// Reducer User
-export type CounterType = CounterType;
-export type CounterState = CounterState;
+export type ICounterDispatch<T = ICounterType, S = ICounterState> = ICustomDispatch<T, S>;
+export type ICounterAction<T = ICounterType, S = ICounterState> = ICustomAction<T, S>;
+
+export type IRouterDispatch<T = IRouterType, S = IRouterState> = ICustomDispatch<T, S>;
+export type IRouterAction<T = ICounterType, S = ICounterState> = ICustomAction<T, S>;

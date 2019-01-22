@@ -2,11 +2,11 @@
 import { push, goBack } from 'connected-react-router';
 
 // Types
-import { Action, Dispatch, RouterType, RouterState } from './types';
+import { IRouterAction, IRouterDispatch } from './types';
 
-export const RouterPush = (to: string): Action<RouterType, RouterState> => (
-  dispatch: Dispatch<RouterType, RouterState>
-) => dispatch(push(to));
+export const RouterPush = (to: string): IRouterAction => (
+  dispatch: IRouterDispatch
+) => dispatch(push(to) as any);
 
-export const RouterGoBack = (): Action<RouterType, RouterState> => (dispatch: Dispatch<RouterType, RouterState>) =>
-  dispatch(goBack());
+export const RouterGoBack = (): IRouterAction => (dispatch: IRouterDispatch) =>
+  dispatch(goBack() as any);

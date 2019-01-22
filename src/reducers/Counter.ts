@@ -1,8 +1,8 @@
 // Import action app
-import { IAction } from '../actions/types';
+import { IAction } from '../actions';
 
 // Declare type action
-export type Type = 'ADD_COUNTER' | 'SET_COUNTER';
+export type IType = 'ADD_COUNTER' | 'SET_COUNTER';
 
 // Declare state reducer
 export type IState = {
@@ -15,7 +15,7 @@ const initialState: IState = {
 };
 
 // Reducer
-export default function counter(state: IState = initialState, action: IAction<Type, IState>): IState {
+export function Counter(state: IState = initialState, action: IAction<IType, IState>): IState {
   switch (action.type) {
     case 'ADD_COUNTER':
       return {

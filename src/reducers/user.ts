@@ -1,8 +1,8 @@
 // Import action app
-import { IAction } from '../actions/types';
+import { IAction } from '../actions';
 
 // Declare type action
-export type Type = 'SET_USER';
+export type IType = 'SET_USER';
 
 // Declare state reducer
 export type IState = {
@@ -21,7 +21,7 @@ const initialState: IState = {
 };
 
 // Reducer
-export default function counter(state: IState = initialState, action: IAction<Type, IState>): IState {
+export function User(state: IState = initialState, action: IAction<IType, IState>): IState {
   switch (action.type) {
     case 'SET_USER':
       return action.payload;

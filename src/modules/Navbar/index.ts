@@ -4,15 +4,14 @@ import { connect } from 'react-redux';
 // Component
 import Component, { IProps } from './Component';
 
-// Types
-import { Dispatch, RouterType, UserType, RouterState, UserState } from '../../actions/types';
 
 // Actions
-import { RouterPush, disconnectUser } from '../../actions';
+import { RouterPush, disconnectUser, ICounterDispatch } from '../../actions';
+import { IRouterType, IUserType, IRouterState, IUserState } from '../../reducers';
 
 const mapStateToProps = (): Partial<IProps> => ({});
 
-const mapDispatchToProps = (dispatch: Dispatch<RouterType | UserType, RouterState | UserState>): Partial<IProps> => {
+const mapDispatchToProps = (dispatch: ICounterDispatch<IRouterType | IUserType, IRouterState | IUserState>): Partial<IProps> => {
   return {
     goPush: (to: string) => dispatch(RouterPush(to)),
     disconnectUser: () => dispatch(disconnectUser())
