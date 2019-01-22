@@ -1,4 +1,5 @@
 import { IAction } from '../actions';
+import logger from '../logger';
 
 export type IType = 'ADD_COUNTER' | 'SET_COUNTER';
 

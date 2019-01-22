@@ -23,6 +23,9 @@ import { IReduxState } from '../reducers';
 
 // Config
 import { config } from '../config';
+import logger from '../logger';
+
+logger.info(`initialization store`);
 
 // Compress the store
 const compressor: Transform<null, null> = reduxPersistTransformCompress();
@@ -52,8 +55,11 @@ export const store = createStore(
 );
 
 // Create the persistor
-export const persistor: Persistor = persistStore(store);
+export const persistor: Persistor = persistStore(store, undefined, () => {
+  logger.info(`store initialized`);
+});
 
 syncTranslationWithStore(store);
 store.dispatch(loadTranslations(translations as TranslationObjects));
+console.log(getTranslate());
 store.dispatch(setLocale(getTranslate()));

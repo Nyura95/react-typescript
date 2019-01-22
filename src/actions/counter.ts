@@ -1,5 +1,5 @@
 import { ICounterAction, ICounterDispatch } from './types';
-import logger from '../loggeur';
+import logger from '../logger';
 
 // Set the source file
 const source = 'Counter action';
@@ -10,9 +10,9 @@ const source = 'Counter action';
  * @returns ICounterAction
  */
 export const setCounter = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
-  logger.trace('Set counter', source);
+  logger.info('Set counter', source);
   return dispatch({
-    type: 'SET_COUNTER',
+    type: 'ADD_COUNTER',
     payload: {
       counter
     }
@@ -24,7 +24,7 @@ export const setCounter = (counter: number): ICounterAction => (dispatch: ICount
  * @returns ICounterAction
  */
 export const resetCounter = (): ICounterAction => (dispatch: ICounterDispatch) => {
-  logger.trace('Reset counter', source);
+  logger.info('Reset counter', source);
   return dispatch({
     type: 'SET_COUNTER',
     payload: {
@@ -39,10 +39,8 @@ export const resetCounter = (): ICounterAction => (dispatch: ICounterDispatch) =
  * @returns ICounterAction
  */
 export const AsyncSetCounter = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
-  logger.trace('Async set counter', source);
-  // Simulate the api
+  logger.info('Async set counter', source);
   setTimeout(() => {
-    // Dispatch in async
     return dispatch({
       type: 'ADD_COUNTER',
       payload: {

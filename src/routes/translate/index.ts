@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import Component, { IProps } from './component';
 
 // reducer type
-import { IReduxState} from '../../reducers/types';
+import { IReduxState } from '../../reducers/types';
 
 // Actions
-import { setLang } from '../../actions/i18n';
+import { setLang, getTranslate } from '../../actions/i18n';
 import { I18nDispatch } from '../../actions';
 
 const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
@@ -17,7 +17,8 @@ const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
 
 const mapDispatchToProps = (dispatch: I18nDispatch): Partial<IProps> => {
   return {
-    setLocale: (lang: string) => setLang(lang)
+    setLocale: (lang: string) => setLang(lang),
+    getTranslate: (): string => getTranslate()
   };
 };
 
