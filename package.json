@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=dev &&parcel ./src/index.html --open",
     "start": "NODE_ENV=development &&parcel ./src/index.html --open",
-    "build": "NODE_ENV=production &&parcel build ./src/index.html --out-dir build --public-url /test/ --detailed-report",
+    "build": "NODE_ENV=production &&parcel build ./src/index.html --out-dir build --detailed-report",
     "serve": "node server.js 3000",
     "watch": "parcel watch ./src/index.html",
     "tslint": "tslint --project tsconfig.json ./src/**/*.tsx&&tslint --project tsconfig.json ./src/**/*.ts"
