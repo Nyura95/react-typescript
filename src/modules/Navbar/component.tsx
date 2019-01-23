@@ -1,13 +1,10 @@
 import * as React from 'react';
 
-// Modules
 import { Navbar as NavbarReactStrap, NavbarBrand, Nav, NavItem, NavLink, Collapse, NavbarToggler } from 'reactstrap';
 import { I18n } from 'react-redux-i18n';
 
-// Sass import
 import * as styles from './styles.scss';
 
-// Interface props
 export interface IProps {
   goPush(to: string): void;
   disconnectUser(): void;
@@ -19,7 +16,7 @@ export interface IState {
 
 export default class Navbar extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
-    goPush: (to: string) => {},
+    goPush: () => {},
     disconnectUser: () => {}
   };
 
@@ -28,14 +25,6 @@ export default class Navbar extends React.Component<IProps, IState> {
     this.state = {
       isOpen: false
     };
-  }
-
-  // We do not need to update this component
-  shouldComponentUpdate(_: IProps, nextState: IState) {
-    if (nextState.isOpen !== this.state.isOpen) {
-      return true;
-    }
-    return false;
   }
 
   toggle() {
