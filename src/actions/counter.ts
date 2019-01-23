@@ -6,8 +6,9 @@ const source = 'Counter action';
 
 /**
  * Increment the counter with the variable {counter}
- * @param counter number
- * @returns ICounterAction
+ * @param {number} counter
+ * @version 1.0.0
+ * @returns {ICounterAction}
  */
 export const setCounter = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
   logger.info('Set counter', source);
@@ -21,7 +22,8 @@ export const setCounter = (counter: number): ICounterAction => (dispatch: ICount
 
 /**
  * Reset the counter at 0
- * @returns ICounterAction
+ * @version 1.0.0
+ * @returns {ICounterAction}
  */
 export const resetCounter = (): ICounterAction => (dispatch: ICounterDispatch) => {
   logger.info('Reset counter', source);
@@ -35,8 +37,9 @@ export const resetCounter = (): ICounterAction => (dispatch: ICounterDispatch) =
 
 /**
  * Increment the counter with the variable {counter} in asynchronous
- * @param counter number
- * @returns ICounterAction
+ * @param {number} counter
+ * @version 1.0.0
+ * @returns {ICounterAction}
  */
 export const AsyncSetCounter = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
   logger.info('Async set counter', source);

@@ -1,27 +1,22 @@
 import * as React from 'react';
-
-// Type
+import { Row } from 'reactstrap';
 import { RouteComponentProps } from 'react-router';
 
-// Module
-import { Row } from 'reactstrap';
 import { Button } from '../../components';
 
-// Sass import
 import * as styles from './styles.scss';
 
-// Interface props
 export interface IProps extends RouteComponentProps {
   authUser(username: string, password: string): void;
 }
 
 // Interface state
-interface IState {
+export interface IState {
   busy: boolean;
 }
 
 export default class Login extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
+  constructor(props: Readonly<IProps>) {
     super(props);
     this.state = {
       busy: false

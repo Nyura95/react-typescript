@@ -1,25 +1,21 @@
 import * as React from 'react';
 
-// Component
-import Minimal from './minimal';
-import Default from './default';
-
-// Router
 import { ConnectedRouter } from 'connected-react-router';
 
 import { Container } from '../../components';
-
-// Store
 import { history } from '../../store';
+
+import Minimal from './minimal';
+import Default from './default';
 
 export interface IProps {
   connected: boolean;
   locale: string;
 }
-interface IState {}
+export interface IState {}
 
 export default class Layout extends React.Component<IProps, IState> {
-  render() {
+  render(): JSX.Element {
     return (
       <ConnectedRouter history={history}>
         <Container fluid={true} removePadding={true}>

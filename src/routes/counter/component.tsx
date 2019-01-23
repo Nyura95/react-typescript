@@ -1,13 +1,10 @@
 import * as React from 'react';
 
-// Type
 import { RouteComponentProps } from 'react-router';
 
-// Component
 import { Row, Col } from 'reactstrap';
 import { Button } from '../../components';
 
-// sass import
 import * as styles from './styles.scss';
 
 // interface props
@@ -17,6 +14,8 @@ export interface IProps extends RouteComponentProps {
   resetCounter(): void;
   counter: number;
 }
+
+export interface IState {}
 
 export default class Counter extends React.PureComponent<IProps> {
   render() {

@@ -1,17 +1,15 @@
-// redux
-import { connect } from 'react-redux';
+import { ComponentClass } from 'react';
+import { connect, Matching } from 'react-redux';
 
-// Component
-import Component, { IProps } from './Component';
-
-
-// Actions
+import Component, { IProps, IState } from './Component';
 import { RouterPush, disconnectUser, ICounterDispatch } from '../../actions';
 import { IRouterType, IUserType, IRouterState, IUserState } from '../../reducers';
 
 const mapStateToProps = (): Partial<IProps> => ({});
 
-const mapDispatchToProps = (dispatch: ICounterDispatch<IRouterType | IUserType, IRouterState | IUserState>): Partial<IProps> => {
+const mapDispatchToProps = (
+  dispatch: ICounterDispatch<IRouterType | IUserType, IRouterState | IUserState>
+): Partial<IProps> => {
   return {
     goPush: (to: string) => dispatch(RouterPush(to)),
     disconnectUser: () => dispatch(disconnectUser())
@@ -21,4 +19,4 @@ const mapDispatchToProps = (dispatch: ICounterDispatch<IRouterType | IUserType, 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Component as any);
+)(Component as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);

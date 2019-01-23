@@ -1,5 +1,4 @@
 import { IAction } from '../actions';
-import logger from '../logger';
 
 export type IType = 'ADD_COUNTER' | 'SET_COUNTER';
 
@@ -11,6 +10,13 @@ const initialState: IState = {
   counter: 0
 };
 
+/**
+ * Store a counter
+ * @param state IState
+ * @param action IAction<IState, IType>
+ * @version 1.0.0
+ * @returns IState
+ */
 export function Counter(state: IState = initialState, action: IAction<IState, IType>): IState {
   switch (action.type) {
     case 'ADD_COUNTER':

@@ -1,13 +1,8 @@
-// redux
-import { connect } from 'react-redux';
+import { ComponentClass } from 'react';
+import { connect, Matching } from 'react-redux';
 
-// Component
-import Component, { IProps } from './component';
-
-// Reducers type
+import Component, { IProps, IState } from './component';
 import { IReduxState } from '../../reducers';
-
-// Actions
 import { setCounter, resetCounter, AsyncSetCounter, ICounterDispatch } from '../../actions';
 
 const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
@@ -25,4 +20,4 @@ const mapDispatchToProps = (dispatch: ICounterDispatch): Partial<IProps> => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Component as any);
+)(Component as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);

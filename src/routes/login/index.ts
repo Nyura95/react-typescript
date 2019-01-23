@@ -1,10 +1,7 @@
-// redux
-import { connect } from 'react-redux';
+import { ComponentClass } from 'react';
+import { connect, Matching } from 'react-redux';
 
-// Component
-import Component, { IProps } from './component';
-
-// Actions
+import Component, { IProps, IState } from './component';
 import { authUser, IUserDispatch } from '../../actions';
 
 const mapStateToProps = (): Partial<IProps> => ({});
@@ -18,4 +15,4 @@ const mapDispatchToProps = (dispatch: IUserDispatch): Partial<IProps> => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Component as any);
+)(Component as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);

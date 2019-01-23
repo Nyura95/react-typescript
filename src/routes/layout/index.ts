@@ -1,10 +1,7 @@
-// redux
-import { connect } from 'react-redux';
+import { ComponentClass } from 'react';
+import { connect, Matching } from 'react-redux';
 
-// Component
-import Component, { IProps } from './component';
-
-// Reducers type
+import Component, { IProps, IState } from './component';
 import { IReduxState } from '../../reducers/types';
 
 // be carfull, here you must not subscribe to a store that is too often updated.
@@ -21,4 +18,4 @@ const mapDispatchToProps = (): Partial<IProps> => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Component as any);
+)(Component as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);

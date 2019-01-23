@@ -8,19 +8,23 @@ const source = 'Router action';
 
 /**
  * Switch the current url with {to}
- * @param to string
- * @returns IRouterAction
+ * @param {string} to
+ * @version 1.0.0
+ * @returns {IRouterAction}
  */
 export const RouterPush = (to: string): IRouterAction => (dispatch: IRouterDispatch) => {
   logger.info(`push new location: ${to}`, source);
-  return dispatch(push(to) as any);
+  // tslint:disable-next-line
+  return dispatch(push(to) as any); // connected-react-router don't respect the type
 };
 
 /**
  * Return in back
+ * @version 1.0.0
  * @returns IRouterAction
  */
 export const RouterGoBack = (): IRouterAction => (dispatch: IRouterDispatch) => {
   logger.info(`go back`, source);
+  // tslint:disable-next-line
   return dispatch(goBack() as any);
 };

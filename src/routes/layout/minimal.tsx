@@ -1,12 +1,9 @@
 import * as React from 'react';
 
-// Router
 import { Route, Switch, Redirect } from 'react-router';
 
-// Module
 import { Container } from '../../components';
 
-// Pages of the app
 import Login from '../login/index';
 
 export interface IProps {}

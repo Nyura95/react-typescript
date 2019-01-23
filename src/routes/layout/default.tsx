@@ -1,16 +1,14 @@
 import * as React from 'react';
 
-// Router
-
-// Pages of the app
-import Home from '../home';
-import Counter from '../counter';
-import Translate from '../translate';
+import { Redirect, Route, Switch } from 'react-router';
 
 // Component
 import { Container } from '../../components';
 import { Navbar } from '../../modules';
-import { Redirect, Route, Switch } from 'react-router';
+
+import Home from '../home';
+import Counter from '../counter';
+import Translate from '../translate';
 
 export interface IProps {}
 interface IState {}

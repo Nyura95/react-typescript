@@ -16,6 +16,13 @@ const initialState: IState = {
   token: ''
 };
 
+/**
+ * Store the info user
+ * @param state IState
+ * @param action IAction<IState, IType>
+ * @version 1.0.0
+ * @returns IState
+ */
 export function User(state: IState = initialState, action: IAction<IState, IType>): IState {
   switch (action.type) {
     case 'SET_USER':

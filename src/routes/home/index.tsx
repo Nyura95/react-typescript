@@ -1,25 +1,20 @@
 import * as React from 'react';
 
-// Type
 import { RouteComponentProps } from 'react-router';
-
-// Module
-import { Button } from '../../components';
 import { Row, Col } from 'reactstrap';
 
-// Sass import
+import { Button } from '../../components';
+
 import * as styles from './styles.scss';
 
-// Interface props
 export interface IProps extends RouteComponentProps {}
 
-// Interface state
 interface IState {
   hello: string;
 }
 
 export default class Home extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
+  constructor(props: Readonly<IProps>) {
     super(props);
     this.state = {
       hello: 'Hello !'

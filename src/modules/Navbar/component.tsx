@@ -13,7 +13,7 @@ export interface IProps {
   disconnectUser(): void;
 }
 
-interface IState {
+export interface IState {
   isOpen: boolean;
 }
 
@@ -23,7 +23,7 @@ export default class Navbar extends React.Component<IProps, IState> {
     disconnectUser: () => {}
   };
 
-  constructor(props: IProps) {
+  constructor(props: Readonly<IProps>) {
     super(props);
     this.state = {
       isOpen: false

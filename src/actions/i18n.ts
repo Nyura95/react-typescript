@@ -9,6 +9,7 @@ const storage = window.localStorage;
 /**
  * change the {lang} in the {storage} and reload the window
  * @param lang string
+ * @version 1.0.0
  * @returns void
  */
 export const setLang = (lang: string): void => {
@@ -19,6 +20,7 @@ export const setLang = (lang: string): void => {
 
 /**
  * get the current lang in the {storage}
+ * @version 1.0.0
  * @returns string
  */
 export const getTranslate = (): string => {
