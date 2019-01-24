@@ -6,7 +6,7 @@ import { persistStore, persistReducer, Persistor, PersistConfig } from 'redux-pe
 import { createLogger } from 'redux-logger';
 
 // (Inter)action
-import { getTranslate } from '../actions/i18n';
+import { i18nGetTranslate } from '../actions/i18n';
 
 // I18n
 import { loadTranslations, setLocale, syncTranslationWithStore, TranslationObjects } from 'react-redux-i18n';
@@ -58,7 +58,7 @@ export const store = createStore(
 
 syncTranslationWithStore(store);
 store.dispatch(loadTranslations(translations as TranslationObjects));
-store.dispatch(setLocale(getTranslate()));
+store.dispatch(setLocale(i18nGetTranslate()));
 
 // Create the persistor
 export const persistor: Persistor = persistStore(store, undefined, () => {

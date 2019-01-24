@@ -3,7 +3,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Row, Col } from 'reactstrap';
 
-import { Button } from '../../components';
+import { Button, Input } from '../../components';
 
 import * as styles from './styles.scss';
 

@@ -7,7 +7,7 @@ import { Button } from '../../components';
 import * as styles from './styles.scss';
 
 export interface IProps extends RouteComponentProps {
-  authUser(username: string, password: string): void;
+  userAuth(username: string, password: string): void;
 }
 
 // Interface state
@@ -15,7 +15,7 @@ export interface IState {
   busy: boolean;
 }
 
-export default class Login extends React.Component<IProps, IState> {
+export class Login extends React.Component<IProps, IState> {
   constructor(props: Readonly<IProps>) {
     super(props);
     this.state = {
@@ -27,7 +27,7 @@ export default class Login extends React.Component<IProps, IState> {
     this.setState({
       busy: true
     });
-    this.props.authUser(username, password);
+    this.props.userAuth(username, password);
   }
 
   render() {

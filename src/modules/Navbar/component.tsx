@@ -7,17 +7,17 @@ import * as styles from './styles.scss';
 
 export interface IProps {
   goPush(to: string): void;
-  disconnectUser(): void;
+  userDisconnect(): void;
 }
 
 export interface IState {
   isOpen: boolean;
 }
 
-export default class Navbar extends React.Component<IProps, IState> {
+export class Navbar extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
     goPush: () => {},
-    disconnectUser: () => {}
+    userDisconnect: () => {}
   };
 
   constructor(props: Readonly<IProps>) {
@@ -67,7 +67,7 @@ export default class Navbar extends React.Component<IProps, IState> {
         <Collapse isOpen={this.state.isOpen} navbar={true}>
           <Nav className="ml-auto" navbar={true}>
             <NavItem>
-              <NavLink onClick={() => this.props.disconnectUser()} className={styles.clickable}>
+              <NavLink onClick={() => this.props.userDisconnect()} className={styles.clickable}>
                 {I18n.t('nav.disconnect')}
               </NavLink>
             </NavItem>

@@ -12,7 +12,7 @@ const storage = window.localStorage;
  * @version 1.0.0
  * @returns void
  */
-export const setLang = (lang: string): void => {
+export const i18nSetLang = (lang: string): void => {
   logger.info(`switch lang to ${lang}`, source);
   storage.setItem(config.i18n.storeName, lang);
   window.location.reload();
@@ -23,7 +23,7 @@ export const setLang = (lang: string): void => {
  * @version 1.0.0
  * @returns string
  */
-export const getTranslate = (): string => {
+export const i18nGetTranslate = (): string => {
   logger.info(`get current lang set`, source);
   return storage.getItem(config.i18n.storeName) || config.i18n.defaultLang;
 };

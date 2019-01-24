@@ -13,7 +13,7 @@ import Translate from '../translate';
 export interface IProps {}
 interface IState {}
 
-export default class Default extends React.Component<IProps, IState> {
+export class Default extends React.Component<IProps, IState> {
   render() {
     return (
       <Container fluid={true} removePadding={true}>

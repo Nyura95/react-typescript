@@ -18,7 +18,7 @@ export interface IProps extends ButtonProps {
 
 interface IState {}
 
-export default class Button extends React.Component<IProps, IState> {
+export class Button extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
     color: 'primary',
     busy: false,

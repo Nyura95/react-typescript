@@ -2,7 +2,7 @@
 import { IUserAction, IUserDispatch } from './types';
 import { IUserState } from '../reducers';
 import logger from '../logger';
-import { resetCounter } from './counter';
+import { counterReset } from './counter';
 
 const source = 'Counter action';
 
@@ -13,7 +13,7 @@ const source = 'Counter action';
  * @version 1.0.0
  * @returns {IUserAction}
  */
-export const authUser = (username: string, password: string): IUserAction => (dispatch: IUserDispatch) => {
+export const userAuth = (username: string, password: string): IUserAction => (dispatch: IUserDispatch) => {
   logger.info(`set a new user ${username}:${password}`, source);
   setTimeout(() => {
     dispatch({
@@ -33,14 +33,14 @@ export const authUser = (username: string, password: string): IUserAction => (di
  * @version 1.0.0
  * @return {IUserAction}
  */
-export const disconnectUser = (): IUserAction<Partial<IUserState>> => (
+export const userDisconnect = (): IUserAction<Partial<IUserState>> => (
   dispatch: IUserDispatch<Partial<IUserState>>
 ) => {
   // We need dispatch two Action here
   logger.info(`disconnect the user and reset the counter`, source);
   // For dispatch a another action, call the method corresponding
   // Don't dispatch with another type in this file
-  dispatch(resetCounter());
+  dispatch(counterReset());
   // And dispatch for your action
   return dispatch({ type: 'RESET_USER', payload: {} });
 };

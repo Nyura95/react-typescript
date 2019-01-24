@@ -10,7 +10,7 @@ const source = 'Counter action';
  * @version 1.0.0
  * @returns {ICounterAction}
  */
-export const setCounter = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
+export const counterSet = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
   logger.info('Set counter', source);
   return dispatch({
     type: 'ADD_COUNTER',
@@ -25,7 +25,7 @@ export const setCounter = (counter: number): ICounterAction => (dispatch: ICount
  * @version 1.0.0
  * @returns {ICounterAction}
  */
-export const resetCounter = (): ICounterAction => (dispatch: ICounterDispatch) => {
+export const counterReset = (): ICounterAction => (dispatch: ICounterDispatch) => {
   logger.info('Reset counter', source);
   return dispatch({
     type: 'SET_COUNTER',
@@ -41,7 +41,7 @@ export const resetCounter = (): ICounterAction => (dispatch: ICounterDispatch) =
  * @version 1.0.0
  * @returns {ICounterAction}
  */
-export const AsyncSetCounter = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
+export const counterAsyncSet = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
   logger.info('Async set counter', source);
   setTimeout(() => {
     return dispatch({

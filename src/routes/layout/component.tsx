@@ -5,8 +5,8 @@ import { ConnectedRouter } from 'connected-react-router';
 import { Container } from '../../components';
 import { history } from '../../store';
 
-import Minimal from './minimal';
-import Default from './default';
+import { Minimal } from './minimal';
+import { Default } from './default';
 
 export interface IProps {
   connected: boolean;
@@ -14,7 +14,7 @@ export interface IProps {
 }
 export interface IState {}
 
-export default class Layout extends React.Component<IProps, IState> {
+export class Layout extends React.Component<IProps, IState> {
   render(): JSX.Element {
     return (
       <ConnectedRouter history={history}>

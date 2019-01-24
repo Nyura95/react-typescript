@@ -11,7 +11,7 @@ export interface IProps extends ContainerProps {
 
 interface IState {}
 
-export default class Container extends React.Component<IProps, IState> {
+export class Container extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
     removePadding: false
   };

@@ -9,15 +9,15 @@ import * as styles from './styles.scss';
 
 // interface props
 export interface IProps extends RouteComponentProps {
-  setCounter(counter: number): void;
-  AsyncSetCounter(counter: number): void;
-  resetCounter(): void;
+  counterSet(counter: number): void;
+  counterAsyncSet(counter: number): void;
+  counterReset(): void;
   counter: number;
 }
 
 export interface IState {}
 
-export default class Counter extends React.PureComponent<IProps> {
+export class Counter extends React.PureComponent<IProps> {
   render() {
     return (
       <Row className={styles.container}>
@@ -25,16 +25,16 @@ export default class Counter extends React.PureComponent<IProps> {
           counter : {this.props.counter}
         </Col>
         <Col lg="12" className={styles.container_button}>
-          <Button onClick={() => this.props.setCounter(1)} color="primary">
+          <Button onClick={() => this.props.counterSet(1)} color="primary">
             Increment
           </Button>
-          <Button onClick={() => this.props.setCounter(-1)}>Decrement</Button>
-          <Button onClick={() => this.props.AsyncSetCounter(1)} color="warning">
+          <Button onClick={() => this.props.counterSet(-1)}>Decrement</Button>
+          <Button onClick={() => this.props.counterAsyncSet(1)} color="warning">
             Async increment
           </Button>
         </Col>
         <Col lg="12" className={styles.container_button}>
-          <Button onClick={() => this.props.resetCounter()} color="danger">
+          <Button onClick={() => this.props.counterReset()} color="danger">
             Reset
           </Button>
         </Col>

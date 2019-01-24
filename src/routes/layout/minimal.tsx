@@ -9,7 +9,7 @@ import Login from '../login/index';
 export interface IProps {}
 interface IState {}
 
-export default class Minimal extends React.Component<IProps, IState> {
+export class Minimal extends React.Component<IProps, IState> {
   render() {
     return (
       <Container>

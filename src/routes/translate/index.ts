@@ -1,9 +1,9 @@
 import { ComponentClass } from 'react';
 import { connect, Matching } from 'react-redux';
 
-import Component, { IProps, IState } from './component';
+import { Translate, IProps, IState } from './component';
 import { IReduxState } from '../../reducers/types';
-import { setLang, getTranslate } from '../../actions/i18n';
+import { i18nSetLang, i18nGetTranslate } from '../../actions/i18n';
 
 const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
   locale: reducers.i18n.locale
@@ -11,12 +11,12 @@ const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
 
 const mapDispatchToProps = (): Partial<IProps> => {
   return {
-    setLocale: (lang: string) => setLang(lang),
-    getTranslate: (): string => getTranslate()
+    i18nSetLang: (lang: string) => i18nSetLang(lang),
+    i18nGetTranslate: (): string => i18nGetTranslate()
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Component as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);
+)(Translate as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);
