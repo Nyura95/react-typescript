@@ -4,7 +4,7 @@ Typescript 3.0
 
 ## Overview
 
-This is a framework for reactJS with typescript.
+Here is my vision of a framework react (typescript v3) with redux. 
 
 ## Installation
 
