@@ -16,8 +16,8 @@ export interface IState {
 
 export class Navbar extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
-    goPush: () => {},
-    userDisconnect: () => {}
+    goPush: () => { },
+    userDisconnect: () => { }
   };
 
   constructor(props: Readonly<IProps>) {

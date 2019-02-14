@@ -6,8 +6,8 @@ import { Container } from '../../components';
 
 import Login from '../login/index';
 
-export interface IProps {}
-interface IState {}
+export interface IProps { }
+interface IState { }
 
 export class Minimal extends React.Component<IProps, IState> {
   render() {

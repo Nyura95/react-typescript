@@ -15,7 +15,7 @@ export interface IProps extends RouteComponentProps {
   counter: number;
 }
 
-export interface IState {}
+export interface IState { }
 
 export class Counter extends React.PureComponent<IProps> {
   render() {

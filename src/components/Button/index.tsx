@@ -16,7 +16,7 @@ export interface IProps extends ButtonProps {
   style: object;
 }
 
-interface IState {}
+interface IState { }
 
 export class Button extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
@@ -26,7 +26,7 @@ export class Button extends React.Component<IProps, IState> {
     disabled: false,
     icon: faSpinner,
     style: {},
-    onClick: () => {}
+    onClick: () => { }
   };
 
   showText() {
@@ -61,7 +61,7 @@ export class Button extends React.Component<IProps, IState> {
         disabled={this.props.disabled}
         tag={this.props.tag}
         innerRef={this.props.innerRef}
-        onClick={!this.props.busy ? this.props.onClick : () => {}}
+        onClick={!this.props.busy ? this.props.onClick : () => { }}
         size={this.props.size}
         id={this.props.id}
         style={{ ...this.props.style }}

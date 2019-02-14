@@ -21,12 +21,12 @@ export interface IState {
 }
 
 export class Input extends React.Component<IProps, IState> {
-  private timeout: NodeJS.Timeout = setTimeout(() => {}, 0);
+  private timeout: NodeJS.Timeout = setTimeout(() => { }, 0);
   static defaultProps: Partial<IProps> = {
     value: '',
     disabled: false,
     type: 'text',
-    onChange: () => {}
+    onChange: () => { }
   };
 
   constructor(props: IProps) {

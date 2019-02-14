@@ -9,7 +9,7 @@ export interface IProps extends ContainerProps {
   removePadding: boolean;
 }
 
-interface IState {}
+interface IState { }
 
 export class Container extends React.Component<IProps, IState> {
   static defaultProps: IProps = {

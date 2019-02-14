@@ -10,8 +10,8 @@ import Home from '../home';
 import Counter from '../counter';
 import Translate from '../translate';
 
-export interface IProps {}
-interface IState {}
+export interface IProps { }
+interface IState { }
 
 export class Default extends React.Component<IProps, IState> {
   render() {

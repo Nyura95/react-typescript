@@ -12,7 +12,7 @@ export interface IProps {
   connected: boolean;
   locale: string;
 }
-export interface IState {}
+export interface IState { }
 
 export class Layout extends React.Component<IProps, IState> {
   render(): JSX.Element {

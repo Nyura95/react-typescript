@@ -7,7 +7,7 @@ import { Button, Input } from '../../components';
 
 import * as styles from './styles.scss';
 
-export interface IProps extends RouteComponentProps {}
+export interface IProps extends RouteComponentProps { }
 
 interface IState {
   hello: string;
