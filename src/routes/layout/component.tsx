@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { ConnectedRouter } from 'connected-react-router';
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 
 import { Container } from '../../components';
 import { history } from '../../store';
@@ -20,9 +20,6 @@ export class Layout extends React.Component<IProps, IState> {
     return (
       <ConnectedRouter history={history}>
         <Container fluid={true} removePadding={true}>
-          <Helmet>
-            <title>My Title</title>
-          </Helmet>
           {this.props.connected ? <Default /> : <Minimal />}
         </Container>
       </ConnectedRouter>

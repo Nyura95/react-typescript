@@ -14,7 +14,7 @@ import translations from '../translations';
 
 // Router
 import { connectRouter, routerMiddleware } from 'connected-react-router';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 
 // Reducers / action
 import reducers, { IReduxState } from '../reducers';
