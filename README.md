@@ -1,6 +1,6 @@
 # react-redux-typescript
 
-Typescript 3.0
+Typescript 3.3.5
 
 ## Overview
 

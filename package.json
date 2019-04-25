@@ -4,7 +4,7 @@
   "description": "example reactJS with typescript and redux async",
   "main": "./src/index.js",
   "scripts": {
-    "dev": "set NODE_ENV=dev &&parcel ./src/index.html --open",
+    "dev": "set NODE_ENV=development &&parcel ./src/index.html --open --no-cache --no-hmr",
     "start": "set NODE_ENV=development &&parcel ./src/index.html --open",
     "build": "set NODE_ENV=production &&parcel build ./src/index.html --out-dir build --detailed-report",
     "serve": "node server.js 3000",

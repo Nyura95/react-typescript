@@ -6,6 +6,8 @@ import { config } from '../config';
 
 // type
 import { IPayload, IMethod, IHeaders, IPayloadApi } from './types';
+
+// logger
 import logger from '../logger';
 
 const source = 'Api common';
@@ -37,7 +39,7 @@ export const fetch = <D>(
         ...headers
       }
     })
-      [method](payload)
+    [method](payload)
       .then((res: IPayloadApi) =>
         res.success
           ? resolve(fetchSuccess<D>(res as IPayloadApi<D, true>))
