@@ -33,7 +33,6 @@ const persistConfig: PersistConfig = {
   storage,
   key: 'store',
   whitelist: ['Counter', 'User'] // Add the name of reducer for active the persist
-  // transforms: config.production ? [] : []
 };
 
 // Create web history
