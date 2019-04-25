@@ -29,11 +29,11 @@ export class Button extends React.Component<IProps, IState> {
     onClick: () => { }
   };
 
-  showText() {
+  showText(): React.ReactNode | string {
     return this.props.translate ? I18n.t(this.props.translate) : this.props.children;
   }
 
-  showIcon() {
+  showIcon(): JSX.Element {
     return (
       <div className={styles.container_busy}>
         <span className={styles.text}>{this.showText()}</span>
@@ -44,7 +44,7 @@ export class Button extends React.Component<IProps, IState> {
 
   // No PureComponent because the props have a object (shadow compare does not work)
   // Carefull if you need change onClick something else, change this function
-  shouldComponentUpdate(nextProps: IProps) {
+  shouldComponentUpdate(nextProps: IProps): boolean {
     return (
       nextProps.color !== this.props.color ||
       nextProps.busy !== this.props.busy ||
@@ -52,7 +52,7 @@ export class Button extends React.Component<IProps, IState> {
     );
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <RButton
         color={this.props.color}

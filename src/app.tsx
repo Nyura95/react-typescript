@@ -13,7 +13,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import Layout from './routes/layout';
 
 class Application extends React.Component {
-  render() {
+  render(): JSX.Element {
     return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>

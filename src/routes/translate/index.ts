@@ -11,7 +11,7 @@ const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
 
 const mapDispatchToProps = (): Partial<IProps> => {
   return {
-    i18nSetLang: (lang: string) => i18nSetLang(lang),
+    i18nSetLang: (lang: string): void => i18nSetLang(lang),
     i18nGetTranslate: (): string => i18nGetTranslate()
   };
 };

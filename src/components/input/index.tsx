@@ -36,19 +36,19 @@ export class Input extends React.Component<IProps, IState> {
     };
   }
 
-  onClickHandler(value: string) {
+  onClickHandler(value: string): void {
     if (this.timeout) clearTimeout(this.timeout);
     this.timeout = setTimeout(() => this.props.onChange(value), 200);
     this.setState({ value });
   }
 
-  componentWillReceiveProps(nextProps: IProps) {
+  componentWillReceiveProps(nextProps: IProps): void {
     if (nextProps.value !== this.state.value) {
       this.setState({ value: nextProps.value });
     }
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <RInput
         type={this.props.type}

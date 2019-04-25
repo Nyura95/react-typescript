@@ -2,17 +2,16 @@ import { ComponentClass } from 'react';
 import { connect, Matching } from 'react-redux';
 
 import { Navbar, IProps, IState } from './Component';
-import { RouterPush, userDisconnect, ICounterDispatch } from '../../actions';
-import { IRouterType, IUserType, IRouterState, IUserState } from '../../reducers';
+import { RouterPush, userDisconnect, ICounterDispatch, IUserDispatch } from '../../actions';
 
 const mapStateToProps = (): Partial<IProps> => ({});
 
 const mapDispatchToProps = (
-  dispatch: ICounterDispatch<IRouterType | IUserType, IRouterState | IUserState>
+  dispatch: ICounterDispatch | IUserDispatch
 ): Partial<IProps> => {
   return {
-    goPush: (to: string) => dispatch(RouterPush(to)),
-    userDisconnect: () => dispatch(userDisconnect())
+    goPush: (to: string): void => dispatch(RouterPush(to)),
+    userDisconnect: (): void => dispatch(userDisconnect())
   };
 };
 

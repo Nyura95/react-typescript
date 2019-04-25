@@ -18,7 +18,7 @@ export interface IProps extends RouteComponentProps {
 export interface IState { }
 
 export class Counter extends React.PureComponent<IProps> {
-  render() {
+  render(): JSX.Element {
     return (
       <Row className={styles.container}>
         <Col lg="12" className={styles.container_button}>

@@ -16,7 +16,7 @@ export class Container extends React.Component<IProps, IState> {
     removePadding: false
   };
 
-  render() {
+  render(): JSX.Element {
     return (
       <RContainer
         className={

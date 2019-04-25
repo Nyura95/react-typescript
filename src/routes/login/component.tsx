@@ -23,14 +23,14 @@ export class Login extends React.Component<IProps, IState> {
     };
   }
 
-  authUser(username: string, password: string) {
+  authUser(username: string, password: string): void {
     this.setState({
       busy: true
     });
     this.props.userAuth(username, password);
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <Row className={styles.container}>
         <Button busy={this.state.busy} onClick={() => this.authUser('jean@example.com', 'password')}>

@@ -8,7 +8,7 @@ const mapStateToProps = (): Partial<IProps> => ({});
 
 const mapDispatchToProps = (dispatch: IUserDispatch): Partial<IProps> => {
   return {
-    userAuth: (username: string, password: string) => dispatch(userAuth(username, password))
+    userAuth: (username: string, password: string): void => dispatch(userAuth(username, password))
   };
 };
 

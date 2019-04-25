@@ -16,8 +16,8 @@ export interface IState {
 
 export class Navbar extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
-    goPush: () => { },
-    userDisconnect: () => { }
+    goPush: (): void => { },
+    userDisconnect: (): void => { }
   };
 
   constructor(props: Readonly<IProps>) {
@@ -27,13 +27,13 @@ export class Navbar extends React.Component<IProps, IState> {
     };
   }
 
-  toggle() {
+  toggle(): void {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <NavbarReactStrap dark={true} color={'dark'} expand="md">
         <NavbarBrand

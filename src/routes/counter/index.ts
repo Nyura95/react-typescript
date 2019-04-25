@@ -11,9 +11,9 @@ const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
 
 const mapDispatchToProps = (dispatch: ICounterDispatch): Partial<IProps> => {
   return {
-    counterSet: (counter: number) => dispatch(counterSet(counter)),
-    counterAsyncSet: (counter: number) => dispatch(counterAsyncSet(counter)),
-    counterReset: () => dispatch(counterReset())
+    counterSet: (counter: number): void => dispatch(counterSet(counter)),
+    counterAsyncSet: (counter: number): void => dispatch(counterAsyncSet(counter)),
+    counterReset: (): void => dispatch(counterReset())
   };
 };
 

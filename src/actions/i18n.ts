@@ -10,7 +10,7 @@ const storage = window.localStorage;
  * change the {lang} in the {storage} and reload the window
  * @param lang string
  * @version 1.0.0
- * @returns void
+ * @returns {void}
  */
 export const i18nSetLang = (lang: string): void => {
   logger.info(`switch lang to ${lang}`, source);
@@ -21,7 +21,7 @@ export const i18nSetLang = (lang: string): void => {
 /**
  * get the current lang in the {storage}
  * @version 1.0.0
- * @returns string
+ * @returns {string}
  */
 export const i18nGetTranslate = (): string => {
   logger.info(`get current lang set`, source);

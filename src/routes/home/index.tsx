@@ -21,7 +21,7 @@ export default class Home extends React.Component<IProps, IState> {
     };
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <Row className={styles.container}>
         <Col lg="12" className={styles.container_button}>

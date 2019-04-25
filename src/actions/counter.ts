@@ -8,11 +8,11 @@ const source = 'Counter action';
  * Increment the counter with the variable {counter}
  * @param {number} counter
  * @version 1.0.0
- * @returns {ICounterAction}
+ * @returns {void}
  */
-export const counterSet = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
+export const counterSet = (counter: number): ICounterAction => (dispatch: ICounterDispatch): void => {
   logger.info('Set counter', source);
-  return dispatch({
+  dispatch({
     type: 'ADD_COUNTER',
     payload: {
       counter
@@ -23,11 +23,11 @@ export const counterSet = (counter: number): ICounterAction => (dispatch: ICount
 /**
  * Reset the counter at 0
  * @version 1.0.0
- * @returns {ICounterAction}
+ * @returns {void}
  */
-export const counterReset = (): ICounterAction => (dispatch: ICounterDispatch) => {
+export const counterReset = (): ICounterAction => (dispatch: ICounterDispatch): void => {
   logger.info('Reset counter', source);
-  return dispatch({
+  dispatch({
     type: 'SET_COUNTER',
     payload: {
       counter: 0
@@ -39,12 +39,12 @@ export const counterReset = (): ICounterAction => (dispatch: ICounterDispatch) =
  * Increment the counter with the variable {counter} in asynchronous
  * @param {number} counter
  * @version 1.0.0
- * @returns {ICounterAction}
+ * @returns {void}
  */
-export const counterAsyncSet = (counter: number): ICounterAction => (dispatch: ICounterDispatch) => {
+export const counterAsyncSet = (counter: number): ICounterAction => (dispatch: ICounterDispatch): void => {
   logger.info('Async set counter', source);
   setTimeout(() => {
-    return dispatch({
+    dispatch({
       type: 'ADD_COUNTER',
       payload: {
         counter

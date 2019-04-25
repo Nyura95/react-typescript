@@ -14,10 +14,10 @@ export interface IProps extends RouteComponentProps {
   locale: string;
 }
 
-export interface IState {}
+export interface IState { }
 
 export class Translate extends React.Component<IProps, IState> {
-  render() {
+  render(): JSX.Element {
     return (
       <Row className={styles.container}>
         <Col lg="12" className={styles.container_button}>
