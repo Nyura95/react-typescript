@@ -9,6 +9,7 @@ import { Navbar } from '../../modules';
 import Home from '../home';
 import Counter from '../counter';
 import Translate from '../translate';
+import Notification from '../notification';
 
 export interface IProps { }
 interface IState { }
@@ -23,6 +24,7 @@ export class Default extends React.Component<IProps, IState> {
             <Route exact={true} path="/" component={Home} />
             <Route exact={true} path="/counter" component={Counter} />
             <Route exact={true} path="/translate" component={Translate} />
+            <Route exact={true} path="/notification" component={Notification} />
             <Redirect from="*" to="/" />
           </Switch>
         </Container>

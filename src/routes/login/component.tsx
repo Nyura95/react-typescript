@@ -24,9 +24,7 @@ export class Login extends React.Component<IProps, IState> {
   }
 
   authUser(username: string, password: string): void {
-    this.setState({
-      busy: true
-    });
+    this.setState({ busy: true });
     this.props.userAuth(username, password);
   }
 

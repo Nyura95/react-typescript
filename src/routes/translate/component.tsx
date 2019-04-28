@@ -1,9 +1,11 @@
 import * as React from 'react';
 
+// modules
 import { RouteComponentProps } from 'react-router';
 import { Row, Col } from 'reactstrap';
 import { I18n } from 'react-redux-i18n';
 
+// component
 import { Button } from '../../components';
 
 import * as styles from './styles.scss';

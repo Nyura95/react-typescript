@@ -21,7 +21,6 @@ export function Counter(state: IState = initialState, action: IAction<IState, IT
   switch (action.type) {
     case 'ADD_COUNTER':
       return {
-        ...state,
         counter: state.counter + action.payload.counter
       };
     case 'SET_COUNTER':

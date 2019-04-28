@@ -19,7 +19,7 @@ class Application extends React.Component {
         <PersistGate loading={null} persistor={persistor}>
           <Layout />
         </PersistGate>
-      </Provider>
+      </Provider >
     );
   }
 }

@@ -22,14 +22,14 @@ export interface IState {
 
 export class Input extends React.Component<IProps, IState> {
   private timeout: NodeJS.Timeout = setTimeout(() => { }, 0);
-  static defaultProps: Partial<IProps> = {
+  static defaultProps = {
     value: '',
     disabled: false,
     type: 'text',
     onChange: () => { }
   };
 
-  constructor(props: IProps) {
+  constructor(props: Readonly<IProps>) {
     super(props);
     this.state = {
       value: props.value

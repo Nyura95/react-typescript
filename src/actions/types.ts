@@ -3,6 +3,7 @@ import { IReduxState } from '../reducers';
 
 import { IState as ICounterState, IType as ICounterType } from '../reducers/counter';
 import { IState as IUserState, IType as IUserType } from '../reducers/user';
+import { IState as INotificationState, IType as INotificationType } from '../reducers/notification';
 
 import { I18nState } from 'react-redux-i18n';
 import { RouterState } from 'connected-react-router';
@@ -33,3 +34,7 @@ export type IUserAction<S = IUserState, T = IUserType> = ICustomAction<S, T>;
 // counter reducer
 export type ICounterDispatch<S = ICounterState, T = ICounterType> = ICustomDispatch<S, T>;
 export type ICounterAction<S = ICounterState, T = ICounterType> = ICustomAction<S, T>;
+
+// notification reducer
+export type INotificationDispatch<S = INotificationState, T = INotificationType> = ICustomDispatch<S, T>;
+export type INotificationAction<S = INotificationState, T = INotificationType> = ICustomAction<S, T>;

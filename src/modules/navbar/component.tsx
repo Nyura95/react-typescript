@@ -15,7 +15,7 @@ export interface IState {
 }
 
 export class Navbar extends React.Component<IProps, IState> {
-  static defaultProps: IProps = {
+  static defaultProps = {
     goPush: (): void => { },
     userDisconnect: (): void => { }
   };
@@ -60,6 +60,11 @@ export class Navbar extends React.Component<IProps, IState> {
             <NavItem>
               <NavLink onClick={() => this.props.goPush('/translate')} className={styles.clickable}>
                 {I18n.t('nav.page3')}
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink onClick={() => this.props.goPush('/notification')} className={styles.clickable}>
+                {I18n.t('nav.page4')}
               </NavLink>
             </NavItem>
           </Nav>

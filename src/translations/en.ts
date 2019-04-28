@@ -5,6 +5,7 @@ export default {
     page1: 'Home',
     page2: 'Counter',
     page3: 'Translate',
+    page4: 'Notification',
     disconnect: 'disconnect'
   }
 };

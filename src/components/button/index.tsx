@@ -1,10 +1,13 @@
 import * as React from 'react';
 
+// module
 import { Button as RButton, ButtonProps } from 'reactstrap';
 import { I18n } from 'react-redux-i18n';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
+// component
+import { Icon } from '../'
+
+// style
 import * as styles from './styles.scss';
 
 export interface IProps extends ButtonProps {
@@ -12,19 +15,17 @@ export interface IProps extends ButtonProps {
   translate?: string;
   busy: boolean;
   className: string;
-  icon: IconDefinition;
   style: object;
 }
 
 interface IState { }
 
 export class Button extends React.Component<IProps, IState> {
-  static defaultProps: IProps = {
+  static defaultProps = {
     color: 'primary',
     busy: false,
     className: '',
     disabled: false,
-    icon: faSpinner,
     style: {},
     onClick: () => { }
   };
@@ -37,7 +38,7 @@ export class Button extends React.Component<IProps, IState> {
     return (
       <div className={styles.container_busy}>
         <span className={styles.text}>{this.showText()}</span>
-        <FontAwesomeIcon className={styles.icon} icon={this.props.icon} spin={true} />
+        <Icon icon='spinner' spin={true} style={styles.icon} size='lg' />
       </div>
     );
   }

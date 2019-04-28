@@ -6,3 +6,4 @@ export * from './counter';
 export * from './i18n';
 export * from './router';
 export * from './user';
+export * from './notification';

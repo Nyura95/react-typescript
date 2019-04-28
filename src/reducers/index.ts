@@ -8,6 +8,7 @@ export * from './types';
 // Import here your new created reducers
 import { Counter } from './counter';
 import { User } from './user';
+import { Notification } from './notification';
 import { History } from 'history';
 
 // Export all reducers combine
@@ -15,6 +16,7 @@ const reducers = (history: History) =>
   combineReducers({
     Counter,
     User,
+    Notification,
     router: connectRouter(history) as any, // tslint:disable-line
     i18n: i18nReducer
   });

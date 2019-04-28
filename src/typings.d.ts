@@ -9,3 +9,6 @@ declare module '*.png';
 
 // fetchtival does not have a module typescript
 declare module 'fetchival';
+
+// fetchtival does not have a module typescript
+declare module 'react-notifications-component';

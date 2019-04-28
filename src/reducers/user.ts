@@ -17,7 +17,7 @@ const initialState: IState = {
 };
 
 /**
- * Store the info user
+ * Store the user info
  * @param state IState
  * @param action IAction<IState, IType>
  * @version 1.0.0

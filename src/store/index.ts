@@ -16,11 +16,11 @@ import translations from '../translations';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 
-// Reducers / action
+// reducers / action
 import reducers, { IReduxState } from '../reducers';
 import { IAction } from '../actions';
 
-// Config
+// config
 import { config } from '../config';
 
 // logger
@@ -28,27 +28,27 @@ import logger from '../logger';
 
 logger.info(`initialization store`);
 
-// Config persist store
+// config persist store
 const persistConfig: PersistConfig = {
   storage,
   key: 'store',
   whitelist: ['Counter', 'User'] // Add the name of reducer for active the persist
 };
 
-// Create web history
+// create web history
 export const history = createBrowserHistory();
 
-// Get the persist reducer from reducer
+// get the persist reducer from reducer
 const persistedReducer = persistReducer(persistConfig, reducers(history));
 
-// Config redux-logger
+// config redux-logger
 const reduxLogger = createLogger({ duration: true });
 
-// Create the store
+// create the store
 export const store = createStore(
-  // Connect the router and add the persist reducers
+  // connect the router and add the persist reducers
   connectRouter(history)(persistedReducer),
-  // Thunk for dispatch async and load the history
+  // thunk for dispatch async and load the history
   compose(
     applyMiddleware(reduxThunk as ThunkMiddleware<IReduxState, IAction<unknown, unknown>>, routerMiddleware(history)),
     config.production ? applyMiddleware() : applyMiddleware(reduxLogger)
@@ -59,7 +59,7 @@ syncTranslationWithStore(store);
 store.dispatch(loadTranslations(translations as TranslationObjects));
 store.dispatch(setLocale(i18nGetTranslate()));
 
-// Create the persistor
+// create the persistor
 export const persistor: Persistor = persistStore(store, undefined, () => {
   logger.info(`store initialized`);
 });

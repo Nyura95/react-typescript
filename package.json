@@ -30,9 +30,6 @@
   },
   "homepage": "https://github.com/Nyura95/react-typescript#readme",
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.8",
-    "@fortawesome/free-solid-svg-icons": "^5.5.0",
-    "@fortawesome/react-fontawesome": "^0.1.3",
     "@types/history": "^4.7.2",
     "@types/node": "^10.12.27",
     "@types/react": "^16.8.4",
@@ -57,6 +54,7 @@
   },
   "dependencies": {
     "@types/react-helmet": "^5.0.8",
+    "animate.css": "^3.7.0",
     "bootstrap": "^4.1.3",
     "connected-react-router": "^4.5.0",
     "express": "^4.16.4",
@@ -67,6 +65,7 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
+    "react-notifications-component": "^1.1.1",
     "react-redux": "^5.1.1",
     "react-redux-i18n": "^1.9.3",
     "react-router": "^4.3.1",
