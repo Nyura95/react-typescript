@@ -57,7 +57,7 @@ export class Input extends React.Component<IProps, IState> {
   render(): JSX.Element {
     return (
       <FormGroup>
-        {this.props.label !== '' ? <Label for="exampleEmail">{this.props.label}</Label> : null}
+        {this.props.label !== '' ? <Label>{this.props.label}</Label> : null}
         <RInput
           type={this.props.type}
           className={styles.input}
