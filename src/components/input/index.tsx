@@ -18,6 +18,7 @@ export interface IProps {
   invalid: boolean;
   formText: string;
   formFeedback: string;
+  plaintext: boolean;
 }
 
 export interface IState {
@@ -32,7 +33,8 @@ export class Input extends React.Component<IProps, IState> {
     valid: false,
     invalid: false,
     formText: '',
-    formFeedback: ''
+    formFeedback: '',
+    plaintext: false
   };
 
   constructor(props: Readonly<IProps>) {
@@ -64,6 +66,7 @@ export class Input extends React.Component<IProps, IState> {
           onChange={(e: React.FormEvent<HTMLInputElement>) => this.onClickHandler(e.currentTarget.value)}
           valid={this.props.valid}
           invalid={this.props.invalid}
+          plaintext={this.props.plaintext}
         />
         {this.props.formFeedback !== '' ? (
           <FormFeedback valid={this.props.valid}>{this.props.formFeedback}</FormFeedback>
