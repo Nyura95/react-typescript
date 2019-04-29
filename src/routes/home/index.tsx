@@ -3,21 +3,23 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Row, Col } from 'reactstrap';
 
-import { Button } from '../../components';
+import { Button, Input } from '../../components';
 
 import * as styles from './styles.scss';
 
-export interface IProps extends RouteComponentProps { }
+export interface IProps extends RouteComponentProps {}
 
 interface IState {
   hello: string;
+  input: string;
 }
 
 export default class Home extends React.Component<IProps, IState> {
   constructor(props: Readonly<IProps>) {
     super(props);
     this.state = {
-      hello: 'Hello !'
+      hello: 'Hello !',
+      input: ''
     };
   }
 

@@ -3,7 +3,7 @@ import * as React from 'react';
 // Sass import
 import * as styles from './styles.scss';
 
-import { Input as RInput } from 'reactstrap';
+import { Input as RInput, FormGroup, Label, FormText, FormFeedback } from 'reactstrap';
 import { InputType } from 'reactstrap/lib/Input';
 
 // Interface props
@@ -14,6 +14,10 @@ export interface IProps {
   disabled: boolean;
   type: InputType;
   onChange: Function;
+  valid: boolean;
+  invalid: boolean;
+  formText: string;
+  formFeedback: string;
 }
 
 export interface IState {
@@ -21,12 +25,14 @@ export interface IState {
 }
 
 export class Input extends React.Component<IProps, IState> {
-  private timeout: NodeJS.Timeout = setTimeout(() => { }, 0);
   static defaultProps = {
-    value: '',
+    label: '',
+    placeholder: '',
     disabled: false,
-    type: 'text',
-    onChange: () => { }
+    valid: false,
+    invalid: false,
+    formText: '',
+    formFeedback: ''
   };
 
   constructor(props: Readonly<IProps>) {
@@ -37,9 +43,7 @@ export class Input extends React.Component<IProps, IState> {
   }
 
   onClickHandler(value: string): void {
-    if (this.timeout) clearTimeout(this.timeout);
-    this.timeout = setTimeout(() => this.props.onChange(value), 200);
-    this.setState({ value });
+    this.props.onChange(value);
   }
 
   componentWillReceiveProps(nextProps: IProps): void {
@@ -50,13 +54,22 @@ export class Input extends React.Component<IProps, IState> {
 
   render(): JSX.Element {
     return (
-      <RInput
-        type={this.props.type}
-        className={styles.input}
-        value={this.state.value}
-        placeholder={this.props.placeholder}
-        onChange={(e: React.FormEvent<HTMLInputElement>) => this.onClickHandler(e.currentTarget.value)}
-      />
+      <FormGroup>
+        {this.props.label !== '' ? <Label for="exampleEmail">{this.props.label}</Label> : null}
+        <RInput
+          type={this.props.type}
+          className={styles.input}
+          value={this.state.value}
+          placeholder={this.props.placeholder}
+          onChange={(e: React.FormEvent<HTMLInputElement>) => this.onClickHandler(e.currentTarget.value)}
+          valid={this.props.valid}
+          invalid={this.props.invalid}
+        />
+        {this.props.formFeedback !== '' ? (
+          <FormFeedback valid={this.props.valid}>{this.props.formFeedback}</FormFeedback>
+        ) : null}
+        {this.props.formText !== '' ? <FormText>{this.props.formText}</FormText> : null}
+      </FormGroup>
     );
   }
 }

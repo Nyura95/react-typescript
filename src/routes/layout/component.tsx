@@ -5,7 +5,6 @@ import { ConnectedRouter } from 'connected-react-router';
 // import { Helmet } from "react-helmet";
 import ReactNotification from 'react-notifications-component';
 
-import { Container } from '../../components';
 import { history } from '../../store';
 
 import { Minimal } from './minimal';
