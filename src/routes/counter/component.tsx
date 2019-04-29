@@ -15,7 +15,7 @@ export interface IProps extends RouteComponentProps {
   counter: number;
 }
 
-export interface IState { }
+export interface IState {}
 
 export class Counter extends React.PureComponent<IProps> {
   render(): JSX.Element {
@@ -34,9 +34,7 @@ export class Counter extends React.PureComponent<IProps> {
           </Button>
         </Col>
         <Col lg="12" className={styles.container_button}>
-          <Button onClick={() => this.props.counterReset()} color="danger">
-            Reset
-          </Button>
+          <Button onClick={() => this.props.counterReset()}>Set to 0</Button>
         </Col>
       </Row>
     );
