@@ -5,6 +5,9 @@ import logger from '../logger';
 import { counterReset } from './counter';
 import { notificationShow } from './notification';
 import { I18n } from 'react-redux-i18n';
+import { showLoading, hideLoading } from 'react-redux-loading-bar'
+
+
 
 const source = 'Counter action';
 
@@ -17,6 +20,7 @@ const source = 'Counter action';
  */
 export const userAuth = (username: string, password: string): IUserAction => (dispatch: IUserDispatch): void => {
   logger.info(`set a new user ${username}:${password}`, source);
+  dispatch(showLoading())
   setTimeout((): void => {
     // connect the customer
     dispatch({
@@ -28,6 +32,7 @@ export const userAuth = (username: string, password: string): IUserAction => (di
         token: 'ranD0mTokEn'
       }
     });
+    dispatch(hideLoading())
     // notify the customer
     notificationShow({
       title: I18n.t('notifications.connect.title'),

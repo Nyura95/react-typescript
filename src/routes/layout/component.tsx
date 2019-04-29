@@ -4,6 +4,7 @@ import { IReactNotificationsComponent } from '../../types';
 import { ConnectedRouter } from 'connected-react-router';
 // import { Helmet } from "react-helmet";
 import ReactNotification from 'react-notifications-component';
+import LoadingBar from 'react-redux-loading-bar'
 
 import { history } from '../../store';
 
@@ -15,7 +16,7 @@ export interface IProps {
   locale: string;
   notificationSet(reactNotificationComponent: IReactNotificationsComponent): void;
 }
-export interface IState {}
+export interface IState { }
 
 export class Layout extends React.Component<IProps, IState> {
   private notificationDOMRef = React.createRef<IReactNotificationsComponent>();
@@ -31,6 +32,7 @@ export class Layout extends React.Component<IProps, IState> {
       <ConnectedRouter history={history}>
         <div>
           <ReactNotification ref={this.notificationDOMRef} />
+          <LoadingBar style={{ zIndex: 1 }} />
           {this.props.connected ? <Default /> : <Minimal />}
         </div>
       </ConnectedRouter>
