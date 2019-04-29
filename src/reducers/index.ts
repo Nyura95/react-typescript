@@ -5,13 +5,13 @@ import { i18nReducer } from 'react-redux-i18n';
 export * from './types';
 
 // Import here your new created reducers
-import { Counter } from './counter';
-import { User } from './user';
-import { Notification } from './notification';
+import { counter } from './counter';
+import { user } from './user';
+import { notification } from './notification';
 
 export default combineReducers({
-  Counter,
-  User,
-  Notification,
+  counter,
+  user,
+  notification,
   i18n: i18nReducer
 });

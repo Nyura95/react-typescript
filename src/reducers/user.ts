@@ -23,7 +23,7 @@ const initialState: IState = {
  * @version 1.0.0
  * @returns IState
  */
-export function User(state: IState = initialState, action: IAction<IState, IType>): IState {
+export function user(state: IState = initialState, action: IAction<IState, IType>): IState {
   switch (action.type) {
     case 'SET_USER':
       return action.payload;

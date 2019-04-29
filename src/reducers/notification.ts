@@ -18,7 +18,7 @@ const initialState: IState = {
  * @version 1.0.0
  * @returns {IState}
  */
-export function Notification(state: IState = initialState, action: IAction<IState, IType>): IState {
+export function notification(state: IState = initialState, action: IAction<IState, IType>): IState {
   switch (action.type) {
     case 'SET_NOTIFICATION':
       return action.payload;

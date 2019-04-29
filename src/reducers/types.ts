@@ -9,11 +9,11 @@ import { IState as INotificationState } from './notification';
 
 // Interface redux app
 export interface IReduxState {
-  Counter: ICounterState;
-  User: IUserState;
-  Notification: INotificationState;
+  counter: ICounterState;
+  user: IUserState;
+  notification: INotificationState;
   i18n: I18nState;
-  Route: RouterState;
+  route: RouterState;
 }
 
 // reducer router

@@ -6,7 +6,7 @@ import { IReduxState } from '../../reducers';
 import { counterSet, counterReset, counterAsyncSet, ICounterDispatch } from '../../actions';
 
 const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
-  ...reducers.Counter
+  ...reducers.counter
 });
 
 const mapDispatchToProps = (dispatch: ICounterDispatch): Partial<IProps> => {

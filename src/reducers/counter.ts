@@ -17,7 +17,7 @@ const initialState: IState = {
  * @version 1.0.0
  * @returns IState
  */
-export function Counter(state: IState = initialState, action: IAction<IState, IType>): IState {
+export function counter(state: IState = initialState, action: IAction<IState, IType>): IState {
   switch (action.type) {
     case 'ADD_COUNTER':
       return {

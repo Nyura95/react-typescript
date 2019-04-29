@@ -39,4 +39,4 @@ export const notificationShow = (option: IOptionReactNotificationComponent): voi
 }
 
 // get the current state inn the reducer Notification
-const getState = () => store.getState().Notification;
+const getState = () => store.getState().notification;

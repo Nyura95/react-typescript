@@ -9,7 +9,7 @@ import { IReactNotificationsComponent } from '../../types';
 
 // be carfull, here you must not subscribe to a store that is too often updated.
 const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
-  connected: reducers.User.token !== ''
+  connected: reducers.user.token !== ''
 });
 
 const mapDispatchToProps = (dispatch: INotificationDispatch): Partial<IProps> => {
