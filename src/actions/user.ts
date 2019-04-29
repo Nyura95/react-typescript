@@ -3,6 +3,8 @@ import { IUserAction, IUserDispatch } from './types';
 import { IState as IUserState } from '../reducers/user';
 import logger from '../logger';
 import { counterReset } from './counter';
+import { notificationShow } from './notification';
+import { I18n } from 'react-redux-i18n';
 
 const source = 'Counter action';
 
@@ -16,6 +18,7 @@ const source = 'Counter action';
 export const userAuth = (username: string, password: string): IUserAction => (dispatch: IUserDispatch): void => {
   logger.info(`set a new user ${username}:${password}`, source);
   setTimeout((): void => {
+    // connect the customer
     dispatch({
       type: 'SET_USER',
       payload: {
@@ -24,6 +27,11 @@ export const userAuth = (username: string, password: string): IUserAction => (di
         last_name: 'Delacour',
         token: 'ranD0mTokEn'
       }
+    });
+    // notify the customer
+    notificationShow({
+      title: I18n.t('notifications.connect.title'),
+      message: I18n.t('notifications.connect.message')
     });
   }, 1000);
 };

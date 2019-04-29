@@ -13,14 +13,17 @@ export interface IProps extends RouteComponentProps {
   notificationShow(option: IOptionReactNotificationComponent): void;
 }
 
-export interface IState { }
+export interface IState {}
 
 export class Notification extends React.PureComponent<IProps> {
   render(): JSX.Element {
     return (
       <Row className={styles.container}>
         <Col lg="12" className={styles.container_button}>
-          <Button onClick={() => this.props.notificationShow({ title: 'Title', message: 'Message', type: 'danger' })} color="primary">
+          <Button
+            onClick={() => this.props.notificationShow({ title: 'Title', message: 'Message', type: 'info' })}
+            color="primary"
+          >
             Notifications
           </Button>
         </Col>

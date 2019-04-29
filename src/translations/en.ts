@@ -7,5 +7,11 @@ export default {
     page3: 'Translate',
     page4: 'Notification',
     disconnect: 'disconnect'
+  },
+  notifications: {
+    connect: {
+      title: 'Hello !',
+      message: 'You are connected'
+    }
   }
 };

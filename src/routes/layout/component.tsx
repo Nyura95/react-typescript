@@ -3,7 +3,7 @@ import { IReactNotificationsComponent } from '../../types';
 
 import { ConnectedRouter } from 'connected-react-router';
 // import { Helmet } from "react-helmet";
-import ReactNotification from "react-notifications-component";
+import ReactNotification from 'react-notifications-component';
 
 import { Container } from '../../components';
 import { history } from '../../store';
@@ -11,13 +11,12 @@ import { history } from '../../store';
 import { Minimal } from './minimal';
 import { Default } from './default';
 
-
 export interface IProps {
   connected: boolean;
   locale: string;
   notificationSet(reactNotificationComponent: IReactNotificationsComponent): void;
 }
-export interface IState { }
+export interface IState {}
 
 export class Layout extends React.Component<IProps, IState> {
   private notificationDOMRef = React.createRef<IReactNotificationsComponent>();
@@ -31,10 +30,10 @@ export class Layout extends React.Component<IProps, IState> {
   render(): JSX.Element {
     return (
       <ConnectedRouter history={history}>
-        <Container fluid={true} removePadding={true}>
+        <div>
           <ReactNotification ref={this.notificationDOMRef} />
           {this.props.connected ? <Default /> : <Minimal />}
-        </Container>
+        </div>
       </ConnectedRouter>
     );
   }

@@ -11,15 +11,18 @@ import Counter from '../counter';
 import Translate from '../translate';
 import Notification from '../notification';
 
-export interface IProps { }
-interface IState { }
+// style
+import * as styles from './styles.scss';
+
+export interface IProps {}
+interface IState {}
 
 export class Default extends React.Component<IProps, IState> {
   render(): JSX.Element {
     return (
       <Container fluid={true} removePadding={true}>
         <Navbar />
-        <Container>
+        <Container className={styles.container}>
           <Switch>
             <Route exact={true} path="/" component={Home} />
             <Route exact={true} path="/counter" component={Counter} />
