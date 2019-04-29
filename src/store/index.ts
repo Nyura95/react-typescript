@@ -39,7 +39,7 @@ const persistConfig: PersistConfig = {
 export const history = createBrowserHistory();
 
 // get the persist reducer from reducer
-const persistedReducer = persistReducer(persistConfig, reducers(history));
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 // config redux-logger
 const reduxLogger = createLogger({ duration: true });
@@ -55,11 +55,11 @@ export const store = createStore(
   )
 );
 
-syncTranslationWithStore(store);
-store.dispatch(loadTranslations(translations as TranslationObjects));
-store.dispatch(setLocale(i18nGetTranslate()));
-
 // create the persistor
 export const persistor: Persistor = persistStore(store, undefined, () => {
   logger.info(`store initialized`);
 });
+
+syncTranslationWithStore(store);
+store.dispatch(loadTranslations(translations as TranslationObjects));
+store.dispatch(setLocale(i18nGetTranslate()));

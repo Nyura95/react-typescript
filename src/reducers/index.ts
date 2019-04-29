@@ -9,16 +9,10 @@ export * from './types';
 import { Counter } from './counter';
 import { User } from './user';
 import { Notification } from './notification';
-import { History } from 'history';
 
-// Export all reducers combine
-const reducers = (history: History) =>
-  combineReducers({
-    Counter,
-    User,
-    Notification,
-    router: connectRouter(history) as any, // tslint:disable-line
-    i18n: i18nReducer
-  });
-
-export default reducers;
+export default combineReducers({
+  Counter,
+  User,
+  Notification,
+  i18n: i18nReducer
+});
