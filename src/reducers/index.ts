@@ -1,7 +1,6 @@
 // Redux
 import { combineReducers } from 'redux';
 import { i18nReducer } from 'react-redux-i18n';
-import { connectRouter } from 'connected-react-router';
 
 export * from './types';
 
