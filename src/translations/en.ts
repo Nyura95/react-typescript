@@ -6,6 +6,7 @@ export default {
     page2: 'Counter',
     page3: 'Translate',
     page4: 'Notification',
+    page5: 'Loader',
     disconnect: 'disconnect'
   },
   notifications: {

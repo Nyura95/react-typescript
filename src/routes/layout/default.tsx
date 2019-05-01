@@ -10,12 +10,13 @@ import Home from '../home';
 import Counter from '../counter';
 import Translate from '../translate';
 import Notification from '../notification';
+import Loader from '../loader';
 
 // style
 import * as styles from './styles.scss';
 
-export interface IProps {}
-interface IState {}
+export interface IProps { }
+interface IState { }
 
 export class Default extends React.Component<IProps, IState> {
   render(): JSX.Element {
@@ -28,6 +29,7 @@ export class Default extends React.Component<IProps, IState> {
             <Route exact={true} path="/counter" component={Counter} />
             <Route exact={true} path="/translate" component={Translate} />
             <Route exact={true} path="/notification" component={Notification} />
+            <Route exact={true} path="/loader" component={Loader} />
             <Redirect from="*" to="/" />
           </Switch>
         </Container>

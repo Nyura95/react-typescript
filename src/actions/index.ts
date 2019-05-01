@@ -7,3 +7,4 @@ export * from './i18n';
 export * from './router';
 export * from './user';
 export * from './notification';
+export * from './loader';

@@ -38,3 +38,7 @@ export type ICounterAction<S = ICounterState, T = ICounterType> = ICustomAction<
 // notification reducer
 export type INotificationDispatch<S = INotificationState, T = INotificationType> = ICustomDispatch<S, T>;
 export type INotificationAction<S = INotificationState, T = INotificationType> = ICustomAction<S, T>;
+
+// loader reducer
+export type ILoaderDispatch<S = unknown, T = unknown> = ICustomDispatch<S, T>;
+export type ILoaderAction<S = unknown, T = unknown> = ICustomAction<S, T>;
