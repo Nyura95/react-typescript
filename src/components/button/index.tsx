@@ -27,6 +27,7 @@ export class Button extends React.Component<IProps, IState> {
     className: '',
     disabled: false,
     style: {},
+    type: 'button',
     onClick: () => { }
   };
 
@@ -64,6 +65,7 @@ export class Button extends React.Component<IProps, IState> {
         size={this.props.size}
         style={{ ...this.props.style }}
         className={styles.btn_primary}
+        type={this.props.type}
       >
         {this.props.busy ? this.showIcon() : this.showText()}
       </RButton>

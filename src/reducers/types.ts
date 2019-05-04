@@ -17,11 +17,3 @@ export interface IReduxState {
   route: RouterState;
   loadingBar: LoadingBar
 }
-
-// reducer router
-export type IRouterState = RouterState;
-export type IRouterType = string;
-
-// reducer I18n
-export type I18nState = I18nState;
-export type I18nType = string;

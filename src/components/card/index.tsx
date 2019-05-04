@@ -34,7 +34,7 @@ export class Card extends React.Component<IProps, IState> {
     return (
       <CardBody>
         {this.props.title !== '' ? (<CardTitle>{this.props.title}</CardTitle>) : null}
-        <CardText>{this.props.children}</CardText>
+        <CardText tag='div'>{this.props.children}</CardText>
         {this.props.footer !== '' ? (<CardFooter>{this.props.footer}</CardFooter>) : null}
       </CardBody>
     );

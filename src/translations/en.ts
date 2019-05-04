@@ -33,8 +33,10 @@ export default {
       hide: 'Hide'
     },
     login: {
-      button: 'Connect',
-      title: 'Hello'
+      username: 'Usernname',
+      password: 'Password',
+      button: 'Submit',
+      title: 'React-typescript v%{version}'
     },
     translate: {
       button: 'Change language'

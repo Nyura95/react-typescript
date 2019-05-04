@@ -8,7 +8,7 @@ export default {
     '/loader': 'Loader'
   },
   nav: {
-    title: 'react-typescript',
+    title: 'React-typescript',
     page1: 'Acceuil',
     page2: 'Compteur',
     page3: 'Traduction',
@@ -30,16 +30,18 @@ export default {
     },
     home: {
       run: 'Lancer le state',
-      initialState: 'Bonjour !',
-      state: 'Bonjour le monde !'
+      initialState: 'Bonjour %{username} !',
+      state: '%{username} à modifier le state !'
     },
     loader: {
       show: 'Afficher',
       hide: 'Cacher'
     },
     login: {
+      username: 'Nom d\'utilisateur',
+      password: 'Mot de passe',
       button: 'Se connecter',
-      title: 'Bonjour'
+      title: 'React-typescript v%{version}'
     },
     translate: {
       button: 'Changer de langue'

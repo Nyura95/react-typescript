@@ -7,21 +7,22 @@ import { Row, Col } from 'reactstrap';
 
 // component
 import { Button } from '../../components';
+import { IState as IUserState } from '../../reducers/user';
 
 // style
 import * as styles from './styles.scss';
 
-export interface IProps extends RouteComponentProps { }
+export interface IProps extends RouteComponentProps, IUserState { }
 
-interface IState {
+export interface IState {
   hello: string;
 }
 
-export default class Home extends React.Component<IProps, IState> {
+export class Home extends React.Component<IProps, IState> {
   constructor(props: Readonly<IProps>) {
     super(props);
     this.state = {
-      hello: I18n.t('pages.home.initialState')
+      hello: I18n.t('pages.home.initialState', { username: this.props.username })
     };
   }
 
@@ -32,7 +33,7 @@ export default class Home extends React.Component<IProps, IState> {
           {this.state.hello}
         </Col>
         <Col lg="12" className={styles.container_button}>
-          <Button onClick={() => this.setState({ hello: I18n.t('pages.home.state') })} color="primary">
+          <Button onClick={() => this.setState({ hello: I18n.t('pages.home.state', { username: this.props.username }) })} color="primary">
             {I18n.t('pages.home.run')}
           </Button>
         </Col>

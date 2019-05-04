@@ -3,5 +3,6 @@ import { Container } from './container';
 import { Input } from './input';
 import { Spinner } from './spinner';
 import { Card } from './card';
+import { Form } from './form';
 
-export { Button, Container, Input, Spinner, Card };
+export { Button, Container, Input, Spinner, Card, Form };
