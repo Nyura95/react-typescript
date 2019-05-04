@@ -1,24 +1,25 @@
 import * as React from 'react';
 
-// Sass import
-import * as styles from './styles.scss';
-
+// module
 import { Input as RInput, FormGroup, Label, FormText, FormFeedback } from 'reactstrap';
 import { InputType } from 'reactstrap/lib/Input';
 
+// Sass import
+import * as styles from './styles.scss';
+
 // Interface props
 export interface IProps {
-  label: string;
+  label?: string;
   value: string;
-  placeholder: string;
-  disabled: boolean;
+  placeholder?: string;
+  disabled?: boolean;
   type: InputType;
   onChange: Function;
-  valid: boolean;
-  invalid: boolean;
-  formText: string;
-  formFeedback: string;
-  plaintext: boolean;
+  valid?: boolean;
+  invalid?: boolean;
+  formText?: string;
+  formFeedback?: string;
+  plaintext?: boolean;
 }
 
 export interface IState {

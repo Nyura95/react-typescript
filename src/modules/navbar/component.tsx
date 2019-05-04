@@ -1,8 +1,10 @@
 import * as React from 'react';
 
-import { Navbar as NavbarReactStrap, NavbarBrand, Nav, NavItem, NavLink, Collapse, NavbarToggler } from 'reactstrap';
+// module
 import { I18n } from 'react-redux-i18n';
+import { Navbar as NavbarReactStrap, NavbarBrand, Nav, NavItem, NavLink, Collapse, NavbarToggler } from 'reactstrap';
 
+// style
 import * as styles from './styles.scss';
 
 export interface IProps {

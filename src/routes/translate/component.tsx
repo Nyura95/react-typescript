@@ -1,13 +1,14 @@
 import * as React from 'react';
 
 // modules
+import { I18n } from 'react-redux-i18n';
 import { RouteComponentProps } from 'react-router';
 import { Row, Col } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
 
 // component
 import { Button } from '../../components';
 
+// style
 import * as styles from './styles.scss';
 
 export interface IProps extends RouteComponentProps {
@@ -30,7 +31,7 @@ export class Translate extends React.Component<IProps, IState> {
             onClick={() => this.props.i18nSetLang(this.props.i18nGetTranslate() === 'fr' ? 'en' : 'fr')}
             color="info"
           >
-            translate
+            {I18n.t('pages.translate.button')}
           </Button>
         </Col>
       </Row>

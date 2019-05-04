@@ -1,6 +1,7 @@
 import { Button } from './button';
 import { Container } from './container';
 import { Input } from './input';
-import { Icon } from './icon';
+import { Spinner } from './spinner';
+import { Card } from './card';
 
-export { Button, Container, Input, Icon };
+export { Button, Container, Input, Spinner, Card };

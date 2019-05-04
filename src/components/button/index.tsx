@@ -1,24 +1,24 @@
 import * as React from 'react';
 
 // module
-import { Button as RButton, ButtonProps } from 'reactstrap';
 import { I18n } from 'react-redux-i18n';
+import { Button as RButton, ButtonProps } from 'reactstrap';
 
-// component
-import { Icon } from '../';
+// component 
+import { Spinner } from '../';
 
 // style
 import * as styles from './styles.scss';
 
 export interface IProps extends ButtonProps {
-  color: 'danger' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'link';
+  color?: 'danger' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'link';
   translate?: string;
-  busy: boolean;
-  className: string;
-  style: object;
+  busy?: boolean;
+  className?: string;
+  style?: object;
 }
 
-interface IState {}
+interface IState { }
 
 export class Button extends React.Component<IProps, IState> {
   static defaultProps = {
@@ -27,7 +27,7 @@ export class Button extends React.Component<IProps, IState> {
     className: '',
     disabled: false,
     style: {},
-    onClick: () => {}
+    onClick: () => { }
   };
 
   showText(): React.ReactNode | string {
@@ -38,7 +38,7 @@ export class Button extends React.Component<IProps, IState> {
     return (
       <div className={styles.container_busy}>
         <span className={styles.text}>{this.showText()}</span>
-        <Icon icon="spinner" spin={true} style={styles.icon} size="lg" />
+        <Spinner size="sm" className={styles.icon} color={'light'} />
       </div>
     );
   }
@@ -60,7 +60,7 @@ export class Button extends React.Component<IProps, IState> {
         active={this.props.active}
         block={this.props.block}
         disabled={this.props.disabled}
-        onClick={!this.props.busy ? this.props.onClick : () => {}}
+        onClick={!this.props.busy ? this.props.onClick : () => { }}
         size={this.props.size}
         style={{ ...this.props.style }}
         className={styles.btn_primary}

@@ -4,23 +4,53 @@ import { config } from '../config';
 const logger = console;
 
 class Log {
-  public trace(message: string, source?: string): void {
+  /**
+   * Log with trace
+   * @param {string} message 
+   * @param {string} source 
+   * @returns {void}
+   */
+  public trace(message: string, source: string): void {
     if (!config.production) generateMessage('trace', message, source);
   }
 
-  public info(message: string, source?: string): void {
+  /**
+   * Ino log 
+   * @param {string} message 
+   * @param {string} source 
+   * @returns {void}
+   */
+  public info(message: string, source: string): void {
     if (!config.production) generateMessage('info', message, source);
   }
 
-  public warn(message: string, source?: string): void {
+  /**
+   * Warning log
+   * @param {string} message 
+   * @param {string} source 
+   * @returns {void}
+   */
+  public warn(message: string, source: string): void {
     generateMessage('warn', message, source);
   }
 
-  public error(message: string, source?: string): void {
+  /**
+  * Error log
+  * @param {string} message 
+  * @param {string} source 
+  * @returns {void}
+  */
+  public error(message: string, source: string): void {
     generateMessage('error', message, source);
   }
 
-  public debug(message: string, source?: string): void {
+  /**
+   * Debug log
+   * @param {string} message 
+   * @param {string} source 
+   * @returns {void}
+   */
+  public debug(message: string, source: string): void {
     if (process.env.NODE_ENV === 'dev') generateMessage('error', message, source);
   }
 }

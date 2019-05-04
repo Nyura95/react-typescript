@@ -1,25 +1,27 @@
 import * as React from 'react';
 
+// modules
+import { I18n } from 'react-redux-i18n';
 import { RouteComponentProps } from 'react-router';
 import { Row, Col } from 'reactstrap';
 
-import { Button, Input } from '../../components';
+// component
+import { Button } from '../../components';
 
+// style
 import * as styles from './styles.scss';
 
-export interface IProps extends RouteComponentProps {}
+export interface IProps extends RouteComponentProps { }
 
 interface IState {
   hello: string;
-  input: string;
 }
 
 export default class Home extends React.Component<IProps, IState> {
   constructor(props: Readonly<IProps>) {
     super(props);
     this.state = {
-      hello: 'Hello !',
-      input: ''
+      hello: I18n.t('pages.home.initialState')
     };
   }
 
@@ -30,8 +32,8 @@ export default class Home extends React.Component<IProps, IState> {
           {this.state.hello}
         </Col>
         <Col lg="12" className={styles.container_button}>
-          <Button onClick={() => this.setState({ hello: 'Hello world !' })} color="primary">
-            Trigger state
+          <Button onClick={() => this.setState({ hello: I18n.t('pages.home.state') })} color="primary">
+            {I18n.t('pages.home.run')}
           </Button>
         </Col>
       </Row>

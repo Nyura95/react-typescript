@@ -26,7 +26,9 @@ import { config } from '../config';
 // logger
 import logger from '../logger';
 
-logger.info(`initialization store`);
+const source = 'store';
+
+logger.info(`initialization store`, source);
 
 // config persist store
 const persistConfig: PersistConfig = {
@@ -58,7 +60,7 @@ export const store = createStore(
 
 // create the persistor
 export const persistor: Persistor = persistStore(store, undefined, () => {
-  logger.info(`store initialized`);
+  logger.info(`store initialized`, source);
 });
 
 syncTranslationWithStore(store);

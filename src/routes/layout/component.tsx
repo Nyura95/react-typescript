@@ -1,11 +1,14 @@
 import * as React from 'react';
+
+// modules
+import { ConnectedRouter } from 'connected-react-router';
+import ReactNotification from 'react-notifications-component';
+import LoadingBar from 'react-redux-loading-bar';
+
+// type
 import { IReactNotificationsComponent } from '../../types';
 
-import { ConnectedRouter } from 'connected-react-router';
-// import { Helmet } from "react-helmet";
-import ReactNotification from 'react-notifications-component';
-import LoadingBar from 'react-redux-loading-bar'
-
+// store
 import { history } from '../../store';
 
 import { Minimal } from './minimal';
