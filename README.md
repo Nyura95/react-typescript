@@ -16,6 +16,7 @@ Here is my vision of a framework react (typescript v3) with redux.
 
 ## Development mode
 
+> `npm run dev` for disabled HMR and cache
 > `npm run start`
 
 ## build
