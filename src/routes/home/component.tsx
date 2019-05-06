@@ -12,7 +12,7 @@ import { IState as IUserState } from '../../reducers/user';
 // style
 import * as styles from './styles.scss';
 
-export interface IProps extends RouteComponentProps, IUserState { }
+export interface IProps extends RouteComponentProps, IUserState {}
 
 export interface IState {
   hello: string;
@@ -33,7 +33,10 @@ export class Home extends React.Component<IProps, IState> {
           {this.state.hello}
         </Col>
         <Col lg="12" className={styles.container_button}>
-          <Button onClick={() => this.setState({ hello: I18n.t('pages.home.state', { username: this.props.username }) })} color="primary">
+          <Button
+            onClick={() => this.setState({ hello: I18n.t('pages.home.state', { username: this.props.username }) })}
+            color="primary"
+          >
             {I18n.t('pages.home.run')}
           </Button>
         </Col>

@@ -5,7 +5,8 @@ export default {
     '/counter': 'Compteur',
     '/translate': 'Traduction',
     '/notification': 'Notification',
-    '/loader': 'Loader'
+    '/loader': 'Loader',
+    '/animate': 'Animation'
   },
   nav: {
     title: 'React-typescript',
@@ -14,6 +15,7 @@ export default {
     page3: 'Traduction',
     page4: 'Notification',
     page5: 'Loader',
+    page6: 'Animation',
     disconnect: 'Déconnexion'
   },
   notifications: {
@@ -38,7 +40,7 @@ export default {
       hide: 'Cacher'
     },
     login: {
-      username: 'Nom d\'utilisateur',
+      username: "Nom d'utilisateur",
       password: 'Mot de passe',
       button: 'Se connecter',
       title: 'React-typescript v%{version}'

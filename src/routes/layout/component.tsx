@@ -19,7 +19,7 @@ export interface IProps {
   locale: string;
   notificationSet(reactNotificationComponent: IReactNotificationsComponent): void;
 }
-export interface IState { }
+export interface IState {}
 
 export class Layout extends React.Component<IProps, IState> {
   private notificationDOMRef = React.createRef<IReactNotificationsComponent>();

@@ -5,7 +5,8 @@ export default {
     '/counter': 'Counter',
     '/translate': 'Translate',
     '/notification': 'Notification',
-    '/loader': 'Loader'
+    '/loader': 'Loader',
+    '/animate': 'Animate'
   },
   nav: {
     title: 'react-typescript',
@@ -14,6 +15,7 @@ export default {
     page3: 'Translate',
     page4: 'Notification',
     page5: 'Loader',
+    page6: 'Animate',
     disconnect: 'disconnect'
   },
   notifications: {
