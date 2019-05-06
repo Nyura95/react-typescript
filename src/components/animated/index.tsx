@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-// https://daneden.github.io/animate.css/
+// https://daneden.github.io/animate.css
 
 export interface IProps {
   timeout: number;

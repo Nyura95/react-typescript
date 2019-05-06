@@ -1,0 +1,28 @@
+.container {
+  z-index: 10;
+  background-color: lightgray;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  .spinner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  .container_text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 53%;
+    font-weight: bold;
+    font-size: larger;
+    .dot {
+      position: absolute;
+    }
+  }
+}

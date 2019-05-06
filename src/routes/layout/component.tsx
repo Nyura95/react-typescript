@@ -13,13 +13,14 @@ import { history } from '../../store';
 
 import { Minimal } from './minimal';
 import { Default } from './default';
+import { LoadScreen } from '../../modules';
 
 export interface IProps {
   connected: boolean;
   locale: string;
   notificationSet(reactNotificationComponent: IReactNotificationsComponent): void;
 }
-export interface IState {}
+export interface IState { }
 
 export class Layout extends React.Component<IProps, IState> {
   private notificationDOMRef = React.createRef<IReactNotificationsComponent>();
@@ -36,6 +37,7 @@ export class Layout extends React.Component<IProps, IState> {
         <div>
           <ReactNotification ref={this.notificationDOMRef} />
           <LoadingBar style={{ zIndex: 1 }} />
+          <LoadScreen />
           {this.props.connected ? <Default /> : <Minimal />}
         </div>
       </ConnectedRouter>

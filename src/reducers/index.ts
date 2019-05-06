@@ -9,11 +9,13 @@ export * from './types';
 import { counter } from './counter';
 import { user } from './user';
 import { notification } from './notification';
+import { loadscreen } from './loadscreen';
 
 export default combineReducers({
   counter,
   user,
   notification,
+  loadscreen,
   i18n: i18nReducer,
   loadingBar: loadingBarReducer,
 });

@@ -4,6 +4,7 @@ import { IReduxState } from '../reducers';
 import { IState as ICounterState, IType as ICounterType } from '../reducers/counter';
 import { IState as IUserState, IType as IUserType } from '../reducers/user';
 import { IState as INotificationState, IType as INotificationType } from '../reducers/notification';
+import { IState as ILoadScreenState, IType as ILoadScreenType } from '../reducers/loadscreen';
 
 import { I18nState } from 'react-redux-i18n';
 import { RouterState } from 'connected-react-router';
@@ -42,3 +43,7 @@ export type INotificationAction<S = INotificationState, T = INotificationType> =
 // loader reducer
 export type ILoaderDispatch<S = unknown, T = unknown> = ICustomDispatch<S, T>;
 export type ILoaderAction<S = unknown, T = unknown> = ICustomAction<S, T>;
+
+// loadscreen reducer
+export type ILoadScreenDispatch<S = ILoadScreenState, T = ILoadScreenType> = ICustomDispatch<Partial<S>, T>;
+export type ILoadScreenAction<S = ILoadScreenState, T = ILoadScreenType> = ICustomAction<S, T>;
