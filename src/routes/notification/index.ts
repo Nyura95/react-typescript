@@ -1,19 +1,29 @@
-import { ComponentClass } from 'react';
-import { connect, Matching } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { Notification, IProps, IState } from './component';
+import { Notification } from './component';
 import { notificationShow } from '../../actions';
 import { IOptionReactNotificationComponent } from '../../types';
+import { RouteComponentProps } from 'react-router';
 
-const mapStateToProps = (): Partial<IProps> => ({});
+interface IComponentProps extends RouteComponentProps {}
 
-const mapDispatchToProps = (): Partial<IProps> => {
+interface IStateProps {}
+
+const mapStateToProps = (): IStateProps => ({});
+
+interface IDispatchProps {
+  notificationShow(option: IOptionReactNotificationComponent): void;
+}
+
+const mapDispatchToProps = (): IDispatchProps => {
   return {
     notificationShow: (option: IOptionReactNotificationComponent): void => notificationShow(option)
   };
 };
 
+export type IProps = IComponentProps & IStateProps & IDispatchProps;
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Notification as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);
+)(Notification);

@@ -7,18 +7,28 @@ export interface IProps extends SpinnerProps {
   size?: 'sm' | 'lg';
   color?: 'primary' | 'primary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
   type?: 'border' | 'grow';
+  style?: object;
 }
 
-interface IState { }
+interface IState {}
 
 export class Spinner extends React.PureComponent<IProps, IState> {
   static defaultProps = {
     color: 'primary',
     size: 'sm',
-    type: 'border'
+    type: 'border',
+    style: {}
   };
 
   render(): JSX.Element {
-    return <RSpinner type={this.props.type} color={this.props.color} size={this.props.size} className={this.props.className} />
+    return (
+      <RSpinner
+        style={this.props.style}
+        type={this.props.type}
+        color={this.props.color}
+        size={this.props.size}
+        className={this.props.className}
+      />
+    );
   }
 }

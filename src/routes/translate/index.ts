@@ -1,22 +1,42 @@
-import { ComponentClass } from 'react';
-import { connect, Matching } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { Translate, IProps, IState } from './component';
+// module
+import { RouteComponentProps } from 'react-router';
+
+// component
+import { Translate } from './component';
+
+// types
 import { IReduxState } from '../../reducers/types';
+
+// actions
 import { i18nSetLang, i18nGetTranslate } from '../../actions/i18n';
 
-const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
+interface IComponentProps extends RouteComponentProps {}
+
+interface IStateProps {
+  locale: string;
+}
+
+const mapStateToProps = (reducers: IReduxState): IStateProps => ({
   locale: reducers.i18n.locale
 });
 
-const mapDispatchToProps = (): Partial<IProps> => {
+interface IDispatchProps {
+  i18nSetLang(lang: string): void;
+  i18nGetTranslate(): string;
+}
+
+const mapDispatchToProps = (): IDispatchProps => {
   return {
     i18nSetLang: (lang: string): void => i18nSetLang(lang),
     i18nGetTranslate: (): string => i18nGetTranslate()
   };
 };
 
+export type IProps = IComponentProps & IStateProps & IDispatchProps;
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Translate as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);
+)(Translate);

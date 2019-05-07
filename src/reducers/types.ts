@@ -1,7 +1,7 @@
 // Modules
 import { I18nState } from 'react-redux-i18n';
 import { RouterState } from 'connected-react-router';
-import { LoadingBar } from 'react-redux-loading-bar'
+import { LoadingBar } from 'react-redux-loading-bar';
 
 // Types
 import { IState as ICounterState } from './counter';
@@ -17,5 +17,5 @@ export interface IReduxState {
   loadscreen: ILoaderscreen;
   i18n: I18nState;
   route: RouterState;
-  loadingBar: LoadingBar
+  loadingBar: LoadingBar;
 }

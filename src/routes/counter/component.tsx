@@ -2,26 +2,18 @@ import * as React from 'react';
 
 // modules
 import { I18n } from 'react-redux-i18n';
-import { RouteComponentProps } from 'react-router';
 import { Row, Col } from 'reactstrap';
 
 // component
 import { Button } from '../../components';
+import { IProps } from './';
 
 // style
 import * as styles from './styles.scss';
 
-// interface props
-export interface IProps extends RouteComponentProps {
-  counterSet(counter: number): void;
-  counterAsyncSet(counter: number): void;
-  counterReset(): void;
-  counter: number;
-}
+export interface IState {}
 
-export interface IState { }
-
-export class Counter extends React.PureComponent<IProps> {
+export class Counter extends React.PureComponent<IProps, IState> {
   render(): JSX.Element {
     return (
       <Row className={styles.container}>

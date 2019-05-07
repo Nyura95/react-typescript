@@ -7,6 +7,7 @@ export interface IProps {
   animateOut: string;
   animateIn: string;
   className: string;
+  type: 'children' | 'trigger';
 }
 
 interface IState {
@@ -20,7 +21,9 @@ export class Animated extends React.Component<IProps, IState> {
     timeout: 200,
     animateIn: 'fadeIn',
     animateOut: 'fadeOut',
-    className: ''
+    className: '',
+    type: 'children',
+    out: false
   };
 
   constructor(props: IProps) {
@@ -31,12 +34,24 @@ export class Animated extends React.Component<IProps, IState> {
     };
   }
 
-  componentWillReceiveProps(): void {
-    this.setState({ previousChildren: this.props.children, animate: this.props.animateOut });
+  animeIn() {
+    this.setState({ previousChildren: this.props.children, animate: this.props.animateIn });
+  }
+  animeOut() {
+    this.setState({ previousChildren: null, animate: this.props.animateOut });
+  }
+  forceAnime() {
+    this.animeOut();
     this.interval = setInterval(() => {
       this.interval ? clearInterval(this.interval) : null;
-      this.setState({ previousChildren: null, animate: this.props.animateIn });
+      this.animeIn();
     }, this.props.timeout);
+  }
+
+  componentWillReceiveProps(nextProps: IProps): void {
+    if (nextProps.type === 'children') {
+      this.forceAnime();
+    }
   }
 
   render(): JSX.Element {

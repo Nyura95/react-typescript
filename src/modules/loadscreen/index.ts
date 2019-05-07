@@ -1,24 +1,30 @@
-import { ComponentClass } from 'react';
-import { connect, Matching } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { Navbar, IProps, IState } from './component';
-import { ICounterDispatch, IUserDispatch } from '../../actions';
+import { LoadScreen } from './component';
 import { IReduxState } from '../../reducers';
 
-const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
+interface IComponentProps {
+  dot: boolean;
+}
+
+interface IStateProps {
+  show: boolean;
+  text: string;
+}
+
+const mapStateToProps = (reducers: IReduxState): IStateProps => ({
   ...reducers.loadscreen
 });
 
-const mapDispatchToProps = (
-  dispatch: ICounterDispatch | IUserDispatch
-): Partial<IProps> => {
-  return {
-    showLoadScreen: (text: string): void => { },
-    hideLoadScreen: (): void => { }
-  };
+interface IDispatchProps {}
+
+const mapDispatchToProps = (): IDispatchProps => {
+  return {};
 };
+
+export type IProps = IComponentProps & IStateProps & IDispatchProps;
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Navbar as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);
+)(LoadScreen);

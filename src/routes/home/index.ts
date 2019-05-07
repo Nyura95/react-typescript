@@ -1,18 +1,27 @@
-import { ComponentClass } from 'react';
-import { connect, Matching } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { Home, IProps, IState } from './component';
+import { Home } from './component';
 import { IReduxState } from '../../reducers';
+import { RouteComponentProps } from 'react-router';
+import { IState as IUserState } from '../../reducers/user';
 
-const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
+interface IComponentProps extends RouteComponentProps {}
+
+interface IStateProps extends IUserState {}
+
+const mapStateToProps = (reducers: IReduxState): IStateProps => ({
   ...reducers.user
 });
 
-const mapDispatchToProps = (): Partial<IProps> => {
+interface IDispatchProps {}
+
+const mapDispatchToProps = (): IDispatchProps => {
   return {};
 };
+
+export type IProps = IComponentProps & IStateProps & IDispatchProps;
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);
+)(Home);

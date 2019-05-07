@@ -1,19 +1,34 @@
-import { ComponentClass } from 'react';
-import { connect, Matching } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { Loader, IProps, IState } from './component';
-import { ILoaderDispatch, loaderHide, loaderShow } from '../../actions';
+import { Loader } from './component';
+import { ILoaderDispatch, loaderHide, loaderShow, loadScreenHide, loadScreenShow } from '../../actions';
+import { RouteComponentProps } from 'react-router';
 
-const mapStateToProps = (): Partial<IProps> => ({});
+interface IComponentProps extends RouteComponentProps {}
 
-const mapDispatchToProps = (dispatch: ILoaderDispatch): Partial<IProps> => {
+interface IStateProps {}
+
+const mapStateToProps = (): IStateProps => ({});
+
+interface IDispatchProps {
+  loaderShow(): void;
+  loaderHide(): void;
+  loadScreenHide(): void;
+  loadScreenShow(text: string): void;
+}
+
+const mapDispatchToProps = (dispatch: ILoaderDispatch): IDispatchProps => {
   return {
     loaderHide: (): void => dispatch(loaderHide()),
-    loaderShow: (): void => dispatch(loaderShow())
+    loaderShow: (): void => dispatch(loaderShow()),
+    loadScreenHide: (): void => dispatch(loadScreenHide()),
+    loadScreenShow: (text: string): void => dispatch(loadScreenShow(text))
   };
 };
+
+export type IProps = IComponentProps & IStateProps & IDispatchProps;
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Loader as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);
+)(Loader);

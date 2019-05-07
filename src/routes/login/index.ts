@@ -1,18 +1,28 @@
-import { ComponentClass } from 'react';
-import { connect, Matching } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { Login, IProps, IState } from './component';
+import { Login } from './component';
 import { userAuth, IUserDispatch } from '../../actions';
+import { RouteComponentProps } from 'react-router';
 
-const mapStateToProps = (): Partial<IProps> => ({});
+interface IComponentProps extends RouteComponentProps {}
 
-const mapDispatchToProps = (dispatch: IUserDispatch): Partial<IProps> => {
+interface IStateProps {}
+
+const mapStateToProps = (): IStateProps => ({});
+
+interface IDispatchProps {
+  userAuth(username: string, password: string): void;
+}
+
+const mapDispatchToProps = (dispatch: IUserDispatch): IDispatchProps => {
   return {
     userAuth: (username: string, password: string): void => dispatch(userAuth(username, password))
   };
 };
 
+export type IProps = IComponentProps & IStateProps & IDispatchProps;
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);
+)(Login);

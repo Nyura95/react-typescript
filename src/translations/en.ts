@@ -32,7 +32,9 @@ export default {
     },
     loader: {
       show: 'Show',
-      hide: 'Hide'
+      hide: 'Hide',
+      loadscreen: 'Load screen',
+      loadbar: 'Load barre'
     },
     login: {
       username: 'Usernname',

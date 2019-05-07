@@ -18,7 +18,7 @@ export interface IState {
   animate: string;
 }
 
-export default class Animate extends React.PureComponent<IProps, IState> {
+export default class Animate extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {

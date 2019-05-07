@@ -2,17 +2,14 @@ import * as React from 'react';
 
 // modules
 import { I18n } from 'react-redux-i18n';
-import { RouteComponentProps } from 'react-router';
 import { Row, Col } from 'reactstrap';
 
 // component
 import { Button } from '../../components';
-import { IState as IUserState } from '../../reducers/user';
+import { IProps } from './';
 
 // style
 import * as styles from './styles.scss';
-
-export interface IProps extends RouteComponentProps, IUserState {}
 
 export interface IState {
   hello: string;

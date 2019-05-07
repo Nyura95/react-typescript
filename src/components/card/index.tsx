@@ -11,38 +11,41 @@ export interface IProps extends CardProps {
   title?: string;
   footer?: string;
   busy?: boolean;
+  className?: string;
 }
 
-interface IState { }
+interface IState {}
 
 export class Card extends React.Component<IProps, IState> {
   static defaultProps = {
     header: '',
     title: '',
     footer: '',
-    busy: null
+    busy: null,
+    className: ''
   };
 
   showIcon(): JSX.Element {
     return (
-      <CardBody className='text-center'>
-        <Spinner size='lg' type='grow' />
-      </CardBody>);
+      <CardBody className="text-center">
+        <Spinner size="lg" type="grow" />
+      </CardBody>
+    );
   }
 
   showCard(): JSX.Element {
     return (
       <CardBody>
-        {this.props.title !== '' ? (<CardTitle>{this.props.title}</CardTitle>) : null}
-        <CardText tag='div'>{this.props.children}</CardText>
-        {this.props.footer !== '' ? (<CardFooter>{this.props.footer}</CardFooter>) : null}
+        {this.props.title !== '' ? <CardTitle>{this.props.title}</CardTitle> : null}
+        <CardText tag="div">{this.props.children}</CardText>
+        {this.props.footer !== '' ? <CardFooter>{this.props.footer}</CardFooter> : null}
       </CardBody>
     );
   }
   render(): JSX.Element {
     return (
-      <RCard {...this.props} title=''>
-        {this.props.header !== '' ? (<CardHeader>{this.props.header}</CardHeader>) : null}
+      <RCard body={this.props.body} className={this.props.className}>
+        {this.props.header !== '' ? <CardHeader>{this.props.header}</CardHeader> : null}
         {this.props.busy ? this.showIcon() : this.showCard()}
       </RCard>
     );

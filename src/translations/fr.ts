@@ -37,7 +37,9 @@ export default {
     },
     loader: {
       show: 'Afficher',
-      hide: 'Cacher'
+      hide: 'Cacher',
+      loadscreen: 'Page de chargement',
+      loadbar: 'Barre de chargement'
     },
     login: {
       username: "Nom d'utilisateur",

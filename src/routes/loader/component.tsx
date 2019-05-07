@@ -2,30 +2,35 @@ import * as React from 'react';
 
 // modules
 import { I18n } from 'react-redux-i18n';
-import { RouteComponentProps } from 'react-router';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Label } from 'reactstrap';
 
 // component
-import { Button } from '../../components';
+import { Button, Card } from '../../components';
+import { IProps } from './';
 
 // style
 import * as styles from './styles.scss';
 
-// interface props
-export interface IProps extends RouteComponentProps {
-  loaderShow(): void;
-  loaderHide(): void;
-}
+export interface IState {}
 
-export interface IState { }
-
-export class Loader extends React.PureComponent<IProps> {
+export class Loader extends React.Component<IProps> {
+  startLoadScreen(): void {
+    this.props.loadScreenShow('Veuillez patienter');
+    setTimeout(() => this.props.loadScreenHide(), 3000);
+  }
   render(): JSX.Element {
     return (
       <Row className={styles.container}>
-        <Col lg="12" className={styles.container_button}>
-          <Button onClick={() => this.props.loaderShow()}>{I18n.t('pages.loader.show')}</Button>
-          <Button onClick={() => this.props.loaderHide()}>{I18n.t('pages.loader.hide')}</Button>
+        <Col lg={12}>
+          <Card header={I18n.t('pages.loader.loadbar')} className={styles.card}>
+            <Button onClick={() => this.props.loaderShow()}>{I18n.t('pages.loader.show')}</Button>
+            <Button onClick={() => this.props.loaderHide()}>{I18n.t('pages.loader.hide')}</Button>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card header={I18n.t('pages.loader.loadscreen')} className={styles.card}>
+            <Button onClick={() => this.startLoadScreen()}>{I18n.t('pages.loader.show')}</Button>
+          </Card>
         </Col>
       </Row>
     );

@@ -4,24 +4,16 @@ import * as React from 'react';
 import { I18n } from 'react-redux-i18n';
 import { Navbar as NavbarReactStrap, NavbarBrand, Nav, NavItem, NavLink, Collapse, NavbarToggler } from 'reactstrap';
 
+import { IProps } from './';
+
 // style
 import * as styles from './styles.scss';
-
-export interface IProps {
-  goPush(to: string): void;
-  userDisconnect(): void;
-}
 
 export interface IState {
   isOpen: boolean;
 }
 
 export class Navbar extends React.Component<IProps, IState> {
-  static defaultProps = {
-    goPush: (): void => {},
-    userDisconnect: (): void => {}
-  };
-
   constructor(props: Readonly<IProps>) {
     super(props);
     this.state = {

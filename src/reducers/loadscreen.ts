@@ -13,9 +13,9 @@ const initialState: IState = {
 };
 
 /**
- * Store the user info
- * @param state IState
- * @param action IAction<IState, IType>
+ * Store for the module loadscreen
+ * @param {IState} state
+ * @param {IAction<IState, IType>} action
  * @version 1.0.0
  * @returns {IState}
  */
@@ -23,11 +23,14 @@ export function loadscreen(state: IState = initialState, action: IAction<IState,
   switch (action.type) {
     case 'SHOW_LOADSCREEN':
       return {
-        show: true,
-        text: action.payload.text
-      }
+        text: action.payload.text,
+        show: true
+      };
     case 'HIDE_LOADSCREEN':
-      return initialState;
+      return {
+        ...state,
+        show: false
+      };
     default:
       return state;
   }

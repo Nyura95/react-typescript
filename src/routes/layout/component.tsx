@@ -7,6 +7,7 @@ import LoadingBar from 'react-redux-loading-bar';
 
 // type
 import { IReactNotificationsComponent } from '../../types';
+import { IProps } from './';
 
 // store
 import { history } from '../../store';
@@ -15,12 +16,7 @@ import { Minimal } from './minimal';
 import { Default } from './default';
 import { LoadScreen } from '../../modules';
 
-export interface IProps {
-  connected: boolean;
-  locale: string;
-  notificationSet(reactNotificationComponent: IReactNotificationsComponent): void;
-}
-export interface IState { }
+export interface IState {}
 
 export class Layout extends React.Component<IProps, IState> {
   private notificationDOMRef = React.createRef<IReactNotificationsComponent>();

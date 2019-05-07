@@ -1,15 +1,36 @@
-import { ComponentClass } from 'react';
-import { connect, Matching } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { Counter, IProps, IState } from './component';
+import { Counter } from './component';
 import { IReduxState } from '../../reducers';
-import { counterSet, counterReset, counterAsyncSet, ICounterDispatch } from '../../actions';
+import {
+  counterSet,
+  counterReset,
+  counterAsyncSet,
+  ICounterDispatch,
+  loadScreenShow,
+  loadScreenHide
+} from '../../actions';
+import { RouteComponentProps } from 'react-router';
 
-const mapStateToProps = (reducers: IReduxState): Partial<IProps> => ({
+interface IComponentProps extends RouteComponentProps {
+  dot: boolean;
+}
+
+interface IStateProps {
+  counter: number;
+}
+
+const mapStateToProps = (reducers: IReduxState): IStateProps => ({
   ...reducers.counter
 });
 
-const mapDispatchToProps = (dispatch: ICounterDispatch): Partial<IProps> => {
+interface IDispatchProps {
+  counterSet(counter: number): void;
+  counterAsyncSet(counter: number): void;
+  counterReset(): void;
+}
+
+const mapDispatchToProps = (dispatch: ICounterDispatch): IDispatchProps => {
   return {
     counterSet: (counter: number): void => dispatch(counterSet(counter)),
     counterAsyncSet: (counter: number): void => dispatch(counterAsyncSet(counter)),
@@ -17,7 +38,9 @@ const mapDispatchToProps = (dispatch: ICounterDispatch): Partial<IProps> => {
   };
 };
 
+export type IProps = IComponentProps & IStateProps & IDispatchProps;
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Counter as ComponentClass<Matching<Partial<IProps>, IProps>, IState>);
+)(Counter);

@@ -2,22 +2,18 @@ import * as React from 'react';
 
 // modules
 import { I18n } from 'react-redux-i18n';
-import { RouteComponentProps } from 'react-router';
 import { Row, Col } from 'reactstrap';
 
 // component
 import { Button } from '../../components';
 
+// type
+import { IProps } from './';
+
 // style
 import * as styles from './styles.scss';
 
-export interface IProps extends RouteComponentProps {
-  i18nSetLang(lang: string): void;
-  i18nGetTranslate(): string;
-  locale: string;
-}
-
-export interface IState { }
+export interface IState {}
 
 export class Translate extends React.Component<IProps, IState> {
   render(): JSX.Element {
