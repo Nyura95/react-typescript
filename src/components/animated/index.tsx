@@ -7,7 +7,12 @@ export interface IProps {
   animateOut: string;
   animateIn: string;
   className: string;
+  style: object;
   type: 'children' | 'trigger';
+  animateStart: boolean;
+  triggerOut: (event: Function) => {} | null;
+  triggerIn: (event: Function) => {} | null;
+  trigger: (event: Function) => {} | null;
 }
 
 interface IState {
@@ -22,25 +27,32 @@ export class Animated extends React.Component<IProps, IState> {
     animateIn: 'fadeIn',
     animateOut: 'fadeOut',
     className: '',
-    type: 'children',
-    out: false
+    style: {},
+    type: 'trigger',
+    animateStart: false,
+    triggerOut: null,
+    triggerIn: null,
+    trigger: null
   };
 
   constructor(props: IProps) {
     super(props);
     this.state = {
       previousChildren: null,
-      animate: props.animateIn
+      animate: props.animateStart ? props.animateIn : ''
     };
+    if (props.triggerOut) this.props.triggerOut(() => this.animeOut());
+    if (props.triggerIn) this.props.triggerIn(() => this.animeIn());
+    if (props.trigger) this.props.trigger(() => this.anime());
   }
 
-  animeIn() {
+  animeIn(): void {
     this.setState({ previousChildren: this.props.children, animate: this.props.animateIn });
   }
-  animeOut() {
+  animeOut(): void {
     this.setState({ previousChildren: null, animate: this.props.animateOut });
   }
-  forceAnime() {
+  anime(): void {
     this.animeOut();
     this.interval = setInterval(() => {
       this.interval ? clearInterval(this.interval) : null;
@@ -50,7 +62,7 @@ export class Animated extends React.Component<IProps, IState> {
 
   componentWillReceiveProps(nextProps: IProps): void {
     if (nextProps.type === 'children') {
-      this.forceAnime();
+      this.anime();
     }
   }
 
@@ -58,7 +70,7 @@ export class Animated extends React.Component<IProps, IState> {
     return (
       <div
         className={`${this.props.className} ${this.state.animate} animated`}
-        style={{ animationDuration: `${this.props.timeout / 1000}s` }}
+        style={{ animationDuration: `${this.props.timeout / 1000}s`, ...this.props.style }}
       >
         {this.state.previousChildren || this.props.children}
       </div>

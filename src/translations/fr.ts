@@ -56,6 +56,11 @@ export default {
       decrement: 'Décrémenter',
       async: 'Incrémenter en asynchrone',
       reset: 'Réinitialiser'
+    },
+    animate: {
+      triggerIn: 'Déchancher l\'apparition',
+      triggerOut: 'Déchancher la disparition',
+      trigger: 'Déchancher l\'animation'
     }
   }
 };

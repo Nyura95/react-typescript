@@ -5,6 +5,7 @@ import { IReduxState } from '../../reducers';
 
 interface IComponentProps {
   dot: boolean;
+  timeout: number;
 }
 
 interface IStateProps {
@@ -16,7 +17,7 @@ const mapStateToProps = (reducers: IReduxState): IStateProps => ({
   ...reducers.loadscreen
 });
 
-interface IDispatchProps {}
+interface IDispatchProps { }
 
 const mapDispatchToProps = (): IDispatchProps => {
   return {};

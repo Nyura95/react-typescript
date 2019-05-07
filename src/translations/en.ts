@@ -33,8 +33,8 @@ export default {
     loader: {
       show: 'Show',
       hide: 'Hide',
-      loadscreen: 'Load screen',
-      loadbar: 'Load barre'
+      loadscreen: 'Loading screen',
+      loadbar: 'Loading bar'
     },
     login: {
       username: 'Usernname',
@@ -51,6 +51,11 @@ export default {
       decrement: 'Decrease',
       async: 'Async incrément',
       reset: 'Reset'
+    },
+    animate: {
+      triggerIn: 'Trigger in',
+      triggerOut: 'Trigger out',
+      trigger: 'Trigger'
     }
   }
 };
