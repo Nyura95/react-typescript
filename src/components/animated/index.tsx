@@ -2,7 +2,7 @@ import * as React from 'react';
 
 // https://daneden.github.io/animate.css
 
-export interface IProps {
+interface IProps {
   timeout: number;
   animateOut: string;
   animateIn: string;
@@ -41,9 +41,9 @@ export class Animated extends React.Component<IProps, IState> {
       previousChildren: null,
       animate: props.animateStart ? props.animateIn : ''
     };
-    if (props.triggerOut) this.props.triggerOut(() => this.animeOut());
-    if (props.triggerIn) this.props.triggerIn(() => this.animeIn());
-    if (props.trigger) this.props.trigger(() => this.anime());
+    if (props.triggerOut) props.triggerOut(() => this.animeOut());
+    if (props.triggerIn) props.triggerIn(() => this.animeIn());
+    if (props.trigger) props.trigger(() => this.anime());
   }
 
   animeIn(): void {

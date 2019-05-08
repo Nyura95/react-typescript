@@ -35,7 +35,7 @@ export default class Component extends React.Component<IProps, IState> {
         <Col lg={12}>
           <Card header={I18n.t('pages.component.button')} className={styles.card}>
             <Button onClick={() => this.startButtonBusy()} busy={this.state.buttonBusy}>{I18n.t('pages.component.button')}</Button>
-            <Button.Round icon='fa-edge' onClick={() => this.startButtonBusy()} busy={this.state.buttonBusy}></Button.Round>
+            <Button.Round icon='fa-home' onClick={() => this.startButtonBusy()} busy={this.state.buttonBusy}></Button.Round>
           </Card>
         </Col>
       </Row>
