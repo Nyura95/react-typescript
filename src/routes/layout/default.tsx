@@ -19,11 +19,12 @@ import Translate from '../translate';
 import Notification from '../notification';
 import Loader from '../loader';
 import Animate from '../animate';
+import Component from '../component';
 
 // style
 import * as styles from './styles.scss';
 
-export interface IProps {}
+export interface IProps { }
 interface IState {
   test: boolean;
 }
@@ -44,6 +45,7 @@ export class Default extends React.Component<IProps, IState> {
             <Route exact={true} path="/notification" component={Notification} />
             <Route exact={true} path="/loader" component={Loader} />
             <Route exact={true} path="/animate" component={Animate} />
+            <Route exact={true} path="/component" component={Component} />
             <Redirect from="*" to="/" />
           </Switch>
         </Container>

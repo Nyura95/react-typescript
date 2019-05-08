@@ -1,41 +1,36 @@
 import * as React from 'react';
 
 // modules
-import { I18n } from 'react-redux-i18n';
 import { Row, Col } from 'reactstrap';
 
 // component
-import { Button } from '../../components';
 import { IProps } from './';
 
 // style
 import * as styles from './styles.scss';
+import { I18n } from 'react-redux-i18n';
 
 export interface IState {
-  hello: string;
+  busy: boolean;
 }
 
 export class Home extends React.Component<IProps, IState> {
   constructor(props: Readonly<IProps>) {
     super(props);
     this.state = {
-      hello: I18n.t('pages.home.initialState', { username: this.props.username })
+      busy: false
     };
+  }
+
+  test() {
+    this.setState({ busy: !this.state.busy });
   }
 
   render(): JSX.Element {
     return (
       <Row className={styles.container}>
         <Col lg="12" className={styles.container_button}>
-          {this.state.hello}
-        </Col>
-        <Col lg="12" className={styles.container_button}>
-          <Button
-            onClick={() => this.setState({ hello: I18n.t('pages.home.state', { username: this.props.username }) })}
-            color="primary"
-          >
-            {I18n.t('pages.home.run')}
-          </Button>
+          {I18n.t('pages.home.hello', { username: this.props.username })}
         </Col>
       </Row>
     );

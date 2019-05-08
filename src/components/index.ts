@@ -5,5 +5,6 @@ import { Spinner } from './spinner';
 import { Card } from './card';
 import { Form } from './form';
 import { Animated } from './animated';
+import { Icon } from './icon';
 
-export { Button, Container, Input, Spinner, Card, Form, Animated };
+export { Button, Icon, Container, Input, Spinner, Card, Form, Animated };

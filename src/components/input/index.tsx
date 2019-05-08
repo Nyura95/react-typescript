@@ -20,6 +20,7 @@ export interface IProps {
   formText?: string;
   formFeedback?: string;
   plaintext?: boolean;
+  busy?: boolean;
 }
 
 export interface IState {
@@ -35,7 +36,8 @@ export class Input extends React.Component<IProps, IState> {
     invalid: false,
     formText: '',
     formFeedback: '',
-    plaintext: false
+    plaintext: false,
+    busy: false
   };
 
   constructor(props: Readonly<IProps>) {
@@ -68,6 +70,7 @@ export class Input extends React.Component<IProps, IState> {
           valid={this.props.valid}
           invalid={this.props.invalid}
           plaintext={this.props.plaintext}
+          disabled={this.props.busy}
         />
         {this.props.formFeedback !== '' ? (
           <FormFeedback valid={this.props.valid}>{this.props.formFeedback}</FormFeedback>

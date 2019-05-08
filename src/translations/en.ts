@@ -6,7 +6,8 @@ export default {
     '/translate': 'Translate',
     '/notification': 'Notification',
     '/loader': 'Loader',
-    '/animate': 'Animate'
+    '/animate': 'Animate',
+    '/component': 'Component'
   },
   nav: {
     title: 'react-typescript',
@@ -16,6 +17,7 @@ export default {
     page4: 'Notification',
     page5: 'Loader',
     page6: 'Animate',
+    page7: 'Component',
     disconnect: 'disconnect'
   },
   notifications: {
@@ -25,10 +27,11 @@ export default {
     }
   },
   pages: {
+    component: {
+      button: 'Button'
+    },
     home: {
-      run: 'Run state',
-      initialState: 'Hello !',
-      state: 'Hello world !'
+      hello: 'Your email : %{username}'
     },
     loader: {
       show: 'Show',

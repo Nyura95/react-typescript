@@ -1,33 +1,50 @@
 @import '../../styles/variables/color';
-.btn_primary {
-  color: #fff;
-  background-color: $primary-color;
-  border-color: $primary-color;
-  &:active {
-    background-color: $primary-color-active !important;
-    border-color: $primary-color-active !important;
-  }
-  &:focus {
-    box-shadow: 0 0 0 0.2rem $primary-color-shadow !important;
-  }
-  &:hover {
-    color: #fff;
-    background-color: $primary-color;
-    border-color: $primary-color;
+
+
+.container_button {
+  .container_busy {
+    position: relative;
+    .text {
+      opacity: 0;
+    }
+    .icon {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
   }
 }
 
-.container_busy {
+
+
+
+.container_arround {
   position: relative;
-  .text {
-    opacity: 0;
+  border-radius: 50%;
+  .container_busy {
+    .icon_busy {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
   }
   .icon {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
   }
 }
+
+.container_arround.lg {
+  height: 40px;
+  width: 40px;
+}
+
+

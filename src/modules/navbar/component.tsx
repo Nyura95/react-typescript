@@ -71,6 +71,11 @@ export class Navbar extends React.Component<IProps, IState> {
                 {I18n.t('nav.page6')}
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink onClick={() => this.props.goPush('/component')} className={styles.clickable}>
+                {I18n.t('nav.page7')}
+              </NavLink>
+            </NavItem>
           </Nav>
         </Collapse>
         <Collapse isOpen={this.state.isOpen} navbar={true}>

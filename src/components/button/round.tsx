@@ -4,22 +4,24 @@ import * as React from 'react';
 import { Button as RButton, ButtonProps } from 'reactstrap';
 
 // component 
-import { Spinner } from '..';
-import { Round } from './round'
+import { Spinner, Icon } from '../';
 
 // style
+import { joinClass } from '../../helpers/general';
 import * as styles from './styles.scss';
+
 
 export interface IProps extends ButtonProps {
   color?: 'danger' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'link';
   busy?: boolean;
   className?: string;
   style?: object;
+  icon: string;
 }
 
 interface IState { }
 
-export class Button extends React.Component<IProps, IState> {
+export class Round extends React.Component<IProps, IState> {
   static defaultProps = {
     color: 'primary',
     busy: false,
@@ -29,13 +31,11 @@ export class Button extends React.Component<IProps, IState> {
     type: 'button',
     onClick: () => { }
   };
-  public static Round: typeof Round = Round;
 
-  showIcon(): JSX.Element {
+  showSpinner(): JSX.Element {
     return (
       <div className={styles.container_busy}>
-        <span className={styles.text}>{this.props.children}</span>
-        <Spinner size="sm" className={styles.icon} color={'light'} />
+        <Spinner size="lg" className={styles.icon_busy} color={'light'} type='grow' />
       </div>
     );
   }
@@ -60,10 +60,10 @@ export class Button extends React.Component<IProps, IState> {
         onClick={!this.props.busy ? this.props.onClick : () => { }}
         size={this.props.size}
         style={{ ...this.props.style }}
-        className={styles.container_button}
+        className={joinClass(styles.container_arround, styles.btn_primary, styles.lg)}
         type={this.props.type}
       >
-        {this.props.busy ? this.showIcon() : this.props.children}
+        {this.props.busy ? this.showSpinner() : <Icon icon={this.props.icon} className={styles.icon} size='sm' />}
       </RButton>
     );
   }
