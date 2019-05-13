@@ -16,7 +16,7 @@ import { Minimal } from './minimal';
 import { Default } from './default';
 import { LoadScreen } from '../../modules';
 
-export interface IState {}
+export interface IState { }
 
 export class Layout extends React.Component<IProps, IState> {
   private notificationDOMRef = React.createRef<IReactNotificationsComponent>();

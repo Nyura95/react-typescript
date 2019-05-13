@@ -40,7 +40,7 @@ export class LoadScreen extends React.Component<IProps, IState> {
   }
 
   render(): JSX.Element {
-    if (this.props.show === false) return <div />;
+    if (this.props.show === false) return <div id='loadScreen' />;
     return (
       <Animated timeout={this.props.timeout} className={styles.container} animateStart>
         <Spinner className={styles.spinner} type="grow" style={{ width: '4rem', height: '4rem' }} color={'danger'} />
