@@ -22,10 +22,6 @@ export class Home extends React.Component<IProps, IState> {
     };
   }
 
-  test() {
-    this.setState({ busy: !this.state.busy });
-  }
-
   render(): JSX.Element {
     return (
       <Row className={styles.container}>
