@@ -37,7 +37,8 @@ export default {
       show: 'Show',
       hide: 'Hide',
       loadscreen: 'Loading screen',
-      loadbar: 'Loading bar'
+      loadbar: 'Loading bar',
+      loadscreentext: 'Please wait'
     },
     login: {
       username: 'Usernname',

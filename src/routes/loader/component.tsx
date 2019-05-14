@@ -15,7 +15,7 @@ export interface IState {}
 
 export class Loader extends React.Component<IProps> {
   startLoadScreen(): void {
-    this.props.loadScreenShow('Veuillez patienter');
+    this.props.loadScreenShow(I18n.t('pages.loader.loadscreentext'));
     setTimeout(() => this.props.loadScreenHide(), 3000);
   }
   render(): JSX.Element {

@@ -43,16 +43,11 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "cssnano": "^4.1.10",
-    "install": "^0.12.2",
-    "npm": "^6.9.0",
     "parcel-bundler": "^1.12.3",
     "postcss-modules": "^1.4.1",
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "tslint": "^5.11.0",
-    "tslint-config-airbnb": "^5.11.0",
-    "tslint-config-prettier": "^1.16.0",
-    "tslint-react": "^3.6.0",
     "typescript": "^3.4.5"
   },
   "dependencies": {

@@ -42,7 +42,8 @@ export default {
       show: 'Afficher',
       hide: 'Cacher',
       loadscreen: 'Page de chargement',
-      loadbar: 'Barre de chargement'
+      loadbar: 'Barre de chargement',
+      loadscreentext: 'Veuillez patienter'
     },
     login: {
       username: "Nom d'utilisateur",
@@ -61,9 +62,9 @@ export default {
       reset: 'Réinitialiser'
     },
     animate: {
-      triggerIn: 'Déchancher l\'apparition',
+      triggerIn: "Déchancher l'apparition",
       triggerOut: 'Déchancher la disparition',
-      trigger: 'Déchancher l\'animation'
+      trigger: "Déchancher l'animation"
     }
   }
 };
