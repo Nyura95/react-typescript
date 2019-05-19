@@ -5,15 +5,15 @@ import { IReduxState } from '../../reducers';
 import { RouteComponentProps } from 'react-router';
 import { IState as IUserState } from '../../reducers/user';
 
-interface IComponentProps extends RouteComponentProps {}
+interface IComponentProps extends RouteComponentProps { }
 
-interface IStateProps extends IUserState {}
+interface IStateProps extends IUserState { }
 
 const mapStateToProps = (reducers: IReduxState): IStateProps => ({
   ...reducers.user
 });
 
-interface IDispatchProps {}
+interface IDispatchProps { }
 
 const mapDispatchToProps = (): IDispatchProps => {
   return {};

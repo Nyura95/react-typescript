@@ -7,31 +7,30 @@ export interface IProps extends FormProps {
   preventDefault?: boolean;
 }
 
-interface IState { }
+const Form: React.FunctionComponent<IProps> = ({ className, children, onSubmit, preventDefault }) => {
 
-export class Form extends React.Component<IProps, IState> {
-  static defaultProps = {
-    onSubmit: () => { },
-    preventDefault: false
-  };
-
-  onSubmit(event: React.FormEvent<HTMLFormElement>) {
-    if (!this.props.preventDefault) {
+  const submit = (event: React.FormEvent<HTMLFormElement>) => {
+    if (!preventDefault) {
       event.preventDefault();
     }
-    if (this.props.onSubmit) {
-      this.props.onSubmit(event);
+    if (onSubmit) {
+      onSubmit(event);
     }
   }
 
-  render(): JSX.Element {
-    return (
-      <RForm
-        classame={this.props.className}
-        onSubmit={(event) => this.onSubmit(event)}
-      >
-        {this.props.children}
-      </RForm>
-    );
-  }
-}
+  return (
+    <RForm
+      classame={className}
+      onSubmit={(event) => submit(event)}
+    >
+      {children}
+    </RForm>
+  );
+};
+
+Form.defaultProps = {
+  onSubmit: () => { },
+  preventDefault: false
+};
+
+export default Form;

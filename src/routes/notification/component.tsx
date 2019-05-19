@@ -13,27 +13,23 @@ import { IProps } from './';
 // style
 import * as styles from './styles.scss';
 
-export interface IState {}
-
-export class Notification extends React.PureComponent<IProps> {
-  render(): JSX.Element {
-    return (
-      <Row className={styles.container}>
-        <Col lg="12" className={styles.container_button}>
-          <Button
-            onClick={() =>
-              this.props.notificationShow({
-                title: I18n.t('pages.notification.title'),
-                message: I18n.t('pages.notification.message'),
-                type: 'info'
-              })
-            }
-            color="primary"
-          >
-            {I18n.t('pages.notification.button')}
-          </Button>
-        </Col>
-      </Row>
-    );
-  }
-}
+export const Notification: React.FunctionComponent<IProps> = ({ notificationShow }) => {
+  return (
+    <Row className={styles.container}>
+      <Col lg="12" className={styles.container_button}>
+        <Button
+          onClick={() =>
+            notificationShow({
+              title: I18n.t('pages.notification.title'),
+              message: I18n.t('pages.notification.message'),
+              type: 'info'
+            })
+          }
+          color="primary"
+        >
+          {I18n.t('pages.notification.button')}
+        </Button>
+      </Col>
+    </Row>
+  );
+};

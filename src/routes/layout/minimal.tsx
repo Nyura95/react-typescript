@@ -17,17 +17,13 @@ import * as styles from './styles.scss';
 
 export interface IProps { }
 
-interface IState { }
-
-export class Minimal extends React.Component<IProps, IState> {
-  render(): JSX.Element {
-    return (
-      <Container className={joinClass(styles.container_minimal, 'd-flex align-content-around flex-wrap')}>
-        <Switch>
-          <Route exact={true} path="/" component={Login} />
-          <Redirect from="*" to="/" />
-        </Switch>
-      </Container>
-    );
-  }
-}
+export const Minimal: React.FunctionComponent<IProps> = () => {
+  return (
+    <Container className={joinClass(styles.container_minimal, 'd-flex align-content-around flex-wrap')}>
+      <Switch>
+        <Route exact={true} path="/" component={Login} />
+        <Redirect from="*" to="/" />
+      </Switch>
+    </Container>
+  );
+};

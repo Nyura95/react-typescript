@@ -5,40 +5,37 @@ import { I18n } from 'react-redux-i18n';
 import { Row, Col } from 'reactstrap';
 
 // component
-import { Button, Card } from '../../components';
+import { Button, Round, Card } from '../../components';
 
 // style
 import * as styles from './styles.scss';
+import { RouteComponentProps } from 'react-router';
 
-interface IProps { }
-interface IState {
-  buttonBusy: boolean;
-}
+const Component: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
+  let timeout: NodeJS.Timeout | null = null;
+  const [buttonBusy, setButtonBusy] = React.useState<boolean>(false)
 
-export default class Component extends React.Component<IProps, IState> {
+  const startButtonBusy = () => {
+    setButtonBusy(true);
+    timeout = setTimeout(() => setButtonBusy(false), 3000);
+  }
 
-  constructor(props: IProps) {
-    super(props);
-    this.state = {
-      buttonBusy: false
+  React.useEffect(() => {
+    return () => {
+      if (timeout) clearTimeout(timeout);
     }
-  }
+  }, [history.location.pathname]);
 
-  startButtonBusy() {
-    this.setState({ buttonBusy: !this.state.buttonBusy });
-    setTimeout(() => this.setState({ buttonBusy: !this.state.buttonBusy }), 3000);
-  }
+  return (
+    <Row className={styles.container}>
+      <Col lg={12}>
+        <Card header={I18n.t('pages.component.button')} className={styles.card}>
+          <Button onClick={() => startButtonBusy()} busy={buttonBusy}>{I18n.t('pages.component.button')}</Button>
+          <Round icon='fa-home' onClick={() => startButtonBusy()} busy={buttonBusy}></Round>
+        </Card>
+      </Col>
+    </Row>
+  );
+};
 
-  render(): JSX.Element {
-    return (
-      <Row className={styles.container}>
-        <Col lg={12}>
-          <Card header={I18n.t('pages.component.button')} className={styles.card}>
-            <Button onClick={() => this.startButtonBusy()} busy={this.state.buttonBusy}>{I18n.t('pages.component.button')}</Button>
-            <Button.Round icon='fa-home' onClick={() => this.startButtonBusy()} busy={this.state.buttonBusy}></Button.Round>
-          </Card>
-        </Col>
-      </Row>
-    );
-  }
-}
+export default Component;

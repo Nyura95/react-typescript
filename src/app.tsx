@@ -11,16 +11,14 @@ import { store, persistor } from './store';
 // component
 import Layout from './routes/layout';
 
-class Application extends React.Component {
-  render(): JSX.Element {
-    return (
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <Layout />
-        </PersistGate>
-      </Provider>
-    );
-  }
+const Application: React.FunctionComponent = () => {
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Layout />
+      </PersistGate>
+    </Provider>
+  );
 }
 
 render(<Application />, document.getElementById('main'));

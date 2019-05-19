@@ -27,56 +27,49 @@ export interface IState {
   value: string;
 }
 
-export class Input extends React.Component<IProps, IState> {
-  static defaultProps = {
-    label: '',
-    placeholder: '',
-    disabled: false,
-    valid: false,
-    invalid: false,
-    formText: '',
-    formFeedback: '',
-    plaintext: false,
-    busy: false
-  };
 
-  constructor(props: Readonly<IProps>) {
-    super(props);
-    this.state = {
-      value: props.value
-    };
+const Input: React.FunctionComponent<IProps> = (props) => {
+  const [value, setValue] = React.useState<string>(props.value)
+
+  const onClickHandler = (inpuValue: string): void => {
+    setValue(inpuValue);
+    props.onChange(inpuValue);
   }
 
-  onClickHandler(value: string): void {
-    this.props.onChange(value);
-  }
+  React.useEffect(() => { }, [props.value])
 
-  componentWillReceiveProps(nextProps: IProps): void {
-    if (nextProps.value !== this.state.value) {
-      this.setState({ value: nextProps.value });
-    }
-  }
+  return (
+    <FormGroup>
+      {props.label !== '' ? <Label>{props.label}</Label> : null}
+      <RInput
+        type={props.type}
+        className={styles.input}
+        value={value}
+        placeholder={props.placeholder}
+        onChange={(e: React.FormEvent<HTMLInputElement>) => onClickHandler(e.currentTarget.value)}
+        valid={props.valid}
+        invalid={props.invalid}
+        plaintext={props.plaintext}
+        disabled={props.busy}
+      />
+      {props.formFeedback !== '' ? (
+        <FormFeedback valid={props.valid}>{props.formFeedback}</FormFeedback>
+      ) : null}
+      {props.formText !== '' ? <FormText>{props.formText}</FormText> : null}
+    </FormGroup>
+  );
+};
 
-  render(): JSX.Element {
-    return (
-      <FormGroup>
-        {this.props.label !== '' ? <Label>{this.props.label}</Label> : null}
-        <RInput
-          type={this.props.type}
-          className={styles.input}
-          value={this.state.value}
-          placeholder={this.props.placeholder}
-          onChange={(e: React.FormEvent<HTMLInputElement>) => this.onClickHandler(e.currentTarget.value)}
-          valid={this.props.valid}
-          invalid={this.props.invalid}
-          plaintext={this.props.plaintext}
-          disabled={this.props.busy}
-        />
-        {this.props.formFeedback !== '' ? (
-          <FormFeedback valid={this.props.valid}>{this.props.formFeedback}</FormFeedback>
-        ) : null}
-        {this.props.formText !== '' ? <FormText>{this.props.formText}</FormText> : null}
-      </FormGroup>
-    );
-  }
+Input.defaultProps = {
+  label: '',
+  placeholder: '',
+  disabled: false,
+  valid: false,
+  invalid: false,
+  formText: '',
+  formFeedback: '',
+  plaintext: false,
+  busy: false
 }
+
+export default Input;

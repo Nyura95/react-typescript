@@ -11,29 +11,28 @@ import * as styles from './styles.scss';
 
 export interface IProps extends ContainerProps {
   removePadding?: boolean;
+  className?: string;
 }
 
-interface IState { }
+const Container: React.FunctionComponent<IProps> = (props) => {
+  return (
+    <RContainer
+      className={
+        props.removePadding
+          ? joinClass(styles.remove_padding, props.className ? props.className : '')
+          : props.className
+      }
+      tag={props.tag}
+      fluid={props.fluid}
+      cssModule={props.cssModule}
+    >
+      {props.children}
+    </RContainer>
+  );
+};
 
-export class Container extends React.Component<IProps, IState> {
-  static defaultProps = {
-    removePadding: false
-  };
+Container.defaultProps = {
+  removePadding: false
+};
 
-  render(): JSX.Element {
-    return (
-      <RContainer
-        className={
-          this.props.removePadding
-            ? joinClass(styles.remove_padding, this.props.className ? this.props.className : '')
-            : this.props.className
-        }
-        tag={this.props.tag}
-        fluid={this.props.fluid}
-        cssModule={this.props.cssModule}
-      >
-        {this.props.children}
-      </RContainer>
-    );
-  }
-}
+export default Container;

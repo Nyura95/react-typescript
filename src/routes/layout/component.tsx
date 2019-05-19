@@ -16,27 +16,21 @@ import { Minimal } from './minimal';
 import { Default } from './default';
 import { LoadScreen } from '../../modules';
 
-export interface IState { }
-
-export class Layout extends React.Component<IProps, IState> {
-  private notificationDOMRef = React.createRef<IReactNotificationsComponent>();
-
-  componentDidMount(): void {
-    if (this.notificationDOMRef && this.notificationDOMRef.current) {
-      this.props.notificationSet(this.notificationDOMRef.current);
+export const Layout: React.FunctionComponent<IProps> = ({ connected, notificationSet }) => {
+  const notificationDOMRef = React.createRef<IReactNotificationsComponent>();
+  React.useEffect(() => {
+    if (notificationDOMRef && notificationDOMRef.current) {
+      notificationSet(notificationDOMRef.current);
     }
-  }
-
-  render(): JSX.Element {
-    return (
-      <ConnectedRouter history={history}>
-        <div>
-          <ReactNotification ref={this.notificationDOMRef} />
-          <LoadingBar style={{ zIndex: 1 }} />
-          <LoadScreen />
-          {this.props.connected ? <Default /> : <Minimal />}
-        </div>
-      </ConnectedRouter>
-    );
-  }
-}
+  }, [])
+  return (
+    <ConnectedRouter history={history}>
+      <div>
+        <ReactNotification ref={notificationDOMRef} />
+        <LoadingBar style={{ zIndex: 1 }} />
+        <LoadScreen />
+        {connected ? <Default /> : <Minimal />}
+      </div>
+    </ConnectedRouter>
+  );
+};

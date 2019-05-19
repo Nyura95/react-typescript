@@ -10,25 +10,20 @@ export interface IProps extends SpinnerProps {
   style?: object;
 }
 
-interface IState {}
+const Spinner: React.FunctionComponent<IProps> = (props) => {
+  return <RSpinner
+    style={props.style ? props.style : {}}
+    type={props.type ? props.type : 'border'}
+    color={props.color ? props.color : 'primary'}
+    size={props.size ? props.size : 'sm'}
+    className={props.className}
+  />
+};
 
-export class Spinner extends React.PureComponent<IProps, IState> {
-  static defaultProps = {
-    color: 'primary',
-    size: 'sm',
-    type: 'border',
-    style: {}
-  };
+Spinner.defaultProps = {
+  type: 'border',
+  color: 'primary',
+  size: 'sm'
+};
 
-  render(): JSX.Element {
-    return (
-      <RSpinner
-        style={this.props.style}
-        type={this.props.type}
-        color={this.props.color}
-        size={this.props.size}
-        className={this.props.className}
-      />
-    );
-  }
-}
+export default Spinner;

@@ -6,9 +6,7 @@ import {
   counterSet,
   counterReset,
   counterAsyncSet,
-  ICounterDispatch,
-  loadScreenShow,
-  loadScreenHide
+  ICounterDispatch
 } from '../../actions';
 import { RouteComponentProps } from 'react-router';
 
