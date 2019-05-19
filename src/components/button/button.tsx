@@ -16,7 +16,7 @@ export interface IProps extends ButtonProps {
   style?: object;
 }
 
-const Button: React.FunctionComponent<IProps> = (props) => {
+const Button: IHook<IProps> = (props) => {
 
   React.useEffect(() => { }, [props.color, props.busy, props.disabled]);
 

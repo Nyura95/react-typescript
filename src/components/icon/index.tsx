@@ -7,7 +7,7 @@ export interface IProps {
   className?: string;
 }
 
-const Icon: React.FunctionComponent<IProps> = ({ icon, spin, size, className }) => {
+const Icon: IHook<IProps> = ({ icon, spin, size, className }) => {
   return <i className={`fa ${icon} ${spin ? 'fa-spin' : ''} ${size ? `fa-${size}` : ''} ${className}`} />
 }
 

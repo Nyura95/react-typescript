@@ -11,7 +11,7 @@ import { store, persistor } from './store';
 // component
 import Layout from './routes/layout';
 
-const Application: React.FunctionComponent = () => {
+const Application: IHook = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -20,5 +20,7 @@ const Application: React.FunctionComponent = () => {
     </Provider>
   );
 }
+
+Application.defaultProps = {};
 
 render(<Application />, document.getElementById('main'));

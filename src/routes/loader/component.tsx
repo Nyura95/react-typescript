@@ -11,7 +11,7 @@ import { IProps } from './';
 // style
 import * as styles from './styles.scss';
 
-export const Loader: React.FunctionComponent<IProps> = ({ loaderShow, loaderHide, loadScreenShow, loadScreenHide }) => {
+const Loader: IHook<IProps> = ({ loaderShow, loaderHide, loadScreenShow, loadScreenHide }) => {
   const startLoadScreen = (): void => {
     loadScreenShow(I18n.t('pages.loader.loadscreentext'));
     setTimeout(() => loadScreenHide(), 3000);
@@ -32,3 +32,7 @@ export const Loader: React.FunctionComponent<IProps> = ({ loaderShow, loaderHide
     </Row>
   );
 };
+
+Loader.defaultProps = {};
+
+export default Loader;

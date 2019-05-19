@@ -11,7 +11,7 @@ import { IProps } from './';
 // style
 import * as styles from './styles.scss';
 
-export const Counter: React.FunctionComponent<IProps> = ({ counter, counterSet, counterAsyncSet, counterReset }) => {
+const Counter: IHook<IProps> = ({ counter, counterSet, counterAsyncSet, counterReset }) => {
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>
@@ -32,3 +32,7 @@ export const Counter: React.FunctionComponent<IProps> = ({ counter, counterSet, 
     </Row>
   );
 };
+
+Counter.defaultProps = {};
+
+export default Counter;

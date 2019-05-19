@@ -13,7 +13,7 @@ import { IProps } from './';
 // style
 import * as styles from './styles.scss';
 
-export const Notification: React.FunctionComponent<IProps> = ({ notificationShow }) => {
+const Notification: IHook<IProps> = ({ notificationShow }) => {
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>
@@ -33,3 +33,7 @@ export const Notification: React.FunctionComponent<IProps> = ({ notificationShow
     </Row>
   );
 };
+
+Notification.defaultProps = {};
+
+export default Notification;

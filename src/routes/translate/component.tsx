@@ -13,7 +13,7 @@ import { IProps } from './';
 // style
 import * as styles from './styles.scss';
 
-export const Translate: React.FunctionComponent<IProps> = ({ locale, i18nGetTranslate, i18nSetLang }) => {
+const Translate: IHook<IProps> = ({ locale, i18nGetTranslate, i18nSetLang }) => {
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>
@@ -30,3 +30,7 @@ export const Translate: React.FunctionComponent<IProps> = ({ locale, i18nGetTran
     </Row>
   );
 };
+
+Translate.defaultProps = {};
+
+export default Translate;

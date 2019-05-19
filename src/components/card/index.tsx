@@ -14,7 +14,7 @@ export interface IProps extends CardProps {
   className?: string;
 }
 
-const Card: React.FunctionComponent<IProps> = (props) => {
+const Card: IHook<IProps> = (props) => {
   const showIcon = (): JSX.Element => {
     return (
       <CardBody className="text-center">

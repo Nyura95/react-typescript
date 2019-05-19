@@ -10,7 +10,7 @@ import { IProps } from './';
 import * as styles from './styles.scss';
 import { I18n } from 'react-redux-i18n';
 
-export const Home: React.FunctionComponent<IProps> = ({ username }) => {
+const Home: IHook<IProps> = ({ username }) => {
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>
@@ -19,3 +19,7 @@ export const Home: React.FunctionComponent<IProps> = ({ username }) => {
     </Row>
   );
 };
+
+Home.defaultProps = {};
+
+export default Home;

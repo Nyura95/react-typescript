@@ -11,7 +11,7 @@ import { Button, Round, Card } from '../../components';
 import * as styles from './styles.scss';
 import { RouteComponentProps } from 'react-router';
 
-const Component: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
+const Component: IHook<RouteComponentProps> = ({ history }) => {
   let timeout: NodeJS.Timeout | null = null;
   const [buttonBusy, setButtonBusy] = React.useState<boolean>(false)
 
@@ -37,5 +37,7 @@ const Component: React.FunctionComponent<RouteComponentProps> = ({ history }) =>
     </Row>
   );
 };
+
+Component.defaultProps = {};
 
 export default Component;

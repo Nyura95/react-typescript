@@ -10,7 +10,7 @@ export interface IProps extends SpinnerProps {
   style?: object;
 }
 
-const Spinner: React.FunctionComponent<IProps> = (props) => {
+const Spinner: IHook<IProps> = (props) => {
   return <RSpinner
     style={props.style ? props.style : {}}
     type={props.type ? props.type : 'border'}

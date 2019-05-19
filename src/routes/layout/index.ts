@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 
-import { Layout } from './component';
+import Layout from './component';
 import { IReduxState } from '../../reducers/types';
 import { INotificationDispatch } from '../../actions';
 import { notificationSet } from '../../actions/notification';
 import { IReactNotificationsComponent } from '../../types';
 
-interface IComponentProps {}
+interface IComponentProps { }
 
 interface IStateProps {
   connected: boolean;

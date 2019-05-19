@@ -12,11 +12,11 @@ import { IProps } from './';
 // store
 import { history } from '../../store';
 
-import { Minimal } from './minimal';
-import { Default } from './default';
+import Minimal from './minimal';
+import Default from './default';
 import { LoadScreen } from '../../modules';
 
-export const Layout: React.FunctionComponent<IProps> = ({ connected, notificationSet }) => {
+const Layout: IHook<IProps> = ({ connected, notificationSet }) => {
   const notificationDOMRef = React.createRef<IReactNotificationsComponent>();
   React.useEffect(() => {
     if (notificationDOMRef && notificationDOMRef.current) {
@@ -34,3 +34,7 @@ export const Layout: React.FunctionComponent<IProps> = ({ connected, notificatio
     </ConnectedRouter>
   );
 };
+
+Layout.defaultProps = {};
+
+export default Layout;

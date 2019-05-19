@@ -4,7 +4,7 @@ import Input from './input';
 import Spinner from './spinner';
 import Card from './card';
 import Form from './form';
-import { Animated } from './animated';
+import Animated from './animated';
 import Icon from './icon';
 
 

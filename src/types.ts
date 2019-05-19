@@ -18,6 +18,7 @@ export interface IOptionReactNotificationComponent {
 export interface IReactNotificationsComponent {
   addNotification(option: IOptionReactNotificationComponent): void;
 }
+
 // ---------
 
 // Add your type common here

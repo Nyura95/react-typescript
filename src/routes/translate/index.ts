@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 // component
-import { Translate } from './component';
+import Translate from './component';
 
 // types
 import { IReduxState } from '../../reducers/types';
@@ -12,7 +12,7 @@ import { IReduxState } from '../../reducers/types';
 // actions
 import { i18nSetLang, i18nGetTranslate } from '../../actions/i18n';
 
-interface IComponentProps extends RouteComponentProps {}
+interface IComponentProps extends RouteComponentProps { }
 
 interface IStateProps {
   locale: string;

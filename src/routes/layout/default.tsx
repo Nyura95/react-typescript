@@ -23,7 +23,7 @@ import Component from '../component';
 
 export interface IProps { }
 
-export const Default: React.FunctionComponent<IProps> = () => {
+const Default: IHook<IProps> = () => {
   return (
     <Container fluid={true} removePadding={true}>
       <Helmet>
@@ -45,3 +45,7 @@ export const Default: React.FunctionComponent<IProps> = () => {
     </Container>
   );
 };
+
+Default.defaultProps = {};
+
+export default Default;

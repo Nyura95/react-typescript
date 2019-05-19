@@ -14,7 +14,7 @@ export interface IProps extends ContainerProps {
   className?: string;
 }
 
-const Container: React.FunctionComponent<IProps> = (props) => {
+const Container: IHook<IProps> = (props) => {
   return (
     <RContainer
       className={

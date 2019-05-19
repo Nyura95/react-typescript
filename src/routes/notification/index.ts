@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 
-import { Notification } from './component';
+import Notification from './component';
 import { notificationShow } from '../../actions';
 import { IOptionReactNotificationComponent } from '../../types';
 import { RouteComponentProps } from 'react-router';
 
-interface IComponentProps extends RouteComponentProps {}
+interface IComponentProps extends RouteComponentProps { }
 
-interface IStateProps {}
+interface IStateProps { }
 
 const mapStateToProps = (): IStateProps => ({});
 

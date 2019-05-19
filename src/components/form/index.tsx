@@ -7,7 +7,7 @@ export interface IProps extends FormProps {
   preventDefault?: boolean;
 }
 
-const Form: React.FunctionComponent<IProps> = ({ className, children, onSubmit, preventDefault }) => {
+const Form: IHook<IProps> = ({ className, children, onSubmit, preventDefault }) => {
 
   const submit = (event: React.FormEvent<HTMLFormElement>) => {
     if (!preventDefault) {

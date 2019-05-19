@@ -17,7 +17,7 @@ import * as styles from './styles.scss';
 
 export interface IProps { }
 
-export const Minimal: React.FunctionComponent<IProps> = () => {
+const Minimal: IHook<IProps> = () => {
   return (
     <Container className={joinClass(styles.container_minimal, 'd-flex align-content-around flex-wrap')}>
       <Switch>
@@ -27,3 +27,7 @@ export const Minimal: React.FunctionComponent<IProps> = () => {
     </Container>
   );
 };
+
+Minimal.defaultProps = {};
+
+export default Minimal;

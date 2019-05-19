@@ -10,30 +10,66 @@ interface IProps {
   style: object;
   type: 'children' | 'trigger';
   animateStart: boolean;
-  triggerOut: (event: Function) => {} | null;
-  triggerIn: (event: Function) => {} | null;
-  trigger: (event: Function) => {} | null;
+  triggerOut?: (event: Function) => {} | null;
+  triggerIn?: (event: Function) => {} | null;
+  trigger?: (event: Function) => {} | null;
 }
 
-interface IState {
-  previousChildren: React.ReactNode | null;
-  animate: string;
-}
+const Animated: IHook<IProps> = (props) => {
+  let interval: NodeJS.Timeout | null = null;
+  const [previousChildren, setPreviousChildren] = React.useState<React.ReactNode | null>(null);
+  const [animate, setAnimate] = React.useState<string>('');
 
-export class Animated extends React.Component<IProps, IState> {
-  private interval: NodeJS.Timeout | null = null;
-  static defaultProps = {
-    timeout: 200,
-    animateIn: 'fadeIn',
-    animateOut: 'fadeOut',
-    className: '',
-    style: {},
-    type: 'trigger',
-    animateStart: false,
-    triggerOut: null,
-    triggerIn: null,
-    trigger: null
-  };
+  const animeIn = (): void => {
+    setPreviousChildren(props.children);
+    setAnimate(props.animateIn);
+  }
+  const animeOut = (): void => {
+    setPreviousChildren(null);
+    setAnimate(props.animateOut);
+  }
+  const anime = (): void => {
+    animeOut();
+    interval = setInterval(() => {
+      interval ? clearInterval(interval) : null;
+      animeIn();
+    }, props.timeout);
+  }
+
+  if (props.triggerOut) props.triggerOut(() => animeOut());
+  if (props.triggerIn) props.triggerIn(() => animeIn());
+  if (props.trigger) props.trigger(() => anime());
+
+  React.useEffect(() => {
+    if (props.type === 'children') {
+      anime();
+    }
+  }, [props.children]);
+
+  return (
+    <div
+      className={`${props.className} ${animate} animated`}
+      style={{ animationDuration: `${props.timeout / 1000}s`, ...props.style }}
+    >
+      {previousChildren || props.children}
+    </div>
+  );
+};
+
+Animated.defaultProps = {
+  timeout: 200,
+  animateIn: 'fadeIn',
+  animateOut: 'fadeOut',
+  className: '',
+  style: {},
+  type: 'trigger',
+  animateStart: false
+};
+
+export default Animated;
+
+/*export class Animated extends React.Component<IProps, IState> {
+
 
   constructor(props: IProps) {
     super(props);
@@ -76,4 +112,4 @@ export class Animated extends React.Component<IProps, IState> {
       </div>
     );
   }
-}
+}*/

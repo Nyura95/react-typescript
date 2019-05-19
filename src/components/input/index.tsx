@@ -28,7 +28,7 @@ export interface IState {
 }
 
 
-const Input: React.FunctionComponent<IProps> = (props) => {
+const Input: IHook<IProps> = (props) => {
   const [value, setValue] = React.useState<string>(props.value)
 
   const onClickHandler = (inpuValue: string): void => {

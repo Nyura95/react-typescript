@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 
-import { Login } from './component';
+import Login from './component';
 import { userAuth, IUserDispatch } from '../../actions';
 import { RouteComponentProps } from 'react-router';
 
-interface IComponentProps extends RouteComponentProps {}
+interface IComponentProps extends RouteComponentProps { }
 
-interface IStateProps {}
+interface IStateProps { }
 
 const mapStateToProps = (): IStateProps => ({});
 

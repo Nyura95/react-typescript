@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 
-import { Navbar } from './Component';
+import Navbar from './Component';
 import { RouterPush, userDisconnect, ICounterDispatch, IUserDispatch } from '../../actions';
 
-interface IComponentProps {}
+interface IComponentProps { }
 
-interface IStateProps {}
+interface IStateProps { }
 
 const mapStateToProps = (): IStateProps => ({});
 

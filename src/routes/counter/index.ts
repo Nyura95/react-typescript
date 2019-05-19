@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { Counter } from './component';
+import Counter from './component';
 import { IReduxState } from '../../reducers';
 import {
   counterSet,

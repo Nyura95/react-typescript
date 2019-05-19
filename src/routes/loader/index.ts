@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 
-import { Loader } from './component';
+import Loader from './component';
 import { ILoaderDispatch, loaderHide, loaderShow, loadScreenHide, loadScreenShow } from '../../actions';
 import { RouteComponentProps } from 'react-router';
 
-interface IComponentProps extends RouteComponentProps {}
+interface IComponentProps extends RouteComponentProps { }
 
-interface IStateProps {}
+interface IStateProps { }
 
 const mapStateToProps = (): IStateProps => ({});
 

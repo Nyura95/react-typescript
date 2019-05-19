@@ -10,7 +10,7 @@ import { IProps } from './';
 
 import { version } from '../../../package.json';
 
-export const Login: React.FunctionComponent<IProps> = ({ userAuth }) => {
+const Login: IHook<IProps> = ({ userAuth }) => {
   const [busy, setBusy] = React.useState<boolean>(false);
   const [username, setUsername] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
@@ -48,3 +48,7 @@ export const Login: React.FunctionComponent<IProps> = ({ userAuth }) => {
     </Col>
   );
 };
+
+Login.defaultProps = {};
+
+export default Login;

@@ -19,7 +19,7 @@ export interface IProps extends ButtonProps {
   icon: string;
 }
 
-const Round: React.FunctionComponent<IProps> = (props) => {
+const Round: IHook<IProps> = (props) => {
 
   React.useEffect(() => { }, [props.color, props.busy, props.disabled]);
 

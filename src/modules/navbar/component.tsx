@@ -13,7 +13,7 @@ export interface IState {
   isOpen: boolean;
 }
 
-export const Navbar: React.FunctionComponent<IProps> = (props) => {
+const Navbar: IHook<IProps> = (props) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   return (
     <NavbarReactStrap dark={true} color={'dark'} expand="md">
@@ -77,3 +77,7 @@ export const Navbar: React.FunctionComponent<IProps> = (props) => {
     </NavbarReactStrap>
   )
 };
+
+Navbar.defaultProps = {};
+
+export default Navbar;
