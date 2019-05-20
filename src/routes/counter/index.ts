@@ -2,12 +2,7 @@ import { connect } from 'react-redux';
 
 import Counter from './component';
 import { IReduxState } from '../../reducers';
-import {
-  counterSet,
-  counterReset,
-  counterAsyncSet,
-  ICounterDispatch
-} from '../../actions';
+import { counterSet, counterReset, counterAsyncSet, ICounterDispatch } from '../../actions';
 import { RouteComponentProps } from 'react-router';
 
 interface IComponentProps extends RouteComponentProps {

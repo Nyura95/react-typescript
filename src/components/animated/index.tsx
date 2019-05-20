@@ -15,7 +15,7 @@ interface IProps {
   trigger?: (event: Function) => {} | null;
 }
 
-const Animated: IHook<IProps> = (props) => {
+const Animated: IHook<IProps> = props => {
   let interval: NodeJS.Timeout | null = null;
   const [previousChildren, setPreviousChildren] = React.useState<React.ReactNode | null>(null);
   const [animate, setAnimate] = React.useState<string>('');
@@ -23,23 +23,24 @@ const Animated: IHook<IProps> = (props) => {
   const animeIn = (): void => {
     setPreviousChildren(props.children);
     setAnimate(props.animateIn);
-  }
+  };
   const animeOut = (): void => {
     setPreviousChildren(null);
     setAnimate(props.animateOut);
-  }
+  };
   const anime = (): void => {
     animeOut();
     interval = setInterval(() => {
       interval ? clearInterval(interval) : null;
       animeIn();
     }, props.timeout);
-  }
+  };
 
-  if (props.triggerOut) props.triggerOut(() => animeOut());
-  if (props.triggerIn) props.triggerIn(() => animeIn());
-  if (props.trigger) props.trigger(() => anime());
-
+  React.useEffect(() => {
+    if (props.triggerOut) props.triggerOut(() => animeOut());
+    if (props.triggerIn) props.triggerIn(() => animeIn());
+    if (props.trigger) props.trigger(() => anime());
+  }, []);
   React.useEffect(() => {
     if (props.type === 'children') {
       anime();

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { LoadScreen } from './component';
+import LoadScreen from './component';
 import { IReduxState } from '../../reducers';
 
 interface IComponentProps {
@@ -17,7 +17,7 @@ const mapStateToProps = (reducers: IReduxState): IStateProps => ({
   ...reducers.loadscreen
 });
 
-interface IDispatchProps { }
+interface IDispatchProps {}
 
 const mapDispatchToProps = (): IDispatchProps => {
   return {};

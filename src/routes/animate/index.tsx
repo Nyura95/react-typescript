@@ -12,13 +12,12 @@ import { Button, Animated } from '../../components';
 import * as styles from './styles.scss';
 
 // interface props
-export interface IProps extends RouteComponentProps { }
+export interface IProps extends RouteComponentProps {}
 
 const Animate: IHook<IProps> = () => {
-
-  let animeOut: Function = () => { };
-  let animeIn: Function = () => { };
-  let anime: Function = () => { };
+  let animeOut: Function = () => {};
+  let animeIn: Function = () => {};
+  let anime: Function = () => {};
 
   return (
     <Row className={styles.container}>
@@ -32,9 +31,9 @@ const Animate: IHook<IProps> = () => {
           timeout={1000}
           animateIn="zoomIn"
           animateOut="zoomOut"
-          triggerOut={event => animeOut = event}
-          triggerIn={event => animeIn = event}
-          trigger={event => anime = event}
+          triggerOut={event => (animeOut = event)}
+          triggerIn={event => (animeIn = event)}
+          trigger={event => (anime = event)}
         >
           <div className={styles.block} />
         </Animated>

@@ -5,52 +5,42 @@ import * as styles from './styles.scss';
 import { Spinner, Animated } from '../../components';
 import { IProps } from './';
 
-export interface IState {
-  dot: string;
-}
+const LoadScreen: IHook<IProps> = props => {
+  const [dot, setDot] = React.useState<string>('.');
 
-export class LoadScreen extends React.Component<IProps, IState> {
-  private interval: NodeJS.Timeout | null = null;
-  static defaultProps = {
-    dot: true,
-    timeout: 1000
+  const updateDot = (): void => {
+    if (props.dot) {
+      dot.length > 2 ? setDot('.') : setDot(dot + '.');
+    }
   };
 
-  constructor(props: IProps) {
-    super(props);
-    this.state = { dot: '.' };
-    if (props.show === true) this.startInterval();
-  }
+  React.useEffect(() => {
+    if (props.show === true) updateDot();
+  }, []);
 
-  startInterval(): void {
-    if (this.props.dot) {
-      this.interval = setInterval(() => {
-        this.state.dot.length > 2 ? this.setState({ dot: '.' }) : this.setState({ dot: this.state.dot + '.' });
-      }, 500);
+  React.useEffect(() => {
+    if (props.show) {
+      setTimeout(() => updateDot(), 500);
     }
-  }
+  }, [props.show, dot]);
 
-  stopInterval(): void {
-    this.interval ? clearInterval(this.interval) : null;
-    this.setState({ dot: '.' });
-  }
+  if (props.show === false) return <div id="loadScreen" />;
+  return (
+    <Animated timeout={props.timeout} className={styles.container} animateStart>
+      <Spinner className={styles.spinner} type="grow" style={{ width: '4rem', height: '4rem' }} color={'danger'} />
+      {props.text !== '' ? (
+        <span className={styles.container_text}>
+          {props.text !== '' ? props.text : null}
+          {props.dot ? <span className={styles.dot}>{dot}</span> : null}
+        </span>
+      ) : null}
+    </Animated>
+  );
+};
 
-  componentWillReceiveProps(nextProps: IProps): void {
-    nextProps.show === true ? this.startInterval() : this.stopInterval();
-  }
+LoadScreen.defaultProps = {
+  dot: true,
+  timeout: 1000
+};
 
-  render(): JSX.Element {
-    if (this.props.show === false) return <div id='loadScreen' />;
-    return (
-      <Animated timeout={this.props.timeout} className={styles.container} animateStart>
-        <Spinner className={styles.spinner} type="grow" style={{ width: '4rem', height: '4rem' }} color={'danger'} />
-        {this.props.text !== '' ? (
-          <span className={styles.container_text}>
-            {this.props.text !== '' ? this.props.text : null}
-            {this.props.dot ? <span className={styles.dot}>{this.state.dot}</span> : null}
-          </span>
-        ) : null}
-      </Animated>
-    );
-  }
-}
+export default LoadScreen;
