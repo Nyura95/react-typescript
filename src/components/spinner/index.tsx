@@ -10,15 +10,15 @@ export interface IProps extends SpinnerProps {
   style?: object;
 }
 
-const Spinner: IHook<IProps> = (props) => {
-  return <RSpinner
+const Spinner: IHook<IProps> = props => (
+  <RSpinner
     style={props.style ? props.style : {}}
     type={props.type ? props.type : 'border'}
     color={props.color ? props.color : 'primary'}
     size={props.size ? props.size : 'sm'}
     className={props.className}
   />
-};
+);
 
 Spinner.defaultProps = {
   type: 'border',
