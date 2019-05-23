@@ -21,7 +21,7 @@ import Loader from '../loader';
 import Animate from '../animate';
 import Component from '../component';
 
-export interface IProps { }
+export interface IProps {}
 
 const Default: IHook<IProps> = () => {
   return (

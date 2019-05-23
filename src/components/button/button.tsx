@@ -3,7 +3,7 @@ import * as React from 'react';
 // module
 import { Button as RButton, ButtonProps } from 'reactstrap';
 
-// component 
+// component
 import { Spinner } from '..';
 
 // style
@@ -16,34 +16,33 @@ export interface IProps extends ButtonProps {
   style?: object;
 }
 
-const Button: IHook<IProps> = (props) => {
-
-  React.useEffect(() => { }, [props.color, props.busy, props.disabled]);
-
-  const showIcon = (): JSX.Element => {
+const Button: IHook<IProps> = props => {
+  const showIcon = React.useCallback((): JSX.Element => {
     return (
       <div className={styles.container_busy}>
         <span className={styles.text}>{props.children}</span>
         <Spinner size="sm" className={styles.icon} color={'light'} />
       </div>
     );
-  }
+  }, [props.children]);
 
-  return (
-    <RButton
-      color={props.color}
-      active={props.active}
-      block={props.block}
-      disabled={props.disabled}
-      onClick={!props.busy ? props.onClick : () => { }}
-      size={props.size}
-      style={{ ...props.style }}
-      className={styles.container_button}
-      type={props.type}
-    >
-      {props.busy ? showIcon() : props.children}
-    </RButton>
-  );
+  return React.useMemo(() => {
+    return (
+      <RButton
+        color={props.color}
+        active={props.active}
+        block={props.block}
+        disabled={props.disabled}
+        onClick={!props.busy ? props.onClick : () => {}}
+        size={props.size}
+        style={{ ...props.style }}
+        className={styles.container_button}
+        type={props.type}
+      >
+        {props.busy ? showIcon() : props.children}
+      </RButton>
+    );
+  }, [props.color, props.busy, props.disabled]);
 };
 
 Button.defaultProps = {
@@ -53,7 +52,7 @@ Button.defaultProps = {
   disabled: false,
   style: {},
   type: 'button',
-  onClick: () => { }
+  onClick: () => {}
 };
 
 export default Button;

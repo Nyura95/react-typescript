@@ -14,28 +14,35 @@ export interface IProps extends CardProps {
   className?: string;
 }
 
-const Card: IHook<IProps> = (props) => {
-  const showIcon = (): JSX.Element => {
-    return (
+const Card: IHook<IProps> = props => {
+  const showIcon = React.useMemo(
+    (): JSX.Element => (
       <CardBody className="text-center">
         <Spinner size="lg" type="grow" />
       </CardBody>
-    );
-  };
-  const showCard = (): JSX.Element => {
-    return (
+    ),
+    []
+  );
+
+  const showBodyCard = React.useMemo(
+    (): JSX.Element => (
       <CardBody>
         {props.title !== '' ? <CardTitle>{props.title}</CardTitle> : null}
         <CardText tag="div">{props.children}</CardText>
         {props.footer !== '' ? <CardFooter>{props.footer}</CardFooter> : null}
       </CardBody>
-    );
-  }
-  return (
-    <RCard body={props.body} className={props.className}>
-      {props.header !== '' ? <CardHeader>{props.header}</CardHeader> : null}
-      {props.busy ? showIcon() : showCard()}
-    </RCard>
+    ),
+    [props.title, props.footer, props.children]
+  );
+
+  return React.useMemo(
+    () => (
+      <RCard body={props.body} className={props.className}>
+        {props.header !== '' ? <CardHeader>{props.header}</CardHeader> : null}
+        {props.busy ? showIcon : showBodyCard}
+      </RCard>
+    ),
+    [props.body, props.header, props.busy]
   );
 };
 

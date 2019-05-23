@@ -18,35 +18,46 @@ interface IProps {
 const Animated: IHook<IProps> = props => {
   let interval: NodeJS.Timeout | null = null;
   const [previousChildren, setPreviousChildren] = React.useState<React.ReactNode | null>(null);
-  const [animate, setAnimate] = React.useState<string>('');
+  const [animate, setAnimate] = React.useState('');
 
-  const animeIn = (): void => {
-    setPreviousChildren(props.children);
-    setAnimate(props.animateIn);
-  };
-  const animeOut = (): void => {
+  const firstUpdate = React.useRef(true);
+
+  const animeIn = React.useCallback((): void => {
+    console.log('animeIn');
     setPreviousChildren(null);
+    setAnimate(props.animateIn);
+  }, [props.animateIn]);
+
+  const animeOut = React.useCallback((): void => {
+    console.log('animeOut');
+    setPreviousChildren(props.children);
     setAnimate(props.animateOut);
-  };
-  const anime = (): void => {
+  }, [props.animateOut, props.children]);
+
+  const anime = React.useCallback((): void => {
+    console.log('anime');
     animeOut();
     interval = setInterval(() => {
       interval ? clearInterval(interval) : null;
       animeIn();
     }, props.timeout);
-  };
+  }, [props.timeout, props.children, props.animateIn, props.animateOut]);
 
-  React.useEffect(() => {
-    if (props.triggerOut) props.triggerOut(() => animeOut());
-    if (props.triggerIn) props.triggerIn(() => animeIn());
-    if (props.trigger) props.trigger(() => anime());
-  }, []);
-  React.useEffect(() => {
-    if (props.type === 'children') {
+  React.useEffect((): void => {
+    if (props.triggerOut) props.triggerOut(animeOut);
+    if (props.triggerIn) props.triggerIn(animeIn);
+    if (props.trigger) props.trigger(anime);
+  }, [props.timeout, props.animateOut, props.animateIn, props.children]);
+
+  React.useMemo((): void => {
+    if (props.type === 'children' && !firstUpdate.current) {
       anime();
     }
+    firstUpdate.current = false;
   }, [props.children]);
 
+  console.log('Render');
+  console.log(previousChildren);
   return (
     <div
       className={`${props.className} ${animate} animated`}
@@ -68,49 +79,3 @@ Animated.defaultProps = {
 };
 
 export default Animated;
-
-/*export class Animated extends React.Component<IProps, IState> {
-
-
-  constructor(props: IProps) {
-    super(props);
-    this.state = {
-      previousChildren: null,
-      animate: props.animateStart ? props.animateIn : ''
-    };
-    if (props.triggerOut) props.triggerOut(() => this.animeOut());
-    if (props.triggerIn) props.triggerIn(() => this.animeIn());
-    if (props.trigger) props.trigger(() => this.anime());
-  }
-
-  animeIn(): void {
-    this.setState({ previousChildren: this.props.children, animate: this.props.animateIn });
-  }
-  animeOut(): void {
-    this.setState({ previousChildren: null, animate: this.props.animateOut });
-  }
-  anime(): void {
-    this.animeOut();
-    this.interval = setInterval(() => {
-      this.interval ? clearInterval(this.interval) : null;
-      this.animeIn();
-    }, this.props.timeout);
-  }
-
-  componentWillReceiveProps(nextProps: IProps): void {
-    if (nextProps.type === 'children') {
-      this.anime();
-    }
-  }
-
-  render(): JSX.Element {
-    return (
-      <div
-        className={`${this.props.className} ${this.state.animate} animated`}
-        style={{ animationDuration: `${this.props.timeout / 1000}s`, ...this.props.style }}
-      >
-        {this.state.previousChildren || this.props.children}
-      </div>
-    );
-  }
-}*/

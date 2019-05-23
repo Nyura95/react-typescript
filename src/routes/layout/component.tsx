@@ -22,7 +22,7 @@ const Layout: IHook<IProps> = ({ connected, notificationSet }) => {
     if (notificationDOMRef && notificationDOMRef.current) {
       notificationSet(notificationDOMRef.current);
     }
-  }, [])
+  }, []);
   return (
     <ConnectedRouter history={history}>
       <div>
