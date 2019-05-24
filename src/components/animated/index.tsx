@@ -23,19 +23,16 @@ const Animated: IHook<IProps> = props => {
   const firstUpdate = React.useRef(true);
 
   const animeIn = React.useCallback((): void => {
-    console.log('animeIn');
     setPreviousChildren(null);
     setAnimate(props.animateIn);
   }, [props.animateIn]);
 
   const animeOut = React.useCallback((): void => {
-    console.log('animeOut');
     setPreviousChildren(props.children);
     setAnimate(props.animateOut);
   }, [props.animateOut, props.children]);
 
   const anime = React.useCallback((): void => {
-    console.log('anime');
     animeOut();
     interval = setInterval(() => {
       interval ? clearInterval(interval) : null;
@@ -49,15 +46,11 @@ const Animated: IHook<IProps> = props => {
     if (props.trigger) props.trigger(anime);
   }, [props.timeout, props.animateOut, props.animateIn, props.children]);
 
-  React.useMemo((): void => {
-    if (props.type === 'children' && !firstUpdate.current) {
-      anime();
-    }
-    firstUpdate.current = false;
-  }, [props.children]);
+  if (props.type === 'children' && !firstUpdate.current) {
+    anime();
+  }
+  firstUpdate.current = false;
 
-  console.log('Render');
-  console.log(previousChildren);
   return (
     <div
       className={`${props.className} ${animate} animated`}

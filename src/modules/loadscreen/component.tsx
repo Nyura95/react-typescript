@@ -8,7 +8,7 @@ import { IProps } from './';
 const LoadScreen: IHook<IProps> = props => {
   const [dot, setDot] = React.useState<string>('.');
 
-  const updateDot = (): void => {
+  const updateDot = () => {
     if (props.dot) {
       dot.length > 2 ? setDot('.') : setDot(dot + '.');
     }

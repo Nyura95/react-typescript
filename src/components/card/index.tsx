@@ -35,14 +35,11 @@ const Card: IHook<IProps> = props => {
     [props.title, props.footer, props.children]
   );
 
-  return React.useMemo(
-    () => (
-      <RCard body={props.body} className={props.className}>
-        {props.header !== '' ? <CardHeader>{props.header}</CardHeader> : null}
-        {props.busy ? showIcon : showBodyCard}
-      </RCard>
-    ),
-    [props.body, props.header, props.busy]
+  return (
+    <RCard body={props.body} className={props.className}>
+      {props.header !== '' ? <CardHeader>{props.header}</CardHeader> : null}
+      {props.busy ? showIcon : showBodyCard}
+    </RCard>
   );
 };
 
@@ -54,4 +51,4 @@ Card.defaultProps = {
   className: ''
 };
 
-export default Card;
+export default React.memo(Card);

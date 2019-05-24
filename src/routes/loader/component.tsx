@@ -12,10 +12,10 @@ import { IProps } from './';
 import * as styles from './styles.scss';
 
 const Loader: IHook<IProps> = ({ loaderShow, loaderHide, loadScreenShow, loadScreenHide }) => {
-  const startLoadScreen = (): void => {
+  const startLoadScreen = React.useCallback((): void => {
     loadScreenShow(I18n.t('pages.loader.loadscreentext'));
     setTimeout(() => loadScreenHide(), 3000);
-  }
+  }, []);
   return (
     <Row className={styles.container}>
       <Col lg={12}>
@@ -26,7 +26,7 @@ const Loader: IHook<IProps> = ({ loaderShow, loaderHide, loadScreenShow, loadScr
       </Col>
       <Col lg={12}>
         <Card header={I18n.t('pages.loader.loadscreen')} className={styles.card}>
-          <Button onClick={() => startLoadScreen()}>{I18n.t('pages.loader.show')}</Button>
+          <Button onClick={startLoadScreen}>{I18n.t('pages.loader.show')}</Button>
         </Card>
       </Col>
     </Row>

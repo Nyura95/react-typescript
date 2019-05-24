@@ -15,10 +15,10 @@ const Login: IHook<IProps> = ({ userAuth }) => {
   const [username, setUsername] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
 
-  const authUser = (username: string, password: string): void => {
+  const authUser = React.useCallback((username: string, password: string): void => {
     setBusy(true);
     userAuth(username, password);
-  };
+  }, []);
 
   return (
     <Col md="12" lg="6" className="mx-auto text-center">
@@ -36,11 +36,7 @@ const Login: IHook<IProps> = ({ userAuth }) => {
             onChange={(password: string) => setPassword(password)}
             label={I18n.t('pages.login.password')}
           />
-          <Button
-            type={'submit'}
-            busy={busy}
-            disabled={username === '' || password === ''}
-          >
+          <Button type={'submit'} busy={busy} disabled={username === '' || password === ''}>
             {I18n.t('pages.login.button')}
           </Button>
         </Form>

@@ -27,16 +27,13 @@ export interface IState {
   value: string;
 }
 
+const Input: IHook<IProps> = props => {
+  const [value, setValue] = React.useState<string>(props.value);
 
-const Input: IHook<IProps> = (props) => {
-  const [value, setValue] = React.useState<string>(props.value)
-
-  const onClickHandler = (inpuValue: string): void => {
-    setValue(inpuValue);
-    props.onChange(inpuValue);
-  }
-
-  React.useEffect(() => { }, [props.value])
+  const onClickHandler = React.useCallback((event: React.FormEvent<HTMLInputElement>): void => {
+    setValue(event.currentTarget.value);
+    props.onChange(event.currentTarget.value);
+  }, []);
 
   return (
     <FormGroup>
@@ -46,15 +43,13 @@ const Input: IHook<IProps> = (props) => {
         className={styles.input}
         value={value}
         placeholder={props.placeholder}
-        onChange={(e: React.FormEvent<HTMLInputElement>) => onClickHandler(e.currentTarget.value)}
+        onChange={onClickHandler}
         valid={props.valid}
         invalid={props.invalid}
         plaintext={props.plaintext}
         disabled={props.busy}
       />
-      {props.formFeedback !== '' ? (
-        <FormFeedback valid={props.valid}>{props.formFeedback}</FormFeedback>
-      ) : null}
+      {props.formFeedback !== '' ? <FormFeedback valid={props.valid}>{props.formFeedback}</FormFeedback> : null}
       {props.formText !== '' ? <FormText>{props.formText}</FormText> : null}
     </FormGroup>
   );
@@ -70,6 +65,6 @@ Input.defaultProps = {
   formFeedback: '',
   plaintext: false,
   busy: false
-}
+};
 
 export default Input;

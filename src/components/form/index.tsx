@@ -8,28 +8,27 @@ export interface IProps extends FormProps {
 }
 
 const Form: IHook<IProps> = ({ className, children, onSubmit, preventDefault }) => {
-
-  const submit = (event: React.FormEvent<HTMLFormElement>) => {
-    if (!preventDefault) {
-      event.preventDefault();
-    }
-    if (onSubmit) {
-      onSubmit(event);
-    }
-  }
+  const submit = React.useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      if (!preventDefault) {
+        event.preventDefault();
+      }
+      if (onSubmit) {
+        onSubmit(event);
+      }
+    },
+    [onSubmit]
+  );
 
   return (
-    <RForm
-      classame={className}
-      onSubmit={(event) => submit(event)}
-    >
+    <RForm classame={className} onSubmit={submit}>
       {children}
     </RForm>
   );
 };
 
 Form.defaultProps = {
-  onSubmit: () => { },
+  onSubmit: () => {},
   preventDefault: false
 };
 

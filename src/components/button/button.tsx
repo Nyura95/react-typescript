@@ -26,23 +26,21 @@ const Button: IHook<IProps> = props => {
     );
   }, [props.children]);
 
-  return React.useMemo(() => {
-    return (
-      <RButton
-        color={props.color}
-        active={props.active}
-        block={props.block}
-        disabled={props.disabled}
-        onClick={!props.busy ? props.onClick : () => {}}
-        size={props.size}
-        style={{ ...props.style }}
-        className={styles.container_button}
-        type={props.type}
-      >
-        {props.busy ? showIcon() : props.children}
-      </RButton>
-    );
-  }, [props.color, props.busy, props.disabled]);
+  return (
+    <RButton
+      color={props.color}
+      active={props.active}
+      block={props.block}
+      disabled={props.disabled}
+      onClick={!props.busy ? props.onClick : () => {}}
+      size={props.size}
+      style={{ ...props.style }}
+      className={styles.container_button}
+      type={props.type}
+    >
+      {props.busy ? showIcon() : props.children}
+    </RButton>
+  );
 };
 
 Button.defaultProps = {
