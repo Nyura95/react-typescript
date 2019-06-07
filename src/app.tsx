@@ -19,7 +19,7 @@ const Application: IHook = () => {
       </PersistGate>
     </Provider>
   );
-}
+};
 
 Application.defaultProps = {};
 

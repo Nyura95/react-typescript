@@ -1,7 +1,8 @@
 // Redux
 import { combineReducers } from 'redux';
 import { i18nReducer } from 'react-redux-i18n';
-import { loadingBarReducer } from 'react-redux-loading-bar'
+import { loadingBarReducer } from 'react-redux-loading-bar';
+import { routerReducer } from 'react-router-redux';
 
 export * from './types';
 
@@ -18,4 +19,5 @@ export default combineReducers({
   loadscreen,
   i18n: i18nReducer,
   loadingBar: loadingBarReducer,
+  routing: routerReducer
 });

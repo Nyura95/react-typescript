@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 // module
-import { Redirect, Route, Switch } from 'react-router';
 import Helmet from 'react-helmet';
 import { I18n } from 'react-redux-i18n';
 
@@ -11,6 +10,7 @@ import { Navbar } from '../../modules';
 
 // store
 import { history } from '../../store';
+import { Router, Route, Redirect } from 'react-router';
 
 // pages
 import Home from '../home';
@@ -31,7 +31,7 @@ const Default: IHook<IProps> = () => {
       </Helmet>
       <Navbar />
       <Container>
-        <Switch location={history.location}>
+        <Router history={history}>
           <Route exact={true} path="/" component={Home} />
           <Route exact={true} path="/counter" component={Counter} />
           <Route exact={true} path="/translate" component={Translate} />
@@ -40,7 +40,7 @@ const Default: IHook<IProps> = () => {
           <Route exact={true} path="/animate" component={Animate} />
           <Route exact={true} path="/component" component={Component} />
           <Redirect from="*" to="/" />
-        </Switch>
+        </Router>
       </Container>
     </Container>
   );

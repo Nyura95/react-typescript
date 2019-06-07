@@ -5,6 +5,8 @@ import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer, Persistor, PersistConfig } from 'redux-persist';
 import { createLogger } from 'redux-logger';
 
+import { routerMiddleware } from 'react-router-redux';
+
 // (Inter)action
 import { i18nGetTranslate } from '../actions/i18n';
 
@@ -13,7 +15,6 @@ import { loadTranslations, setLocale, syncTranslationWithStore, TranslationObjec
 import translations from '../translations';
 
 // Router
-import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 
 // reducers / action
@@ -38,23 +39,25 @@ const persistConfig: PersistConfig = {
   version: 1
 };
 
-// create web history
-export const history = createBrowserHistory();
-
 // get the persist reducer from reducer
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 // config redux-logger
 const reduxLogger = createLogger({ duration: true });
 
+// create web history
+export const history = createBrowserHistory();
+
 // create the store
 export const store = createStore(
   // connect the router and add the persist reducers
-  connectRouter(history)(persistedReducer),
+  persistedReducer,
+  undefined,
   // thunk for dispatch async and load the history
   compose(
-    applyMiddleware(reduxThunk as ThunkMiddleware<IReduxState, IAction<unknown, unknown>>, routerMiddleware(history)),
-    config.production ? applyMiddleware() : applyMiddleware(reduxLogger)
+    applyMiddleware(reduxThunk as ThunkMiddleware<IReduxState, IAction<unknown, unknown>>),
+    config.production ? applyMiddleware() : applyMiddleware(reduxLogger),
+    applyMiddleware(routerMiddleware(history))
   )
 );
 
