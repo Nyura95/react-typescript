@@ -30,7 +30,7 @@ const Animate: IHook<IProps> = () => {
       </Col>
       <Col lg="12" className={styles.container_animate}>
         <Animated
-          timeout={5000}
+          timeout={1000}
           animateIn="zoomIn"
           animateOut="zoomOut"
           triggerOut={event => (animeOut = event)}
