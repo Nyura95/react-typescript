@@ -6,22 +6,25 @@ import { Row, Col } from 'reactstrap';
 
 // component
 import { Button, Card } from '../../components';
-import { IProps } from './';
 
 // style
 import * as styles from './styles.scss';
+import { loadScreenShow, loadScreenHide, loaderShow, loaderHide } from '../../actions';
+import { useDispatch } from 'react-redux';
+import { ILoaderDispatch } from '../../reducers/loadingBar';
 
-const Loader: IHook<IProps> = ({ loaderShow, loaderHide, loadScreenShow, loadScreenHide }) => {
+const Loader: IHook = () => {
+  const dispatch = useDispatch<ILoaderDispatch>();
   const startLoadScreen = React.useCallback((): void => {
-    loadScreenShow(I18n.t('pages.loader.loadscreentext'));
-    setTimeout(() => loadScreenHide(), 3000);
+    dispatch(loadScreenShow(I18n.t('pages.loader.loadscreentext')));
+    setTimeout(() => dispatch(loadScreenHide()), 3000);
   }, []);
   return (
     <Row className={styles.container}>
       <Col lg={12}>
         <Card header={I18n.t('pages.loader.loadbar')} className={styles.card}>
-          <Button.Standar onClick={() => loaderShow()}>{I18n.t('pages.loader.show')}</Button.Standar>
-          <Button.Standar onClick={() => loaderHide()}>{I18n.t('pages.loader.hide')}</Button.Standar>
+          <Button.Standar onClick={() => dispatch(loaderShow())}>{I18n.t('pages.loader.show')}</Button.Standar>
+          <Button.Standar onClick={() => dispatch(loaderHide())}>{I18n.t('pages.loader.hide')}</Button.Standar>
         </Card>
       </Col>
       <Col lg={12}>

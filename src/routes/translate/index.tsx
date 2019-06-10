@@ -7,13 +7,16 @@ import { Row, Col } from 'reactstrap';
 // component
 import { Button } from '../../components';
 
-// type
-import { IProps } from './';
-
 // style
 import * as styles from './styles.scss';
+import { useSelector } from 'react-redux';
+import { IReduxState } from '../../reducers';
+import { I18nState } from '../../reducers/i18n';
+import { i18nSetLang, i18nGetTranslate } from '../../actions';
 
-const Translate: IHook<IProps> = ({ locale, i18nGetTranslate, i18nSetLang }) => {
+// i18n.locale, i18nGetTranslate, i18nSetLang
+const Translate: IHook = ({ }) => {
+  const { locale } = useSelector<IReduxState, I18nState>(reducers => reducers.i18n);
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>

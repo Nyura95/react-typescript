@@ -7,13 +7,12 @@ import { Row, Col } from 'reactstrap';
 // compoents
 import { Button } from '../../components';
 
-// type
-import { IProps } from './';
-
 // style
 import * as styles from './styles.scss';
+import { notificationShow } from '../../actions';
 
-const Notification: IHook<IProps> = ({ notificationShow }) => {
+// notificationShow
+const Notification: IHook = () => {
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>

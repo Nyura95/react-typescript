@@ -1,11 +1,22 @@
 import * as React from 'react';
 
+import { useSelector } from 'react-redux';
+
+import { IReduxState } from '../../reducers';
+
+
 // style
 import * as styles from './styles.scss';
 import { Spinner, Animated } from '../../components';
-import { IProps } from './';
+import { ILoadScreenState } from '../../reducers/loadscreen';
 
-const LoadScreen: IHook<IProps> = props => {
+interface Iprops {
+  dot: boolean;
+  timeout: number;
+}
+
+const LoadScreen: IHook<Iprops> = props => {
+  const { show, text } = useSelector<IReduxState, ILoadScreenState>(reducers => reducers.loadscreen);
   const [dot, setDot] = React.useState<string>('.');
 
   const updateDot = () => {
@@ -15,22 +26,22 @@ const LoadScreen: IHook<IProps> = props => {
   };
 
   React.useEffect(() => {
-    if (props.show === true) updateDot();
+    if (show === true) updateDot();
   }, []);
 
   React.useEffect(() => {
-    if (props.show) {
+    if (show) {
       setTimeout(() => updateDot(), 500);
     }
-  }, [props.show, dot]);
+  }, [show, dot]);
 
-  if (props.show === false) return <div id="loadScreen" />;
+  if (show === false) return <div id="loadScreen" />;
   return (
     <Animated timeout={props.timeout} className={styles.container} animateStart>
       <Spinner className={styles.spinner} type="grow" style={{ width: '4rem', height: '4rem' }} color={'danger'} />
-      {props.text !== '' ? (
+      {text !== '' ? (
         <span className={styles.container_text}>
-          {props.text !== '' ? props.text : null}
+          {text !== '' ? text : null}
           {props.dot ? <span className={styles.dot}>{dot}</span> : null}
         </span>
       ) : null}

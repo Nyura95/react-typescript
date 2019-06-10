@@ -6,18 +6,22 @@ import { Col } from 'reactstrap';
 
 // component
 import { Button, Card, Input, Form } from '../../components';
-import { IProps } from './';
 
 import { version } from '../../../package.json';
+import { userAuth } from '../../actions';
+import { useDispatch } from 'react-redux';
+import { IUserDispatch } from '../../reducers/user';
 
-const Login: IHook<IProps> = ({ userAuth }) => {
+const Login: IHook = () => {
+  const dispatch = useDispatch<IUserDispatch>();
+
   const [busy, setBusy] = React.useState<boolean>(false);
   const [username, setUsername] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
 
   const authUser = React.useCallback((username: string, password: string): void => {
     setBusy(true);
-    userAuth(username, password);
+    dispatch(userAuth(username, password));
   }, []);
 
   return (

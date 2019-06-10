@@ -3,28 +3,37 @@ import * as React from 'react';
 // modules
 import ReactNotification from 'react-notifications-component';
 import LoadingBar from 'react-redux-loading-bar';
+import { useSelector, useDispatch } from 'react-redux';
 
 // type
 import { IReactNotificationsComponent } from '../../types';
-import { IProps } from './';
 
 import Minimal from './minimal';
 import Default from './default';
 import { LoadScreen } from '../../modules';
+import { IReduxState } from '../../reducers';
+import { IUserState } from '../../reducers/user';
+import { notificationSet } from '../../actions';
+import { INotificationDispatch } from '../../reducers/notification';
 
-const Layout: IHook<IProps> = ({ connected, notificationSet }) => {
+// connected, notificationSet
+const Layout: IHook = () => {
+  const { token } = useSelector<IReduxState, IUserState>(reducers => reducers.user);
+  const dispatch = useDispatch<INotificationDispatch>();
   const notificationDOMRef = React.createRef<IReactNotificationsComponent>();
+
   React.useEffect(() => {
     if (notificationDOMRef && notificationDOMRef.current) {
-      notificationSet(notificationDOMRef.current);
+      dispatch(notificationSet(notificationDOMRef.current));
     }
   }, []);
+
   return (
     <div>
       <ReactNotification ref={notificationDOMRef} />
       <LoadingBar style={{ zIndex: 1 }} />
       <LoadScreen />
-      {connected ? <Default /> : <Minimal />}
+      {token !== '' ? <Default /> : <Minimal />}
     </div>
   );
 };

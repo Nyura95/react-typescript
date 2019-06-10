@@ -4,21 +4,23 @@ import * as React from 'react';
 import { I18n } from 'react-redux-i18n';
 import { Navbar as NavbarReactStrap, NavbarBrand, Nav, NavItem, NavLink, Collapse, NavbarToggler } from 'reactstrap';
 
-import { IProps } from './';
-
 // style
 import * as styles from './styles.scss';
+import { useDispatch } from 'react-redux';
+import { IRouterDispatch } from '../../reducers/router';
+import { RouterPush, userDisconnect } from '../../actions';
 
 export interface IState {
   isOpen: boolean;
 }
 
-const Navbar: IHook<IProps> = (props) => {
+const Navbar: IHook = () => {
+  const dispatch = useDispatch<IRouterDispatch>();
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   return (
     <NavbarReactStrap dark={true} color={'dark'} expand="md">
       <NavbarBrand
-        onClick={() => props.goPush('/')}
+        onClick={() => dispatch(RouterPush('/'))}
         color={'white'}
         className={styles.clickable}
         style={{ color: 'white' }}
@@ -29,37 +31,37 @@ const Navbar: IHook<IProps> = (props) => {
       <Collapse isOpen={isOpen} navbar={true}>
         <Nav className="mr-auto" navbar={true}>
           <NavItem>
-            <NavLink onClick={() => props.goPush('/')} className={styles.clickable}>
+            <NavLink onClick={() => dispatch(RouterPush('/'))} className={styles.clickable}>
               {I18n.t('nav.page1')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => props.goPush('/counter')} className={styles.clickable}>
+            <NavLink onClick={() => dispatch(RouterPush('/counter'))} className={styles.clickable}>
               {I18n.t('nav.page2')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => props.goPush('/translate')} className={styles.clickable}>
+            <NavLink onClick={() => dispatch(RouterPush('/translate'))} className={styles.clickable}>
               {I18n.t('nav.page3')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => props.goPush('/notification')} className={styles.clickable}>
+            <NavLink onClick={() => dispatch(RouterPush('/notification'))} className={styles.clickable}>
               {I18n.t('nav.page4')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => props.goPush('/loader')} className={styles.clickable}>
+            <NavLink onClick={() => dispatch(RouterPush('/loader'))} className={styles.clickable}>
               {I18n.t('nav.page5')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => props.goPush('/animate')} className={styles.clickable}>
+            <NavLink onClick={() => dispatch(RouterPush('/animate'))} className={styles.clickable}>
               {I18n.t('nav.page6')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => props.goPush('/component')} className={styles.clickable}>
+            <NavLink onClick={() => dispatch(RouterPush('/component'))} className={styles.clickable}>
               {I18n.t('nav.page7')}
             </NavLink>
           </NavItem>
@@ -68,7 +70,7 @@ const Navbar: IHook<IProps> = (props) => {
       <Collapse isOpen={isOpen} navbar={true}>
         <Nav className="ml-auto" navbar={true}>
           <NavItem>
-            <NavLink onClick={() => props.userDisconnect()} className={styles.clickable}>
+            <NavLink onClick={() => dispatch(userDisconnect())} className={styles.clickable}>
               {I18n.t('nav.disconnect')}
             </NavLink>
           </NavItem>
