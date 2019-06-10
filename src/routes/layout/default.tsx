@@ -21,25 +21,22 @@ import Loader from '../loader';
 import Animate from '../animate';
 import Component from '../component';
 
-export interface IProps {}
-
-const Default: IHook<IProps> = () => {
+const Default: IHook = () => {
   return (
-    <Container fluid={true} removePadding={true}>
+    <Container fluid removePadding>
       <Helmet>
         <title>{I18n.t('helmet.' + history.location.pathname)}</title>
       </Helmet>
       <Navbar />
       <Container>
         <Router history={history}>
-          <Route exact={true} path="/" component={Home} />
-          <Route exact={true} path="/counter" component={Counter} />
-          <Route exact={true} path="/translate" component={Translate} />
-          <Route exact={true} path="/notification" component={Notification} />
-          <Route exact={true} path="/loader" component={Loader} />
-          <Route exact={true} path="/animate" component={Animate} />
-          <Route exact={true} path="/component" component={Component} />
-          <Redirect from="*" to="/" />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/counter" component={Counter} />
+          <Route exact path="/translate" component={Translate} />
+          <Route exact path="/notification" component={Notification} />
+          <Route exact path="/loader" component={Loader} />
+          <Route exact path="/animate" component={Animate} />
+          <Route exact path="/component" component={Component} />
         </Router>
       </Container>
     </Container>

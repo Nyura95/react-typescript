@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 
 import Login from './component';
-import { userAuth, IUserDispatch } from '../../actions';
+import { userAuth } from '../../actions';
 import { RouteComponentProps } from 'react-router';
+import { IUserDispatch } from '../../reducers/user';
 
 interface IComponentProps extends RouteComponentProps { }
 

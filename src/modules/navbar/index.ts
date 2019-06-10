@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 
 import Navbar from './Component';
-import { RouterPush, userDisconnect, ICounterDispatch, IUserDispatch } from '../../actions';
+import { RouterPush, userDisconnect } from '../../actions';
+import { ICounterDispatch } from '../../reducers/counter';
+import { IUserDispatch } from '../../reducers/user';
 
 interface IComponentProps { }
 

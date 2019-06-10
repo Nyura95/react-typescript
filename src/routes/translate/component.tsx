@@ -20,12 +20,12 @@ const Translate: IHook<IProps> = ({ locale, i18nGetTranslate, i18nSetLang }) => 
         {I18n.t('translate', { lang: locale })}
       </Col>
       <Col lg="12" className={styles.container_button}>
-        <Button
+        <Button.Standar
           onClick={() => i18nSetLang(i18nGetTranslate() === 'fr' ? 'en' : 'fr')}
           color="info"
         >
           {I18n.t('pages.translate.button')}
-        </Button>
+        </Button.Standar>
       </Col>
     </Row>
   );

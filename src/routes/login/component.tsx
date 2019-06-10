@@ -36,9 +36,9 @@ const Login: IHook<IProps> = ({ userAuth }) => {
             onChange={(password: string) => setPassword(password)}
             label={I18n.t('pages.login.password')}
           />
-          <Button type={'submit'} busy={busy} disabled={username === '' || password === ''}>
+          <Button.Standar type={'submit'} busy={busy} disabled={username === '' || password === ''}>
             {I18n.t('pages.login.button')}
-          </Button>
+          </Button.Standar>
         </Form>
       </Card>
     </Col>

@@ -1,13 +1,17 @@
-import { IAction } from '../actions';
+import { IAction, ICustomDispatch, ICustomAction } from '../actions';
 
-export type IType = 'SHOW_LOADSCREEN' | 'HIDE_LOADSCREEN';
+export type ILoadScreenType = 'SHOW_LOADSCREEN' | 'HIDE_LOADSCREEN';
 
-export type IState = {
+export type ILoadScreenState = {
   show: boolean;
   text: string;
 };
 
-const initialState: IState = {
+// loadscreen reducer
+export type ILoadScreenDispatch<S = ILoadScreenState, T = ILoadScreenType> = ICustomDispatch<S, T>;
+export type ILoadScreenAction<S = ILoadScreenState, T = ILoadScreenType> = ICustomAction<S, T>;
+
+const initialState: ILoadScreenState = {
   show: false,
   text: ''
 };
@@ -19,7 +23,7 @@ const initialState: IState = {
  * @version 1.0.0
  * @returns {IState}
  */
-export function loadscreen(state: IState = initialState, action: IAction<IState, IType>): IState {
+export function loadscreen(state = initialState, action: IAction<ILoadScreenState, ILoadScreenType>): ILoadScreenState {
   switch (action.type) {
     case 'SHOW_LOADSCREEN':
       return {

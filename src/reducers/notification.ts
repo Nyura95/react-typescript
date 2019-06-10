@@ -1,13 +1,18 @@
-import { IAction } from '../actions';
+import { IAction, ICustomDispatch, ICustomAction } from '../actions';
 import { IReactNotificationsComponent } from '../types';
 
-export type IType = 'SET_NOTIFICATION';
+export type INotificationType = 'SET_NOTIFICATION';
 
-export type IState = IReactNotificationsComponent | {
+export type INotificationState = IReactNotificationsComponent | {
   addNotification: null
 };
 
-const initialState: IState = {
+// notification reducer
+export type INotificationDispatch<S = INotificationState, T = INotificationType> = ICustomDispatch<S, T>;
+export type INotificationAction<S = INotificationState, T = INotificationType> = ICustomAction<S, T>;
+
+
+const initialState: INotificationState = {
   addNotification: null
 };
 
@@ -18,7 +23,7 @@ const initialState: IState = {
  * @version 1.0.0
  * @returns {IState}
  */
-export function notification(state: IState = initialState, action: IAction<IState, IType>): IState {
+export function notification(state = initialState, action: IAction<INotificationState, INotificationType>): INotificationState {
   switch (action.type) {
     case 'SET_NOTIFICATION':
       return action.payload;

@@ -5,7 +5,7 @@ import { I18n } from 'react-redux-i18n';
 import { Row, Col } from 'reactstrap';
 
 // component
-import { Button, Round, Card } from '../../components';
+import { Button, Card } from '../../components';
 
 // style
 import * as styles from './styles.scss';
@@ -30,10 +30,10 @@ const Component: IHook<RouteComponentProps> = ({ history }) => {
     <Row className={styles.container}>
       <Col lg={12}>
         <Card header={I18n.t('pages.component.button')} className={styles.card}>
-          <Button onClick={() => startButtonBusy()} busy={buttonBusy}>
+          <Button.Standar onClick={() => startButtonBusy()} busy={buttonBusy}>
             {I18n.t('pages.component.button')}
-          </Button>
-          <Round icon="fa-home" onClick={() => startButtonBusy()} busy={buttonBusy} />
+          </Button.Standar>
+          <Button.Round icon="fa-home" onClick={() => startButtonBusy()} busy={buttonBusy} />
         </Card>
       </Col>
     </Row>

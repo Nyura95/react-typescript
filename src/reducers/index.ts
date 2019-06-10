@@ -1,8 +1,6 @@
 // Redux
 import { combineReducers } from 'redux';
-import { i18nReducer } from 'react-redux-i18n';
 import { loadingBarReducer } from 'react-redux-loading-bar';
-import { routerReducer } from 'react-router-redux';
 
 export * from './types';
 
@@ -11,6 +9,8 @@ import { counter } from './counter';
 import { user } from './user';
 import { notification } from './notification';
 import { loadscreen } from './loadscreen';
+import { i18nReducer } from './i18n';
+import { routerReducer } from './router';
 
 export default combineReducers({
   counter,

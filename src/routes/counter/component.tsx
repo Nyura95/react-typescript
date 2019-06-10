@@ -18,16 +18,16 @@ const Counter: IHook<IProps> = ({ counter, counterSet, counterAsyncSet, counterR
         {I18n.t('pages.counter.count', { counter: counter })}
       </Col>
       <Col lg="12" className={styles.container_button}>
-        <Button onClick={() => counterSet(1)} color="primary">
+        <Button.Standar onClick={() => counterSet(1)} color="primary">
           {I18n.t('pages.counter.increment')}
-        </Button>
-        <Button onClick={() => counterSet(-1)}>{I18n.t('pages.counter.decrement')}</Button>
-        <Button onClick={() => counterAsyncSet(1)} color="warning">
+        </Button.Standar>
+        <Button.Standar onClick={() => counterSet(-1)}>{I18n.t('pages.counter.decrement')}</Button.Standar>
+        <Button.Standar onClick={() => counterAsyncSet(1)} color="warning">
           {I18n.t('pages.counter.async')}
-        </Button>
+        </Button.Standar>
       </Col>
       <Col lg="12" className={styles.container_button}>
-        <Button onClick={() => counterReset()}>{I18n.t('pages.counter.reset')}</Button>
+        <Button.Standar onClick={() => counterReset()}>{I18n.t('pages.counter.reset')}</Button.Standar>
       </Col>
     </Row>
   );

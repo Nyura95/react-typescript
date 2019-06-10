@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 
 import Loader from './component';
-import { ILoaderDispatch, loaderHide, loaderShow, loadScreenHide, loadScreenShow } from '../../actions';
+import { loaderHide, loaderShow, loadScreenHide, loadScreenShow } from '../../actions';
 import { RouteComponentProps } from 'react-router';
+import { ILoaderDispatch } from '../../reducers/loadingBar';
 
 interface IComponentProps extends RouteComponentProps { }
 

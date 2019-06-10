@@ -1,20 +1,21 @@
 // Modules
-import { I18nState } from 'react-redux-i18n';
-import { LoadingBar } from 'react-redux-loading-bar';
-import { RouterState } from 'react-router-redux';
+
 
 // Types
-import { IState as ICounterState } from './counter';
-import { IState as IUserState } from './user';
-import { IState as INotificationState } from './notification';
-import { IState as ILoaderscreen } from './loadscreen';
+import { ICounterState } from './counter';
+import { IUserState } from './user';
+import { INotificationState } from './notification';
+import { ILoadScreenState } from './loadscreen';
+import { I18nState } from './i18n';
+import { RouterState } from './router';
+import { LoadingBar } from './loadingBar';
 
 // Interface redux app
 export interface IReduxState {
   counter: ICounterState;
   user: IUserState;
   notification: INotificationState;
-  loadscreen: ILoaderscreen;
+  loadscreen: ILoadScreenState;
   i18n: I18nState;
   loadingBar: LoadingBar;
   routing: RouterState;

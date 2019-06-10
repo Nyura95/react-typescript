@@ -28,7 +28,6 @@ import { config } from '../config';
 import logger from '../logger';
 
 const source = 'store';
-
 logger.info(`initialization store`, source);
 
 // config persist store
@@ -39,24 +38,18 @@ const persistConfig: PersistConfig = {
   version: 1
 };
 
-// get the persist reducer from reducer
-const persistedReducer = persistReducer(persistConfig, reducers);
-
-// config redux-logger
-const reduxLogger = createLogger({ duration: true });
-
 // create web history
 export const history = createBrowserHistory();
 
 // create the store
 export const store = createStore(
   // connect the router and add the persist reducers
-  persistedReducer,
+  persistReducer(persistConfig, reducers),
   undefined,
   // thunk for dispatch async and load the history
   compose(
     applyMiddleware(reduxThunk as ThunkMiddleware<IReduxState, IAction<unknown, unknown>>),
-    config.production ? applyMiddleware() : applyMiddleware(reduxLogger),
+    config.production ? applyMiddleware() : applyMiddleware(createLogger({ duration: true })),
     applyMiddleware(routerMiddleware(history))
   )
 );

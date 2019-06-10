@@ -12,21 +12,21 @@ import { Button, Animated } from '../../components';
 import * as styles from './styles.scss';
 
 // interface props
-export interface IProps extends RouteComponentProps {}
+export interface IProps extends RouteComponentProps { }
 
 const Animate: IHook<IProps> = () => {
-  let animeOut: Function = () => {};
-  let animeIn: Function = () => {};
-  let anime: Function = () => {};
+  let animeOut: Function = () => { };
+  let animeIn: Function = () => { };
+  let anime: Function = () => { };
 
   const [test, setTest] = React.useState('bonjour');
 
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>
-        <Button onClick={() => animeIn()}>{I18n.t('pages.animate.triggerIn')}</Button>
-        <Button onClick={() => animeOut()}>{I18n.t('pages.animate.triggerOut')}</Button>
-        <Button onClick={() => anime()}>{I18n.t('pages.animate.trigger')}</Button>
+        <Button.Standar onClick={() => animeIn()}>{I18n.t('pages.animate.triggerIn')}</Button.Standar>
+        <Button.Standar onClick={() => animeOut()}>{I18n.t('pages.animate.triggerOut')}</Button.Standar>
+        <Button.Standar onClick={() => anime()}>{I18n.t('pages.animate.trigger')}</Button.Standar>
       </Col>
       <Col lg="12" className={styles.container_animate}>
         <Animated

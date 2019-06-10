@@ -1,4 +1,4 @@
-import Button from './button';
+import Standar from './standar';
 import Round from './round';
 
-export { Button, Round };
+export default { Standar, Round };

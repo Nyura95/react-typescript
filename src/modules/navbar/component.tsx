@@ -5,6 +5,8 @@ import { I18n } from 'react-redux-i18n';
 import { Navbar as NavbarReactStrap, NavbarBrand, Nav, NavItem, NavLink, Collapse, NavbarToggler } from 'reactstrap';
 
 import { IProps } from './';
+import { history } from '../../store';
+
 
 // style
 import * as styles from './styles.scss';

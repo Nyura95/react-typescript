@@ -17,7 +17,7 @@ const Notification: IHook<IProps> = ({ notificationShow }) => {
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>
-        <Button
+        <Button.Standar
           onClick={() =>
             notificationShow({
               title: I18n.t('pages.notification.title'),
@@ -28,7 +28,7 @@ const Notification: IHook<IProps> = ({ notificationShow }) => {
           color="primary"
         >
           {I18n.t('pages.notification.button')}
-        </Button>
+        </Button.Standar>
       </Col>
     </Row>
   );

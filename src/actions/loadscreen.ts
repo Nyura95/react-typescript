@@ -1,5 +1,6 @@
-import { ILoadScreenAction, ILoadScreenDispatch } from './types';
+
 import logger from '../logger';
+import { ILoadScreenAction } from '..//reducers/loadscreen';
 
 const source = 'Loadscreen action';
 
@@ -8,7 +9,7 @@ const source = 'Loadscreen action';
  * @version 1.0.0
  * @returns {void}
  */
-export const loadScreenShow = (text: string): ILoadScreenAction => (dispatch: ILoadScreenDispatch): void => {
+export const loadScreenShow = (text: string): ILoadScreenAction => dispatch => {
   logger.info(`Show loadscreen`, source);
   dispatch({ type: 'SHOW_LOADSCREEN', payload: { text } });
 };
@@ -18,7 +19,7 @@ export const loadScreenShow = (text: string): ILoadScreenAction => (dispatch: IL
  * @version 1.0.0
  * @returns {void}
  */
-export const loadScreenHide = (): ILoadScreenAction => (dispatch: ILoadScreenDispatch): void => {
+export const loadScreenHide = (): ILoadScreenAction => dispatch => {
   logger.info(`Hide loadscreen`, source);
   dispatch({ type: 'HIDE_LOADSCREEN', payload: {} });
 };

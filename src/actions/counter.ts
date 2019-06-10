@@ -1,5 +1,6 @@
-import { ICounterAction, ICounterDispatch } from './types';
 import logger from '../logger';
+import { ICounterAction } from '../reducers/counter';
+
 
 // Set the source file
 const source = 'Counter action';
@@ -10,7 +11,7 @@ const source = 'Counter action';
  * @version 1.0.0
  * @returns {void}
  */
-export const counterSet = (counter: number): ICounterAction => (dispatch: ICounterDispatch): void => {
+export const counterSet = (counter: number): ICounterAction => dispatch => {
   logger.info('Set counter', source);
   dispatch({
     type: 'ADD_COUNTER',
@@ -25,7 +26,7 @@ export const counterSet = (counter: number): ICounterAction => (dispatch: ICount
  * @version 1.0.0
  * @returns {void}
  */
-export const counterReset = (): ICounterAction => (dispatch: ICounterDispatch): void => {
+export const counterReset = (): ICounterAction => dispatch => {
   logger.info('Reset counter', source);
   dispatch({
     type: 'SET_COUNTER',
@@ -41,7 +42,7 @@ export const counterReset = (): ICounterAction => (dispatch: ICounterDispatch): 
  * @version 1.0.0
  * @returns {void}
  */
-export const counterAsyncSet = (counter: number): ICounterAction => (dispatch: ICounterDispatch): void => {
+export const counterAsyncSet = (counter: number): ICounterAction => dispatch => {
   logger.info('Async set counter', source);
   setTimeout(() => {
     dispatch({

@@ -1,12 +1,10 @@
 // Types
-import { IUserAction, IUserDispatch } from './types';
-import { IState as IUserState } from '../reducers/user';
 import logger from '../logger';
 import { counterReset } from './counter';
 import { notificationShow } from './notification';
 import { I18n } from 'react-redux-i18n';
-import { showLoading, hideLoading } from 'react-redux-loading-bar'
 import { loaderShow, loaderHide } from './loader';
+import { IUserAction } from '../reducers/user';
 
 
 
@@ -19,7 +17,7 @@ const source = 'Counter action';
  * @version 1.0.0
  * @returns {void}
  */
-export const userAuth = (username: string, password: string): IUserAction => (dispatch: IUserDispatch): void => {
+export const userAuth = (username: string, password: string): IUserAction => dispatch => {
   logger.info(`set a new user ${username}:${password}`, source);
   dispatch(loaderShow())
   setTimeout((): void => {
@@ -47,9 +45,7 @@ export const userAuth = (username: string, password: string): IUserAction => (di
  * @version 1.0.0
  * @return {IUserAction}
  */
-export const userDisconnect = (): IUserAction<Partial<IUserState>> => (
-  dispatch: IUserDispatch<Partial<IUserState>>
-): void => {
+export const userDisconnect = (): IUserAction => dispatch => {
   // We need dispatch two Action here
   logger.info(`disconnect the user and reset the counter`, source);
   // For dispatch a another action, call the method corresponding

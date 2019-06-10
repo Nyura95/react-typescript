@@ -20,13 +20,13 @@ const Loader: IHook<IProps> = ({ loaderShow, loaderHide, loadScreenShow, loadScr
     <Row className={styles.container}>
       <Col lg={12}>
         <Card header={I18n.t('pages.loader.loadbar')} className={styles.card}>
-          <Button onClick={() => loaderShow()}>{I18n.t('pages.loader.show')}</Button>
-          <Button onClick={() => loaderHide()}>{I18n.t('pages.loader.hide')}</Button>
+          <Button.Standar onClick={() => loaderShow()}>{I18n.t('pages.loader.show')}</Button.Standar>
+          <Button.Standar onClick={() => loaderHide()}>{I18n.t('pages.loader.hide')}</Button.Standar>
         </Card>
       </Col>
       <Col lg={12}>
         <Card header={I18n.t('pages.loader.loadscreen')} className={styles.card}>
-          <Button onClick={startLoadScreen}>{I18n.t('pages.loader.show')}</Button>
+          <Button.Standar onClick={startLoadScreen}>{I18n.t('pages.loader.show')}</Button.Standar>
         </Card>
       </Col>
     </Row>

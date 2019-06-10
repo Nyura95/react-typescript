@@ -26,4 +26,4 @@ Spinner.defaultProps = {
   size: 'sm'
 };
 
-export default Spinner;
+export default React.memo(Spinner);
