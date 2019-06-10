@@ -1,6 +1,17 @@
 # react-redux-typescript
 
 Typescript 3.4.5
+Redux v7.1.0-alpha.5 (alpha)
+
+## @type/react-redux
+Add the types manually
+```ts
+// node_modules/@types/react-redux/index.d.ts
+type FuncSelector<S> = (reducers: S) => S[keyof S];
+export function useSelector<S, R = S[keyof S]>(func: FuncSelector<S>): R;
+
+export function useDispatch<D = Dispatch>(): D;
+```
 
 ## Overview
 
