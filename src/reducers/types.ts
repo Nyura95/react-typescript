@@ -1,6 +1,3 @@
-// Modules
-
-
 // Types
 import { ICounterState } from './counter';
 import { IUserState } from './user';

@@ -1,7 +1,6 @@
 // Action reducer module
 import { showLoading, hideLoading, resetLoading } from 'react-redux-loading-bar'
 
-
 import logger from '../logger';
 import { ILoaderAction } from '../reducers/loadingBar';
 

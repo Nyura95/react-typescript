@@ -6,8 +6,6 @@ import { I18n } from 'react-redux-i18n';
 import { loaderShow, loaderHide } from './loader';
 import { IUserAction } from '../reducers/user';
 
-
-
 const source = 'Counter action';
 
 /**

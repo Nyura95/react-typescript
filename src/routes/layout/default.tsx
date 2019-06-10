@@ -10,7 +10,7 @@ import { Navbar } from '../../modules';
 
 // store
 import { history } from '../../store';
-import { Router, Route, Redirect } from 'react-router';
+import { Router, Route } from 'react-router';
 
 // pages
 import Home from '../home';

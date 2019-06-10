@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 // modules
-
 import ReactNotification from 'react-notifications-component';
 import LoadingBar from 'react-redux-loading-bar';
 

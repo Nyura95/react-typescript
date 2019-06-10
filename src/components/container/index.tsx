@@ -8,7 +8,6 @@ import { joinClass } from '../../helpers/general';
 
 import * as styles from './styles.scss';
 
-
 export interface IProps extends ContainerProps {
   removePadding?: boolean;
   className?: string;
