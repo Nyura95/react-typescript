@@ -3,14 +3,14 @@ import * as React from 'react';
 // modules
 import { I18n } from 'react-redux-i18n';
 import { Col } from 'reactstrap';
+import { useDispatch } from 'react-redux';
 
 // component
 import { Button, Card, Input, Form } from '../../components';
 
 import { version } from '../../../package.json';
 import { userAuth } from '../../actions';
-import { useDispatch } from 'react-redux';
-import { IUserDispatch } from '../../reducers/user';
+import { IUserDispatch } from '../../reducers';
 
 const Login: IHook = () => {
   const dispatch = useDispatch<IUserDispatch>();

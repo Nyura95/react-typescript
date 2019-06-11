@@ -3,13 +3,13 @@ import * as React from 'react';
 // modules
 import { I18n } from 'react-redux-i18n';
 import { Row, Col } from 'reactstrap';
+import { RouteComponentProps } from 'react-router';
 
 // component
 import { Button, Card } from '../../components';
 
 // style
 import * as styles from './styles.scss';
-import { RouteComponentProps } from 'react-router';
 
 const Component: IHook<RouteComponentProps> = ({ history }) => {
   let timeout: NodeJS.Timeout | null = null;

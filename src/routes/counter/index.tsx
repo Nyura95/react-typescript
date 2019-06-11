@@ -10,8 +10,8 @@ import { Button } from '../../components';
 
 // style
 import * as styles from './styles.scss';
-import { ICounterState, ICounterDispatch } from '../../reducers/counter';
-import { IReduxState } from '../../reducers';
+
+import { IReduxState, ICounterState, ICounterDispatch } from '../../reducers';
 import { counterSet, counterAsyncSet, counterReset } from '../../actions';
 
 const Counter: IHook = () => {

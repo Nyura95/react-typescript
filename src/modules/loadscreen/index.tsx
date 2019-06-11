@@ -2,13 +2,11 @@ import * as React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { IReduxState } from '../../reducers';
-
-
 // style
 import * as styles from './styles.scss';
+
 import { Spinner, Animated } from '../../components';
-import { ILoadScreenState } from '../../reducers/loadscreen';
+import { ILoadScreenState, IReduxState } from '../../reducers';
 
 interface Iprops {
   dot: boolean;

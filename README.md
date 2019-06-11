@@ -4,18 +4,23 @@ Typescript 3.4.5
 Redux v7.1.0-alpha.5 (alpha)
 
 ## @type/react-redux
+
 Add the types manually
+
 ```ts
 // node_modules/@types/react-redux/index.d.ts
-type FuncSelector<S> = (reducers: S) => S[keyof S];
-export function useSelector<S, R = S[keyof S]>(func: FuncSelector<S>): R;
+export function useDispatch<TDispatch = Dispatch<any>>(): TDispatch;
+export function useDispatch<A extends Action = AnyAction>(): Dispatch<A>;
 
-export function useDispatch<D = Dispatch>(): D;
+export function useSelector<TState, TSelected>(
+  selector: (state: TState) => TSelected,
+  equalityFn?: (left: TSelected, right: TSelected) => boolean
+): TSelected;
 ```
 
 ## Overview
 
-Here is my vision of a framework react (typescript v3) with redux. 
+Here is my vision of a framework react (typescript v3) with redux.
 
 ## Installation
 
@@ -27,11 +32,11 @@ Here is my vision of a framework react (typescript v3) with redux.
 
 ## Development mode
 
-> `npm run dev` 
+> `npm run dev`
 
 ## Development mode with hmr and cache
 
-> `npm run start` 
+> `npm run start`
 
 ## build
 

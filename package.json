@@ -65,7 +65,7 @@
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
     "react-notifications-component": "^1.1.1",
-    "react-redux": "^7.1.0-rc.1",
+    "react-redux": "^7.1.0",
     "react-redux-i18n": "^1.9.3",
     "react-redux-loading-bar": "^4.2.0",
     "react-router": "^5.0.1",

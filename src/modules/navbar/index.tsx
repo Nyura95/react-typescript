@@ -3,11 +3,12 @@ import * as React from 'react';
 // module
 import { I18n } from 'react-redux-i18n';
 import { Navbar as NavbarReactStrap, NavbarBrand, Nav, NavItem, NavLink, Collapse, NavbarToggler } from 'reactstrap';
+import { useDispatch } from 'react-redux';
 
 // style
 import * as styles from './styles.scss';
-import { useDispatch } from 'react-redux';
-import { IRouterDispatch } from '../../reducers/router';
+
+import { IRouterDispatch } from '../../reducers';
 import { RouterPush, userDisconnect } from '../../actions';
 
 export interface IState {
@@ -77,7 +78,7 @@ const Navbar: IHook = () => {
         </Nav>
       </Collapse>
     </NavbarReactStrap>
-  )
+  );
 };
 
 Navbar.defaultProps = {};

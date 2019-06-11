@@ -3,12 +3,12 @@ import * as React from 'react';
 // modules
 import { Row, Col } from 'reactstrap';
 import { useSelector } from 'react-redux';
+import { I18n } from 'react-redux-i18n';
 
 // style
 import * as styles from './styles.scss';
-import { I18n } from 'react-redux-i18n';
-import { IReduxState } from '../../reducers';
-import { IUserState } from '../../reducers/user';
+
+import { IReduxState, IUserState } from '../../reducers';
 
 const Home: IHook = () => {
   const { username } = useSelector<IReduxState, IUserState>(reducer => reducer.user);

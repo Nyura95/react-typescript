@@ -9,6 +9,7 @@ import { Button } from '../../components';
 
 // style
 import * as styles from './styles.scss';
+
 import { notificationShow } from '../../actions';
 
 // notificationShow

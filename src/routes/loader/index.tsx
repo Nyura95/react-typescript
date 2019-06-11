@@ -3,14 +3,15 @@ import * as React from 'react';
 // modules
 import { I18n } from 'react-redux-i18n';
 import { Row, Col } from 'reactstrap';
+import { useDispatch } from 'react-redux';
 
 // component
 import { Button, Card } from '../../components';
 
 // style
 import * as styles from './styles.scss';
+
 import { loadScreenShow, loadScreenHide, loaderShow, loaderHide } from '../../actions';
-import { useDispatch } from 'react-redux';
 import { ILoaderDispatch } from '../../reducers/loadingBar';
 
 const Loader: IHook = () => {

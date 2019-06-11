@@ -12,6 +12,13 @@ import { loadscreen } from './loadscreen';
 import { i18nReducer } from './i18n';
 import { routerReducer } from './router';
 
+export * from './counter';
+export * from './user';
+export * from './notification';
+export * from './loadscreen';
+export * from './i18n';
+export * from './router';
+
 export default combineReducers({
   counter,
   user,
