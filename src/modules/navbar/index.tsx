@@ -14,51 +14,58 @@ import { RouterPush, userDisconnect } from '../../actions';
 const Navbar: IHook = () => {
   const dispatch = useDispatch<IRouterDispatch>();
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
+
+  const push = React.useCallback(
+    (to: string) => {
+      dispatch(RouterPush(to));
+    },
+    [dispatch]
+  );
+
+  const disconnect = React.useCallback(() => {
+    dispatch(userDisconnect());
+  }, [dispatch]);
+
   return (
     <NavbarReactStrap dark={true} color={'dark'} expand="md">
-      <NavbarBrand
-        onClick={() => dispatch(RouterPush('/'))}
-        color={'white'}
-        className={styles.clickable}
-        style={{ color: 'white' }}
-      >
+      <NavbarBrand onClick={() => push('/')} color={'white'} className={styles.clickable} style={{ color: 'white' }}>
         {I18n.t('nav.title')}
       </NavbarBrand>
       <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
       <Collapse isOpen={isOpen} navbar={true}>
         <Nav className="mr-auto" navbar={true}>
           <NavItem>
-            <NavLink onClick={() => dispatch(RouterPush('/'))} className={styles.clickable}>
+            <NavLink onClick={() => push('/')} className={styles.clickable}>
               {I18n.t('nav.page1')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => dispatch(RouterPush('/counter'))} className={styles.clickable}>
+            <NavLink onClick={() => push('/counter')} className={styles.clickable}>
               {I18n.t('nav.page2')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => dispatch(RouterPush('/translate'))} className={styles.clickable}>
+            <NavLink onClick={() => push('/translate')} className={styles.clickable}>
               {I18n.t('nav.page3')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => dispatch(RouterPush('/notification'))} className={styles.clickable}>
+            <NavLink onClick={() => push('/notification')} className={styles.clickable}>
               {I18n.t('nav.page4')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => dispatch(RouterPush('/loader'))} className={styles.clickable}>
+            <NavLink onClick={() => push('/loader')} className={styles.clickable}>
               {I18n.t('nav.page5')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => dispatch(RouterPush('/animate'))} className={styles.clickable}>
+            <NavLink onClick={() => push('/animate')} className={styles.clickable}>
               {I18n.t('nav.page6')}
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => dispatch(RouterPush('/component'))} className={styles.clickable}>
+            <NavLink onClick={() => push('/component')} className={styles.clickable}>
               {I18n.t('nav.page7')}
             </NavLink>
           </NavItem>
@@ -67,7 +74,7 @@ const Navbar: IHook = () => {
       <Collapse isOpen={isOpen} navbar={true}>
         <Nav className="ml-auto" navbar={true}>
           <NavItem>
-            <NavLink onClick={() => dispatch(userDisconnect())} className={styles.clickable}>
+            <NavLink onClick={disconnect} className={styles.clickable}>
               {I18n.t('nav.disconnect')}
             </NavLink>
           </NavItem>

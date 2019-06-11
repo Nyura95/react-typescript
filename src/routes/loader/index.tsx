@@ -17,16 +17,21 @@ import { ILoaderDispatch } from '../../reducers/loadingBar';
 
 const Loader: IHook<RouteComponentProps> = () => {
   const dispatch = useDispatch<ILoaderDispatch>();
+
+  const show = React.useCallback(() => dispatch(loaderShow()), [dispatch]);
+  const hide = React.useCallback(() => dispatch(loaderHide()), [dispatch]);
+
   const startLoadScreen = React.useCallback((): void => {
     dispatch(loadScreenShow(I18n.t('pages.loader.loadscreentext')));
     setTimeout(() => dispatch(loadScreenHide()), 3000);
-  }, []);
+  }, [dispatch]);
+
   return (
     <Row className={styles.container}>
       <Col lg={12}>
         <Card header={I18n.t('pages.loader.loadbar')} className={styles.card}>
-          <Button.Standar onClick={() => dispatch(loaderShow())}>{I18n.t('pages.loader.show')}</Button.Standar>
-          <Button.Standar onClick={() => dispatch(loaderHide())}>{I18n.t('pages.loader.hide')}</Button.Standar>
+          <Button.Standar onClick={show}>{I18n.t('pages.loader.show')}</Button.Standar>
+          <Button.Standar onClick={hide}>{I18n.t('pages.loader.hide')}</Button.Standar>
         </Card>
       </Col>
       <Col lg={12}>
