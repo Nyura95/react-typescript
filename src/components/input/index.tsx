@@ -14,7 +14,7 @@ export interface IProps {
   placeholder?: string;
   disabled?: boolean;
   type: InputType;
-  onChange: Function;
+  onChange: (value: string) => void;
   valid?: boolean;
   invalid?: boolean;
   formText?: string;
@@ -30,6 +30,8 @@ const Input: IHook<IProps> = props => {
     setValue(event.currentTarget.value);
     props.onChange(event.currentTarget.value);
   }, []);
+
+  React.useEffect(() => setValue(props.value), [props.value]);
 
   return (
     <FormGroup>

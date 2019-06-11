@@ -13,6 +13,7 @@ import { IReduxState, IUserState } from '../../reducers';
 
 const Home: IHook<RouteComponentProps> = () => {
   const { username } = useSelector<IReduxState, IUserState>(reducer => reducer.user);
+
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>
