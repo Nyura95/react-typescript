@@ -4,6 +4,7 @@ import * as React from 'react';
 import { I18n } from 'react-redux-i18n';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col } from 'reactstrap';
+import { RouteComponentProps } from 'react-router';
 
 // component
 import { Button } from '../../components';
@@ -14,7 +15,7 @@ import * as styles from './styles.scss';
 import { IReduxState, ICounterState, ICounterDispatch } from '../../reducers';
 import { counterSet, counterAsyncSet, counterReset } from '../../actions';
 
-const Counter: IHook = () => {
+const Counter: IHook<RouteComponentProps> = () => {
   const { counter } = useSelector<IReduxState, ICounterState>(reducer => reducer.counter);
   const dispatch = useDispatch<ICounterDispatch>();
   return (

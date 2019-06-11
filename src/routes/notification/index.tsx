@@ -3,6 +3,7 @@ import * as React from 'react';
 // modules
 import { I18n } from 'react-redux-i18n';
 import { Row, Col } from 'reactstrap';
+import { RouteComponentProps } from 'react-router';
 
 // compoents
 import { Button } from '../../components';
@@ -12,8 +13,7 @@ import * as styles from './styles.scss';
 
 import { notificationShow } from '../../actions';
 
-// notificationShow
-const Notification: IHook = () => {
+const Notification: IHook<RouteComponentProps> = () => {
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>

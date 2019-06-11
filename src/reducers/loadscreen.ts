@@ -7,7 +7,6 @@ export type ILoadScreenState = {
   text: string;
 };
 
-// loadscreen reducer
 export type ILoadScreenDispatch<S = ILoadScreenState, T = ILoadScreenType> = ICustomDispatch<S, T>;
 export type ILoadScreenAction<S = ILoadScreenState, T = ILoadScreenType> = ICustomAction<S, T>;
 
@@ -18,10 +17,10 @@ const initialState: ILoadScreenState = {
 
 /**
  * Store for the module loadscreen
- * @param {IState} state
- * @param {IAction<IState, IType>} action
+ * @param {ILoadScreenState} state
+ * @param {IAction<ILoadScreenState, IType>} action
  * @version 1.0.0
- * @returns {IState}
+ * @returns {ILoadScreenState}
  */
 export function loadscreen(state = initialState, action: IAction<ILoadScreenState, ILoadScreenType>): ILoadScreenState {
   switch (action.type) {

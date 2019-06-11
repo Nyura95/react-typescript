@@ -4,6 +4,7 @@ import * as React from 'react';
 import { I18n } from 'react-redux-i18n';
 import { Row, Col } from 'reactstrap';
 import { useDispatch } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 
 // component
 import { Button, Card } from '../../components';
@@ -14,7 +15,7 @@ import * as styles from './styles.scss';
 import { loadScreenShow, loadScreenHide, loaderShow, loaderHide } from '../../actions';
 import { ILoaderDispatch } from '../../reducers/loadingBar';
 
-const Loader: IHook = () => {
+const Loader: IHook<RouteComponentProps> = () => {
   const dispatch = useDispatch<ILoaderDispatch>();
   const startLoadScreen = React.useCallback((): void => {
     dispatch(loadScreenShow(I18n.t('pages.loader.loadscreentext')));

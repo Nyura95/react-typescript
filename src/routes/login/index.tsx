@@ -4,6 +4,7 @@ import * as React from 'react';
 import { I18n } from 'react-redux-i18n';
 import { Col } from 'reactstrap';
 import { useDispatch } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 
 // component
 import { Button, Card, Input, Form } from '../../components';
@@ -12,7 +13,7 @@ import { version } from '../../../package.json';
 import { userAuth } from '../../actions';
 import { IUserDispatch } from '../../reducers';
 
-const Login: IHook = () => {
+const Login: IHook<RouteComponentProps> = () => {
   const dispatch = useDispatch<IUserDispatch>();
 
   const [busy, setBusy] = React.useState<boolean>(false);

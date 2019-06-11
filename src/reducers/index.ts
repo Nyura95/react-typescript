@@ -1,16 +1,16 @@
 // Redux
 import { combineReducers } from 'redux';
-import { loadingBarReducer } from 'react-redux-loading-bar';
 
 export * from './types';
 
-// Import here your new created reducers
+// Import here your new reducers
 import { counter } from './counter';
 import { user } from './user';
 import { notification } from './notification';
 import { loadscreen } from './loadscreen';
 import { i18nReducer } from './i18n';
 import { routerReducer } from './router';
+import { loadingBarReducer } from './loadingBar';
 
 export * from './counter';
 export * from './user';

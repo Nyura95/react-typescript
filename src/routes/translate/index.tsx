@@ -4,6 +4,7 @@ import * as React from 'react';
 import { I18n } from 'react-redux-i18n';
 import { Row, Col } from 'reactstrap';
 import { useSelector } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 
 // component
 import { Button } from '../../components';
@@ -14,8 +15,7 @@ import * as styles from './styles.scss';
 import { IReduxState, I18nState } from '../../reducers';
 import { i18nSetLang, i18nGetTranslate } from '../../actions';
 
-// i18n.locale, i18nGetTranslate, i18nSetLang
-const Translate: IHook = () => {
+const Translate: IHook<RouteComponentProps> = () => {
   const { locale } = useSelector<IReduxState, I18nState>(reducers => reducers.i18n);
   return (
     <Row className={styles.container}>

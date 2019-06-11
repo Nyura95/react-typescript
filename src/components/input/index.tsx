@@ -23,10 +23,6 @@ export interface IProps {
   busy?: boolean;
 }
 
-export interface IState {
-  value: string;
-}
-
 const Input: IHook<IProps> = props => {
   const [value, setValue] = React.useState<string>(props.value);
 

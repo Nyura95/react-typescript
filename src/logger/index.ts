@@ -6,8 +6,8 @@ const logger = console;
 class Log {
   /**
    * Log with trace
-   * @param {string} message 
-   * @param {string} source 
+   * @param {string} message
+   * @param {string} source
    * @returns {void}
    */
   public trace(message: string, source: string): void {
@@ -15,9 +15,9 @@ class Log {
   }
 
   /**
-   * Ino log 
-   * @param {string} message 
-   * @param {string} source 
+   * Info log
+   * @param {string} message
+   * @param {string} source
    * @returns {void}
    */
   public info(message: string, source: string): void {
@@ -26,8 +26,8 @@ class Log {
 
   /**
    * Warning log
-   * @param {string} message 
-   * @param {string} source 
+   * @param {string} message
+   * @param {string} source
    * @returns {void}
    */
   public warn(message: string, source: string): void {
@@ -35,19 +35,19 @@ class Log {
   }
 
   /**
-  * Error log
-  * @param {string} message 
-  * @param {string} source 
-  * @returns {void}
-  */
+   * Error log
+   * @param {string} message
+   * @param {string} source
+   * @returns {void}
+   */
   public error(message: string, source: string): void {
     generateMessage('error', message, source);
   }
 
   /**
    * Debug log
-   * @param {string} message 
-   * @param {string} source 
+   * @param {string} message
+   * @param {string} source
    * @returns {void}
    */
   public debug(message: string, source: string): void {

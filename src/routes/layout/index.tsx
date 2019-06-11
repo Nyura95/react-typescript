@@ -15,7 +15,6 @@ import { notificationSet } from '../../actions';
 import Minimal from './minimal';
 import Default from './default';
 
-// connected, notificationSet
 const Layout: IHook = () => {
   const { token } = useSelector((reducers: IReduxState) => reducers.user);
   const dispatch = useDispatch<INotificationDispatch>();

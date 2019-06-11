@@ -9,7 +9,6 @@ export type IUserState = {
   token: string;
 };
 
-// user reducer
 export type IUserDispatch<S = IUserState, T = IUserType> = ICustomDispatch<S, T>;
 export type IUserAction<S = IUserState, T = IUserType> = ICustomAction<S, T>;
 
@@ -22,10 +21,10 @@ const initialState: IUserState = {
 
 /**
  * Store the user info
- * @param state IState
- * @param action IAction<IState, IType>
+ * @param state IUserState
+ * @param action IAction<IUserState, IType>
  * @version 1.0.0
- * @returns IState
+ * @returns IUserState
  */
 export function user(state = initialState, action: IAction<IUserState, IUserType>): IUserState {
   switch (action.type) {

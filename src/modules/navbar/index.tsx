@@ -11,10 +11,6 @@ import * as styles from './styles.scss';
 import { IRouterDispatch } from '../../reducers';
 import { RouterPush, userDisconnect } from '../../actions';
 
-export interface IState {
-  isOpen: boolean;
-}
-
 const Navbar: IHook = () => {
   const dispatch = useDispatch<IRouterDispatch>();
   const [isOpen, setIsOpen] = React.useState<boolean>(false);

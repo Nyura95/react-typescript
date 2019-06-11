@@ -15,10 +15,10 @@ const initialState: ICounterState = {
 
 /**
  * Store a counter
- * @param state IState
- * @param action IAction<IState, IType>
+ * @param state ICounterState
+ * @param action IAction<ICounterState, IType>
  * @version 1.0.0
- * @returns IState
+ * @returns ICounterState
  */
 export function counter(state = initialState, action: IAction<ICounterState, ICounterType>): ICounterState {
   switch (action.type) {

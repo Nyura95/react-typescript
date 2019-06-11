@@ -4,13 +4,14 @@ import * as React from 'react';
 import { Row, Col } from 'reactstrap';
 import { useSelector } from 'react-redux';
 import { I18n } from 'react-redux-i18n';
+import { RouteComponentProps } from 'react-router';
 
 // style
 import * as styles from './styles.scss';
 
 import { IReduxState, IUserState } from '../../reducers';
 
-const Home: IHook = () => {
+const Home: IHook<RouteComponentProps> = () => {
   const { username } = useSelector<IReduxState, IUserState>(reducer => reducer.user);
   return (
     <Row className={styles.container}>
