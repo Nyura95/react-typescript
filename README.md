@@ -1,7 +1,7 @@
 # react-redux-typescript
 
 Typescript 3.4.5
-Redux v7.1.0-alpha.5 (alpha)
+Redux v7.1.0
 
 ## @type/react-redux
 
