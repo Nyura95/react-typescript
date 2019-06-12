@@ -18,19 +18,14 @@ const source = 'Api common';
  * @param {IPayload} payload
  * @param {IMethod} method
  * @param {IHeaders} headers
- * @version 1.2.2
+ * @version 1.0.0
  * @example
  * fetch<IUser>('/v1/user', 'get')
  * .then(result => {})
  * .catch((err: IPayloadApi<IUserFail, false>) => {});
  * @returns {PayloadApi<D, true>}
  */
-export const fetch = <D>(
-  url: string,
-  method: IMethod = 'get',
-  payload: IPayload = {},
-  headers: IHeaders = {}
-): Promise<IPayloadApi<D, true>> =>
+export const fetch = <D>(url: string, method: IMethod = 'get', payload: IPayload = {}, headers: IHeaders = {}) =>
   new Promise<IPayloadApi<D, true>>((resolve, reject) => {
     logger.info(`new fetch [${method}] ${url}`, source);
     fetchival(config.api.basepath + url, {
@@ -39,8 +34,8 @@ export const fetch = <D>(
         ...headers
       }
     })
-    [method](payload)
-      .then((res: IPayloadApi) =>
+      [method](payload)
+      .then((res: IPayloadApi<D>) =>
         res.success
           ? resolve(fetchSuccess<D>(res as IPayloadApi<D, true>))
           : reject(fetchFailed(res as IPayloadApi<unknown, false>))

@@ -29,18 +29,15 @@ const Default: IHook = () => {
       </Helmet>
       <Navbar />
       <Container>
-        <Router history={history} >
-          <Switch >
-            
+        <Router history={history}>
+          <Switch>
             <Route exact path="/translate" component={Translate} />
             <Route exact path="/notification" component={Notification} />
             <Route exact path="/loader" component={Loader} />
             <Route exact path="/animate" component={Animate} />
             <Route exact path="/component" component={Component} />
-            <Animated animateStart type='children'>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/counter" component={Counter} />
-            </Animated>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/counter" component={Counter} />
           </Switch>
         </Router>
       </Container>
