@@ -21,7 +21,9 @@
     "react",
     "typescript",
     "boilertemplate",
-    "parcel"
+    "parcel",
+    "hook",
+    "redux7"
   ],
   "author": "Nyura95",
   "license": "ISC",
