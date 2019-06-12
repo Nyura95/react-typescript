@@ -34,7 +34,7 @@ const Animate: IHook<IProps> = () => {
           triggerOut={event => (animeOut = event)}
           triggerIn={event => (animeIn = event)}
           trigger={event => (anime = event)}
-          type="children"
+          type="trigger"
         >
           <div className={styles.block} />
         </Animated>

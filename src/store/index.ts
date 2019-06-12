@@ -34,7 +34,7 @@ logger.info(`initialization store`, source);
 const persistConfig: PersistConfig = {
   storage,
   key: 'store',
-  whitelist: ['counter', 'user'], // Add the name of reducer for active the persist
+  whitelist: ['counter', 'user'], // Add the name of the reducer for active the persist state
   version: 1
 };
 

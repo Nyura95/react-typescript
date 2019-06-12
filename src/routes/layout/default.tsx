@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { I18n } from 'react-redux-i18n';
 
 // Component
-import { Container } from '../../components';
+import { Container, Animated } from '../../components';
 import { Navbar } from '../../modules';
 
 // store
@@ -29,15 +29,18 @@ const Default: IHook = () => {
       </Helmet>
       <Navbar />
       <Container>
-        <Router history={history}>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/counter" component={Counter} />
+        <Router history={history} >
+          <Switch >
+            
             <Route exact path="/translate" component={Translate} />
             <Route exact path="/notification" component={Notification} />
             <Route exact path="/loader" component={Loader} />
             <Route exact path="/animate" component={Animate} />
             <Route exact path="/component" component={Component} />
+            <Animated animateStart type='children'>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/counter" component={Counter} />
+            </Animated>
           </Switch>
         </Router>
       </Container>

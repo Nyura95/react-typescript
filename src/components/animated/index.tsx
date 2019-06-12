@@ -23,7 +23,7 @@ interface IState {
 export class Animated extends React.Component<IProps, IState> {
   private interval: NodeJS.Timeout | null = null;
   static defaultProps = {
-    timeout: 200,
+    timeout: 1000,
     animateIn: 'fadeIn',
     animateOut: 'fadeOut',
     className: '',
@@ -47,10 +47,10 @@ export class Animated extends React.Component<IProps, IState> {
   }
 
   animeIn(): void {
-    this.setState({ previousChildren: this.props.children, animate: this.props.animateIn });
+    this.setState({ previousChildren: null, animate: this.props.animateIn });
   }
   animeOut(): void {
-    this.setState({ previousChildren: null, animate: this.props.animateOut });
+    this.setState({ previousChildren: this.props.children, animate: this.props.animateOut });
   }
   anime(): void {
     this.animeOut();
