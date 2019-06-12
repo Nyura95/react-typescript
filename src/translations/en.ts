@@ -51,9 +51,9 @@ export default {
     },
     counter: {
       count: 'Counter : %{counter}',
-      increment: 'Incrément',
+      increment: 'Increment',
       decrement: 'Decrease',
-      async: 'Async incrément',
+      async: 'Async increment',
       reset: 'Reset'
     },
     animate: {
