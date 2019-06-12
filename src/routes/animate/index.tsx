@@ -12,13 +12,12 @@ import { Button, Animated } from '../../components';
 import * as styles from './styles.scss';
 
 // interface props
-export interface IProps extends RouteComponentProps { }
+export interface IProps extends RouteComponentProps {}
 
 const Animate: IHook<IProps> = () => {
-  let animeOut: Function = () => { };
-  let animeIn: Function = () => { };
-  let anime: Function = () => { };
-
+  let animeOut: Function = () => {};
+  let animeIn: Function = () => {};
+  let anime: Function = () => {};
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>
