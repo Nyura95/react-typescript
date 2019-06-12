@@ -30,6 +30,11 @@ export default {
     component: {
       button: 'Button'
     },
+    notification: {
+      button: 'Run a notification',
+      title: 'Title',
+      message: 'Message'
+    },
     home: {
       hello: 'Your email : %{username}'
     },
