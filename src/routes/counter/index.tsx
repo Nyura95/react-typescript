@@ -20,7 +20,8 @@ const Counter: IHook<RouteComponentProps> = () => {
   const dispatch = useDispatch<ICounterDispatch>();
 
   const incrementCounter = React.useCallback(() => dispatch(counterSet(1)), [dispatch]);
-  const incrementAsyncCounter = React.useCallback(() => dispatch(counterAsyncSet(-1)), [dispatch]);
+  const decreaseCounter = React.useCallback(() => dispatch(counterSet(-1)), [dispatch]);
+  const incrementAsyncCounter = React.useCallback(() => dispatch(counterAsyncSet(1)), [dispatch]);
   const resetCounter = React.useCallback(() => dispatch(counterReset()), [dispatch]);
 
   return (
@@ -32,7 +33,7 @@ const Counter: IHook<RouteComponentProps> = () => {
         <Button.Standar onClick={incrementCounter} color="primary">
           {I18n.t('pages.counter.increment')}
         </Button.Standar>
-        <Button.Standar onClick={incrementCounter}>{I18n.t('pages.counter.decrement')}</Button.Standar>
+        <Button.Standar onClick={decreaseCounter}>{I18n.t('pages.counter.decrement')}</Button.Standar>
         <Button.Standar onClick={incrementAsyncCounter} color="warning">
           {I18n.t('pages.counter.async')}
         </Button.Standar>
