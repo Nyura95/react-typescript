@@ -17,11 +17,6 @@ export function useSelector<TState, TSelected>(
   equalityFn?: (left: TSelected, right: TSelected) => boolean
 ): TSelected;
 ```
-
-## Overview
-
-Here is my vision of a framework react (typescript v3) with redux.
-
 ## Installation
 
 > `git clone https://github.com/Nyura95/react-typescript.git`
