@@ -19,8 +19,6 @@ const Animate: IHook<IProps> = () => {
   let animeIn: Function = () => { };
   let anime: Function = () => { };
 
-  const [test, setTest] = React.useState('bonjour');
-
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>
@@ -38,9 +36,7 @@ const Animate: IHook<IProps> = () => {
           trigger={event => (anime = event)}
           type="children"
         >
-          <div className={styles.block} onClick={() => setTest('lol')}>
-            {test}
-          </div>
+          <div className={styles.block} />
         </Animated>
       </Col>
     </Row>

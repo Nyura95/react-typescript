@@ -1,5 +1,5 @@
 // Action reducer module
-import { push, goBack } from 'connected-react-router';
+import { push, goBack } from 'react-router-redux';
 
 import logger from '../logger';
 import { IRouterAction } from '../reducers/router';
@@ -15,7 +15,7 @@ const source = 'Router action';
 export const RouterPush = (to: string): IRouterAction => dispatch => {
   logger.info(`push new location: ${to}`, source);
   // tslint:disable-next-line
-  dispatch(push(to) as any); // connected-react-router don't respect the type
+  dispatch(push(to) as any); // react-router-redux don't respect the type
 };
 
 /**

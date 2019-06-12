@@ -1,6 +1,6 @@
 {
   "name": "react-typescript",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "example reactJS with typescript and redux async",
   "main": "./src/index.js",
   "scripts": {
@@ -54,7 +54,6 @@
   "dependencies": {
     "animate.css": "^3.7.0",
     "bootstrap": "^4.3.1",
-    "connected-react-router": "^6.4.0",
     "express": "^4.16.4",
     "fetchival": "^0.3.3",
     "font-awesome": "^4.7.0",

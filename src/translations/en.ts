@@ -41,7 +41,7 @@ export default {
       loadscreentext: 'Please wait'
     },
     login: {
-      username: 'Usernname',
+      username: 'Username',
       password: 'Password',
       button: 'Submit',
       title: 'React-typescript v%{version}'

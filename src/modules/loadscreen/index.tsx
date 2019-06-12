@@ -9,8 +9,8 @@ import { Spinner, Animated } from '../../components';
 import { ILoadScreenState, IReduxState } from '../../reducers';
 
 interface Iprops {
-  dot: boolean;
-  timeout: number;
+  dot?: boolean;
+  timeout?: number;
 }
 
 const LoadScreen: IHook<Iprops> = props => {

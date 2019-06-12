@@ -10,7 +10,7 @@ import { Navbar } from '../../modules';
 
 // store
 import { history } from '../../store';
-import { Router, Route } from 'react-router';
+import { Router, Route, Switch } from 'react-router';
 
 // pages
 import Home from '../home';
@@ -30,13 +30,15 @@ const Default: IHook = () => {
       <Navbar />
       <Container>
         <Router history={history}>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/counter" component={Counter} />
-          <Route exact path="/translate" component={Translate} />
-          <Route exact path="/notification" component={Notification} />
-          <Route exact path="/loader" component={Loader} />
-          <Route exact path="/animate" component={Animate} />
-          <Route exact path="/component" component={Component} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/counter" component={Counter} />
+            <Route exact path="/translate" component={Translate} />
+            <Route exact path="/notification" component={Notification} />
+            <Route exact path="/loader" component={Loader} />
+            <Route exact path="/animate" component={Animate} />
+            <Route exact path="/component" component={Component} />
+          </Switch>
         </Router>
       </Container>
     </Container>
