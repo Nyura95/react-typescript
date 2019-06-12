@@ -1,6 +1,7 @@
 # react-redux-typescript
 
-Typescript 3.4.5
+React v16.8.6
+Typescript v3.5.1
 Redux v7.1.0
 
 ## Installation
