@@ -11,7 +11,7 @@ import { routerMiddleware } from 'react-router-redux';
 import { i18nGetTranslate } from '../actions/i18n';
 
 // I18n
-import { loadTranslations, setLocale, syncTranslationWithStore, TranslationObjects } from 'react-redux-i18n';
+import { loadTranslations, setLocale, syncTranslationWithStore, TranslationObjects, I18n } from 'react-redux-i18n';
 import translations from '../translations';
 
 // Router
@@ -54,11 +54,14 @@ export const store = createStore(
   )
 );
 
-// create the persistor
-export const persistor: Persistor = persistStore(store, undefined, () => {
-  logger.info(`store initialized`, source);
-});
-
 syncTranslationWithStore(store);
 store.dispatch(loadTranslations(translations as TranslationObjects));
 store.dispatch(setLocale(i18nGetTranslate()));
+
+// create the persistor
+export const persistor: Persistor = persistStore(store, undefined, () => {
+  logger.info(`store initialized`, source);
+  // Updating title page dynamically
+  document.title = I18n.t('helmet.' + location.pathname);
+  history.listen(location => (document.title = I18n.t('helmet.' + location.pathname)));
+});

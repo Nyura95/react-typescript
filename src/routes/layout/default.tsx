@@ -1,11 +1,10 @@
 import * as React from 'react';
 
 // module
-import Helmet from 'react-helmet';
 import { I18n } from 'react-redux-i18n';
 
 // Component
-import { Container, Animated } from '../../components';
+import { Container } from '../../components';
 import { Navbar } from '../../modules';
 
 // store
@@ -24,9 +23,6 @@ import Component from '../component';
 const Default: IHook = () => {
   return (
     <Container fluid removePadding>
-      <Helmet>
-        <title>{I18n.t('helmet.' + history.location.pathname)}</title>
-      </Helmet>
       <Navbar />
       <Container>
         <Router history={history}>
