@@ -32,4 +32,8 @@ Redux v7.1.0
 
 > `npm run tslint`
 
+## size build
+
+810.68 KB
+
 Enjoy !
