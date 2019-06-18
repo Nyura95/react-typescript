@@ -1,5 +1,5 @@
 export const development = {
-  production: true,
+  production: false,
   i18n: {
     defaultLang: 'en',
     storeName: 'lang'

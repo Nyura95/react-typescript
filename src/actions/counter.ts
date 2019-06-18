@@ -1,5 +1,6 @@
 import logger from '../logger';
 import { ICounterAction } from '../reducers/counter';
+import { put, delay, all, fork, takeEvery } from 'redux-saga/effects';
 
 
 // Set the source file
@@ -11,9 +12,9 @@ const source = 'Counter action';
  * @version 1.0.0
  * @returns {void}
  */
-export const counterSet = (counter: number): ICounterAction => dispatch => {
+export const counterSet = function* (counter: number) {
   logger.info('Set counter', source);
-  dispatch({
+  yield put({
     type: 'ADD_COUNTER',
     payload: {
       counter
@@ -26,9 +27,9 @@ export const counterSet = (counter: number): ICounterAction => dispatch => {
  * @version 1.0.0
  * @returns {void}
  */
-export const counterReset = (): ICounterAction => dispatch => {
+export const counterReset = function*() {
   logger.info('Reset counter', source);
-  dispatch({
+  yield put({
     type: 'SET_COUNTER',
     payload: {
       counter: 0
@@ -42,14 +43,8 @@ export const counterReset = (): ICounterAction => dispatch => {
  * @version 1.0.0
  * @returns {void}
  */
-export const counterAsyncSet = (counter: number): ICounterAction => dispatch => {
+export const counterAsyncSet = function* (counter: number) {
   logger.info('Async set counter', source);
-  setTimeout(() => {
-    dispatch({
-      type: 'ADD_COUNTER',
-      payload: {
-        counter
-      }
-    });
-  }, 500);
+  yield delay(500);
+  yield put({ type: 'ADD_COUNTER', payload: { counter } });
 };

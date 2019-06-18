@@ -22,7 +22,7 @@ const Layout: IHook = () => {
 
   React.useEffect(() => {
     if (notificationDOMRef && notificationDOMRef.current) {
-      dispatch(notificationSet(notificationDOMRef.current));
+      // dispatch(notificationSet(notificationDOMRef.current));
     }
   }, []);
 
