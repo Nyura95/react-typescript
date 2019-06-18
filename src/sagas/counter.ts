@@ -1,6 +1,6 @@
 import { takeEvery } from 'redux-saga/effects';
-import {counterSet} from '../actions/counter';
+import { counterSet } from '../actions/counter';
 
-export function* watchIncrementCounter(){
-    yield takeEvery('INCREMENT', counterSet, 1)
+export function* watchIncrementCounter() {
+  yield takeEvery('INCREMENT', counterSet);
 }

@@ -12,10 +12,9 @@ const source = 'Router action';
  * @version 1.0.0
  * @returns {void}
  */
-export const RouterPush = (to: string): IRouterAction => dispatch => {
+export const RouterPush = (to: string) => {
   logger.info(`push new location: ${to}`, source);
-  // tslint:disable-next-line
-  dispatch(push(to) as any); // react-router-redux don't respect the type
+  return push(to);
 };
 
 /**
@@ -23,8 +22,8 @@ export const RouterPush = (to: string): IRouterAction => dispatch => {
  * @version 1.0.0
  * @returns {void}
  */
-export const RouterGoBack = (): IRouterAction => dispatch => {
+export const RouterGoBack = () => {
   logger.info(`go back`, source);
   // tslint:disable-next-line
-  dispatch(goBack() as any);
+  return goBack();
 };

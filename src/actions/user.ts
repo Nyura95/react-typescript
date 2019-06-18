@@ -17,7 +17,7 @@ const source = 'Counter action';
  */
 export const userAuth = (username: string, password: string): IUserAction => dispatch => {
   logger.info(`set a new user ${username}:${password}`, source);
-  dispatch(loaderShow())
+  dispatch(loaderShow());
   setTimeout((): void => {
     // connect the customer
     dispatch({
@@ -29,7 +29,7 @@ export const userAuth = (username: string, password: string): IUserAction => dis
         token: 'ranD0mTokEn'
       }
     });
-    dispatch(loaderHide())
+    dispatch(loaderHide());
     // notify the customer
     notificationShow({
       title: I18n.t('notifications.connect.title'),

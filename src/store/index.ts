@@ -2,7 +2,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk, { ThunkMiddleware } from 'redux-thunk';
 
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from 'redux-saga';
 
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer, Persistor, PersistConfig } from 'redux-persist';
@@ -23,13 +23,14 @@ import { createBrowserHistory } from 'history';
 // reducers / action
 import reducers, { IReduxState } from '../reducers';
 import { IAction } from '../actions';
-import {watchIncrementCounter} from '../sagas/counter';
+import { watchIncrementCounter } from '../sagas/counter';
 
 // config
 import { config } from '../config';
 
 // logger
 import logger from '../logger';
+import { put } from 'redux-saga/effects';
 
 const source = 'store';
 logger.info(`initialization store`, source);
@@ -45,7 +46,7 @@ const persistConfig: PersistConfig = {
 // create web history
 export const history = createBrowserHistory();
 
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware<IAction<unknown, unknown>>();
 
 // create the store
 export const store = createStore(
@@ -60,10 +61,12 @@ export const store = createStore(
   )
 );
 
-sagaMiddleware.run(watchIncrementCounter);  
+sagaMiddleware.run(watchIncrementCounter);
 
 syncTranslationWithStore(store);
-// store.dispatch(loadTranslations(translations as TranslationObjects));
+sagaMiddleware.run(i18nFlowSaga);
+
+//store.dispatch(loadTranslations(translations as TranslationObjects));
 // store.dispatch(setLocale(i18nGetTranslate()));
 
 // create the persistor
