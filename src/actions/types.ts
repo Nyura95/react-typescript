@@ -4,9 +4,9 @@ import { IReduxState } from '../reducers';
 // my interface Action
 export interface IAction<S, T> {
   type: T;
-  payload: S;
+  payload?: S;
 }
 
 // thunk (async dispatch/action)
-export type ICustomDispatch<S, T> = ThunkDispatch<IReduxState, null, IAction<Partial<S>, T>>;
-export type ICustomAction<S, T> = ThunkAction<void, IReduxState, null, IAction<Partial<S>, T>>;
+export type ICustomDispatch<S, T> = ThunkDispatch<IReduxState, null, IAction<S, T>>;
+export type ICustomAction<S, T> = ThunkAction<void, IReduxState, null, IAction<S, T>>;
