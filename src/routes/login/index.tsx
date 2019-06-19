@@ -10,11 +10,10 @@ import { RouteComponentProps } from 'react-router';
 import { Button, Card, Input, Form } from '../../components';
 
 import { version } from '../../../package.json';
-import { userAuth } from '../../actions';
-import { IUserDispatch } from '../../reducers';
+import { userAuthenticate } from '../../actions';
 
 const Login: IHook<RouteComponentProps> = () => {
-  const dispatch = useDispatch<IUserDispatch>();
+  const dispatch = useDispatch();
 
   const [busy, setBusy] = React.useState<boolean>(false);
   const [username, setUsername] = React.useState<string>('');
@@ -23,7 +22,7 @@ const Login: IHook<RouteComponentProps> = () => {
   const authUser = React.useCallback(
     (username: string, password: string): void => {
       setBusy(true);
-      dispatch(userAuth(username, password));
+      dispatch(userAuthenticate(username, password));
     },
     [dispatch]
   );

@@ -23,7 +23,7 @@ import { createBrowserHistory } from 'history';
 // reducers / action
 import reducers, { IReduxState } from '../reducers';
 import { IAction } from '../actions';
-import { watchIncrementCounter } from '../sagas/counter';
+import rootSaga from '../sagas';
 
 // config
 import { config } from '../config';
@@ -61,16 +61,8 @@ export const store = createStore(
   )
 );
 
-sagaMiddleware.run(watchIncrementCounter);
-
 syncTranslationWithStore(store);
-/*
-  export default function* i18nFlowSaga() {
-    yield put({ type: '@@i18n/LOAD_TRANSLATIONS', translations: translations });
-    yield put({ type: '@@i18n/SET_LOCALE', locale: i18nGetTranslate() });
-  }
-  sagaMiddleware.run(i18nFlowSaga);
-*/
+sagaMiddleware.run(rootSaga);
 
 // create the persistor
 export const persistor: Persistor = persistStore(store, undefined, () => {

@@ -1,19 +1,13 @@
 import { takeEvery, delay, put } from 'redux-saga/effects';
+
 import { ICounterAction } from '../reducers';
+import { SagaIterator } from 'redux-saga';
 
 export type ICounterTypeSaga = 'ASYNC_COUNTER_INCREMENT';
 
-/**
- * Increment the counter with the variable {counter} in asynchronous
- * @param {number} counter
- * @version 1.0.0
- * @returns {void}
- */
-const asyncIncrement = function*(action: ICounterAction) {
+const asyncIncrement = function*(action: ICounterAction): SagaIterator {
   yield delay(500);
   yield put<ICounterAction>({ type: 'ADD_COUNTER', payload: { counter: action.payload ? action.payload.counter : 0 } });
 };
 
-export function* watchIncrementCounter() {
-  yield takeEvery('ASYNC_COUNTER_INCREMENT', asyncIncrement);
-}
+export default [takeEvery('ASYNC_COUNTER_INCREMENT', asyncIncrement)];
