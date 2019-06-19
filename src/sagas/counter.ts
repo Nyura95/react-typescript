@@ -10,4 +10,4 @@ const asyncIncrement = function*(action: ICounterAction): SagaIterator {
   yield put<ICounterAction>({ type: 'ADD_COUNTER', payload: { counter: action.payload ? action.payload.counter : 0 } });
 };
 
-export default [takeEvery('ASYNC_COUNTER_INCREMENT', asyncIncrement)];
+export default [takeEvery<ICounterAction>('ASYNC_COUNTER_INCREMENT', asyncIncrement)];

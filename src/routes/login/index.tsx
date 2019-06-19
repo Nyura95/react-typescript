@@ -11,9 +11,11 @@ import { Button, Card, Input, Form } from '../../components';
 
 import { version } from '../../../package.json';
 import { userAuthenticate } from '../../actions';
+import { IUserAction } from '../../reducers';
+import { Dispatch } from 'redux';
 
 const Login: IHook<RouteComponentProps> = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<Dispatch<IUserAction>>();
 
   const [busy, setBusy] = React.useState<boolean>(false);
   const [username, setUsername] = React.useState<string>('');

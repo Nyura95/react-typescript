@@ -1,5 +1,5 @@
 import { IAction } from '../actions';
-import { IUserTypeSaga } from '../sagas/user';
+import { IUserTypeSaga, IUserStateSage } from '../sagas/user';
 
 export type IUserType = 'SET_USER' | 'RESET_USER' | IUserTypeSaga;
 
@@ -10,7 +10,7 @@ export type IUserState = {
   token: string;
 };
 
-export type IUserAction<SAGA = {}> = IAction<IUserState, IUserType, SAGA>;
+export type IUserAction = IAction<IUserState, IUserType, IUserStateSage>;
 
 const initialState: IUserState = {
   username: '',
@@ -29,7 +29,10 @@ const initialState: IUserState = {
 export function user(state = initialState, action: IUserAction): IUserState {
   switch (action.type) {
     case 'SET_USER':
-      return action.payload ? action.payload : state;
+      return {
+        ...state,
+        ...action.payload
+      };
     case 'RESET_USER':
       return initialState;
     default:

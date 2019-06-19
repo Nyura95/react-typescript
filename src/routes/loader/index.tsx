@@ -13,10 +13,11 @@ import { Button, Card } from '../../components';
 import * as styles from './styles.scss';
 
 import { loadScreenShow, loadScreenHide, loaderShow, loaderHide } from '../../actions';
-import { ILoaderDispatch } from '../../reducers/loadingBar';
+import { Dispatch } from 'redux';
+import { ILoadScreenAction, ILoaderAction } from '../../reducers';
 
 const Loader: IHook<RouteComponentProps> = () => {
-  const dispatch = useDispatch<ILoaderDispatch>();
+  const dispatch = useDispatch<Dispatch<ILoaderAction | ILoadScreenAction>>();
 
   const show = React.useCallback(() => dispatch(loaderShow()), [dispatch]);
   const hide = React.useCallback(() => dispatch(loaderHide()), [dispatch]);

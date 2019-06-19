@@ -4,7 +4,7 @@ import { IReduxState } from '../reducers';
 // my interface Action
 export interface IAction<S, T, SAGA = {}> {
   type: T;
-  payload?: S;
+  payload: Partial<S>;
   saga?: SAGA;
 }
 

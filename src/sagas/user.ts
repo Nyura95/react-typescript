@@ -1,20 +1,25 @@
 import { put, takeEvery, delay, call } from 'redux-saga/effects';
-import { counterReset, userDisconnect, userSet, notificationShow } from '../actions';
+import { counterReset, userDisconnect, userSet, notificationShow, loaderShow, loaderHide, IAction } from '../actions';
 import { IUserAction, ICounterAction } from '../reducers';
 import { I18n } from 'react-redux-i18n';
 import { SagaIterator } from 'redux-saga';
+import { ILoaderAction } from '../reducers/loadingBar';
 
-export type IUserTypeSaga = 'RESET_USER_AND_COUNTER' | 'AUTH_USER';
+export type IUserTypeSaga = 'RESET_USER_AND_COUNTER' | 'AUTHENTICATE_USER';
+
+export interface IUserStateSage {
+  username: string;
+  password: string;
+}
 
 const disconnectAndResetCounter = function*(): SagaIterator {
   yield put<ICounterAction>(counterReset());
   yield put<IUserAction>(userDisconnect());
 };
 
-const authenticationUser = function*(action: IUserAction<{ username: string; password: string }>): SagaIterator {
-  // put<ILoaderAction>(loaderShow());
+const authenticationUser = function*(action: IUserAction): SagaIterator {
+  yield put<ILoaderAction>(loaderShow());
   yield delay(1000);
-
   yield put<IUserAction>(
     userSet({
       username: action.saga ? action.saga.username : '',
@@ -23,10 +28,7 @@ const authenticationUser = function*(action: IUserAction<{ username: string; pas
       token: 'ranD0mTokEn'
     })
   );
-
-  // put<ILoaderAction>(loaderHide());
-
-  // put<INotificationAction>(loaderHide());
+  yield put<ILoaderAction>(loaderHide());
 
   yield call(notificationShow, {
     title: I18n.t('notifications.connect.title'),
@@ -35,6 +37,6 @@ const authenticationUser = function*(action: IUserAction<{ username: string; pas
 };
 
 export default [
-  takeEvery<IUserTypeSaga>('RESET_USER_AND_COUNTER', disconnectAndResetCounter),
-  takeEvery<IUserTypeSaga>('AUTH_USER', authenticationUser)
+  takeEvery<IUserAction>('RESET_USER_AND_COUNTER', disconnectAndResetCounter),
+  takeEvery<IUserAction>('AUTHENTICATE_USER', authenticationUser)
 ];

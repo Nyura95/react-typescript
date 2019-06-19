@@ -1,9 +1,7 @@
-
 import { RouterState, routerReducer } from 'react-router-redux';
-import { ICustomDispatch, ICustomAction } from '../actions';
+import { IAction } from '../actions';
 
 // router reducer
-export type IRouterDispatch<S = RouterState, T = string> = ICustomDispatch<S, T>;
-export type IRouterAction<S = RouterState, T = string> = ICustomAction<S, T>;
+export type IRouterAction = IAction<RouterState, string>;
 
-export { RouterState, routerReducer }
+export { RouterState, routerReducer };

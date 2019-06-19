@@ -13,11 +13,9 @@ const source = 'Notification action';
  * @version 1.0.0
  * @returns {void}
  */
-export const notificationSet = (
-  reactNotificationComponent: IReactNotificationsComponent
-): INotificationAction => dispatch => {
+export const notificationSet = (reactNotificationComponent: IReactNotificationsComponent): INotificationAction => {
   logger.info('Set notification', source);
-  dispatch({ type: 'SET_NOTIFICATION', payload: reactNotificationComponent });
+  return { type: 'SET_NOTIFICATION', payload: reactNotificationComponent };
 };
 
 /**

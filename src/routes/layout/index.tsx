@@ -9,20 +9,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { IReactNotificationsComponent } from '../../types';
 
 import { LoadScreen } from '../../modules';
-import { IReduxState, INotificationDispatch } from '../../reducers';
+import { IReduxState, INotificationAction } from '../../reducers';
 import { notificationSet } from '../../actions';
 
 import Minimal from './minimal';
 import Default from './default';
+import { Dispatch } from 'redux';
 
 const Layout: IHook = () => {
   const { token } = useSelector((reducers: IReduxState) => reducers.user);
-  const dispatch = useDispatch<INotificationDispatch>();
+  const dispatch = useDispatch<Dispatch<INotificationAction>>();
   const notificationDOMRef = React.createRef<IReactNotificationsComponent>();
 
   React.useEffect(() => {
     if (notificationDOMRef && notificationDOMRef.current) {
-      // dispatch(notificationSet(notificationDOMRef.current));
+      dispatch(notificationSet(notificationDOMRef.current));
     }
   }, []);
 

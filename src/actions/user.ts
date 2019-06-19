@@ -4,11 +4,8 @@ import { IUserAction, IUserState } from '../reducers/user';
 
 const source = 'Counter action';
 
-export const userAuthenticate = (
-  username: string,
-  password: string
-): IUserAction<{ password: string; username: string }> => {
-  return { type: 'AUTH_USER', saga: { password, username } };
+export const userAuthenticate = (username: string, password: string): IUserAction => {
+  return { type: 'AUTHENTICATE_USER', payload: {}, saga: { password, username } };
 };
 
 export const userSet = (user: IUserState): IUserAction => {
@@ -22,5 +19,5 @@ export const userSet = (user: IUserState): IUserAction => {
  */
 export const userDisconnect = (): IUserAction => {
   logger.info(`disconnect the user and reset the counter`, source);
-  return { type: 'RESET_USER' };
+  return { type: 'RESET_USER', payload: {} };
 };

@@ -1,4 +1,4 @@
-import { IAction, ICustomDispatch, ICustomAction } from '../actions';
+import { IAction } from '../actions';
 import { IReactNotificationsComponent } from '../types';
 
 export type INotificationType = 'SET_NOTIFICATION';
@@ -10,8 +10,7 @@ export type INotificationState =
     };
 
 // notification reducer
-export type INotificationDispatch<S = INotificationState, T = INotificationType> = ICustomDispatch<S, T>;
-export type INotificationAction<S = INotificationState, T = INotificationType> = ICustomAction<S, T>;
+export type INotificationAction = IAction<INotificationState, INotificationType>;
 
 const initialState: INotificationState = {
   addNotification: null
@@ -30,7 +29,10 @@ export function notification(
 ): INotificationState {
   switch (action.type) {
     case 'SET_NOTIFICATION':
-      return action.payload;
+      return {
+        ...state,
+        ...action.payload
+      };
     default:
       return state;
   }
