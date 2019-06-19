@@ -6,8 +6,8 @@ export type INotificationType = 'SET_NOTIFICATION';
 export type INotificationState =
   | IReactNotificationsComponent
   | {
-      addNotification: null;
-    };
+    addNotification: null;
+  };
 
 // notification reducer
 export type INotificationDispatch<S = INotificationState, T = INotificationType> = ICustomDispatch<S, T>;
@@ -30,7 +30,10 @@ export function notification(
 ): INotificationState {
   switch (action.type) {
     case 'SET_NOTIFICATION':
-      return action.payload;
+      return {
+        ...state,
+        ...action.payload
+      };
     default:
       return state;
   }

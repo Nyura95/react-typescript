@@ -29,7 +29,10 @@ const initialState: IUserState = {
 export function user(state = initialState, action: IAction<IUserState, IUserType>): IUserState {
   switch (action.type) {
     case 'SET_USER':
-      return action.payload;
+      return {
+        ...state,
+        ...action.payload
+      };
     case 'RESET_USER':
       return initialState;
     default:

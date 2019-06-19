@@ -8,12 +8,12 @@ import * as styles from './styles.scss';
 import { Spinner, Animated } from '../../components';
 import { ILoadScreenState, IReduxState } from '../../reducers';
 
-interface Iprops {
+interface IProps {
   dot?: boolean;
   timeout?: number;
 }
 
-const LoadScreen: IHook<Iprops> = props => {
+const LoadScreen: IHook<IProps> = props => {
   const { show, text } = useSelector<IReduxState, ILoadScreenState>(reducers => reducers.loadscreen);
   const [dot, setDot] = React.useState<string>('.');
 

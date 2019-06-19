@@ -1,8 +1,5 @@
 import * as React from 'react';
 
-// module
-import { I18n } from 'react-redux-i18n';
-
 // Component
 import { Container } from '../../components';
 import { Navbar } from '../../modules';

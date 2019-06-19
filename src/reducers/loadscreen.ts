@@ -26,7 +26,7 @@ export function loadscreen(state = initialState, action: IAction<ILoadScreenStat
   switch (action.type) {
     case 'SHOW_LOADSCREEN':
       return {
-        text: action.payload.text,
+        text: action.payload.text ? action.payload.text : state.text,
         show: true
       };
     case 'HIDE_LOADSCREEN':

@@ -24,11 +24,11 @@ export function counter(state = initialState, action: IAction<ICounterState, ICo
   switch (action.type) {
     case 'ADD_COUNTER':
       return {
-        counter: state.counter + action.payload.counter
+        counter: state.counter + (action.payload.counter !== undefined ? action.payload.counter : 0)
       };
     case 'SET_COUNTER':
       return {
-        counter: action.payload.counter
+        counter: action.payload.counter !== undefined ? action.payload.counter : state.counter
       };
     default:
       return state;
