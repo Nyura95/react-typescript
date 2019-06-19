@@ -64,10 +64,13 @@ export const store = createStore(
 sagaMiddleware.run(watchIncrementCounter);
 
 syncTranslationWithStore(store);
-sagaMiddleware.run(i18nFlowSaga);
-
-//store.dispatch(loadTranslations(translations as TranslationObjects));
-// store.dispatch(setLocale(i18nGetTranslate()));
+/*
+  export default function* i18nFlowSaga() {
+    yield put({ type: '@@i18n/LOAD_TRANSLATIONS', translations: translations });
+    yield put({ type: '@@i18n/SET_LOCALE', locale: i18nGetTranslate() });
+  }
+  sagaMiddleware.run(i18nFlowSaga);
+*/
 
 // create the persistor
 export const persistor: Persistor = persistStore(store, undefined, () => {

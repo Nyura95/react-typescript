@@ -12,16 +12,15 @@ import { Button } from '../../components';
 // style
 import * as styles from './styles.scss';
 
-import { IReduxState, ICounterState, ICounterDispatch } from '../../reducers';
+import { IReduxState, ICounterState, ICounterAction } from '../../reducers';
 import { counterSet, counterAsyncSet, counterReset } from '../../actions';
+import { Dispatch } from 'redux';
 
 const Counter: IHook<RouteComponentProps> = () => {
   const { counter } = useSelector<IReduxState, ICounterState>(reducer => reducer.counter);
-  const dispatch = useDispatch<ICounterDispatch>();
+  const dispatch = useDispatch<Dispatch<ICounterAction>>();
 
-  const incrementCounter = React.useCallback(() => dispatch({ type: 'INCREMENT', payload: { counter: 1 } }), [
-    dispatch
-  ]);
+  const incrementCounter = React.useCallback(() => dispatch(counterSet(1)), [dispatch]);
   const decreaseCounter = React.useCallback(() => dispatch(counterSet(-1)), [dispatch]);
   const incrementAsyncCounter = React.useCallback(() => dispatch(counterAsyncSet(1)), [dispatch]);
   const resetCounter = React.useCallback(() => dispatch(counterReset()), [dispatch]);
