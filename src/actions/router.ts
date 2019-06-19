@@ -12,9 +12,9 @@ const source = 'Router action';
  * @version 1.0.0
  * @returns {void}
  */
-export const RouterPush = (to: string) => {
+export const RouterPush = (to: string): IRouterAction => {
   logger.info(`push new location: ${to}`, source);
-  return push(to);
+  return push(to) as IRouterAction;
 };
 
 /**
@@ -22,8 +22,7 @@ export const RouterPush = (to: string) => {
  * @version 1.0.0
  * @returns {void}
  */
-export const RouterGoBack = () => {
+export const RouterGoBack = (): IRouterAction => {
   logger.info(`go back`, source);
-  // tslint:disable-next-line
-  return goBack();
+  return goBack() as IRouterAction;
 };

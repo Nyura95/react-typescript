@@ -12,13 +12,12 @@ import { Button } from '../../components';
 // style
 import * as styles from './styles.scss';
 
-import { IReduxState, ICounterState, ICounterAction } from '../../reducers';
+import { IReduxState, ICounterState, ICounterDispatch } from '../../reducers';
 import { counterSet, counterAsyncSet, counterReset } from '../../actions';
-import { Dispatch } from 'redux';
 
 const Counter: IHook<RouteComponentProps> = () => {
   const { counter } = useSelector<IReduxState, ICounterState>(reducer => reducer.counter);
-  const dispatch = useDispatch<Dispatch<ICounterAction>>();
+  const dispatch = useDispatch<ICounterDispatch>();
 
   const incrementCounter = React.useCallback(() => dispatch(counterSet(1)), [dispatch]);
   const decreaseCounter = React.useCallback(() => dispatch(counterSet(-1)), [dispatch]);
@@ -31,16 +30,16 @@ const Counter: IHook<RouteComponentProps> = () => {
         {counter}
       </Col>
       <Col lg="12" className={styles.container_button}>
-        <Button.Standar onClick={incrementCounter} color="primary">
+        <Button.Rectangle onClick={incrementCounter} color="primary">
           {I18n.t('pages.counter.increment')}
-        </Button.Standar>
-        <Button.Standar onClick={decreaseCounter}>{I18n.t('pages.counter.decrement')}</Button.Standar>
-        <Button.Standar onClick={incrementAsyncCounter} color="warning">
+        </Button.Rectangle>
+        <Button.Rectangle onClick={decreaseCounter}>{I18n.t('pages.counter.decrement')}</Button.Rectangle>
+        <Button.Rectangle onClick={incrementAsyncCounter} color="warning">
           {I18n.t('pages.counter.async')}
-        </Button.Standar>
+        </Button.Rectangle>
       </Col>
       <Col lg="12" className={styles.container_button}>
-        <Button.Standar onClick={resetCounter}>{I18n.t('pages.counter.reset')}</Button.Standar>
+        <Button.Rectangle onClick={resetCounter}>{I18n.t('pages.counter.reset')}</Button.Rectangle>
       </Col>
     </Row>
   );

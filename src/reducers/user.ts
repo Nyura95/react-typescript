@@ -1,5 +1,6 @@
 import { IAction } from '../actions';
 import { IUserTypeSaga, IUserStateSage } from '../sagas/user';
+import { Dispatch } from 'redux';
 
 export type IUserType = 'SET_USER' | 'RESET_USER' | IUserTypeSaga;
 
@@ -11,6 +12,7 @@ export type IUserState = {
 };
 
 export type IUserAction = IAction<IUserState, IUserType, IUserStateSage>;
+export type IUserDispatch = Dispatch<IUserAction>;
 
 const initialState: IUserState = {
   username: '',

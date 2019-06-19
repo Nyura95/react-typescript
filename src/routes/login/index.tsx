@@ -11,11 +11,10 @@ import { Button, Card, Input, Form } from '../../components';
 
 import { version } from '../../../package.json';
 import { userAuthenticate } from '../../actions';
-import { IUserAction } from '../../reducers';
-import { Dispatch } from 'redux';
+import { IUserDispatch } from '../../reducers';
 
 const Login: IHook<RouteComponentProps> = () => {
-  const dispatch = useDispatch<Dispatch<IUserAction>>();
+  const dispatch = useDispatch<IUserDispatch>();
 
   const [busy, setBusy] = React.useState<boolean>(false);
   const [username, setUsername] = React.useState<string>('');
@@ -45,9 +44,9 @@ const Login: IHook<RouteComponentProps> = () => {
             onChange={(password: string) => setPassword(password)}
             label={I18n.t('pages.login.password')}
           />
-          <Button.Standar type={'submit'} busy={busy} disabled={username === '' || password === ''}>
+          <Button.Rectangle type={'submit'} busy={busy} disabled={username === '' || password === ''}>
             {I18n.t('pages.login.button')}
-          </Button.Standar>
+          </Button.Rectangle>
         </Form>
       </Card>
     </Col>

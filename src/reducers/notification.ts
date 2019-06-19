@@ -1,5 +1,6 @@
 import { IAction } from '../actions';
 import { IReactNotificationsComponent } from '../types';
+import { Dispatch } from 'redux';
 
 export type INotificationType = 'SET_NOTIFICATION';
 
@@ -11,6 +12,7 @@ export type INotificationState =
 
 // notification reducer
 export type INotificationAction = IAction<INotificationState, INotificationType>;
+export type INotificationDispatch = Dispatch<INotificationAction>;
 
 const initialState: INotificationState = {
   addNotification: null

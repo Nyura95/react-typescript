@@ -7,6 +7,7 @@ export type ILoadScreenState = {
   text: string;
 };
 export type ILoadScreenAction = IAction<ILoadScreenState, ILoadScreenType>;
+export type ILoadScreenDispatch = IAction<ILoadScreenState, ILoadScreenType>;
 
 const initialState: ILoadScreenState = {
   show: false,

@@ -1,4 +1,4 @@
-import Standar from './standar';
+import Rectangle from './rectangle';
 import Round from './round';
 
-export default { Standar, Round };
+export default { Rectangle, Round };

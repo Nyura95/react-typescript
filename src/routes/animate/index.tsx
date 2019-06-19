@@ -21,9 +21,9 @@ const Animate: IHook<IProps> = () => {
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>
-        <Button.Standar onClick={() => animeIn()}>{I18n.t('pages.animate.triggerIn')}</Button.Standar>
-        <Button.Standar onClick={() => animeOut()}>{I18n.t('pages.animate.triggerOut')}</Button.Standar>
-        <Button.Standar onClick={() => anime()}>{I18n.t('pages.animate.trigger')}</Button.Standar>
+        <Button.Rectangle onClick={() => animeIn()}>{I18n.t('pages.animate.triggerIn')}</Button.Rectangle>
+        <Button.Rectangle onClick={() => animeOut()}>{I18n.t('pages.animate.triggerOut')}</Button.Rectangle>
+        <Button.Rectangle onClick={() => anime()}>{I18n.t('pages.animate.trigger')}</Button.Rectangle>
       </Col>
       <Col lg="12" className={styles.container_animate}>
         <Animated
