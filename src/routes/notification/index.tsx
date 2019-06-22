@@ -17,7 +17,7 @@ const Notification: IHook<RouteComponentProps> = () => {
   return (
     <Row className={styles.container}>
       <Col lg="12" className={styles.container_button}>
-        <Button.Standar
+        <Button.Rectangle
           onClick={() =>
             notificationShow({
               title: I18n.t('pages.notification.title'),
@@ -28,7 +28,7 @@ const Notification: IHook<RouteComponentProps> = () => {
           color="primary"
         >
           {I18n.t('pages.notification.button')}
-        </Button.Standar>
+        </Button.Rectangle>
       </Col>
     </Row>
   );

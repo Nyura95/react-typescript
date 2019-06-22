@@ -16,7 +16,7 @@ export interface IProps extends ButtonProps {
   style?: object;
 }
 
-const Button: IHook<IProps> = props => {
+const Rectangle: IHook<IProps> = props => {
   const showIcon = React.useCallback((): JSX.Element => {
     return (
       <div className={styles.container_busy}>
@@ -43,7 +43,7 @@ const Button: IHook<IProps> = props => {
   );
 };
 
-Button.defaultProps = {
+Rectangle.defaultProps = {
   color: 'primary',
   busy: false,
   className: '',
@@ -53,4 +53,4 @@ Button.defaultProps = {
   onClick: () => {}
 };
 
-export default Button;
+export default Rectangle;

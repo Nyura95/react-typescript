@@ -16,6 +16,7 @@ export * from './counter';
 export * from './user';
 export * from './notification';
 export * from './loadscreen';
+export * from './loadingBar';
 export * from './i18n';
 export * from './router';
 

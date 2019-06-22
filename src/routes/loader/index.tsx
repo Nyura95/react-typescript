@@ -13,10 +13,10 @@ import { Button, Card } from '../../components';
 import * as styles from './styles.scss';
 
 import { loadScreenShow, loadScreenHide, loaderShow, loaderHide } from '../../actions';
-import { ILoaderDispatch } from '../../reducers/loadingBar';
+import { ILoadScreenDispatch, ILoaderDispatch } from '../../reducers';
 
 const Loader: IHook<RouteComponentProps> = () => {
-  const dispatch = useDispatch<ILoaderDispatch>();
+  const dispatch = useDispatch<ILoadScreenDispatch & ILoaderDispatch>();
 
   const show = React.useCallback(() => dispatch(loaderShow()), [dispatch]);
   const hide = React.useCallback(() => dispatch(loaderHide()), [dispatch]);
@@ -30,13 +30,13 @@ const Loader: IHook<RouteComponentProps> = () => {
     <Row className={styles.container}>
       <Col lg={12}>
         <Card header={I18n.t('pages.loader.loadbar')} className={styles.card}>
-          <Button.Standar onClick={show}>{I18n.t('pages.loader.show')}</Button.Standar>
-          <Button.Standar onClick={hide}>{I18n.t('pages.loader.hide')}</Button.Standar>
+          <Button.Rectangle onClick={show}>{I18n.t('pages.loader.show')}</Button.Rectangle>
+          <Button.Rectangle onClick={hide}>{I18n.t('pages.loader.hide')}</Button.Rectangle>
         </Card>
       </Col>
       <Col lg={12}>
         <Card header={I18n.t('pages.loader.loadscreen')} className={styles.card}>
-          <Button.Standar onClick={startLoadScreen}>{I18n.t('pages.loader.show')}</Button.Standar>
+          <Button.Rectangle onClick={startLoadScreen}>{I18n.t('pages.loader.show')}</Button.Rectangle>
         </Card>
       </Col>
     </Row>

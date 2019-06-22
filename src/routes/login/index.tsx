@@ -10,7 +10,7 @@ import { RouteComponentProps } from 'react-router';
 import { Button, Card, Input, Form } from '../../components';
 
 import { version } from '../../../package.json';
-import { userAuth } from '../../actions';
+import { userAuthenticate } from '../../actions';
 import { IUserDispatch } from '../../reducers';
 
 const Login: IHook<RouteComponentProps> = () => {
@@ -23,7 +23,7 @@ const Login: IHook<RouteComponentProps> = () => {
   const authUser = React.useCallback(
     (username: string, password: string): void => {
       setBusy(true);
-      dispatch(userAuth(username, password));
+      dispatch(userAuthenticate(username, password));
     },
     [dispatch]
   );
@@ -44,9 +44,9 @@ const Login: IHook<RouteComponentProps> = () => {
             onChange={(password: string) => setPassword(password)}
             label={I18n.t('pages.login.password')}
           />
-          <Button.Standar type={'submit'} busy={busy} disabled={username === '' || password === ''}>
+          <Button.Rectangle type={'submit'} busy={busy} disabled={username === '' || password === ''}>
             {I18n.t('pages.login.button')}
-          </Button.Standar>
+          </Button.Rectangle>
         </Form>
       </Card>
     </Col>

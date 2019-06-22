@@ -2,9 +2,10 @@ import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { IReduxState } from '../reducers';
 
 // my interface Action
-export interface IAction<S, T> {
+export interface IAction<S, T, SAGA = {}> {
   type: T;
   payload: Partial<S>;
+  saga?: SAGA;
 }
 
 // thunk (async dispatch/action)

@@ -1,6 +1,9 @@
 // Redux module
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk, { ThunkMiddleware } from 'redux-thunk';
+
+import createSagaMiddleware from 'redux-saga';
+
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer, Persistor, PersistConfig } from 'redux-persist';
 import { createLogger } from 'redux-logger';
@@ -20,12 +23,14 @@ import { createBrowserHistory } from 'history';
 // reducers / action
 import reducers, { IReduxState } from '../reducers';
 import { IAction } from '../actions';
+import rootSaga from '../sagas';
 
 // config
 import { config } from '../config';
 
 // logger
 import logger from '../logger';
+import { put } from 'redux-saga/effects';
 
 const source = 'store';
 logger.info(`initialization store`, source);
@@ -41,6 +46,8 @@ const persistConfig: PersistConfig = {
 // create web history
 export const history = createBrowserHistory();
 
+const sagaMiddleware = createSagaMiddleware<IAction<unknown, unknown>>();
+
 // create the store
 export const store = createStore(
   // connect the router and add the persist reducers
@@ -48,15 +55,14 @@ export const store = createStore(
   undefined,
   // thunk for dispatch async and load the history
   compose(
-    applyMiddleware(reduxThunk as ThunkMiddleware<IReduxState, IAction<unknown, unknown>>),
+    applyMiddleware(sagaMiddleware),
     config.production ? applyMiddleware() : applyMiddleware(createLogger({ duration: true })),
     applyMiddleware(routerMiddleware(history))
   )
 );
 
 syncTranslationWithStore(store);
-store.dispatch(loadTranslations(translations as TranslationObjects));
-store.dispatch(setLocale(i18nGetTranslate()));
+sagaMiddleware.run(rootSaga);
 
 // create the persistor
 export const persistor: Persistor = persistStore(store, undefined, () => {

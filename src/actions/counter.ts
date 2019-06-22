@@ -1,7 +1,6 @@
 import logger from '../logger';
 import { ICounterAction } from '../reducers/counter';
 
-
 // Set the source file
 const source = 'Counter action';
 
@@ -11,14 +10,12 @@ const source = 'Counter action';
  * @version 1.0.0
  * @returns {void}
  */
-export const counterSet = (counter: number): ICounterAction => dispatch => {
+export const counterSet = (counter: number): ICounterAction => {
   logger.info('Set counter', source);
-  dispatch({
+  return {
     type: 'ADD_COUNTER',
-    payload: {
-      counter
-    }
-  });
+    payload: { counter }
+  };
 };
 
 /**
@@ -26,30 +23,22 @@ export const counterSet = (counter: number): ICounterAction => dispatch => {
  * @version 1.0.0
  * @returns {void}
  */
-export const counterReset = (): ICounterAction => dispatch => {
+export const counterReset = (): ICounterAction => {
   logger.info('Reset counter', source);
-  dispatch({
+  return {
     type: 'SET_COUNTER',
     payload: {
       counter: 0
     }
-  });
+  };
 };
 
 /**
- * Increment the counter with the variable {counter} in asynchronous
- * @param {number} counter
+ * Increment the counter with the variable {counter} in async
  * @version 1.0.0
  * @returns {void}
  */
-export const counterAsyncSet = (counter: number): ICounterAction => dispatch => {
-  logger.info('Async set counter', source);
-  setTimeout(() => {
-    dispatch({
-      type: 'ADD_COUNTER',
-      payload: {
-        counter
-      }
-    });
-  }, 500);
+export const counterAsyncSet = (counter: number): ICounterAction => {
+  logger.info('Set counter in async', source);
+  return { type: 'ASYNC_COUNTER_INCREMENT', payload: { counter } };
 };

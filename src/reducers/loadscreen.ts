@@ -6,9 +6,8 @@ export type ILoadScreenState = {
   show: boolean;
   text: string;
 };
-
-export type ILoadScreenDispatch<S = ILoadScreenState, T = ILoadScreenType> = ICustomDispatch<S, T>;
-export type ILoadScreenAction<S = ILoadScreenState, T = ILoadScreenType> = ICustomAction<S, T>;
+export type ILoadScreenAction = IAction<ILoadScreenState, ILoadScreenType>;
+export type ILoadScreenDispatch = IAction<ILoadScreenState, ILoadScreenType>;
 
 const initialState: ILoadScreenState = {
   show: false,
@@ -26,7 +25,7 @@ export function loadscreen(state = initialState, action: IAction<ILoadScreenStat
   switch (action.type) {
     case 'SHOW_LOADSCREEN':
       return {
-        text: action.payload.text ? action.payload.text : state.text,
+        text: action.payload.text || state.text,
         show: true
       };
     case 'HIDE_LOADSCREEN':
