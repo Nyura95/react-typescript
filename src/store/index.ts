@@ -1,6 +1,5 @@
 // Redux module
 import { createStore, applyMiddleware, compose } from 'redux';
-import reduxThunk, { ThunkMiddleware } from 'redux-thunk';
 
 import createSagaMiddleware from 'redux-saga';
 
@@ -10,18 +9,14 @@ import { createLogger } from 'redux-logger';
 
 import { routerMiddleware } from 'react-router-redux';
 
-// (Inter)action
-import { i18nGetTranslate } from '../actions/i18n';
-
 // I18n
-import { loadTranslations, setLocale, syncTranslationWithStore, TranslationObjects, I18n } from 'react-redux-i18n';
-import translations from '../translations';
+import { syncTranslationWithStore, I18n } from 'react-redux-i18n';
 
 // Router
 import { createBrowserHistory } from 'history';
 
 // reducers / action
-import reducers, { IReduxState } from '../reducers';
+import reducers from '../reducers';
 import { IAction } from '../actions';
 import rootSaga from '../sagas';
 
@@ -30,7 +25,6 @@ import { config } from '../config';
 
 // logger
 import logger from '../logger';
-import { put } from 'redux-saga/effects';
 
 const source = 'store';
 logger.info(`initialization store`, source);

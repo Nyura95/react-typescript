@@ -1,7 +1,7 @@
 {
   "name": "react-typescript",
-  "version": "1.5.2",
-  "description": "example reactJS with typescript and redux async",
+  "version": "2.0.2",
+  "description": "example reactJS with typescript and redux (saga)",
   "main": "./src/index.js",
   "scripts": {
     "dev": "set NODE_ENV=development &&parcel ./src/index.html --open --no-cache --no-hmr",
@@ -16,11 +16,11 @@
     "url": "git+https://github.com/Nyura95/react-typescript.git"
   },
   "keywords": [
-    "thunk",
+    "saga",
     "redux",
     "react",
     "typescript",
-    "boilertemplate",
+    "boiler",
     "parcel",
     "hook",
     "redux7"
@@ -73,7 +73,6 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
-    "redux-saga": "^1.0.3",
-    "redux-thunk": "^2.3.0"
+    "redux-saga": "^1.0.3"
   }
 }

@@ -1,4 +1,4 @@
-import { IAction, ICustomDispatch, ICustomAction } from '../actions';
+import { IAction } from '../actions';
 
 export type ILoadScreenType = 'SHOW_LOADSCREEN' | 'HIDE_LOADSCREEN';
 
