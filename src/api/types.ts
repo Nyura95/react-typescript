@@ -13,12 +13,11 @@ export interface IHeaders {
 
 // update this interface according to your api
 export interface IPayloadApi<D = unknown, S = boolean> {
-  success: S;
-  reason: number;
-  comment: string;
-  data: D;
-  dataHash: string;
-  serverTime: Date;
+  StatusCode: number;
+  Reason: number;
+  Comment: string;
+  Success: S;
+  Data: D;
 }
 
 // declare here your custom interface API

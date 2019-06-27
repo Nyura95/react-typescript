@@ -8,11 +8,26 @@ import { RouteComponentProps } from 'react-router';
 import * as styles from './styles.scss';
 
 import { Button, Input } from '../../components';
+import { fetch } from '../../api';
 
 const uri = 'ws://127.0.0.1:3001';
 
+interface IMessage {
+  IDMessage: number;
+  IDUser: number;
+  IDConversation: number;
+  Message: string;
+  IDStatus: number;
+  CreatedAt: string;
+  UpdatedAt: string;
+}
+
+interface IConversation {
+  Messages: IMessage[];
+}
+
 const Home: IHook<RouteComponentProps> = () => {
-  const [messages, setMessages] = React.useState<string[]>([]); // http://localhost:3000/api/v1/conversation/18
+  const [messages, setMessages] = React.useState<IMessage[]>([]); // http://localhost:3000/api/v1/conversation/18
   const [message, setMessage] = React.useState<string>('');
 
   const webSocket = React.useMemo(() => {
@@ -35,6 +50,9 @@ const Home: IHook<RouteComponentProps> = () => {
   }, []);
 
   React.useEffect(() => {
+    fetch<IConversation>('/v1/conversation/18').then(result => {
+      setMessages(result.Data.Messages);
+    });
     return () => {
       webSocket.close();
     };
@@ -55,6 +73,11 @@ const Home: IHook<RouteComponentProps> = () => {
 
   return (
     <Row className={styles.container}>
+      {messages.map((message, key) => (
+        <Col key={key} lg="12" className={styles.container_button}>
+          {message.Message}
+        </Col>
+      ))}
       <Col lg="12" className={styles.container_button}>
         <Input type="text" value={message} onChange={message => setMessage(message)} />
         <Button.Rectangle onClick={sendMessage(message)}>Envoyer</Button.Rectangle>

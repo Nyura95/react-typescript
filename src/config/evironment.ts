@@ -5,6 +5,6 @@ export const development = {
     storeName: 'lang'
   },
   api: {
-    basepath: 'http://localhost:8080'
+    basepath: 'http://localhost:3000/api'
   }
 };
