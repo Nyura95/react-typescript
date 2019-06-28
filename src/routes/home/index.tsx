@@ -45,6 +45,9 @@ const Home: IHook<RouteComponentProps> = () => {
         case 'newMessage':
           setMessages([...messages, data.Data as IMessage]);
           break;
+        case 'Error':
+          alert(data.Comment)
+          break;
       }
     };
   }, [messages]);

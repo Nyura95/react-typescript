@@ -22,7 +22,7 @@ export class AwiseSocket {
   public onclose: ((event: CloseEvent) => void) | undefined;
   public onmessage: ((reveiveMessage: IReceiveMessage<object>) => void) | undefined;
 
-  constructor(public uri: string) {}
+  constructor(public uri: string) { }
 
   public init() {
     return new Promise<void>((resolve, reject) => {
@@ -39,6 +39,10 @@ export class AwiseSocket {
         };
         this.webSocket.onmessage = event => {
           const reveiveMessage = this.receiveMessage(event.data);
+          if (reveiveMessage.Success) {
+            this.onmessage ? this.onmessage(reveiveMessage) : null;
+            return;
+          }
           this.onmessage ? this.onmessage(reveiveMessage) : null;
         };
       }
@@ -55,9 +59,16 @@ export class AwiseSocket {
 
   private receiveMessage(receiveMessage: string): IReceiveMessage<object> {
     const obj = JSON.parse(receiveMessage) as IReceiveMessage;
-    return {
-      ...obj,
-      Data: JSON.parse(obj.Data)
-    };
+    try {
+      return {
+        ...obj,
+        Data: JSON.parse(obj.Data)
+      };
+    } catch (err) {
+      return {
+        ...obj,
+        Data: {}
+      };
+    }
   }
 }
