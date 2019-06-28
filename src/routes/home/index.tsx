@@ -9,8 +9,7 @@ import * as styles from './styles.scss';
 
 import { Button, Input } from '../../components';
 import { fetch } from '../../api';
-
-const uri = 'ws://127.0.0.1:3001';
+import { AwiseSocket } from './awiseSocket';
 
 interface IMessage {
   IDMessage: number;
@@ -26,46 +25,41 @@ interface IConversation {
   Messages: IMessage[];
 }
 
+const awiseSocket = new AwiseSocket('ws://127.0.0.1:3001');
+
 const Home: IHook<RouteComponentProps> = () => {
-  const [messages, setMessages] = React.useState<IMessage[]>([]); // http://localhost:3000/api/v1/conversation/18
+  const [messages, setMessages] = React.useState<IMessage[]>([]);
   const [message, setMessage] = React.useState<string>('');
+  const [token, setToken] = React.useState<string>('');
 
-  const webSocket = React.useMemo(() => {
-    const webSocket = new WebSocket(uri);
-    webSocket.onopen = () => {
-      webSocket.send(
-        JSON.stringify({
-          token: 'vTMGcVAE5EBwxqAVv1SPvfs_tao=',
-          id: 2588,
-          action: 'onload'
-        })
-      );
-    };
-
-    webSocket.onmessage = event => {
-      setMessages([...messages, event.data]);
-    };
-
-    return webSocket;
-  }, []);
+  const init = React.useCallback(() => {
+    awiseSocket.init().then(() => {
+      awiseSocket.sendMessage('onload', JSON.stringify({ token }));
+    });
+  }, [token]);
 
   React.useEffect(() => {
-    fetch<IConversation>('/v1/conversation/18').then(result => {
+    fetch<IConversation>('/v1/conversation/1').then(result => {
       setMessages(result.Data.Messages);
     });
     return () => {
-      webSocket.close();
+      awiseSocket.close();
     };
   }, []);
 
+  React.useEffect(() => {
+    awiseSocket.onmessage = data => {
+      switch (data.Action) {
+        case 'newMessage':
+          setMessages([...messages, data.Data as IMessage]);
+          break;
+      }
+    };
+  }, [messages]);
+
   const sendMessage = React.useCallback(
     (message: string) => () => {
-      webSocket.send(
-        JSON.stringify({
-          action: 'send',
-          message: message
-        })
-      );
+      awiseSocket.sendMessage('send', JSON.stringify({ message }));
       setMessage('');
     },
     []
@@ -73,6 +67,10 @@ const Home: IHook<RouteComponentProps> = () => {
 
   return (
     <Row className={styles.container}>
+      <Col lg="12" className={styles.container_button}>
+        <Input type="text" value={token} onChange={token => setToken(token)} />
+        <Button.Rectangle onClick={init}>Envoyer</Button.Rectangle>
+      </Col>
       {messages.map((message, key) => (
         <Col key={key} lg="12" className={styles.container_button}>
           {message.Message}

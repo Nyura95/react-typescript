@@ -30,7 +30,7 @@ export const fetch = <D>(url: string, method: IMethod = 'get', payload: IPayload
     logger.info(`new fetch [${method}] ${url}`, source);
     fetchival(config.api.basepath + url, {
       headers: {
-        Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjU4OCwiZm5hbWUiOiJKb3NlcGhpbmUiLCJsbmFtZSI6IkdPVVJFVFRFIiwiZW1haWwiOiJ4eEB4eC54eCIsImlhdCI6MTU1ODA5OTYwMSwiZXhwIjoxNTU4MTU5NjAxfQ.-5Cei12bC327CV6NKrWZzKA8ZAxktz-aniB60nDThjw`, // example
+        Authorization: `token2`, // example
         ...headers
       }
     })
