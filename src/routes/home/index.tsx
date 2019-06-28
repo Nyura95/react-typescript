@@ -9,28 +9,20 @@ import * as styles from './styles.scss';
 
 import { Button, Input } from '../../components';
 import { fetch } from '../../api';
-import { AwiseSocket } from './awiseSocket';
-
-interface IMessage {
-  IDMessage: number;
-  IDUser: number;
-  IDConversation: number;
-  Message: string;
-  IDStatus: number;
-  CreatedAt: string;
-  UpdatedAt: string;
-}
+import { AwiseSocket, IMessage } from './awiseSocket';
 
 interface IConversation {
   Messages: IMessage[];
 }
 
-const awiseSocket = new AwiseSocket('ws://127.0.0.1:3001');
-
 const Home: IHook<RouteComponentProps> = () => {
   const [messages, setMessages] = React.useState<IMessage[]>([]);
   const [message, setMessage] = React.useState<string>('');
   const [token, setToken] = React.useState<string>('');
+
+  const awiseSocket = React.useMemo(() => {
+    return new AwiseSocket('ws://127.0.0.1:3001');
+  }, []);
 
   const init = React.useCallback(() => {
     awiseSocket.init().then(() => {

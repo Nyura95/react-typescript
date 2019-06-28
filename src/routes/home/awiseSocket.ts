@@ -1,3 +1,13 @@
+export interface IMessage {
+  IDMessage: number;
+  IDUser: number;
+  IDConversation: number;
+  Message: string;
+  IDStatus: number;
+  CreatedAt: string;
+  UpdatedAt: string;
+}
+
 interface IReceiveMessage<D = string> {
   Action: string;
   Success: boolean;
