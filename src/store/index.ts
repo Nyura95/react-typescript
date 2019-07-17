@@ -50,7 +50,7 @@ export const store = createStore(
   // thunk for dispatch async and load the history
   compose(
     applyMiddleware(sagaMiddleware),
-    config.production ? applyMiddleware() : applyMiddleware(createLogger({ duration: true })),
+    config.reduxLog ? applyMiddleware(createLogger({ duration: true })) : applyMiddleware(),
     applyMiddleware(routerMiddleware(history))
   )
 );

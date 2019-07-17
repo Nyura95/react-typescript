@@ -11,7 +11,7 @@ class Log {
    * @returns {void}
    */
   public trace(message: string, source: string): void {
-    if (!config.production) generateMessage('trace', message, source);
+    if (config.log) generateMessage('trace', message, source);
   }
 
   /**
@@ -21,7 +21,7 @@ class Log {
    * @returns {void}
    */
   public info(message: string, source: string): void {
-    if (!config.production) generateMessage('info', message, source);
+    if (config.log) generateMessage('info', message, source);
   }
 
   /**

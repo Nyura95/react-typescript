@@ -1,5 +1,7 @@
 export const production = {
   production: true,
+  log: false,
+  reduxLog: false,
   i18n: {
     defaultLang: 'en',
     storeName: 'lang'
