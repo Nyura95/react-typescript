@@ -8,6 +8,7 @@ class Log {
    * Log with trace
    * @param {string} message
    * @param {string} source
+   * @version 1.0.0
    * @returns {void}
    */
   public trace(message: string, source: string): void {
@@ -18,6 +19,7 @@ class Log {
    * Info log
    * @param {string} message
    * @param {string} source
+   * @version 1.0.0
    * @returns {void}
    */
   public info(message: string, source: string): void {
@@ -28,6 +30,7 @@ class Log {
    * Warning log
    * @param {string} message
    * @param {string} source
+   * @version 1.0.0
    * @returns {void}
    */
   public warn(message: string, source: string): void {
@@ -38,6 +41,7 @@ class Log {
    * Error log
    * @param {string} message
    * @param {string} source
+   * @version 1.0.0
    * @returns {void}
    */
   public error(message: string, source: string): void {
@@ -48,6 +52,7 @@ class Log {
    * Debug log
    * @param {string} message
    * @param {string} source
+   * @version 1.0.0
    * @returns {void}
    */
   public debug(message: string, source: string): void {

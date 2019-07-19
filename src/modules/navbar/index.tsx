@@ -59,11 +59,6 @@ const Navbar: IHook = () => {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick={() => push('/animate')} className={styles.clickable}>
-              {I18n.t('nav.page6')}
-            </NavLink>
-          </NavItem>
-          <NavItem>
             <NavLink onClick={() => push('/component')} className={styles.clickable}>
               {I18n.t('nav.page7')}
             </NavLink>

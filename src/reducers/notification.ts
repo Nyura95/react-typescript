@@ -7,8 +7,8 @@ export type INotificationType = 'SET_NOTIFICATION';
 export type INotificationState =
   | IReactNotificationsComponent
   | {
-    addNotification: null;
-  };
+      addNotification: null;
+    };
 
 // notification reducer
 export type INotificationAction = IAction<INotificationState, INotificationType>;

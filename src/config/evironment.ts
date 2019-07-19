@@ -1,7 +1,7 @@
 export const development = {
   production: false,
   log: true,
-  reduxLog: true,
+  reduxLog: false,
   i18n: {
     defaultLang: 'en',
     storeName: 'lang'

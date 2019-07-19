@@ -5,8 +5,9 @@ import { useSelector } from 'react-redux';
 // style
 import * as styles from './styles.scss';
 
-import { Spinner, Animated } from '../../components';
+import { Spinner } from '../../components';
 import { ILoadScreenState, IReduxState } from '../../reducers';
+import { joinClass } from '../../helpers/general';
 
 interface IProps {
   dot?: boolean;
@@ -35,7 +36,7 @@ const LoadScreen: IHook<IProps> = props => {
 
   if (show === false) return <div id="loadScreen" />;
   return (
-    <Animated timeout={props.timeout} className={styles.container} animateStart>
+    <div className={joinClass(styles.container, 'fadeIn animated')}>
       <Spinner className={styles.spinner} type="grow" style={{ width: '4rem', height: '4rem' }} color={'danger'} />
       {text !== '' ? (
         <span className={styles.container_text}>
@@ -43,7 +44,7 @@ const LoadScreen: IHook<IProps> = props => {
           {props.dot ? <span className={styles.dot}>{dot}</span> : null}
         </span>
       ) : null}
-    </Animated>
+    </div>
   );
 };
 

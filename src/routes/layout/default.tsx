@@ -14,7 +14,6 @@ import Counter from '../counter';
 import Translate from '../translate';
 import Notification from '../notification';
 import Loader from '../loader';
-import Animate from '../animate';
 import Component from '../component';
 
 const Default: IHook = () => {
@@ -24,13 +23,12 @@ const Default: IHook = () => {
       <Container>
         <Router history={history}>
           <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/counter" component={Counter} />
             <Route exact path="/translate" component={Translate} />
             <Route exact path="/notification" component={Notification} />
             <Route exact path="/loader" component={Loader} />
-            <Route exact path="/animate" component={Animate} />
             <Route exact path="/component" component={Component} />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/counter" component={Counter} />
           </Switch>
         </Router>
       </Container>
