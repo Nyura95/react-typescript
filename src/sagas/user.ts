@@ -1,5 +1,5 @@
 import { put, takeEvery, delay, call } from 'redux-saga/effects';
-import { counterReset, userDisconnect, userSet, notificationShow, loaderShow, loaderHide, IAction } from '../actions';
+import { counterReset, userDisconnect, userSet, notificationShow, loaderShow, loaderHide } from '../actions';
 import { IUserAction, ICounterAction } from '../reducers';
 import { I18n } from 'react-redux-i18n';
 import { SagaIterator } from 'redux-saga';
@@ -19,6 +19,7 @@ const disconnectAndResetCounter = function*(): SagaIterator {
 
 const authenticationUser = function*(action: IUserAction): SagaIterator {
   yield put<ILoaderAction>(loaderShow());
+
   yield delay(1000);
   yield put<IUserAction>(
     userSet({
