@@ -7,6 +7,7 @@
     "dev": "set NODE_ENV=development &&parcel ./src/index.html --open --no-cache --no-hmr",
     "start": "set NODE_ENV=development &&parcel ./src/index.html --open",
     "build": "set NODE_ENV=production &&parcel build ./src/index.html --out-dir build --detailed-report",
+    "test": "jest",
     "serve": "node server.js 3000",
     "watch": "parcel watch ./src/index.html",
     "tslint": "tslint --project tsconfig.json ./src/**/*.tsx&&tslint --project tsconfig.json ./src/**/*.ts"
@@ -32,8 +33,8 @@
   },
   "homepage": "https://github.com/Nyura95/react-typescript#readme",
   "devDependencies": {
-    "@babel/core": "^7.5.4",
     "@types/history": "^4.7.2",
+    "@types/jest": "^24.0.15",
     "@types/node": "^10.12.27",
     "@types/react": "^16.8.4",
     "@types/react-dom": "^16.8.2",
@@ -46,10 +47,12 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "cssnano": "^4.1.10",
+    "jest": "^24.8.0",
     "parcel-bundler": "^1.12.3",
     "postcss-modules": "^1.4.1",
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
+    "ts-jest": "^24.0.2",
     "tslint": "^5.11.0",
     "typescript": "^3.5.1"
   },
