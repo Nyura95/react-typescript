@@ -21,7 +21,7 @@ const Home: IHook<RouteComponentProps> = () => {
   const [token, setToken] = React.useState<string>('');
 
   const awiseSocket = React.useMemo(() => {
-    return new AwiseSocket('ws://127.0.0.1:3001');
+    return new AwiseSocket('wss://messenger.awise.co');
   }, []);
 
   const init = React.useCallback(() => {
@@ -44,6 +44,7 @@ const Home: IHook<RouteComponentProps> = () => {
       switch (data.Action) {
         case 'newMessage':
           setMessages([...messages, data.Data as IMessage]);
+          awiseSocket.sendMessage('onread', '');
           break;
         case 'Error':
           alert(data.Comment)
