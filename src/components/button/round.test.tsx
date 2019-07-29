@@ -19,14 +19,14 @@ describe('Test Button component', () => {
     let test = 0;
     const click = () => test++;
     const { container, unmount } = render(<Button.Round icon={icon} onClick={click} id={id} />);
-    const input = container.querySelector('#id');
+    const input = container.querySelector(`#${id}`);
     input ? fireEvent.click(input) : null;
     expect(test).toBe(1);
     unmount();
   });
   it('Check color attribute', () => {
     const { container, unmount } = render(<Button.Round icon={icon} color="danger" id={id} />);
-    const input = container.querySelector('#id');
+    const input = container.querySelector(`#${id}`);
     expect(input ? input.className.trim() : null).toBe('btn btn-danger');
     unmount();
   });
