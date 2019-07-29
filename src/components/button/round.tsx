@@ -16,6 +16,7 @@ export interface IProps extends ButtonProps {
   className?: string;
   style?: object;
   icon: string;
+  id?: string;
 }
 
 const Round: IHook<IProps> = props => {
@@ -38,6 +39,7 @@ const Round: IHook<IProps> = props => {
       style={{ ...props.style }}
       className={joinClass(styles.container_arround, styles.btn_primary, styles.lg)}
       type={props.type}
+      id={props.id ? props.id : undefined}
     >
       {props.busy ? showSpinner : <Icon icon={props.icon} className={styles.icon} size="sm" />}
     </RButton>
