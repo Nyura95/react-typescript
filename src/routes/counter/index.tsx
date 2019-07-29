@@ -26,20 +26,24 @@ const Counter: IHook<RouteComponentProps> = () => {
 
   return (
     <Row className={styles.container}>
-      <Col lg="12" className={styles.container_button}>
+      <Col data-testid="counter" lg="12" className={styles.container_button}>
         {counter}
       </Col>
       <Col lg="12" className={styles.container_button}>
-        <Button.Rectangle onClick={incrementCounter} color="primary">
+        <Button.Rectangle data-testid="increment" onClick={incrementCounter} color="primary">
           {I18n.t('pages.counter.increment')}
         </Button.Rectangle>
-        <Button.Rectangle onClick={decreaseCounter}>{I18n.t('pages.counter.decrement')}</Button.Rectangle>
+        <Button.Rectangle data-testid="decrease" onClick={decreaseCounter}>
+          {I18n.t('pages.counter.decrement')}
+        </Button.Rectangle>
         <Button.Rectangle onClick={incrementAsyncCounter} color="warning">
           {I18n.t('pages.counter.async')}
         </Button.Rectangle>
       </Col>
       <Col lg="12" className={styles.container_button}>
-        <Button.Rectangle onClick={resetCounter}>{I18n.t('pages.counter.reset')}</Button.Rectangle>
+        <Button.Rectangle data-testid="reset" onClick={resetCounter}>
+          {I18n.t('pages.counter.reset')}
+        </Button.Rectangle>
       </Col>
     </Row>
   );

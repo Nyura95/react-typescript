@@ -14,7 +14,7 @@ export interface IProps extends ButtonProps {
   busy?: boolean;
   className?: string;
   style?: object;
-  id?: string;
+  'data-testid'?: string;
 }
 
 const Rectangle: IHook<IProps> = props => {
@@ -38,7 +38,7 @@ const Rectangle: IHook<IProps> = props => {
       style={{ ...props.style }}
       className={styles.container_button}
       type={props.type}
-      id={props.id ? props.id : undefined}
+      data-testid={props['data-testid'] ? props['data-testid'] : undefined}
     >
       {props.busy ? showIcon() : props.children}
     </RButton>

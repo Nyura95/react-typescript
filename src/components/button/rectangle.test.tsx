@@ -3,7 +3,7 @@ import Button from '.';
 
 import { render, fireEvent } from '@testing-library/react';
 
-describe('Test Button component', () => {
+describe('Test Button rectangle component', () => {
   const id = 'id';
   it('renders without crashing', () => {
     const { unmount } = render(<Button.Rectangle />);
@@ -11,23 +11,23 @@ describe('Test Button component', () => {
   });
   it('check the children', () => {
     const children = 'Children';
-    const { container, unmount } = render(<Button.Rectangle id={id}>{children}</Button.Rectangle>);
-    const input = container.querySelector(`#${id}`);
+    const { unmount, getByTestId } = render(<Button.Rectangle data-testid={id}>{children}</Button.Rectangle>);
+    const input = getByTestId(id);
     expect(input ? input.innerHTML : null).toBe(children);
     unmount();
   });
   it('Check onclick', () => {
     let test = 0;
     const click = () => test++;
-    const { container, unmount } = render(<Button.Rectangle onClick={click} id={id} />);
-    const input = container.querySelector(`#${id}`);
+    const { unmount, getByTestId } = render(<Button.Rectangle onClick={click} data-testid={id} />);
+    const input = getByTestId(id);
     input ? fireEvent.click(input) : null;
     expect(test).toBe(1);
     unmount();
   });
   it('Check color attribute', () => {
-    const { container, unmount } = render(<Button.Rectangle color="danger" id={id} />);
-    const input = container.querySelector(`#${id}`);
+    const { unmount, getByTestId } = render(<Button.Rectangle color="danger" data-testid={id} />);
+    const input = getByTestId(id);
     expect(input ? input.className.trim() : null).toBe('btn btn-danger');
     unmount();
   });
