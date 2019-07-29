@@ -12,5 +12,6 @@ declare module 'fetchival';
 
 // fetchtival does not have a module typescript
 declare module 'react-notifications-component';
+declare module 'react-testing-library';
 
 declare type IHook<P = {}> = React.FunctionComponent<P>;
