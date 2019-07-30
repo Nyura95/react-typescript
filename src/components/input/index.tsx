@@ -21,6 +21,7 @@ export interface IProps {
   formFeedback?: string;
   plaintext?: boolean;
   busy?: boolean;
+  ['data-testid']?: string;
 }
 
 const Input: IHook<IProps> = props => {
@@ -46,6 +47,7 @@ const Input: IHook<IProps> = props => {
         invalid={props.invalid}
         plaintext={props.plaintext}
         disabled={props.busy}
+        data-testid={props['data-testid'] ? props['data-testid'] : null}
       />
       {props.formFeedback !== '' ? <FormFeedback valid={props.valid}>{props.formFeedback}</FormFeedback> : null}
       {props.formText !== '' ? <FormText>{props.formText}</FormText> : null}
