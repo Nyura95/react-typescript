@@ -12,7 +12,6 @@ export interface IProps {
   label?: string;
   value: string;
   placeholder?: string;
-  disabled?: boolean;
   type: InputType;
   onChange: (value: string) => void;
   valid?: boolean;
@@ -28,9 +27,11 @@ const Input: IHook<IProps> = props => {
   const [value, setValue] = React.useState<string>(props.value);
 
   const onClickHandler = React.useCallback((event: React.FormEvent<HTMLInputElement>): void => {
-    setValue(event.currentTarget.value);
-    props.onChange(event.currentTarget.value);
-  }, []);
+    if (!props.busy) {
+      setValue(event.currentTarget.value);
+      props.onChange(event.currentTarget.value);
+    }
+  }, [props.busy]);
 
   React.useEffect(() => setValue(props.value), [props.value]);
 
@@ -58,7 +59,6 @@ const Input: IHook<IProps> = props => {
 Input.defaultProps = {
   label: '',
   placeholder: '',
-  disabled: false,
   valid: false,
   invalid: false,
   formText: '',
