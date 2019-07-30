@@ -36,7 +36,7 @@ const Counter: IHook<RouteComponentProps> = () => {
         <Button.Rectangle data-testid="decrease" onClick={decreaseCounter}>
           {I18n.t('pages.counter.decrement')}
         </Button.Rectangle>
-        <Button.Rectangle onClick={incrementAsyncCounter} color="warning">
+        <Button.Rectangle data-testid="asyncIncrement" onClick={incrementAsyncCounter} color="warning">
           {I18n.t('pages.counter.async')}
         </Button.Rectangle>
       </Col>
