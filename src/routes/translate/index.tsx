@@ -23,7 +23,11 @@ const Translate: IHook<RouteComponentProps> = () => {
         {I18n.t('translate', { lang: locale })}
       </Col>
       <Col lg="12" className={styles.container_button}>
-        <Button.Rectangle onClick={() => i18nSetLang(i18nGetTranslate() === 'fr' ? 'en' : 'fr')} color="info">
+        <Button.Rectangle
+          data-testid="setLang"
+          onClick={() => i18nSetLang(i18nGetTranslate() === 'fr' ? 'en' : 'fr')}
+          color="info"
+        >
           {I18n.t('pages.translate.button')}
         </Button.Rectangle>
       </Col>
