@@ -19,15 +19,21 @@ describe('Test Button round component', () => {
     let test = 0;
     const click = () => test++;
     const { unmount, getByTestId } = render(<Button.Round icon={icon} onClick={click} data-testid={id} />);
+
     const input = getByTestId(id);
-    input ? fireEvent.click(input) : null;
+    expect(input).toBeDefined();
+    fireEvent.click(input);
     expect(test).toBe(1);
+
     unmount();
   });
   it('Check color attribute', () => {
     const { unmount, getByTestId } = render(<Button.Round icon={icon} color="danger" data-testid={id} />);
+
     const input = getByTestId(id);
-    expect(input ? input.className.trim() : null).toBe('btn btn-danger');
+    expect(input).toBeDefined();
+    expect(input.className.trim()).toBe('btn btn-danger');
+
     unmount();
   });
   it('Check busy state', () => {

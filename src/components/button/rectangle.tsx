@@ -22,7 +22,7 @@ const Rectangle: IHook<IProps> = props => {
     return (
       <div className={styles.container_busy}>
         <span className={styles.text}>{props.children}</span>
-        <Spinner size="sm" className={styles.icon} color={'light'} />
+        <Spinner type="border" size="sm" className={styles.icon} color={'light'} />
       </div>
     );
   }, [props.children]);
