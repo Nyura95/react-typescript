@@ -12,6 +12,10 @@ Redux v7.1.0
 
 > `npm install`
 
+## Testing
+
+> `npm run test` soon (branch jest)
+
 ## Development mode
 
 > `npm run dev`
@@ -31,9 +35,5 @@ Redux v7.1.0
 ## lint your code
 
 > `npm run tslint`
-
-## size build
-
-810.68 KB
 
 Enjoy !
