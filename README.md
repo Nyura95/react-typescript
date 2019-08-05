@@ -23,10 +23,11 @@ Redux v**7.1.0**
 
 - `npm run dev`
 
-  > run without cache and hmr
+> run without cache and hmr
 
 - `npm run start`
-  > run with cache and hmr
+
+> run with cache and hmr
 
 ## build
 
@@ -37,7 +38,8 @@ Redux v**7.1.0**
 ## run a server in production
 
 - `npm run serve`
-  > When you have build your app, he will started a simple server express from the build folder
+
+> When you have build your app, he will started a simple server express from the build folder
 
 ## lint your code
 
