@@ -24,7 +24,9 @@
     "boiler",
     "parcel",
     "hook",
-    "redux7"
+    "redux7",
+    "jest",
+    "react-testing-library"
   ],
   "author": "Nyura95",
   "license": "ISC",
