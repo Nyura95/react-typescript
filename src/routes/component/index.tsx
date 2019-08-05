@@ -30,10 +30,10 @@ const Component: IHook<RouteComponentProps> = ({ history }) => {
     <Row className={styles.container}>
       <Col lg={12}>
         <Card header={I18n.t('pages.component.button')} className={styles.card}>
-          <Button.Rectangle onClick={startButtonBusy} busy={buttonBusy}>
+          <Button.Rectangle data-testid="button1" onClick={startButtonBusy} busy={buttonBusy}>
             {I18n.t('pages.component.button')}
           </Button.Rectangle>
-          <Button.Round icon="fa-home" onClick={startButtonBusy} busy={buttonBusy} />
+          <Button.Round data-testid="button2" icon="fa-home" onClick={startButtonBusy} busy={buttonBusy} />
         </Card>
       </Col>
     </Row>
