@@ -4,32 +4,33 @@ import * as React from 'react';
 import { Form as RForm, FormProps } from 'reactstrap';
 
 export interface IProps extends FormProps {
-  preventDefault?: boolean;
+  ['data-testid']?: string;
 }
 
-const Form: IHook<IProps> = ({ className, children, onSubmit, preventDefault }) => {
+const Form: IHook<IProps> = props => {
   const submit = React.useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
-      if (!preventDefault) {
-        event.preventDefault();
-      }
-      if (onSubmit) {
-        onSubmit(event);
+      event.preventDefault();
+      if (props.onSubmit) {
+        props.onSubmit(event);
       }
     },
-    [onSubmit]
+    [props.onSubmit]
   );
 
   return (
-    <RForm classame={className} onSubmit={submit}>
-      {children}
+    <RForm
+      className={props.className}
+      onSubmit={submit}
+      data-testid={props['data-testid'] ? props['data-testid'] : null}
+    >
+      {props.children}
     </RForm>
   );
 };
 
 Form.defaultProps = {
-  onSubmit: () => {},
-  preventDefault: false
+  onSubmit: () => {}
 };
 
 export default Form;

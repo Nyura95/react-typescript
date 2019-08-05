@@ -6,8 +6,9 @@ import { Spinner as RSpinner, SpinnerProps } from 'reactstrap';
 export interface IProps extends SpinnerProps {
   size?: 'sm' | 'lg';
   color?: 'primary' | 'primary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
-  type?: 'border' | 'grow';
+  type: 'border' | 'grow';
   style?: object;
+  ['data-testid']?: string;
 }
 
 const Spinner: IHook<IProps> = props => (
@@ -17,11 +18,11 @@ const Spinner: IHook<IProps> = props => (
     color={props.color ? props.color : 'primary'}
     size={props.size ? props.size : 'sm'}
     className={props.className}
+    data-testid={props['data-testid'] ? props['data-testid'] : null}
   />
 );
 
 Spinner.defaultProps = {
-  type: 'border',
   color: 'primary',
   size: 'sm'
 };

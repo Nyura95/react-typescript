@@ -37,12 +37,14 @@ const Login: IHook<RouteComponentProps> = () => {
             value={username}
             onChange={(username: string) => setUsername(username)}
             label={I18n.t('pages.login.username')}
+            data-testid="username"
           />
           <Input
             type="password"
             value={password}
             onChange={(password: string) => setPassword(password)}
             label={I18n.t('pages.login.password')}
+            data-testid="password"
           />
           <Button.Rectangle type={'submit'} busy={busy} disabled={username === '' || password === ''}>
             {I18n.t('pages.login.button')}

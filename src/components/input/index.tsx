@@ -12,7 +12,6 @@ export interface IProps {
   label?: string;
   value: string;
   placeholder?: string;
-  disabled?: boolean;
   type: InputType;
   onChange: (value: string) => void;
   valid?: boolean;
@@ -21,15 +20,18 @@ export interface IProps {
   formFeedback?: string;
   plaintext?: boolean;
   busy?: boolean;
+  ['data-testid']?: string;
 }
 
 const Input: IHook<IProps> = props => {
   const [value, setValue] = React.useState<string>(props.value);
 
   const onClickHandler = React.useCallback((event: React.FormEvent<HTMLInputElement>): void => {
-    setValue(event.currentTarget.value);
-    props.onChange(event.currentTarget.value);
-  }, []);
+    if (!props.busy) {
+      setValue(event.currentTarget.value);
+      props.onChange(event.currentTarget.value);
+    }
+  }, [props.busy]);
 
   React.useEffect(() => setValue(props.value), [props.value]);
 
@@ -46,6 +48,7 @@ const Input: IHook<IProps> = props => {
         invalid={props.invalid}
         plaintext={props.plaintext}
         disabled={props.busy}
+        data-testid={props['data-testid'] ? props['data-testid'] : null}
       />
       {props.formFeedback !== '' ? <FormFeedback valid={props.valid}>{props.formFeedback}</FormFeedback> : null}
       {props.formText !== '' ? <FormText>{props.formText}</FormText> : null}
@@ -56,7 +59,6 @@ const Input: IHook<IProps> = props => {
 Input.defaultProps = {
   label: '',
   placeholder: '',
-  disabled: false,
   valid: false,
   invalid: false,
   formText: '',

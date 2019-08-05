@@ -30,13 +30,19 @@ const Loader: IHook<RouteComponentProps> = () => {
     <Row className={styles.container}>
       <Col lg={12}>
         <Card header={I18n.t('pages.loader.loadbar')} className={styles.card}>
-          <Button.Rectangle onClick={show}>{I18n.t('pages.loader.show')}</Button.Rectangle>
-          <Button.Rectangle onClick={hide}>{I18n.t('pages.loader.hide')}</Button.Rectangle>
+          <Button.Rectangle data-testid="showLoader" onClick={show}>
+            {I18n.t('pages.loader.show')}
+          </Button.Rectangle>
+          <Button.Rectangle data-testid="hideLoader" onClick={hide}>
+            {I18n.t('pages.loader.hide')}
+          </Button.Rectangle>
         </Card>
       </Col>
       <Col lg={12}>
         <Card header={I18n.t('pages.loader.loadscreen')} className={styles.card}>
-          <Button.Rectangle onClick={startLoadScreen}>{I18n.t('pages.loader.show')}</Button.Rectangle>
+          <Button.Rectangle data-testid="startLoadingScreen" onClick={startLoadScreen}>
+            {I18n.t('pages.loader.show')}
+          </Button.Rectangle>
         </Card>
       </Col>
     </Row>

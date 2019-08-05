@@ -11,16 +11,16 @@ import * as styles from './styles.scss';
 export interface IProps extends ContainerProps {
   removePadding?: boolean;
   className?: string;
+  ['data-testid']?: string;
 }
 
-const Container: IHook<IProps> = (props) => {
+const Container: IHook<IProps> = props => {
   return (
     <RContainer
       className={
-        props.removePadding
-          ? joinClass(styles.remove_padding, props.className ? props.className : '')
-          : props.className
+        props.removePadding ? joinClass(styles.remove_padding, props.className ? props.className : '') : props.className
       }
+      data-testid={props['data-testid'] ? props['data-testid'] : null}
       tag={props.tag}
       fluid={props.fluid}
       cssModule={props.cssModule}

@@ -36,7 +36,7 @@ const LoadScreen: IHook<IProps> = props => {
 
   if (show === false) return <div id="loadScreen" />;
   return (
-    <div className={joinClass(styles.container, 'fadeIn animated')}>
+    <div className={joinClass(styles.container, 'fadeIn animated')} data-testid="loadingScreen">
       <Spinner className={styles.spinner} type="grow" style={{ width: '4rem', height: '4rem' }} color={'danger'} />
       {text !== '' ? (
         <span className={styles.container_text}>

@@ -14,6 +14,7 @@ export interface IProps extends ButtonProps {
   busy?: boolean;
   className?: string;
   style?: object;
+  'data-testid'?: string;
 }
 
 const Rectangle: IHook<IProps> = props => {
@@ -21,7 +22,7 @@ const Rectangle: IHook<IProps> = props => {
     return (
       <div className={styles.container_busy}>
         <span className={styles.text}>{props.children}</span>
-        <Spinner size="sm" className={styles.icon} color={'light'} />
+        <Spinner type="border" size="sm" className={styles.icon} color={'light'} />
       </div>
     );
   }, [props.children]);
@@ -37,6 +38,7 @@ const Rectangle: IHook<IProps> = props => {
       style={{ ...props.style }}
       className={styles.container_button}
       type={props.type}
+      data-testid={props['data-testid'] ? props['data-testid'] : undefined}
     >
       {props.busy ? showIcon() : props.children}
     </RButton>

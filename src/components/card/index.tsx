@@ -12,6 +12,7 @@ export interface IProps extends CardProps {
   footer?: string;
   busy?: boolean;
   className?: string;
+  ['data-testid']?: string;
 }
 
 const Card: IHook<IProps> = props => {
@@ -36,7 +37,11 @@ const Card: IHook<IProps> = props => {
   );
 
   return (
-    <RCard body={props.body} className={props.className}>
+    <RCard
+      body={props.body}
+      className={props.className}
+      data-testid={props['data-testid'] ? props['data-testid'] : null}
+    >
       {props.header !== '' ? <CardHeader>{props.header}</CardHeader> : null}
       {props.busy ? showIcon : showBodyCard}
     </RCard>

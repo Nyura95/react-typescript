@@ -16,7 +16,7 @@ const Home: IHook<RouteComponentProps> = () => {
 
   return (
     <Row className={styles.container}>
-      <Col lg="12" className={styles.container_button}>
+      <Col lg="12" className={styles.container_button} data-testid="username">
         {I18n.t('pages.home.hello', { username })}
       </Col>
     </Row>
