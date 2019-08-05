@@ -1,39 +1,46 @@
 # react-redux-typescript
 
-React v16.8.6
-Typescript v3.5.1
-Redux v7.1.0
+React v**16.8.6**
+
+Typescript v**3.5.1**
+
+Redux v**7.1.0**
 
 ## Installation
 
-> `git clone https://github.com/Nyura95/react-typescript.git`
-
-> `cd ./react-typescript`
-
-> `npm install`
+- `git clone https://github.com/Nyura95/react-typescript.git`
+- `cd ./react-typescript`
+- `npm install`
+- `npm start`
 
 ## Testing
 
-> `npm run test` soon (branch jest)
+- `npm run test`
+
+> [https://github.com/testing-library/react-testing-library](https://github.com/testing-library/react-testing-library)
 
 ## Development mode
 
-> `npm run dev`
+- `npm run dev`
 
-## Development mode with hmr and cache
+  > run without cache and hmr
 
-> `npm run start`
+- `npm run start`
+  > run with cache and hmr
 
 ## build
 
-> `npm run build`
+- `npm run build`
 
-## run a server in production
+> All files is make into the folder `build` and you have a report detailed into your terminal
 
-> `npm run serve`
+## run a server in production\$
+
+- `npm run serve`
+  > When you have build your app, he will started a simple server express from the build folder
 
 ## lint your code
 
-> `npm run tslint`
+- `npm run tslint`
 
 Enjoy !
