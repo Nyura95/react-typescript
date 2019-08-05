@@ -34,7 +34,7 @@ Redux v**7.1.0**
 
 > All files is make into the folder `build` and you have a report detailed into your terminal
 
-## run a server in production\$
+## run a server in production
 
 - `npm run serve`
   > When you have build your app, he will started a simple server express from the build folder
