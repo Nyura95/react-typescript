@@ -6,6 +6,9 @@ Typescript v**3.5.1**
 
 Redux v**7.1.0**
 
+## Démo
+> [react-typescript](http://151.80.40.147:8989)
+
 ## Installation
 
 - `git clone https://github.com/Nyura95/react-typescript.git`
