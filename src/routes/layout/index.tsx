@@ -15,6 +15,8 @@ import { notificationSet } from '../../actions';
 import Minimal from './minimal';
 import Default from './default';
 
+import * as styles from './styles.scss';
+
 const Layout: IHook = () => {
   const { token } = useSelector((reducers: IReduxState) => reducers.user);
   const dispatch = useDispatch<INotificationDispatch>();
@@ -29,7 +31,7 @@ const Layout: IHook = () => {
   return (
     <div>
       <ReactNotification ref={notificationDOMRef} />
-      <LoadingBar style={{ zIndex: 1 }} />
+      <LoadingBar className={styles.loadingBar} />
       <LoadScreen />
       {token !== '' ? <Default /> : <Minimal />}
     </div>
