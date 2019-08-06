@@ -17,8 +17,8 @@ const Login: IHook<RouteComponentProps> = () => {
   const dispatch = useDispatch<IUserDispatch>();
 
   const [busy, setBusy] = React.useState<boolean>(false);
-  const [username, setUsername] = React.useState<string>('');
-  const [password, setPassword] = React.useState<string>('');
+  const [username, setUsername] = React.useState<string>('example@example.com');
+  const [password, setPassword] = React.useState<string>('azerty');
 
   const authUser = React.useCallback(
     (username: string, password: string): void => {
