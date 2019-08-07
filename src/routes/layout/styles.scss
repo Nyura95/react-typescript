@@ -1,21 +1,23 @@
 @import '../../styles/variables/color';
 @import '../../styles/variables/ux';
 
-.container_minimal {
+.first_container {
   height: 100%;
-}
+  .container_minimal {
+    height: 100%;
+  }
+  .animated-page-wrapper {
+    position: absolute;
+    top: 62px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-.animated-page-wrapper {
-  position: absolute;
-  top: 62px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.loadingBar {
-  background-color: $loading-bar-color;
-  height: $loading-bar-height; 
-  position: absolute;
-  z-index: 1;
+  .loadingBar {
+    background-color: $loading-bar-color;
+    height: $loading-bar-height;
+    position: absolute;
+    z-index: 1;
+  }
 }

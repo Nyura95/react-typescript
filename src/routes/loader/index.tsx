@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 // component
-import { Button, Card } from '../../components';
+import { Button, Card, Container } from '../../components';
 
 // style
 import * as styles from './styles.scss';
@@ -27,25 +27,39 @@ const Loader: IHook<RouteComponentProps> = () => {
   }, [dispatch]);
 
   return (
-    <Row className={styles.container}>
-      <Col lg={12}>
-        <Card header={I18n.t('pages.loader.loadbar')} className={styles.card}>
-          <Button.Rectangle data-testid="showLoader" onClick={show}>
-            {I18n.t('pages.loader.show')}
-          </Button.Rectangle>
-          <Button.Rectangle data-testid="hideLoader" onClick={hide}>
-            {I18n.t('pages.loader.hide')}
-          </Button.Rectangle>
-        </Card>
-      </Col>
-      <Col lg={12}>
-        <Card header={I18n.t('pages.loader.loadscreen')} className={styles.card}>
-          <Button.Rectangle data-testid="startLoadingScreen" onClick={startLoadScreen}>
-            {I18n.t('pages.loader.show')}
-          </Button.Rectangle>
-        </Card>
-      </Col>
-    </Row>
+    <Container>
+      <Row className="mt-4">
+        <Col lg={12}>
+          <Card header={I18n.t('pages.loader.loadbar')}>
+            <Row>
+              <Col lg="auto" md={12} className="text-center text-lg-right">
+                <Button.Rectangle data-testid="showLoader" onClick={show}>
+                  {I18n.t('pages.loader.show')}
+                </Button.Rectangle>
+              </Col>
+              <Col lg="auto" md={12} className="text-center text-lg-right mt-4 mt-lg-0">
+                <Button.Rectangle data-testid="hideLoader" onClick={hide}>
+                  {I18n.t('pages.loader.hide')}
+                </Button.Rectangle>
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+      </Row>
+      <Row className="mt-4">
+        <Col lg={12}>
+          <Card header={I18n.t('pages.loader.loadbar')}>
+            <Row>
+              <Col lg="auto" md={12} className="text-center text-lg-right">
+                <Button.Rectangle data-testid="startLoadingScreen" onClick={startLoadScreen}>
+                  {I18n.t('pages.loader.show')}
+                </Button.Rectangle>
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

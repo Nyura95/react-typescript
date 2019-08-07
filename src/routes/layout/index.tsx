@@ -29,7 +29,7 @@ const Layout: IHook = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.first_container}>
       <ReactNotification ref={notificationDOMRef} />
       <LoadingBar className={styles.loadingBar} />
       <LoadScreen />

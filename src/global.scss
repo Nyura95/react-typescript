@@ -1,4 +1,8 @@
 @import './styles/variables/color';
+@import './styles/variables/typography';
+
 body {
   background-color: $background-color;
+  color: $text-white;
+  font-family: $font-family;
 }

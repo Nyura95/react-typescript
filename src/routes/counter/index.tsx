@@ -7,7 +7,7 @@ import { Row, Col } from 'reactstrap';
 import { RouteComponentProps } from 'react-router';
 
 // component
-import { Button } from '../../components';
+import { Button, Container } from '../../components';
 
 // style
 import * as styles from './styles.scss';
@@ -25,27 +25,37 @@ const Counter: IHook<RouteComponentProps> = () => {
   const resetCounter = React.useCallback(() => dispatch(counterReset()), [dispatch]);
 
   return (
-    <Row className={styles.container}>
-      <Col data-testid="counter" lg="12" className={styles.container_button}>
-        {counter}
-      </Col>
-      <Col lg="12" className={styles.container_button}>
-        <Button.Rectangle data-testid="increment" onClick={incrementCounter} color="primary">
-          {I18n.t('pages.counter.increment')}
-        </Button.Rectangle>
-        <Button.Rectangle data-testid="decrease" onClick={decreaseCounter}>
-          {I18n.t('pages.counter.decrement')}
-        </Button.Rectangle>
-        <Button.Rectangle data-testid="asyncIncrement" onClick={incrementAsyncCounter} color="warning">
-          {I18n.t('pages.counter.async')}
-        </Button.Rectangle>
-      </Col>
-      <Col lg="12" className={styles.container_button}>
-        <Button.Rectangle data-testid="reset" onClick={resetCounter}>
-          {I18n.t('pages.counter.reset')}
-        </Button.Rectangle>
-      </Col>
-    </Row>
+    <Container>
+      <Row>
+        <Col data-testid="counter" lg="auto" md="12" className="text-center text-lg-right mt-4">
+          {counter}
+        </Col>
+      </Row>
+      <Row>
+        <Col lg="auto" md="12" className="text-center text-lg-right mt-4">
+          <Button.Rectangle data-testid="increment" onClick={incrementCounter} color="primary">
+            {I18n.t('pages.counter.increment')}
+          </Button.Rectangle>
+        </Col>
+        <Col lg="auto" md="12" className="text-center text-lg-right mt-4">
+          <Button.Rectangle data-testid="decrease" onClick={decreaseCounter}>
+            {I18n.t('pages.counter.decrement')}
+          </Button.Rectangle>
+        </Col>
+        <Col lg="auto" md="12" className="text-center text-lg-right mt-4">
+          <Button.Rectangle data-testid="asyncIncrement" onClick={incrementAsyncCounter} color="warning">
+            {I18n.t('pages.counter.async')}
+          </Button.Rectangle>
+        </Col>
+      </Row>
+      <Row>
+        <Col lg="auto" md="12" className="text-center text-lg-right mt-4">
+          <Button.Rectangle data-testid="reset" onClick={resetCounter}>
+            {I18n.t('pages.counter.reset')}
+          </Button.Rectangle>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

@@ -17,9 +17,11 @@ export interface IProps extends ContainerProps {
 const Container: IHook<IProps> = props => {
   return (
     <RContainer
-      className={
-        props.removePadding ? joinClass(styles.remove_padding, props.className ? props.className : '') : props.className
-      }
+      className={joinClass(
+        props.className ? props.className : '',
+        props.removePadding ? styles.remove_padding : '',
+        styles.full
+      )}
       data-testid={props['data-testid'] ? props['data-testid'] : null}
       tag={props.tag}
       fluid={props.fluid}

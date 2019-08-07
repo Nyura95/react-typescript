@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 // component
-import { Button } from '../../components';
+import { Button, Container } from '../../components';
 
 // style
 import * as styles from './styles.scss';
@@ -18,20 +18,24 @@ import { i18nSetLang, i18nGetTranslate } from '../../actions';
 const Translate: IHook<RouteComponentProps> = () => {
   const { locale } = useSelector<IReduxState, I18nState>(reducers => reducers.i18n);
   return (
-    <Row className={styles.container}>
-      <Col lg="12" className={styles.container_button}>
-        {I18n.t('translate', { lang: locale })}
-      </Col>
-      <Col lg="12" className={styles.container_button}>
-        <Button.Rectangle
-          data-testid="setLang"
-          onClick={() => i18nSetLang(i18nGetTranslate() === 'fr' ? 'en' : 'fr')}
-          color="info"
-        >
-          {I18n.t('pages.translate.button')}
-        </Button.Rectangle>
-      </Col>
-    </Row>
+    <Container>
+      <Row>
+        <Col lg="auto" md={12} className="text-center text-lg-right mt-4">
+          {I18n.t('translate', { lang: locale })}
+        </Col>
+      </Row>
+      <Row>
+        <Col lg="auto" md={12} className="text-center text-lg-right mt-4">
+          <Button.Rectangle
+            data-testid="setLang"
+            onClick={() => i18nSetLang(i18nGetTranslate() === 'fr' ? 'en' : 'fr')}
+            color="info"
+          >
+            {I18n.t('pages.translate.button')}
+          </Button.Rectangle>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

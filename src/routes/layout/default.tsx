@@ -20,18 +20,16 @@ const Default: IHook = () => {
   return (
     <Container fluid removePadding>
       <Navbar />
-      <Container>
-        <Router history={history}>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/counter" component={Counter} />
-            <Route exact path="/translate" component={Translate} />
-            <Route exact path="/notification" component={Notification} />
-            <Route exact path="/loader" component={Loader} />
-            <Route exact path="/component" component={Component} />
-          </Switch>
-        </Router>
-      </Container>
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/counter" component={Counter} />
+          <Route exact path="/translate" component={Translate} />
+          <Route exact path="/notification" component={Notification} />
+          <Route exact path="/loader" component={Loader} />
+          <Route exact path="/component" component={Component} />
+        </Switch>
+      </Router>
     </Container>
   );
 };
