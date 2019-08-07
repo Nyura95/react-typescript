@@ -9,9 +9,6 @@ import { RouteComponentProps } from 'react-router';
 // component
 import { Button, Container } from '../../components';
 
-// style
-import * as styles from './styles.scss';
-
 import { IReduxState, ICounterState, ICounterDispatch } from '../../reducers';
 import { counterSet, counterAsyncSet, counterReset } from '../../actions';
 

@@ -9,9 +9,6 @@ import { RouteComponentProps } from 'react-router';
 // component
 import { Button, Container } from '../../components';
 
-// style
-import * as styles from './styles.scss';
-
 import { IReduxState, I18nState } from '../../reducers';
 import { i18nSetLang, i18nGetTranslate } from '../../actions';
 

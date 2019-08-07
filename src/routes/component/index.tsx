@@ -8,9 +8,6 @@ import { RouteComponentProps } from 'react-router';
 // component
 import { Button, Card } from '../../components';
 
-// style
-import * as styles from './styles.scss';
-
 const Component: IHook<RouteComponentProps> = ({ history }) => {
   let timeout: NodeJS.Timeout | null = null;
   const [buttonBusy, setButtonBusy] = React.useState<boolean>(false);

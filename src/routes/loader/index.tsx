@@ -9,9 +9,6 @@ import { RouteComponentProps } from 'react-router';
 // component
 import { Button, Card, Container } from '../../components';
 
-// style
-import * as styles from './styles.scss';
-
 import { loadScreenShow, loadScreenHide, loaderShow, loaderHide } from '../../actions';
 import { ILoadScreenDispatch, ILoaderDispatch } from '../../reducers';
 

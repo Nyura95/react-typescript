@@ -8,17 +8,14 @@ import { RouteComponentProps } from 'react-router';
 // compoents
 import { Button } from '../../components';
 
-// style
-import * as styles from './styles.scss';
-
 import { notificationShow } from '../../actions';
 import { Container } from '../../components';
 
 const Notification: IHook<RouteComponentProps> = () => {
   return (
     <Container>
-      <Row className={styles.container}>
-        <Col lg="auto" md={12} className="text-center text-lg-right mt-4">
+      <Row className="mt-4">
+        <Col lg="auto" md={12} className="text-center text-lg-right">
           <Button.Rectangle
             onClick={() =>
               notificationShow({
