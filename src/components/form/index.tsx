@@ -3,7 +3,7 @@ import * as React from 'react';
 // module
 import { Form as RForm, FormProps } from 'reactstrap';
 
-export interface IProps extends FormProps {
+interface IProps extends FormProps {
   ['data-testid']?: string;
 }
 

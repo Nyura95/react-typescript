@@ -23,7 +23,7 @@ const Children: React.FunctionComponent<IProps> = props => {
 
 const Component: React.FunctionComponent<IProps> = props => {
   return (
-    <Error catchComponent={(error, info) => <CatchComponent error={error} info={info} />}>
+    <Error catchComponent={props => <CatchComponent {...props} />}>
       <Children crash={props.crash} />
     </Error>
   );

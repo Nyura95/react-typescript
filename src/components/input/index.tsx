@@ -8,7 +8,7 @@ import { InputType } from 'reactstrap/lib/Input';
 import * as styles from './styles.scss';
 
 // Interface props
-export interface IProps {
+interface IProps {
   label?: string;
   value: string;
   placeholder?: string;
@@ -26,12 +26,15 @@ export interface IProps {
 const Input: IHook<IProps> = props => {
   const [value, setValue] = React.useState<string>(props.value);
 
-  const onClickHandler = React.useCallback((event: React.FormEvent<HTMLInputElement>): void => {
-    if (!props.busy) {
-      setValue(event.currentTarget.value);
-      props.onChange(event.currentTarget.value);
-    }
-  }, [props.busy]);
+  const onClickHandler = React.useCallback(
+    (event: React.FormEvent<HTMLInputElement>): void => {
+      if (!props.busy) {
+        setValue(event.currentTarget.value);
+        props.onChange(event.currentTarget.value);
+      }
+    },
+    [props.busy]
+  );
 
   React.useEffect(() => setValue(props.value), [props.value]);
 

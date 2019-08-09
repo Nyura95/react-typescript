@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface IProps {
+interface IProps {
   icon: string;
   spin?: boolean;
   size?: 'xs' | 'sm' | 'lg' | '2x' | '3x' | '5x' | '7x' | '10x';

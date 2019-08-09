@@ -10,7 +10,7 @@ import { Spinner, Icon } from '../';
 import { joinClass } from '../../helpers/general';
 import * as styles from './styles.scss';
 
-export interface IProps extends ButtonProps {
+interface IProps extends ButtonProps {
   color?: 'danger' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'link';
   busy?: boolean;
   className?: string;

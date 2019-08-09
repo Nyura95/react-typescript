@@ -3,7 +3,7 @@ import * as React from 'react';
 // module
 import { Spinner as RSpinner, SpinnerProps } from 'reactstrap';
 
-export interface IProps extends SpinnerProps {
+interface IProps extends SpinnerProps {
   size?: 'sm' | 'lg';
   color?: 'primary' | 'primary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
   type: 'border' | 'grow';

@@ -6,7 +6,7 @@ import { Card as RCard, CardProps, CardHeader, CardBody, CardTitle, CardText, Ca
 // component
 import { Spinner } from '../';
 
-export interface IProps extends CardProps {
+interface IProps extends CardProps {
   header?: string;
   title?: string;
   footer?: string;
