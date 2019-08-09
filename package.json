@@ -62,7 +62,7 @@
     "source-map-loader": "^0.2.4",
     "ts-jest": "^24.0.2",
     "tslint": "^5.11.0",
-    "typescript": "^3.5.1"
+    "typescript": "^3.5.3"
   },
   "dependencies": {
     "@types/enzyme-adapter-react-16": "^1.0.5",
@@ -74,15 +74,15 @@
     "global.css": "^1.0.15",
     "history": "^4.9.0",
     "node-sass": "^4.12.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-notifications-component": "^1.1.1",
     "react-redux": "^7.1.0",
     "react-redux-i18n": "^1.9.3",
     "react-redux-loading-bar": "^4.2.0",
     "react-router": "^5.0.1",
     "react-router-redux": "^4.0.8",
-    "react-test-renderer": "^16.8.6",
+    "react-test-renderer": "^16.9.0",
     "reactstrap": "^8.0.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",

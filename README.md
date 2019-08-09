@@ -1,12 +1,13 @@
 # react-redux-typescript
 
-React v**16.8.6**
+React v**16.9.0**
 
-Typescript v**3.5.1**
+Typescript v**3.5.3**
 
 Redux v**7.1.0**
 
 ## Démo
+
 > [react-typescript](http://151.80.40.147:8989)
 
 ## Installation
