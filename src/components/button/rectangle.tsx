@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { IColorBootstrap } from '../../types';
+
 // module
 import { Button as RButton, ButtonProps } from 'reactstrap';
 
@@ -10,7 +12,7 @@ import { Spinner } from '..';
 import * as styles from './styles.scss';
 
 interface IProps extends ButtonProps {
-  color?: 'danger' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'link';
+  color?: IColorBootstrap;
   busy?: boolean;
   className?: string;
   style?: object;

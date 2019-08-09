@@ -6,12 +6,15 @@ import { Button as RButton, ButtonProps } from 'reactstrap';
 // component
 import { Spinner, Icon } from '../';
 
+// type
+import { IColorBootstrap } from '../../types';
+
 // style
 import { joinClass } from '../../helpers/general';
 import * as styles from './styles.scss';
 
 interface IProps extends ButtonProps {
-  color?: 'danger' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'link';
+  color?: IColorBootstrap;
   busy?: boolean;
   className?: string;
   style?: object;

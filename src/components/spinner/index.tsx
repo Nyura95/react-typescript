@@ -1,11 +1,13 @@
 import * as React from 'react';
 
+import { IColorBootstrap } from '../../types';
+
 // module
 import { Spinner as RSpinner, SpinnerProps } from 'reactstrap';
 
 interface IProps extends SpinnerProps {
   size?: 'sm' | 'lg';
-  color?: 'primary' | 'primary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
+  color?: IColorBootstrap;
   type: 'border' | 'grow';
   style?: object;
   ['data-testid']?: string;
