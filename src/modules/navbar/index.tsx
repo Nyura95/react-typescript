@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import * as styles from './styles.scss';
 import { RouterPush, userDisconnect } from '../../actions';
 import { IRouterDispatch, IUserDispatch } from '../../reducers';
+import { joinClass } from '../../helpers/general';
 
 const Navbar: IHook = () => {
   const dispatch = useDispatch<IUserDispatch & IRouterDispatch>();
@@ -26,12 +27,12 @@ const Navbar: IHook = () => {
   }, [dispatch]);
 
   return (
-    <NavbarReactStrap dark={true} color={'dark'} expand="md">
-      <NavbarBrand onClick={() => push('/')} color={'white'} className={styles.clickable} style={{ color: 'white' }}>
+    <NavbarReactStrap dark={true} color={'dark'} expand="md" className={styles.container}>
+      <NavbarBrand onClick={() => push('/')} color={'white'} className={joinClass(styles.clickable, styles.title)}>
         {I18n.t('nav.title')}
       </NavbarBrand>
       <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
-      <Collapse isOpen={isOpen} navbar={true}>
+      <Collapse isOpen={isOpen} navbar={true} className={styles.nav}>
         <Nav className="mr-auto" navbar={true}>
           <NavItem>
             <NavLink onClick={() => push('/')} className={styles.clickable}>
