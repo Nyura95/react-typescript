@@ -18,23 +18,25 @@ const disconnectAndResetCounter = function*(): SagaIterator {
 };
 
 const authenticationUser = function*(action: IUserAction): SagaIterator {
-  yield put<ILoaderAction>(loaderShow());
+  if (action.saga) {
+    yield put<ILoaderAction>(loaderShow());
 
-  yield delay(1000);
-  yield put<IUserAction>(
-    userSet({
-      username: action.saga ? action.saga.username : '',
-      first_name: 'Jean',
-      last_name: 'Delacour',
-      token: 'ranD0mTokEn'
-    })
-  );
-  yield put<ILoaderAction>(loaderHide());
+    yield delay(1000);
+    yield put<IUserAction>(
+      userSet({
+        username: action.saga.username,
+        first_name: 'Jean',
+        last_name: 'Delacour',
+        token: 'ranD0mTokEn'
+      })
+    );
+    yield put<ILoaderAction>(loaderHide());
 
-  yield call(notificationShow, {
-    title: I18n.t('notifications.connect.title'),
-    message: I18n.t('notifications.connect.message')
-  });
+    yield call(notificationShow, {
+      title: I18n.t('notifications.connect.title'),
+      message: I18n.t('notifications.connect.message')
+    });
+  }
 };
 
 export default [
