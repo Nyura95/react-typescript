@@ -16,8 +16,7 @@ export default {
     page3: 'Translate',
     page4: 'Notification',
     page5: 'Loader',
-    page6: 'Animate',
-    page7: 'Component',
+    page6: 'Component',
     disconnect: 'disconnect'
   },
   notifications: {

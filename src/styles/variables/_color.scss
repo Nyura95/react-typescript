@@ -2,7 +2,15 @@
 $background-color: #eee;
 
 // text
-$text-white: black;
+$text: black;
+$text-white: white;
 
 // loading bar
 $loading-bar-color: red;
+
+// navbar
+$background-color-navbar: #343a40;
+$text-color-navbar: rgb(212, 212, 212);
+$text-color-hover-navbar: rgb(241, 241, 241);
+$text-color-active-navbar: rgb(255, 255, 255);
+$icon-color-navbar: white;

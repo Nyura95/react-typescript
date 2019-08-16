@@ -2,7 +2,6 @@ import * as React from 'react';
 
 // module
 import { I18n } from 'react-redux-i18n';
-import { Navbar as NavbarReactStrap, NavbarBrand, Nav, NavItem, NavLink, Collapse, NavbarToggler } from 'reactstrap';
 import { useDispatch } from 'react-redux';
 
 // style
@@ -10,6 +9,7 @@ import * as styles from './styles.scss';
 import { RouterPush, userDisconnect } from '../../actions';
 import { IRouterDispatch, IUserDispatch } from '../../reducers';
 import { joinClass } from '../../helpers/general';
+import { Icon } from '../../components';
 
 const Navbar: IHook = () => {
   const dispatch = useDispatch<IUserDispatch & IRouterDispatch>();
@@ -18,6 +18,7 @@ const Navbar: IHook = () => {
   const push = React.useCallback(
     (to: string) => {
       dispatch(RouterPush(to));
+      setIsOpen(false);
     },
     [dispatch]
   );
@@ -26,59 +27,61 @@ const Navbar: IHook = () => {
     dispatch(userDisconnect());
   }, [dispatch]);
 
+  const items = React.useMemo(() => {
+    return (
+      <>
+        <div className={styles.item} onClick={() => push('/')}>
+          {I18n.t('nav.page1')}
+        </div>
+        <div className={styles.item} onClick={() => push('/counter')}>
+          {I18n.t('nav.page2')}
+        </div>
+        <div className={styles.item} onClick={() => push('/translate')}>
+          {I18n.t('nav.page3')}
+        </div>
+        <div className={styles.item} onClick={() => push('/notification')}>
+          {I18n.t('nav.page4')}
+        </div>
+        <div className={styles.item} onClick={() => push('/loader')}>
+          {I18n.t('nav.page5')}
+        </div>
+        <div className={styles.item} onClick={() => push('/component')}>
+          {I18n.t('nav.page6')}
+        </div>
+        <div className={joinClass(styles.item, 'd-lg-none d-block')} onClick={disconnect}>
+          {I18n.t('nav.disconnect')}
+        </div>
+      </>
+    );
+  }, []);
+
   return (
-    <NavbarReactStrap dark={true} color={'dark'} expand="md" className={styles.container}>
-      <NavbarBrand onClick={() => push('/')} color={'white'} className={joinClass(styles.clickable, styles.title)}>
-        {I18n.t('nav.title')}
-      </NavbarBrand>
-      <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
-      <Collapse isOpen={isOpen} navbar={true} className={styles.nav}>
-        <Nav className="mr-auto" navbar={true}>
-          <NavItem>
-            <NavLink onClick={() => push('/')} className={styles.clickable}>
-              {I18n.t('nav.page1')}
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink onClick={() => push('/counter')} className={styles.clickable}>
-              {I18n.t('nav.page2')}
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink onClick={() => push('/translate')} className={styles.clickable}>
-              {I18n.t('nav.page3')}
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink onClick={() => push('/notification')} className={styles.clickable}>
-              {I18n.t('nav.page4')}
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink onClick={() => push('/loader')} className={styles.clickable}>
-              {I18n.t('nav.page5')}
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink onClick={() => push('/component')} className={styles.clickable}>
-              {I18n.t('nav.page7')}
-            </NavLink>
-          </NavItem>
-        </Nav>
-      </Collapse>
-      <Collapse isOpen={isOpen} navbar={true}>
-        <Nav className="ml-auto" navbar={true}>
-          <NavItem>
-            <NavLink onClick={disconnect} className={styles.clickable}>
-              {I18n.t('nav.disconnect')}
-            </NavLink>
-          </NavItem>
-        </Nav>
-      </Collapse>
-    </NavbarReactStrap>
+    <div className={styles.container}>
+      <div className={styles.container_navigation}>
+        <div className={styles.title}>{I18n.t('nav.title')}</div>
+        <div className={joinClass(styles.navigation, 'd-none d-lg-flex')}>{items}</div>
+        <div className={joinClass(styles.right_navigation, 'd-none d-lg-flex')} onClick={disconnect}>
+          {I18n.t('nav.disconnect')}
+        </div>
+        <div className={joinClass(styles.bars, 'd-inline-block d-lg-none')} onClick={() => setIsOpen(!isOpen)}>
+          <Icon icon={'fa-bars'} className={styles.icon} />
+        </div>
+      </div>
+      <div
+        className={joinClass(
+          styles.container_navigation_mobile,
+          isOpen ? styles.show : styles.hide,
+          'd-lg-none d-flex'
+        )}
+      >
+        <div className={styles.scroll}>{items}</div>
+      </div>
+    </div>
   );
 };
 
-Navbar.defaultProps = {};
+Navbar.defaultProps = {
+  navigations: ['Home', 'Navigation']
+};
 
 export default Navbar;

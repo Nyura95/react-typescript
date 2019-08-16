@@ -1,12 +1,114 @@
+@import '../../styles/variables/color';
+@import '../../styles/variables/ux';
+
 .container {
-  max-width: 100%;
-  .title {
-    color: white !important;
+  color: $text-white;
+  .show {
+    max-height: 100%;
   }
-  .nav {
-    overflow: auto;
-    .clickable {
+  .hide {
+    max-height: 0;
+  }
+  .container_navigation_mobile {
+    width: 100%;
+    background-color: $background-color-navbar;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+    z-index: -1;
+    .scroll {
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      .item {
+        padding: 10px;
+        user-select: none;
+        display: inline-block;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        cursor: pointer;
+        color: $text-color-navbar;
+        &:hover {
+          color: $text-color-hover-navbar;
+        }
+        &:active {
+          color: $text-color-active-navbar;
+        }
+      }
+    }
+  }
+  .container_navigation {
+    z-index: 1;
+    width: 100%;
+    padding: 15px;
+    background-color: $background-color-navbar;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: $height-navbar;
+    .title {
+      flex: 0.25;
+      text-align: left;
+      font-size: 1.25rem;
       cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .navigation {
+      flex: 1;
+      display: inline-block;
+      padding: 3px;
+      white-space: nowrap;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .item {
+        user-select: none;
+        display: inline-block;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        cursor: pointer;
+        color: $text-color-navbar;
+        &:hover {
+          color: $text-color-hover-navbar;
+        }
+        &:active {
+          color: $text-color-active-navbar;
+        }
+      }
+    }
+    .bars {
+      flex: 1;
+      padding: 3px;
+      .icon {
+        float: right;
+        cursor: pointer;
+        color: $icon-color-navbar;
+      }
+    }
+    .right_navigation {
+      flex: 0.25;
+      padding: 3px;
+      display: inline-block;
+      text-align: right;
+      cursor: pointer;
+      flex-direction: row-reverse;
+      .item {
+        user-select: none;
+        display: inline-block;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        cursor: pointer;
+        color: $text-color-navbar;
+        &:hover {
+          color: $text-color-hover-navbar;
+        }
+        &:active {
+          color: $text-color-active-navbar;
+        }
+      }
     }
   }
 }
