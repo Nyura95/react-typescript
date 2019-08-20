@@ -81,7 +81,7 @@ const Navbar: IHook = () => {
 };
 
 Navbar.defaultProps = {
-  navigations: ['Home', 'Navigation']
+  navigations: []
 };
 
 export default Navbar;
