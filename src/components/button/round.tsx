@@ -23,13 +23,14 @@ interface IProps extends ButtonProps {
 }
 
 const Round: IHook<IProps> = props => {
-  const showSpinner = React.useMemo((): JSX.Element => {
-    return (
+  const showSpinner = React.useMemo(
+    () => (
       <div className={styles.container_busy}>
         <Spinner size="lg" className={styles.icon_busy} color={'light'} type="grow" />
       </div>
-    );
-  }, []);
+    ),
+    []
+  );
 
   return (
     <RButton

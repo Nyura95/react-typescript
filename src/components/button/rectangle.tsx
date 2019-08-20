@@ -20,14 +20,15 @@ interface IProps extends ButtonProps {
 }
 
 const Rectangle: IHook<IProps> = props => {
-  const showIcon = React.useCallback((): JSX.Element => {
-    return (
+  const showIcon = React.useMemo(
+    () => (
       <div className={styles.container_busy}>
         <span className={styles.text}>{props.children}</span>
         <Spinner type="border" size="sm" className={styles.icon} color={'light'} />
       </div>
-    );
-  }, [props.children]);
+    ),
+    [props.children]
+  );
 
   return (
     <RButton
@@ -42,7 +43,7 @@ const Rectangle: IHook<IProps> = props => {
       type={props.type}
       data-testid={props['data-testid'] ? props['data-testid'] : undefined}
     >
-      {props.busy ? showIcon() : props.children}
+      {props.busy ? showIcon : props.children}
     </RButton>
   );
 };
