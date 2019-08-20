@@ -11,28 +11,26 @@ import { Button } from '../../components';
 import { notificationShow } from '../../actions';
 import { Container } from '../../components';
 
-const Notification: IHook<RouteComponentProps> = () => {
-  return (
-    <Container>
-      <Row className="mt-4">
-        <Col lg="auto" md={12} className="text-center text-lg-right">
-          <Button.Rectangle
-            onClick={() =>
-              notificationShow({
-                title: I18n.t('pages.notification.title'),
-                message: I18n.t('pages.notification.message'),
-                type: 'info'
-              })
-            }
-            color="primary"
-          >
-            {I18n.t('pages.notification.button')}
-          </Button.Rectangle>
-        </Col>
-      </Row>
-    </Container>
-  );
-};
+const Notification: IHook<RouteComponentProps> = () => (
+  <Container>
+    <Row className="mt-4">
+      <Col lg="auto" md={12} className="text-center text-lg-right">
+        <Button.Rectangle
+          onClick={() =>
+            notificationShow({
+              title: I18n.t('pages.notification.title'),
+              message: I18n.t('pages.notification.message'),
+              type: 'info'
+            })
+          }
+          color="primary"
+        >
+          {I18n.t('pages.notification.button')}
+        </Button.Rectangle>
+      </Col>
+    </Row>
+  </Container>
+);
 
 Notification.defaultProps = {};
 

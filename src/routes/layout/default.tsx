@@ -16,23 +16,21 @@ import Notification from '../notification';
 import Loader from '../loader';
 import Component from '../component';
 
-const Default: IHook = () => {
-  return (
-    <Container fluid removePadding>
-      <Navbar />
-      <Router history={history}>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/counter" component={Counter} />
-          <Route exact path="/translate" component={Translate} />
-          <Route exact path="/notification" component={Notification} />
-          <Route exact path="/loader" component={Loader} />
-          <Route exact path="/component" component={Component} />
-        </Switch>
-      </Router>
-    </Container>
-  );
-};
+const Default: IHook = () => (
+  <Container fluid removePadding>
+    <Navbar />
+    <Router history={history}>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/counter" component={Counter} />
+        <Route exact path="/translate" component={Translate} />
+        <Route exact path="/notification" component={Notification} />
+        <Route exact path="/loader" component={Loader} />
+        <Route exact path="/component" component={Component} />
+      </Switch>
+    </Router>
+  </Container>
+);
 
 Default.defaultProps = {};
 

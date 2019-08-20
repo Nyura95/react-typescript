@@ -16,20 +16,18 @@ import { joinClass } from '../../helpers/general';
 // style
 import * as styles from './styles.scss';
 
-export interface IProps { }
+export interface IProps {}
 
-const Minimal: IHook<IProps> = () => {
-  return (
-    <Container className={joinClass(styles.container_minimal, 'd-flex align-content-around flex-wrap')}>
-      <Router history={history}>
-        <Switch>
-          <Route exact={true} path="/" component={Login} />
-          <Redirect from="*" to="/" />
-        </Switch>
-      </Router>
-    </Container>
-  );
-};
+const Minimal: IHook<IProps> = () => (
+  <Container className={joinClass(styles.container_minimal, 'd-flex align-content-around flex-wrap')}>
+    <Router history={history}>
+      <Switch>
+        <Route exact={true} path="/" component={Login} />
+        <Redirect from="*" to="/" />
+      </Switch>
+    </Router>
+  </Container>
+);
 
 Minimal.defaultProps = {};
 

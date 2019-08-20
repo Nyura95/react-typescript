@@ -18,21 +18,13 @@ const LoadScreen: IHook<IProps> = props => {
   const { show, text } = useSelector<IReduxState, ILoadScreenState>(reducers => reducers.loadscreen);
   const [dot, setDot] = React.useState<string>('.');
 
-  const updateDot = () => {
-    if (props.dot) {
-      dot.length > 2 ? setDot('.') : setDot(dot + '.');
-    }
-  };
-
-  React.useEffect(() => {
-    if (show === true) updateDot();
-  }, []);
-
   React.useEffect(() => {
     if (show) {
-      setTimeout(() => updateDot(), 500);
+      setTimeout(() => {
+        if (props.dot) dot.length > 2 ? setDot('.') : setDot(dot + '.');
+      }, props.timeout);
     }
-  }, [show, dot]);
+  }, [show, dot, props.timeout]);
 
   if (show === false) return <div id="loadScreen" />;
   return (
@@ -50,7 +42,7 @@ const LoadScreen: IHook<IProps> = props => {
 
 LoadScreen.defaultProps = {
   dot: true,
-  timeout: 1000
+  timeout: 500
 };
 
 export default LoadScreen;

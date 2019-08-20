@@ -15,17 +15,14 @@ const Navbar: IHook = () => {
   const dispatch = useDispatch<IUserDispatch & IRouterDispatch>();
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
-  const push = React.useCallback(
-    (to: string) => {
-      dispatch(RouterPush(to));
-      setIsOpen(false);
-    },
-    [dispatch]
-  );
+  const push = React.useCallback((to: string) => {
+    dispatch(RouterPush(to));
+    setIsOpen(false);
+  }, []);
 
   const disconnect = React.useCallback(() => {
     dispatch(userDisconnect());
-  }, [dispatch]);
+  }, []);
 
   const items = React.useMemo(() => {
     return (

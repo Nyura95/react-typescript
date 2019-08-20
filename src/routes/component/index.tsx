@@ -17,11 +17,12 @@ const Component: IHook<RouteComponentProps> = ({ history }) => {
     timeout = setTimeout(() => setButtonBusy(false), 3000);
   }, []);
 
-  React.useEffect(() => {
-    return () => {
+  React.useEffect(
+    () => () => {
       if (timeout) clearTimeout(timeout);
-    };
-  }, [history.location.pathname]);
+    },
+    [history.location.pathname]
+  );
 
   return (
     <Container>

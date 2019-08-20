@@ -20,13 +20,10 @@ const Login: IHook<RouteComponentProps> = () => {
   const [username, setUsername] = React.useState<string>('example@example.com');
   const [password, setPassword] = React.useState<string>('azerty');
 
-  const authUser = React.useCallback(
-    (username: string, password: string): void => {
-      setBusy(true);
-      dispatch(userAuthenticate(username, password));
-    },
-    [dispatch]
-  );
+  const authUser = React.useCallback((username: string, password: string): void => {
+    setBusy(true);
+    dispatch(userAuthenticate(username, password));
+  }, []);
 
   return (
     <Col md="12" lg="6" className="mx-auto text-center">

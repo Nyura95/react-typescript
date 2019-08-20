@@ -15,13 +15,13 @@ import { ILoadScreenDispatch, ILoaderDispatch } from '../../reducers';
 const Loader: IHook<RouteComponentProps> = () => {
   const dispatch = useDispatch<ILoadScreenDispatch & ILoaderDispatch>();
 
-  const show = React.useCallback(() => dispatch(loaderShow()), [dispatch]);
-  const hide = React.useCallback(() => dispatch(loaderHide()), [dispatch]);
+  const show = React.useCallback(() => dispatch(loaderShow()), []);
+  const hide = React.useCallback(() => dispatch(loaderHide()), []);
 
   const startLoadScreen = React.useCallback((): void => {
     dispatch(loadScreenShow(I18n.t('pages.loader.loadscreentext')));
     setTimeout(() => dispatch(loadScreenHide()), 3000);
-  }, [dispatch]);
+  }, []);
 
   return (
     <Container>
