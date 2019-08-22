@@ -1,7 +1,7 @@
 export default {
   translate: 'Langue de traduction actuelle: %{lang}',
   helmet: {
-    '/': 'Acceuil',
+    '/': 'Accueil',
     '/counter': 'Compteur',
     '/translate': 'Traduction',
     '/notification': 'Notification',
@@ -11,7 +11,7 @@ export default {
   },
   nav: {
     title: 'React-typescript',
-    page1: 'Acceuil',
+    page1: 'Accueil',
     page2: 'Compteur',
     page3: 'Traduction',
     page4: 'Notification',
