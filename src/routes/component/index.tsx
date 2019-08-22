@@ -10,7 +10,7 @@ import { Button, Card } from '../../components';
 
 const Component: IHook<RouteComponentProps> = ({ history }) => {
   let timeout: NodeJS.Timeout | null = null;
-  const [buttonBusy, setButtonBusy] = React.useState<boolean>(false);
+  const [buttonBusy, setButtonBusy] = React.useState(false);
 
   const startButtonBusy = React.useCallback(() => {
     setButtonBusy(true);
