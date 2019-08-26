@@ -20,8 +20,8 @@ const initialState: NotificationState = {
 
 /**
  * Store the object from the notification module
- * @param state INotificationState
- * @param action IAction<INotificationState, IType>
+ * @param {NotificationState} state
+ * @param {NotificationAction} action
  * @version 1.0.0
  * @returns {INotificationState}
  */

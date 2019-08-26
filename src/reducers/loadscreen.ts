@@ -18,7 +18,7 @@ const initialState: ILoadScreenState = {
 /**
  * Store for the module loadscreen
  * @param {ILoadScreenState} state
- * @param {IAction<ILoadScreenState, IType>} action
+ * @param {LoadScreenAction} action
  * @version 1.0.0
  * @returns {ILoadScreenState}
  */

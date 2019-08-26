@@ -17,8 +17,8 @@ const initialState: ICounterState = {
 
 /**
  * Store a counter
- * @param state ICounterState
- * @param action IAction<ICounterState, IType>
+ * @param {ICounterState} state
+ * @param {CounterAction} action
  * @version 1.0.0
  * @returns ICounterState
  */

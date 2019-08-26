@@ -23,8 +23,8 @@ const initialState: IUserState = {
 
 /**
  * Store the user info
- * @param state IUserState
- * @param action IAction<IUserState, IType>
+ * @param {IUserState} state
+ * @param {UserAction} action
  * @version 1.0.0
  * @returns IUserState
  */
