@@ -3,7 +3,7 @@ import { IAction } from '../actions';
 import { Dispatch } from 'redux';
 
 // router reducer
-export type IRouterAction = IAction<RouterState, string>;
-export type IRouterDispatch = Dispatch<IRouterAction>;
+export type RouterAction = IAction<RouterState, string>;
+export type RouterDispatch = Dispatch<RouterAction>;
 
 export { RouterState, routerReducer };

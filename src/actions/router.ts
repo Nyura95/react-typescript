@@ -2,7 +2,7 @@
 import { push, goBack } from 'react-router-redux';
 
 import logger from '../logger';
-import { IRouterAction } from '../reducers/router';
+import { RouterAction } from '../reducers/router';
 
 const source = 'Router action';
 
@@ -12,9 +12,9 @@ const source = 'Router action';
  * @version 1.0.0
  * @returns {void}
  */
-export const RouterPush = (to: string): IRouterAction => {
+export const RouterPush = (to: string): RouterAction => {
   logger.info(`push new location: ${to}`, source);
-  return push(to) as IRouterAction;
+  return push(to) as RouterAction;
 };
 
 /**
@@ -22,7 +22,7 @@ export const RouterPush = (to: string): IRouterAction => {
  * @version 1.0.0
  * @returns {void}
  */
-export const RouterGoBack = (): IRouterAction => {
+export const RouterGoBack = (): RouterAction => {
   logger.info(`go back`, source);
-  return goBack() as IRouterAction;
+  return goBack() as RouterAction;
 };
