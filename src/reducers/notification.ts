@@ -2,19 +2,19 @@ import { IAction } from '../actions';
 import { IReactNotificationsComponent } from '../types';
 import { Dispatch } from 'redux';
 
-export type INotificationType = 'SET_NOTIFICATION';
+export type NotificationType = 'SET_NOTIFICATION';
 
-export type INotificationState =
+export type NotificationState =
   | IReactNotificationsComponent
   | {
       addNotification: null;
     };
 
 // notification reducer
-export type INotificationAction = IAction<INotificationState, INotificationType>;
-export type INotificationDispatch = Dispatch<INotificationAction>;
+export type NotificationAction = IAction<NotificationState, NotificationType>;
+export type INotificationDispatch = Dispatch<NotificationAction>;
 
-const initialState: INotificationState = {
+const initialState: NotificationState = {
   addNotification: null
 };
 
@@ -27,8 +27,8 @@ const initialState: INotificationState = {
  */
 export function notification(
   state = initialState,
-  action: IAction<INotificationState, INotificationType>
-): INotificationState {
+  action: IAction<NotificationState, NotificationType>
+): NotificationState {
   switch (action.type) {
     case 'SET_NOTIFICATION':
       return {

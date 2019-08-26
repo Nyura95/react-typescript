@@ -2,7 +2,7 @@ import { store } from '../store';
 
 import logger from '../logger';
 import { IReactNotificationsComponent, IOptionReactNotificationComponent } from '../types';
-import { INotificationAction } from '../reducers/notification';
+import { NotificationAction } from '../reducers/notification';
 
 // Set the source file
 const source = 'Notification action';
@@ -13,7 +13,7 @@ const source = 'Notification action';
  * @version 1.0.0
  * @returns {void}
  */
-export const notificationSet = (reactNotificationComponent: IReactNotificationsComponent): INotificationAction => {
+export const notificationSet = (reactNotificationComponent: IReactNotificationsComponent): NotificationAction => {
   logger.info('Set notification', source);
   return { type: 'SET_NOTIFICATION', payload: reactNotificationComponent };
 };
