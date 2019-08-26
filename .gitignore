@@ -2,5 +2,4 @@ node_modules
 dist
 .vscode
 .cache
-package-lock.json
 build
