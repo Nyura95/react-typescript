@@ -10,10 +10,10 @@ import { RouteComponentProps } from 'react-router';
 import { Button, Card, Container } from '../../components';
 
 import { loadScreenShow, loadScreenHide, loaderShow, loaderHide } from '../../actions';
-import { ILoadScreenDispatch, LoaderDispatch } from '../../reducers';
+import { LoadScreenDispatch, LoaderDispatch } from '../../reducers';
 
 const Loader: IHook<RouteComponentProps> = () => {
-  const dispatch = useDispatch<ILoadScreenDispatch & LoaderDispatch>();
+  const dispatch = useDispatch<LoadScreenDispatch & LoaderDispatch>();
 
   const show = React.useCallback(() => dispatch(loaderShow()), []);
   const hide = React.useCallback(() => dispatch(loaderHide()), []);

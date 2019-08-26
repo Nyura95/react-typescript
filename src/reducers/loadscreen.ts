@@ -1,13 +1,14 @@
 import { IAction } from '../actions';
+import { Dispatch } from 'redux';
 
-export type ILoadScreenType = 'SHOW_LOADSCREEN' | 'HIDE_LOADSCREEN';
+export type LoadScreenType = 'SHOW_LOADSCREEN' | 'HIDE_LOADSCREEN';
 
-export type ILoadScreenState = {
+export interface ILoadScreenState {
   show: boolean;
   text: string;
-};
-export type ILoadScreenAction = IAction<ILoadScreenState, ILoadScreenType>;
-export type ILoadScreenDispatch = IAction<ILoadScreenState, ILoadScreenType>;
+}
+export type LoadScreenAction = IAction<ILoadScreenState, LoadScreenType>;
+export type LoadScreenDispatch = Dispatch<LoadScreenAction>;
 
 const initialState: ILoadScreenState = {
   show: false,
@@ -21,7 +22,7 @@ const initialState: ILoadScreenState = {
  * @version 1.0.0
  * @returns {ILoadScreenState}
  */
-export function loadscreen(state = initialState, action: IAction<ILoadScreenState, ILoadScreenType>): ILoadScreenState {
+export function loadscreen(state = initialState, action: IAction<ILoadScreenState, LoadScreenType>): ILoadScreenState {
   switch (action.type) {
     case 'SHOW_LOADSCREEN':
       return {
