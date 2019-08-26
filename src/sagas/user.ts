@@ -7,7 +7,7 @@ import { LoaderAction } from '../reducers/loadingBar';
 
 export type UserTypeSaga = 'RESET_USER_AND_COUNTER' | 'AUTHENTICATE_USER';
 
-export interface IUserStateSage {
+export interface IUserStateSaga {
   username: string;
   password: string;
 }
