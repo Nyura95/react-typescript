@@ -5,7 +5,7 @@ import { I18n } from 'react-redux-i18n';
 import { SagaIterator } from 'redux-saga';
 import { LoaderAction } from '../reducers/loadingBar';
 
-export type IUserTypeSaga = 'RESET_USER_AND_COUNTER' | 'AUTHENTICATE_USER';
+export type UserTypeSaga = 'RESET_USER_AND_COUNTER' | 'AUTHENTICATE_USER';
 
 export interface IUserStateSage {
   username: string;

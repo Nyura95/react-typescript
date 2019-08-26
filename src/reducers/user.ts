@@ -1,8 +1,8 @@
 import { IAction } from '../actions';
-import { IUserTypeSaga, IUserStateSage } from '../sagas/user';
+import { UserTypeSaga, IUserStateSage } from '../sagas/user';
 import { Dispatch } from 'redux';
 
-export type UserType = 'SET_USER' | 'RESET_USER' | IUserTypeSaga;
+export type UserType = 'SET_USER' | 'RESET_USER' | UserTypeSaga;
 
 export interface IUserState {
   username: string;

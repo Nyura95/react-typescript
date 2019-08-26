@@ -3,7 +3,7 @@ import { takeEvery, delay, put } from 'redux-saga/effects';
 import { CounterAction } from '../reducers';
 import { SagaIterator } from 'redux-saga';
 
-export type ICounterTypeSaga = 'ASYNC_COUNTER_INCREMENT';
+export type CounterTypeSaga = 'ASYNC_COUNTER_INCREMENT';
 
 const asyncIncrement = function*(action: CounterAction): SagaIterator {
   yield delay(500);

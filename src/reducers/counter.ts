@@ -1,8 +1,8 @@
 import { IAction } from '../actions';
-import { ICounterTypeSaga } from '../sagas/counter';
+import { CounterTypeSaga } from '../sagas/counter';
 import { Dispatch } from 'redux';
 
-export type CounterType = 'ADD_COUNTER' | 'SET_COUNTER' | ICounterTypeSaga;
+export type CounterType = 'ADD_COUNTER' | 'SET_COUNTER' | CounterTypeSaga;
 
 export interface ICounterState {
   counter: number;
