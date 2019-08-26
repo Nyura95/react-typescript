@@ -2,14 +2,14 @@ import { IAction } from '../actions';
 import { ICounterTypeSaga } from '../sagas/counter';
 import { Dispatch } from 'redux';
 
-export type ICounterType = 'ADD_COUNTER' | 'SET_COUNTER' | ICounterTypeSaga;
+export type CounterType = 'ADD_COUNTER' | 'SET_COUNTER' | ICounterTypeSaga;
 
-export type ICounterState = {
+export interface ICounterState {
   counter: number;
-};
+}
 
-export type ICounterAction = IAction<ICounterState, ICounterType>;
-export type ICounterDispatch = Dispatch<ICounterAction>;
+export type CounterAction = IAction<ICounterState, CounterType>;
+export type CounterDispatch = Dispatch<CounterAction>;
 
 const initialState: ICounterState = {
   counter: 0
@@ -22,7 +22,7 @@ const initialState: ICounterState = {
  * @version 1.0.0
  * @returns ICounterState
  */
-export function counter(state = initialState, action: ICounterAction): ICounterState {
+export function counter(state = initialState, action: CounterAction): ICounterState {
   switch (action.type) {
     case 'ADD_COUNTER':
       return {

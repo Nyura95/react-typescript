@@ -9,12 +9,12 @@ import { RouteComponentProps } from 'react-router';
 // component
 import { Button, Container } from '../../components';
 
-import { IReduxState, ICounterState, ICounterDispatch } from '../../reducers';
+import { IReduxState, ICounterState, CounterDispatch } from '../../reducers';
 import { counterSet, counterAsyncSet, counterReset } from '../../actions';
 
 const Counter: IHook<RouteComponentProps> = () => {
   const { counter } = useSelector<IReduxState, ICounterState>(reducer => reducer.counter);
-  const dispatch = useDispatch<ICounterDispatch>();
+  const dispatch = useDispatch<CounterDispatch>();
 
   const incrementCounter = React.useCallback(() => dispatch(counterSet(1)), []);
   const decreaseCounter = React.useCallback(() => dispatch(counterSet(-1)), []);
