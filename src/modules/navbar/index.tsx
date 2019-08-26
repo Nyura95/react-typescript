@@ -7,12 +7,12 @@ import { useDispatch } from 'react-redux';
 // style
 import * as styles from './styles.scss';
 import { RouterPush, userDisconnect } from '../../actions';
-import { RouterDispatch, IUserDispatch } from '../../reducers';
+import { RouterDispatch, UserDispatch } from '../../reducers';
 import { joinClass } from '../../helpers/general';
 import { Icon } from '../../components';
 
 const Navbar: IHook = () => {
-  const dispatch = useDispatch<IUserDispatch & RouterDispatch>();
+  const dispatch = useDispatch<UserDispatch & RouterDispatch>();
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const push = React.useCallback((to: string) => {

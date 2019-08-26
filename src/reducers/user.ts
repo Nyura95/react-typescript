@@ -2,17 +2,17 @@ import { IAction } from '../actions';
 import { IUserTypeSaga, IUserStateSage } from '../sagas/user';
 import { Dispatch } from 'redux';
 
-export type IUserType = 'SET_USER' | 'RESET_USER' | IUserTypeSaga;
+export type UserType = 'SET_USER' | 'RESET_USER' | IUserTypeSaga;
 
-export type IUserState = {
+export interface IUserState {
   username: string;
   first_name: string;
   last_name: string;
   token: string;
-};
+}
 
-export type IUserAction = IAction<IUserState, IUserType, IUserStateSage>;
-export type IUserDispatch = Dispatch<IUserAction>;
+export type UserAction = IAction<IUserState, UserType, IUserStateSage>;
+export type UserDispatch = Dispatch<UserAction>;
 
 const initialState: IUserState = {
   username: '',
@@ -28,7 +28,7 @@ const initialState: IUserState = {
  * @version 1.0.0
  * @returns IUserState
  */
-export function user(state = initialState, action: IUserAction): IUserState {
+export function user(state = initialState, action: UserAction): IUserState {
   switch (action.type) {
     case 'SET_USER':
       return {
