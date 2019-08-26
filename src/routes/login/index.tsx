@@ -11,10 +11,10 @@ import { Button, Card, Input, Form } from '../../components';
 
 import { version } from '../../../package.json';
 import { userAuthenticate } from '../../actions';
-import { IUserDispatch } from '../../reducers';
+import { UserDispatch } from '../../reducers';
 
 const Login: IHook<RouteComponentProps> = () => {
-  const dispatch = useDispatch<IUserDispatch>();
+  const dispatch = useDispatch<UserDispatch>();
 
   const [busy, setBusy] = React.useState<boolean>(false);
   const [username, setUsername] = React.useState<string>('example@example.com');

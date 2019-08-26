@@ -1,9 +1,9 @@
 import { put, takeEvery, delay, call } from 'redux-saga/effects';
 import { counterReset, userDisconnect, userSet, notificationShow, loaderShow, loaderHide } from '../actions';
-import { IUserAction, ICounterAction } from '../reducers';
+import { UserAction, CounterAction } from '../reducers';
 import { I18n } from 'react-redux-i18n';
 import { SagaIterator } from 'redux-saga';
-import { ILoaderAction } from '../reducers/loadingBar';
+import { LoaderAction } from '../reducers/loadingBar';
 
 export type IUserTypeSaga = 'RESET_USER_AND_COUNTER' | 'AUTHENTICATE_USER';
 
@@ -13,16 +13,16 @@ export interface IUserStateSage {
 }
 
 const disconnectAndResetCounter = function*(): SagaIterator {
-  yield put<ICounterAction>(counterReset());
-  yield put<IUserAction>(userDisconnect());
+  yield put<CounterAction>(counterReset());
+  yield put<UserAction>(userDisconnect());
 };
 
-const authenticationUser = function*(action: IUserAction): SagaIterator {
+const authenticationUser = function*(action: UserAction): SagaIterator {
   if (action.saga) {
-    yield put<ILoaderAction>(loaderShow());
+    yield put<LoaderAction>(loaderShow());
 
     yield delay(1000);
-    yield put<IUserAction>(
+    yield put<UserAction>(
       userSet({
         username: action.saga.username,
         first_name: 'Jean',
@@ -30,7 +30,7 @@ const authenticationUser = function*(action: IUserAction): SagaIterator {
         token: 'ranD0mTokEn'
       })
     );
-    yield put<ILoaderAction>(loaderHide());
+    yield put<LoaderAction>(loaderHide());
 
     yield call(notificationShow, {
       title: I18n.t('notifications.connect.title'),
@@ -40,6 +40,6 @@ const authenticationUser = function*(action: IUserAction): SagaIterator {
 };
 
 export default [
-  takeEvery<IUserAction>('RESET_USER_AND_COUNTER', disconnectAndResetCounter),
-  takeEvery<IUserAction>('AUTHENTICATE_USER', authenticationUser)
+  takeEvery<UserAction>('RESET_USER_AND_COUNTER', disconnectAndResetCounter),
+  takeEvery<UserAction>('AUTHENTICATE_USER', authenticationUser)
 ];

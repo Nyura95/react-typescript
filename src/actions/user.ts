@@ -15,7 +15,7 @@ export const userSet = (user: IUserState): UserAction => {
 /**
  * Disconnect the user and reset the counter
  * @version 1.0.0
- * @return {IUserAction}
+ * @return {UserAction}
  */
 export const userDisconnect = (): UserAction => {
   logger.info(`disconnect the user and reset the counter`, source);
