@@ -2,7 +2,7 @@
 import logger from '../logger';
 import { IUserAction, IUserState } from '../reducers/user';
 
-const source = 'Counter action';
+const source = 'User action';
 
 export const userAuthenticate = (username: string, password: string): IUserAction => {
   return { type: 'AUTHENTICATE_USER', payload: {}, saga: { password, username } };
