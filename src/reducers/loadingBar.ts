@@ -3,7 +3,7 @@ import { IAction } from '../actions';
 import { Dispatch } from 'redux';
 
 // loader reducer
-export type ILoaderAction = IAction<unknown, unknown>;
-export type ILoaderDispatch = Dispatch<ILoaderAction>;
+export type LoaderAction = IAction<unknown, unknown>;
+export type LoaderDispatch = Dispatch<LoaderAction>;
 
 export { loadingBarReducer, LoadingBar };

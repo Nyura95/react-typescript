@@ -2,7 +2,7 @@
 import { showLoading, hideLoading, resetLoading } from 'react-redux-loading-bar';
 
 import logger from '../logger';
-import { ILoaderAction } from '../reducers/loadingBar';
+import { LoaderAction } from '../reducers/loadingBar';
 
 const source = 'Loader action';
 
@@ -11,9 +11,9 @@ const source = 'Loader action';
  * @version 1.0.0
  * @returns {void}
  */
-export const loaderShow = (): ILoaderAction => {
+export const loaderShow = (): LoaderAction => {
   logger.info(`Show loader`, source);
-  return showLoading() as ILoaderAction;
+  return showLoading() as LoaderAction;
 };
 
 /**
@@ -21,9 +21,9 @@ export const loaderShow = (): ILoaderAction => {
  * @version 1.0.0
  * @returns {void}
  */
-export const loaderHide = (): ILoaderAction => {
+export const loaderHide = (): LoaderAction => {
   logger.info(`Hide loader`, source);
-  return hideLoading() as ILoaderAction;
+  return hideLoading() as LoaderAction;
 };
 
 /**
@@ -31,7 +31,7 @@ export const loaderHide = (): ILoaderAction => {
  * @version 1.0.0
  * @returns {void}
  */
-export const loaderReset = (): ILoaderAction => {
+export const loaderReset = (): LoaderAction => {
   logger.info(`Reset loader`, source);
-  return resetLoading() as ILoaderAction;
+  return resetLoading() as LoaderAction;
 };
