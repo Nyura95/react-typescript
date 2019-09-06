@@ -12,10 +12,7 @@ const source = 'Counter action';
  */
 export const counterSet = (counter: number): CounterAction => {
   logger.info('Set counter', source);
-  return {
-    type: 'ADD_COUNTER',
-    payload: { counter }
-  };
+  return { type: 'ADD_COUNTER', payload: { counter } };
 };
 
 /**
@@ -25,12 +22,7 @@ export const counterSet = (counter: number): CounterAction => {
  */
 export const counterReset = (): CounterAction => {
   logger.info('Reset counter', source);
-  return {
-    type: 'SET_COUNTER',
-    payload: {
-      counter: 0
-    }
-  };
+  return { type: 'SET_COUNTER', payload: { counter: 0 } };
 };
 
 /**
