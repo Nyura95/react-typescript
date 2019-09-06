@@ -40,5 +40,5 @@ export const counterReset = (): CounterAction => {
  */
 export const counterAsyncSet = (counter: number): CounterAction => {
   logger.info('Set counter in async', source);
-  return { type: 'ASYNC_COUNTER_INCREMENT', payload: { counter } };
+  return { type: 'ASYNC_COUNTER_INCREMENT', payload: {}, saga: { counter } };
 };
