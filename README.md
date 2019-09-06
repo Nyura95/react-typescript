@@ -4,7 +4,7 @@ React v**16.9.0**
 
 Typescript v**3.5.3**
 
-Redux v**7.1.0**
+Redux v**7.1.1**
 
 ## Démo
 
