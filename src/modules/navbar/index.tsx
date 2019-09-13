@@ -30,21 +30,6 @@ const Navbar: IHook = () => {
         <div className={styles.item} onClick={() => push('/')}>
           {I18n.t('nav.page1')}
         </div>
-        <div className={styles.item} onClick={() => push('/counter')}>
-          {I18n.t('nav.page2')}
-        </div>
-        <div className={styles.item} onClick={() => push('/translate')}>
-          {I18n.t('nav.page3')}
-        </div>
-        <div className={styles.item} onClick={() => push('/notification')}>
-          {I18n.t('nav.page4')}
-        </div>
-        <div className={styles.item} onClick={() => push('/loader')}>
-          {I18n.t('nav.page5')}
-        </div>
-        <div className={styles.item} onClick={() => push('/component')}>
-          {I18n.t('nav.page6')}
-        </div>
         <div className={joinClass(styles.item, 'd-lg-none d-block')} onClick={disconnect}>
           {I18n.t('nav.disconnect')}
         </div>

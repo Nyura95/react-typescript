@@ -6,15 +6,10 @@ import { Navbar } from '../../modules';
 
 // store
 import { history } from '../../store';
-import { Router, Route, Switch } from 'react-router';
+import { Router, Route, Switch, Redirect } from 'react-router';
 
 // pages
 import Home from '../home';
-import Counter from '../counter';
-import Translate from '../translate';
-import Notification from '../notification';
-import Loader from '../loader';
-import Component from '../component';
 
 const Default: IHook = () => (
   <Container fluid removePadding>
@@ -22,11 +17,7 @@ const Default: IHook = () => (
     <Router history={history}>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/counter" component={Counter} />
-        <Route exact path="/translate" component={Translate} />
-        <Route exact path="/notification" component={Notification} />
-        <Route exact path="/loader" component={Loader} />
-        <Route exact path="/component" component={Component} />
+        <Redirect from="*" to="/" />
       </Switch>
     </Router>
   </Container>

@@ -22,7 +22,7 @@ const Minimal: IHook<IProps> = () => (
   <Container className={joinClass(styles.container_minimal, 'd-flex align-content-around flex-wrap')}>
     <Router history={history}>
       <Switch>
-        <Route exact={true} path="/" component={Login} />
+        <Route exact path="/" component={Login} />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>
