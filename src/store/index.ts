@@ -45,7 +45,7 @@ const sagaMiddleware = createSagaMiddleware<IAction<unknown, unknown>>();
 // create the store
 export const store = createStore(
   // connect the router and add the persist reducers
-  persistReducer(persistConfig, reducers),
+  persistReducer(persistConfig, reducers(history)),
   undefined,
   // thunk for dispatch async and load the history
   compose(

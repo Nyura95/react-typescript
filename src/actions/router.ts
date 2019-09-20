@@ -1,5 +1,5 @@
 // Action reducer module
-import { push, goBack } from 'react-router-redux';
+import { push, goBack } from 'connected-react-router';
 
 import logger from '../logger';
 import { RouterAction } from '../reducers/router';
