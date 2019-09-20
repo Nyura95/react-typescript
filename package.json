@@ -83,7 +83,6 @@
     "react-redux-i18n": "^1.9.3",
     "react-redux-loading-bar": "^4.4.0",
     "react-router": "^5.0.1",
-    "react-router-redux": "^4.0.8",
     "react-test-renderer": "^16.9.0",
     "reactstrap": "^8.0.1",
     "redux": "^4.0.4",
