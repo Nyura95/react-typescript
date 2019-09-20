@@ -1,4 +1,4 @@
-import { RouterState, routerReducer } from 'react-router-redux';
+import { connectRouter, RouterState } from 'connected-react-router';
 import { IAction } from '../actions';
 import { Dispatch } from 'redux';
 
@@ -6,4 +6,4 @@ import { Dispatch } from 'redux';
 export type RouterAction = IAction<RouterState, string>;
 export type RouterDispatch = Dispatch<RouterAction>;
 
-export { RouterState, routerReducer };
+export { RouterState, connectRouter };

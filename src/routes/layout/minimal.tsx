@@ -1,8 +1,7 @@
 import * as React from 'react';
 
 // module
-import { Router, Route, Redirect, Switch } from 'react-router';
-import { history } from '../../store';
+import { Route, Redirect, Switch } from 'react-router';
 
 // component
 import { Container } from '../../components';
@@ -20,12 +19,10 @@ export interface IProps {}
 
 const Minimal: IHook<IProps> = () => (
   <Container className={joinClass(styles.container_minimal, 'd-flex align-content-around flex-wrap')}>
-    <Router history={history}>
-      <Switch>
-        <Route exact={true} path="/" component={Login} />
-        <Redirect from="*" to="/" />
-      </Switch>
-    </Router>
+    <Switch>
+      <Route exact={true} path="/" component={Login} />
+      <Redirect from="*" to="/" />
+    </Switch>
   </Container>
 );
 

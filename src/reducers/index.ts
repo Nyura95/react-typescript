@@ -9,8 +9,9 @@ import { user } from './user';
 import { notification } from './notification';
 import { loadscreen } from './loadscreen';
 import { i18nReducer } from './i18n';
-import { routerReducer } from './router';
+import { connectRouter } from './router';
 import { loadingBarReducer } from './loadingBar';
+import { History } from 'history';
 
 export * from './counter';
 export * from './user';
@@ -20,12 +21,15 @@ export * from './loadingBar';
 export * from './i18n';
 export * from './router';
 
-export default combineReducers({
-  counter,
-  user,
-  notification,
-  loadscreen,
-  i18n: i18nReducer,
-  loadingBar: loadingBarReducer,
-  routing: routerReducer
-});
+const reducers = (history: History) =>
+  combineReducers({
+    counter,
+    user,
+    notification,
+    loadscreen,
+    i18n: i18nReducer,
+    loadingBar: loadingBarReducer,
+    router: connectRouter(history)
+  });
+
+export default reducers;
