@@ -1,8 +1,8 @@
 # react-redux-typescript
 
-React v**16.9.0**
+React v**16.10.2**
 
-Typescript v**3.5.3**
+Typescript v**3.6.3**
 
 Redux v**7.1.1**
 
