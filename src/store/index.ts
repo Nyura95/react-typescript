@@ -1,23 +1,24 @@
 // Redux module
-import { createStore, applyMiddleware, compose, AnyAction, Action } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 
 import createSagaMiddleware from 'redux-saga';
 
+import i18n from 'i18next';
+
 import storage from 'redux-persist/lib/storage';
-import { persistStore, persistReducer, Persistor, PersistConfig, WebStorage } from 'redux-persist';
+import { persistStore, persistReducer, Persistor, PersistConfig } from 'redux-persist';
 import { createLogger } from 'redux-logger';
 
 import { routerMiddleware } from 'react-router-redux';
 
-// I18n
-import { syncTranslationWithStore, I18n } from 'react-redux-i18n';
+// i18n
+import '../translations';
 
 // Router
 import { createBrowserHistory } from 'history';
 
 // reducers / action
 import reducers, { IReduxState } from '../reducers';
-import { IAction } from '../actions';
 import rootSaga from '../sagas';
 
 // config
@@ -55,13 +56,12 @@ export const store = createStore(
   )
 );
 
-syncTranslationWithStore(store);
 sagaMiddleware.run(rootSaga);
 
 // create the persistor
 export const persistor: Persistor = persistStore(store, undefined, () => {
   logger.info(`store initialized`, source);
   // Updating title page dynamically
-  document.title = I18n.t('helmet.' + location.pathname);
-  history.listen(location => (document.title = I18n.t('helmet.' + location.pathname)));
+  document.title = i18n.t('helmet.' + location.pathname);
+  history.listen(location => (document.title = i18n.t('helmet.' + location.pathname)));
 });

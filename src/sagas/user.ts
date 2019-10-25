@@ -1,7 +1,7 @@
 import { put, takeEvery, delay, call } from 'redux-saga/effects';
 import { counterReset, userDisconnect, userSet, notificationShow, loaderShow, loaderHide } from '../actions';
 import { UserAction, CounterAction } from '../reducers';
-import { I18n } from 'react-redux-i18n';
+import i18n from 'i18next';
 import { SagaIterator } from 'redux-saga';
 import { LoaderAction } from '../reducers/loadingBar';
 
@@ -33,8 +33,8 @@ const authenticationUser = function*(action: UserAction): SagaIterator {
     yield put<LoaderAction>(loaderHide());
 
     yield call(notificationShow, {
-      title: I18n.t('notifications.connect.title'),
-      message: I18n.t('notifications.connect.message')
+      title: i18n.t('notifications.connect.title'),
+      message: i18n.t('notifications.connect.message')
     });
   }
 };

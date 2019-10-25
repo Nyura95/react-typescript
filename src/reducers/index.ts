@@ -8,7 +8,6 @@ import { counter } from './counter';
 import { user } from './user';
 import { notification } from './notification';
 import { loadscreen } from './loadscreen';
-import { i18nReducer } from './i18n';
 import { connectRouter } from './router';
 import { loadingBarReducer } from './loadingBar';
 import { History } from 'history';
@@ -18,7 +17,6 @@ export * from './user';
 export * from './notification';
 export * from './loadscreen';
 export * from './loadingBar';
-export * from './i18n';
 export * from './router';
 
 const reducers = (history: History) =>
@@ -27,7 +25,6 @@ const reducers = (history: History) =>
     user,
     notification,
     loadscreen,
-    i18n: i18nReducer,
     loadingBar: loadingBarReducer,
     router: connectRouter(history)
   });

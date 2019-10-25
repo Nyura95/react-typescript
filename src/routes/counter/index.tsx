@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 // modules
-import { I18n } from 'react-redux-i18n';
+import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col } from 'reactstrap';
 import { RouteComponentProps } from 'react-router';
@@ -14,6 +14,7 @@ import { counterSet, counterAsyncSet, counterReset } from '../../actions';
 
 const Counter: IHook<RouteComponentProps> = () => {
   const { counter } = useSelector<IReduxState, ICounterState>(reducer => reducer.counter);
+  const { t } = useTranslation();
   const dispatch = useDispatch<CounterDispatch>();
 
   const incrementCounter = React.useCallback(() => dispatch(counterSet(1)), []);
@@ -31,24 +32,24 @@ const Counter: IHook<RouteComponentProps> = () => {
       <Row>
         <Col lg="auto" md="12" className="text-center text-lg-right mt-4">
           <Button.Rectangle data-testid="increment" onClick={incrementCounter} color="primary">
-            {I18n.t('pages.counter.increment')}
+            {t('pages.counter.increment')}
           </Button.Rectangle>
         </Col>
         <Col lg="auto" md="12" className="text-center text-lg-right mt-4">
           <Button.Rectangle data-testid="decrease" onClick={decreaseCounter}>
-            {I18n.t('pages.counter.decrement')}
+            {t('pages.counter.decrement')}
           </Button.Rectangle>
         </Col>
         <Col lg="auto" md="12" className="text-center text-lg-right mt-4">
           <Button.Rectangle data-testid="asyncIncrement" onClick={incrementAsyncCounter} color="warning">
-            {I18n.t('pages.counter.async')}
+            {t('pages.counter.async')}
           </Button.Rectangle>
         </Col>
       </Row>
       <Row>
         <Col lg="auto" md="12" className="text-center text-lg-right mt-4">
           <Button.Rectangle data-testid="reset" onClick={resetCounter}>
-            {I18n.t('pages.counter.reset')}
+            {t('pages.counter.reset')}
           </Button.Rectangle>
         </Col>
       </Row>

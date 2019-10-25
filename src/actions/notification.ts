@@ -25,7 +25,7 @@ export const notificationSet = (reactNotificationComponent: IReactNotificationsC
  * @returns {void}
  */
 export const notificationShow = (option: IOptionReactNotificationComponent, countFail = 0): void => {
-  if (countFail > 3) return;
+  if (countFail >= 3) return;
   const state = getState();
   state.addNotification
     ? state.addNotification({

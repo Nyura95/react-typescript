@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor, history } from '../../store';
 import { Router, Route, Switch } from 'react-router';
-import { render, fireEvent, waitForDomChange } from '@testing-library/react';
-import { I18n } from 'react-redux-i18n';
+import { render, waitForDomChange } from '@testing-library/react';
+import i18n from 'i18next';
 
 const Component = () => {
   return (
@@ -34,7 +34,7 @@ describe('Test Counter route', () => {
       const div = getByTestId('username');
       expect(div).toBeDefined();
 
-      expect(div ? div.innerHTML : null).toBe(I18n.t('pages.home.hello', { username }));
+      expect(div ? div.innerHTML : null).toBe(i18n.t('pages.home.hello', { username }));
       done();
     });
   });

@@ -1,5 +1,6 @@
 import { config } from '../config';
 import logger from '../logger';
+import i18n from 'i18next';
 
 const source = 'I18n action';
 
@@ -15,7 +16,7 @@ const storage = window.localStorage;
 export const i18nSetLang = (lang: string): void => {
   logger.info(`switch lang to ${lang}`, source);
   storage.setItem(config.i18n.storeName, lang);
-  window.location.reload();
+  i18n.changeLanguage(lang);
 };
 
 /**

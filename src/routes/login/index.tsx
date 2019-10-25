@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 // modules
-import { I18n } from 'react-redux-i18n';
+import { useTranslation } from 'react-i18next';
 import { Col } from 'reactstrap';
 import { useDispatch } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
@@ -15,6 +15,7 @@ import { UserDispatch } from '../../reducers';
 
 const Login: IHook<RouteComponentProps> = () => {
   const dispatch = useDispatch<UserDispatch>();
+  const { t } = useTranslation();
 
   const [busy, setBusy] = React.useState<boolean>(false);
   const [username, setUsername] = React.useState<string>('example@example.com');
@@ -27,24 +28,24 @@ const Login: IHook<RouteComponentProps> = () => {
 
   return (
     <Col md="12" lg="6" className="mx-auto text-center">
-      <Card header={I18n.t('pages.login.title', { version })}>
+      <Card header={t('pages.login.title', { version })}>
         <Form onSubmit={() => authUser(username, password)}>
           <Input
             type="email"
             value={username}
             onChange={(username: string) => setUsername(username)}
-            label={I18n.t('pages.login.username')}
+            label={t('pages.login.username')}
             data-testid="username"
           />
           <Input
             type="password"
             value={password}
             onChange={(password: string) => setPassword(password)}
-            label={I18n.t('pages.login.password')}
+            label={t('pages.login.password')}
             data-testid="password"
           />
           <Button.Rectangle type={'submit'} busy={busy} disabled={username === '' || password === ''}>
-            {I18n.t('pages.login.button')}
+            {t('pages.login.button')}
           </Button.Rectangle>
         </Form>
       </Card>
