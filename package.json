@@ -1,6 +1,6 @@
 {
   "name": "react-typescript",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "example reactJS with typescript and redux (saga)",
   "main": "./src/index.js",
   "scripts": {
