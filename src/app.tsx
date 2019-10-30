@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render } from 'react-dom';
+import { render, unstable_createRoot } from 'react-dom';
 
 // modules
 import { Provider } from 'react-redux';
@@ -27,3 +27,5 @@ const Application: IHook = () => {
 Application.defaultProps = {};
 
 render(<Application />, document.getElementById('main'));
+
+// unstable_createRoot(document.getElementById('main') as Element).render(<Application />);
