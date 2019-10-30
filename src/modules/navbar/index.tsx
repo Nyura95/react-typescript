@@ -46,6 +46,9 @@ const Navbar: IHook = () => {
         <div className={styles.item} onClick={() => push('/component')}>
           {t('nav.page6')}
         </div>
+        <div className={styles.item} onClick={() => push('/fetch')}>
+          {t('nav.page7')}
+        </div>
         <div className={joinClass(styles.item, 'd-lg-none d-block')} onClick={disconnect}>
           {t('nav.disconnect')}
         </div>

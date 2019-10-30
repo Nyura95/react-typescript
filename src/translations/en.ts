@@ -8,7 +8,8 @@ export default {
       '/notification': 'Notification',
       '/loader': 'Loader',
       '/animate': 'Animate',
-      '/component': 'Component'
+      '/component': 'Component',
+      '/fetch': 'Fetch'
     },
     nav: {
       title: 'React-typescript',
@@ -18,6 +19,7 @@ export default {
       page4: 'Notification',
       page5: 'Loader',
       page6: 'Component',
+      page7: 'Fetch',
       disconnect: 'Disconnect'
     },
     notifications: {

@@ -14,6 +14,7 @@ import Translate from '../translate';
 import Notification from '../notification';
 import Loader from '../loader';
 import Component from '../component';
+import Fetch from '../fetch';
 
 const Default: IHook = () => (
   <Container fluid removePadding>
@@ -25,6 +26,7 @@ const Default: IHook = () => (
       <Route exact path="/notification" component={Notification} />
       <Route exact path="/loader" component={Loader} />
       <Route exact path="/component" component={Component} />
+      <Route exact path="/fetch" component={Fetch} />
     </Switch>
   </Container>
 );
