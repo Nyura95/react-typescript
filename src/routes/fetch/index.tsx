@@ -1,10 +1,11 @@
 import * as React from 'react';
 
 // modules
-import useSWR from '@zeit/swr';
+import useSWR from 'swr';
 
 const getMessages = () => {
   return new Promise((resolve, reject) => {
+    console.log('fetch');
     resolve('ok');
   });
 };

@@ -67,7 +67,6 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
-    "@zeit/swr": "^0.1.1",
     "animate.css": "^3.7.2",
     "bootstrap": "^4.3.1",
     "connected-react-router": "^6.5.2",
@@ -92,6 +91,7 @@
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
-    "redux-saga": "^1.1.1"
+    "redux-saga": "^1.1.1",
+    "swr": "^0.1.2"
   }
 }
