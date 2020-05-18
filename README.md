@@ -8,7 +8,7 @@ Redux v**7.1.1**
 
 ## Démo
 
-> [react-typescript](http://151.80.40.147:8989)
+> [react-typescript](https://react.nyugame.fr)
 
 ## Installation
 

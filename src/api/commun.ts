@@ -28,7 +28,7 @@ const source = 'Api common';
 export const fetch = <D>(url: string, method: IMethod = 'get', payload: IPayload = {}, headers: IHeaders = {}) =>
   new Promise<IPayloadApi<D, true>>((resolve, reject) => {
     logger.info(`new fetch [${method}] ${url}`, source);
-    fetchival(config.api.basepath + url, {
+    fetchival(url, {
       headers: {
         // Authorization: `Barear ${store.getState().User.token}`, // example
         ...headers
@@ -74,6 +74,7 @@ const fetchFailed = (res: IPayloadApi<unknown, false>): IPayloadApi<unknown, fal
  * @returns {Error}
  */
 const fetchCatch = (err: Error): Error => {
+  console.log(err.name);
   logger.info('FETCH CATCHED', source);
   // Insert your catch logic here
   return err;
