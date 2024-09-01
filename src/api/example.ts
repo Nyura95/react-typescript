@@ -1,4 +1,4 @@
-// import api from '.';
+import api from '.';
 // import { IResponse } from './type';
 
 // export const exampleApi = api.injectEndpoints({
