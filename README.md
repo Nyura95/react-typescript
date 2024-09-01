@@ -1,14 +1,9 @@
 # react-redux-typescript
 
-React v**16.10.2**
-
-Typescript v**3.6.3**
-
-Redux v**7.1.1**
-
-## Démo
-
-> [react-typescript](https://react.nyugame.fr)
+- [Translation: i18next](https://react.i18next.com/)
+- [Css: Material-UI](https://mui.com/material-ui/)
+- [Redux-toolkit-persist](https://redux-toolkit.js.org/)
+- [Testing: Jest](https://jestjs.io/docs/getting-started)
 
 ## Installation
 

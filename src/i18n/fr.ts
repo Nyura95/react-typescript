@@ -1,6 +1,6 @@
 const fr = {
   translation: {
-    'Welcome to React': 'Hello'
+    buttonChange: 'Changer de langue'
   }
 };
 
